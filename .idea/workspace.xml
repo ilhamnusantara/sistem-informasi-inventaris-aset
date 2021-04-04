@@ -2,16 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="61485c72-bac9-4323-b8e8-82c9fc2ee6e5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/JenisBelanjaController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/jenisBelanja.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_04_04_055906_create_jenis_belanjas_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layouts/jBelanja/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layouts/jBelanja/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/layouts/jBelanja/edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/dokumen/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/dokumen/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/sidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/JenisBelanjaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/JenisBelanjaController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/jenisBelanja.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/jenisBelanja.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/jBelanja/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/jBelanja/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/jBelanja/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/jBelanja/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -181,7 +177,8 @@
       <workItem from="1616927506903" duration="9463000" />
       <workItem from="1617103925283" duration="671000" />
       <workItem from="1617493890419" duration="4911000" />
-      <workItem from="1617513828218" duration="5295000" />
+      <workItem from="1617513828218" duration="5498000" />
+      <workItem from="1617570796374" duration="4974000" />
     </task>
     <servers />
   </component>
@@ -202,5 +199,16 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/resources/views/layouts/jBelanja/index.blade.php</url>
+          <line>44</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

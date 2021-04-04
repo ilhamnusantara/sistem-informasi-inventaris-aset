@@ -24,4 +24,7 @@ Route::get('/dokumen','HomeController@dokumen')->name('dokumen');
 Route::get('/jenis-belanja','JenisBelanjaController@index')->name('jBelanja');
 Route::get('/create-JB','JenisBelanjaController@create')->name('jBelanja.create');
 Route::post('/store-JB','JenisBelanjaController@store')->name('jBelanja.store');
+Route::get('/create-JB/{id_jenis}/edit','JenisBelanjaController@edit')->name('jBelanja.edit');
+Route::put('/update-JB/{id_jenis}/update','JenisBelanjaController@update')->name('jBelanja.update');
+Route::get('/delete-JB/{id_jenis}/delete','JenisBelanjaController@destroy')->name('jBelanja.delete');
 

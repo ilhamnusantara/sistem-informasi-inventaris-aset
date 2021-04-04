@@ -31,24 +31,26 @@
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
-                            <form action="{{route('jBelanja.store')}}" enctype="multipart/form-data"  method="post">
+                            <form action="{{route('jBelanja.update', $jenisBelanja)}}" enctype="multipart/form-data"  method="post">
                                 @csrf
+                                @method('PUT')
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">ID Jenis Belanja</label>
-                                        <input type="text" class="form-control" name="id_jenis" id="id_jenis"  placeholder="ID Jenis Belanja">
+                                        <input type="text" class="form-control" name="id_jenis" id="id_jenis"  value="{{$jenisBelanja->id_jenis}}">
                                     </div>
                                     <div class="form-group">
                                         <label>Nama Induk Jenis</label>
                                         <select class="form-control" name="induk_jenis" id="induk_jenis">
-                                            <option value="Belanja Modal">Belanja Modal</option>
-                                            <option value="Belanja Pemeliharaan">Belanja Pemeliharaan</option>
-                                            <option value="Belanja Konstruksi">Belanja Konstruksi</option>
+                                            <option value="{{$jenisBelanja->induk_jenis}}">{{$jenisBelanja->induk_jenis}}</option>
+                                                <option value="Belanja Modal">Belanja Modal</option>
+                                                <option value="Belanja Pemeliharaan">Belanja Pemeliharaan</option>
+                                                <option value="Belanja Konstruksi">Belanja Konstruksi</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Nama Jenis Belanja</label>
-                                        <input type="text" class="form-control" name="nama_jenis" id="nama_jenis"  placeholder="Nama Jenis Belanja">
+                                        <input type="text" class="form-control" name="nama_jenis" id="nama_jenis"  value="{{$jenisBelanja->nama_jenis}}">
                                     </div>
                                 </div>
                                 <!-- /.card-body -->

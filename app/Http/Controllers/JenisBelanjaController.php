@@ -69,9 +69,10 @@ class JenisBelanjaController extends Controller
      * @param  \App\jenisBelanja  $jenisBelanja
      * @return \Illuminate\Http\Response
      */
-    public function edit(jenisBelanja $jenisBelanja)
+    public function edit($id_jenis)
     {
-        //
+        $jenisBelanja = jenisBelanja::find($id_jenis);
+        return view('layouts.jBelanja.edit')->with('jenisBelanja', $jenisBelanja);
     }
 
     /**
@@ -81,9 +82,20 @@ class JenisBelanjaController extends Controller
      * @param  \App\jenisBelanja  $jenisBelanja
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, jenisBelanja $jenisBelanja)
+    public function update(Request $request, $id_jenis)
     {
-        //
+        $request->validate([
+            'id_jenis' => 'required',
+            'induk_jenis' => 'required',
+            'nama_jenis' => 'required'
+        ]);
+        $jenisBelanja = jenisBelanja::find($id_jenis);
+        $jenisBelanja->id_jenis = $request->id_jenis;
+        $jenisBelanja->induk_jenis = $request->induk_jenis;
+        $jenisBelanja->nama_jenis = $request->nama_jenis;
+
+        $jenisBelanja->save();
+        return redirect()->route('jBelanja')->with('succes','Data Update');
     }
 
     /**
@@ -92,8 +104,10 @@ class JenisBelanjaController extends Controller
      * @param  \App\jenisBelanja  $jenisBelanja
      * @return \Illuminate\Http\Response
      */
-    public function destroy(jenisBelanja $jenisBelanja)
+    public function destroy($id_jenis)
     {
-        //
+        $jenisBelanja = jenisBelanja::find($id_jenis);
+        $jenisBelanja->delete();
+        return redirect()->back()->with('warning','Data Terhapus');
     }
 }
