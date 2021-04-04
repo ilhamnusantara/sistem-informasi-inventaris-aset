@@ -20,3 +20,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/dokumen','HomeController@dokumen')->name('dokumen');
+Route::get('/jenis-belanja','JenisBelanjaController@index')->name('jBelanja');
+Route::get('/create-JB','JenisBelanjaController@create')->name('jBelanja.create');
+Route::post('/store-JB','JenisBelanjaController@store')->name('jBelanja.store');
+

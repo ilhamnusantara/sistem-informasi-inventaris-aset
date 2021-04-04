@@ -25,4 +25,8 @@ class HomeController extends Controller
     {
         return view('layouts.dashboard');
     }
+    public function dokumen()
+    {
+        return view('layouts.dokumen.index');
+    }
 }
