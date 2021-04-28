@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDokumensTable extends Migration
+class CreateAkunsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,12 @@ class CreateDokumensTable extends Migration
      */
     public function up()
     {
-        Schema::create('dokumens', function (Blueprint $table) {
-            $table->id_akun();
-
+        Schema::create('akuns', function (Blueprint $table) {
+            $table->integer('id_akun')->primary();
+            $table->string('nama_user');
+            $table->string('instansi');
+            $table->string('username');
+            $table->string('password');
             $table->timestamps();
         });
     }
@@ -27,6 +30,6 @@ class CreateDokumensTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('dokumens');
+        Schema::dropIfExists('akuns');
     }
 }
