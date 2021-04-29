@@ -53,18 +53,20 @@
                                     <td class="project-state">{{$akun->username}}</td>
                                     <td class="project-state">{{$akun->password}}</td>
                                     <td class="project-actions text-center">
-                                        <a class="btn btn-info btn-sm" href="{{route('akun.edit', $akun->id_akun)}}">
-                                            <i class="fas fa-pencil-alt">
-                                            </i>
-                                            Edit
-                                        </a>
-                                        @csrf
-                                        @method('delete')
-                                        <a class="btn btn-danger btn-sm" href="{{route('akun.destroy', $akun->id_akun)}}" onclick="return confirm('Data akan dihapus, lanjutkan?')">
-                                            <i class="fas fa-trash">
-                                            </i>
-                                            Delete
-                                        </a>
+                                        <form action="{{route('akun.destroy', $akun->id_akun)}}" method="POST">
+                                            <a class="btn btn-info btn-sm" href="{{route('akun.edit', $akun->id_akun)}}">
+                                                <i class="fas fa-pencil-alt">
+                                                </i>
+                                                Edit
+                                            </a>
+                                            @csrf
+                                            @method('delete')
+                                            <button type="submit" class="btn btn-danger btn-sm">
+                                                <i class="fas fa-trash">
+                                                </i>
+                                                Delete
+                                            </button>
+                                        </form>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -80,6 +82,7 @@
                                 </tr>
                                 </tfoot>
                             </table>
+                            
                         </div>
                     </div>
                 </div>
