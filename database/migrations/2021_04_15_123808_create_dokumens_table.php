@@ -14,8 +14,7 @@ class CreateDokumensTable extends Migration
     public function up()
     {
         Schema::create('dokumens', function (Blueprint $table) {
-            $table->id_akun();
-
+            $table->id();
             $table->timestamps();
         });
     }

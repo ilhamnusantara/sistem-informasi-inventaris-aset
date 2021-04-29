@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Akun;
 use Illuminate\Http\Request;
 
 class AkunController extends Controller
@@ -13,8 +13,10 @@ class AkunController extends Controller
      */
     public function index()
     {
-        $akun = Akun::latest()->paginate(5);
-        return view('akun.index', compact('akun'))->with('i', (request()->input('page', 1) - 1) * 5);
+        $akun = Akun::all();
+        return view('layouts.akun.index',[
+            'akuns' => $akun,
+        ]);
     }
 
     /**
@@ -24,7 +26,7 @@ class AkunController extends Controller
      */
     public function create()
     {
-        //
+        return view('layouts.akun.create');
     }
 
     /**
@@ -35,7 +37,15 @@ class AkunController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'id_akun' => 'required',
+            'nama_user' => 'required',
+            'instansi' => 'required',
+            'username' => 'required',
+            'password' => 'required',
+          ]);
+          Akun::create($request->all());
+          return redirect()->route('akun.index')->with('success','Data berhasil di input');
     }
 
     /**
@@ -55,9 +65,9 @@ class AkunController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Akun $akun)
     {
-        //
+        return view('layouts.akun.edit', compact('akun'));
     }
 
     /**
@@ -67,9 +77,17 @@ class AkunController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Akun $akun)
     {
-        //
+        $request->validate([
+            'id_akun' => 'required',
+            'nama_user' => 'required',
+            'instansi' => 'required',
+            'username' => 'required',
+            'password' => 'required',
+        ]);
+        $akun->update($request->all());
+        return redirect()->route('akun.index')->with('success', 'Akun berhasil diupdate');
     }
 
     /**
@@ -78,8 +96,9 @@ class AkunController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Akun $akun)
     {
-        //
+        $akun->delete();
+        return redirect()->route('akun.index')->with('success', 'Akun berhasil di hapus');
     }
 }
