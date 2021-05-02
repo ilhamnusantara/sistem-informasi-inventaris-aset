@@ -14,7 +14,7 @@ class CreateJenisBelanjasTable extends Migration
     public function up()
     {
         Schema::create('jenis_belanjas', function (Blueprint $table) {
-            $table->integer('id_jenis')->primary();
+            $table->increments('id_jenis');
             $table->string('induk_jenis');
             $table->string('nama_jenis');
             $table->timestamps();

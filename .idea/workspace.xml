@@ -2,12 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="61485c72-bac9-4323-b8e8-82c9fc2ee6e5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/layouts/jBelanja/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/storage1619446942.X-LUDO - BOARD GAME.pdf/php95B4.tmp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Dokumen.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Dokumen.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DokumenController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DokumenController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/JenisBelanjaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/JenisBelanjaController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/jenisBelanja.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/jenisBelanja.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_04_04_055906_create_jenis_belanjas_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_04_04_055906_create_jenis_belanjas_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_04_15_123808_create_dokumens_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_04_15_123808_create_dokumens_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/dokumen/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/dokumen/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/dokumen/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/dokumen/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/dokumen/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/dokumen/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/dokumen/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/dokumen/show.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/jBelanja/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/jBelanja/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/jBelanja/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/jBelanja/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -144,11 +152,14 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../KKN/sahabat-bidan-delima" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Kharisma Ilham Nusantara\IT\KP\dataAset\storage" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Kharisma Ilham Nusantara\IT\KP\dataAset\resources\views\layouts" />
     </key>
@@ -178,7 +189,31 @@
       <workItem from="1617103925283" duration="671000" />
       <workItem from="1617493890419" duration="4911000" />
       <workItem from="1617513828218" duration="5498000" />
-      <workItem from="1617570796374" duration="4974000" />
+      <workItem from="1617570796374" duration="5730000" />
+      <workItem from="1617942276683" duration="696000" />
+      <workItem from="1618489907783" duration="2730000" />
+      <workItem from="1618575205542" duration="6613000" />
+      <workItem from="1618606625422" duration="6625000" />
+      <workItem from="1618643309222" duration="213000" />
+      <workItem from="1618660106352" duration="7472000" />
+      <workItem from="1618745819605" duration="9339000" />
+      <workItem from="1618845724413" duration="680000" />
+      <workItem from="1619004279118" duration="848000" />
+      <workItem from="1619152123321" duration="402000" />
+      <workItem from="1619189596418" duration="646000" />
+      <workItem from="1619232994229" duration="13951000" />
+      <workItem from="1619302630810" duration="4228000" />
+      <workItem from="1619328350381" duration="11222000" />
+      <workItem from="1619436255341" duration="6576000" />
+      <workItem from="1619470487180" duration="4478000" />
+      <workItem from="1619533715095" duration="4658000" />
+      <workItem from="1619556037576" duration="4313000" />
+      <workItem from="1619609027219" duration="2067000" />
+      <workItem from="1619683607643" duration="633000" />
+      <workItem from="1619687050606" duration="1555000" />
+      <workItem from="1619705205203" duration="680000" />
+      <workItem from="1619841791928" duration="345000" />
+      <workItem from="1619843430822" duration="620000" />
     </task>
     <servers />
   </component>

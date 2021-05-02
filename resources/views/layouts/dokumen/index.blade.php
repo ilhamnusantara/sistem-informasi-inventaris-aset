@@ -7,11 +7,11 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Dokumen</h1>
+                        <h1 class="m-0">Jenis Belanja</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
                             <li class="breadcrumb-item active">Dokumen Admin Kecamatan</li>
                         </ol>
                     </div><!-- /.col -->
@@ -23,68 +23,105 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">DataTable with minimal features & hover style</h3>
+                            <h3 class="card-title m-0">DataTable with minimal features & hover style</h3>
+                            <form method="get" action="{{route('dokumen.create')}}">
+                                <button class="btn btn-info btn-lg float-right" type="submit">
+                                    Create
+                                </button>
+                            </form>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table class="table table-bordered">
+
+                            <table id="example2" class="table table-bordered table-hover">
                                 <thead>
                                 <tr>
-                                    <th style="width: 10px">#</th>
-                                    <th>Task</th>
-                                    <th>Progress</th>
-                                    <th style="width: 40px">Label</th>
+                                    <th>NO</th>
+                                    <th>Jenis</th>
+                                    <th>Keterangan Belanja</th>
+                                    <th>Rincian Belanja</th>
+                                    <th>Nomor SPK</th>
+                                    <th>tgl SPK</th>
+                                    <th>file SPK</th>
+                                    <th>Nomor BAST</th>
+                                    <th>tgl BAST</th>
+                                    <th>file BAST</th>
+                                    <th>Merk</th>
+                                    <th>Bahan</th>
+                                    <th>Type</th>
+                                    <th>Ukuran</th>
+                                    <th>Foto</th>
+                                    <th>action</th>
+
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td>1.</td>
-                                    <td>Update software</td>
-                                    <td>
-                                        <div class="progress progress-xs">
-                                            <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-                                        </div>
-                                    </td>
-                                    <td><span class="badge bg-danger">55%</span></td>
-                                </tr>
-                                <tr>
-                                    <td>2.</td>
-                                    <td>Clean database</td>
-                                    <td>
-                                        <div class="progress progress-xs">
-                                            <div class="progress-bar bg-warning" style="width: 70%"></div>
-                                        </div>
-                                    </td>
-                                    <td><span class="badge bg-warning">70%</span></td>
-                                </tr>
-                                <tr>
-                                    <td>3.</td>
-                                    <td>Cron job running</td>
-                                    <td>
-                                        <div class="progress progress-xs progress-striped active">
-                                            <div class="progress-bar bg-primary" style="width: 30%"></div>
-                                        </div>
-                                    </td>
-                                    <td><span class="badge bg-primary">30%</span></td>
-                                </tr>
-                                <tr>
-                                    <td>4.</td>
-                                    <td>Fix and squish bugs</td>
-                                    <td>
-                                        <div class="progress progress-xs progress-striped active">
-                                            <div class="progress-bar bg-success" style="width: 90%"></div>
-                                        </div>
-                                    </td>
-                                    <td><span class="badge bg-success">90%</span></td>
-                                </tr>
+                                <?php $no = 1 ?>
+                                @foreach($dokumens as $dokumen)
+                                    <tr>
+                                        <td class="project-state">{{$no++}}</td>
+                                        <td class="project-state">{{$dokumen->jenisBelanja->nama_jenis}}</td>
+                                        <td class="project-state">{{$dokumen->keterangan_belanja}}</td>
+                                        <td class="project-state">{{$dokumen->rincian_belanja}}</td>
+                                        <td class="project-state">{{$dokumen->no_spk}}</td>
+                                        <td class="project-state">{{$dokumen->tgl_spk}}</td>
+                                        <td class="project-state"><a href="{{route('dokumen.download', $dokumen->id_dokumen)}}">View</a></td>
+                                        <td class="project-state">{{$dokumen->no_bast}}</td>
+                                        <td class="project-state">{{$dokumen->tgl_bast}}</td>
+                                        <td class="project-state"><a href="{{route('dokumen.filespk', $dokumen->id_dokumen)}}">View</a></td>
+                                        <td class="project-state">{{$dokumen->merk}}</td>
+                                        <td class="project-state">{{$dokumen->bahan}}</td>
+                                        <td class="project-state">{{$dokumen->type}}</td>
+                                        <td class="project-state">{{$dokumen->ukuran}}</td>
+                                        <td class="project-state">{{$dokumen->foto}}</td>
+                                        <td class="project-actions text-center">
+                                            <a class="btn btn-info btn-sm" href="{{route('dokumen.edit', $dokumen->id_dokumen)}}">
+                                                <i class="fas fa-pencil-alt">
+                                                </i>
+                                                Edit
+                                            </a>
+                                            <a class="btn btn-danger btn-sm" href="{{route('dokumen.delete', $dokumen->id_dokumen)}}" onclick="return confirm('Data akan dihapus, lanjutkan?')">
+                                                <i class="fas fa-trash">
+                                                </i>
+                                                Hapus
+                                            </a>
+                                            <a class="btn btn-success btn-sm" href="#" onclick="return confirm('Data akan validasi')">
+                                                <i class="fas fa-check">
+                                                </i>
+                                                Validasi
+                                            </a>
+                                        </td>
+                                    </tr>
+                                @endforeach
                                 </tbody>
+                                <tfoot>
+                                <tr>
+                                    <th>NO</th>
+                                    <th>Jenis</th>
+                                    <th>Keterangan Belanja</th>
+                                    <th>Rincian Belanja</th>
+                                    <th>Nomor SPK</th>
+                                    <th>tgl SPK</th>
+                                    <th>file SPK</th>
+                                    <th>Nomor BAST</th>
+                                    <th>tgl BAST</th>
+                                    <th>file BAST</th>
+                                    <th>Merk</th>
+                                    <th>Bahan</th>
+                                    <th>Type</th>
+                                    <th>Ukuran</th>
+                                    <th>Foto</th>
+                                    <th>action</th>
+                                </tr>
+                                </tfoot>
                             </table>
                         </div>
-                        <!-- /.card-body -->
                     </div>
                 </div>
             </div>
         </div>
-        <!-- /.content-header -->
+
+
     </div>
+
 @endsection

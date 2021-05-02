@@ -35,15 +35,12 @@
                                 @csrf
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label for="exampleInputPassword1">ID Jenis Belanja</label>
-                                        <input type="text" class="form-control" name="id_jenis" id="id_jenis"  placeholder="ID Jenis Belanja">
-                                    </div>
-                                    <div class="form-group">
                                         <label>Nama Induk Jenis</label>
                                         <select class="form-control" name="induk_jenis" id="induk_jenis">
-                                            <option value="Belanja Modal">Belanja Modal</option>
-                                            <option value="Belanja Pemeliharaan">Belanja Pemeliharaan</option>
+                                            <option value="Belanja Mebel">Belanja Meubel</option>
+                                            <option value="Belanja Elektronik">Belanja Elektronik</option>
                                             <option value="Belanja Konstruksi">Belanja Konstruksi</option>
+                                            <option value="Belanja Konstruksi">Belanja Pemeliharaan</option>
                                         </select>
                                     </div>
                                     <div class="form-group">

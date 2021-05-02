@@ -39,12 +39,10 @@ class JenisBelanjaController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'id_jenis' => 'required|min:1',
             'induk_jenis' => 'required|min:1',
             'nama_jenis' => 'required|min:1',
         ]);
         $jenis_belanja = new jenisBelanja();
-        $jenis_belanja->id_jenis = $request->id_jenis;
         $jenis_belanja->induk_jenis = $request->induk_jenis;
         $jenis_belanja->nama_jenis = $request->nama_jenis;
 

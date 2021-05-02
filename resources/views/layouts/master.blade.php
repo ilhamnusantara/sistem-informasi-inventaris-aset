@@ -1,6 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Data Aset</title>
@@ -29,6 +29,21 @@
     <link rel="stylesheet" href="{{asset('/dashboard/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css')}}">
     <link rel="stylesheet" href="{{asset('/dashboard/plugins/datatables-responsive/css/responsive.bootstrap4.min.css')}}">
     <link rel="stylesheet" href="{{asset('/dashboard/plugins/datatables-buttons/css/buttons.bootstrap4.min.css')}}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script>
+        $(function (){
+            SNBu
+            $('input[type="submit"]').prop('disable',true);
+        });
+        // $(document).ready(function (){
+        //     $('#id_jenis').on('Change' , function (){
+        //         if($(this).val() == '2'){
+        //             //enable readonly
+        //             $('#merk').attr('readOnly','readOnly');
+        //         }
+        //     });
+        // });
+    </script>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -175,7 +190,7 @@
     @yield('content')
     <!-- /.content-wrapper -->
     <footer class="main-footer">
-        <strong>Copyright &copy; 2020 <a href="#">Muchlas & Ilham</a>.</strong>
+        <strong>Copyright &copy; 2021 <a href="https://www.instagram.com/ilhamnusantara/">Muchlas & Ilham</a>.</strong>
         All rights reserved.
         <div class="float-right d-none d-sm-inline-block">
             <b>Version</b> 0.0.1
@@ -230,6 +245,15 @@
         });
     });
 </script>
+
+<script>
+    $(document).ready(function (){
+       $(document).on('change' , '#gambar' , function (){
+          let gambar =  $('#gambar').val()
+           $('.custom-file-label').text(gambar)
+       });
+    });
+</script>
 <!-- ChartJS -->
 <script src="{{asset('/dashboard/plugins/chart.js/Chart.min.js')}}"></script>
 <!-- Sparkline -->
@@ -239,6 +263,9 @@
 <script src="{{asset('/dashboard/plugins/jqvmap/maps/jquery.vmap.usa.js')}}"></script>
 <!-- jQuery Knob Chart -->
 <script src="{{asset('/dashboard/plugins/jquery-knob/jquery.knob.min.js')}}"></script>
+<!-- InputMask -->
+<script src="{{asset('/dashboard/plugins/moment/moment.min.js')}}"></script>
+<script src="{{asset('/dashboard/plugins/inputmask/jquery.inputmask.min.js')}}"></script>
 <!-- daterangepicker -->
 <script src="{{asset('/dashboard/plugins/moment/moment.min.js')}}"></script>
 <script src="{{asset('/dashboard/plugins/daterangepicker/daterangepicker.js')}}"></script>
@@ -254,5 +281,31 @@
 <script src="{{asset('/dashboard/dist/js/demo.js')}}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{asset('/dashboard/dist/js/pages/dashboard.js')}}"></script>
+<script>
+    //Date picker
+    $('#reservationdate').datetimepicker({
+        format: 'L'
+    });
+    $('#reservationdate1').datetimepicker({
+        format: 'L'
+    });
+    // $(function() {
+    //     $('input[name="tgl_spk"]').daterangepicker({
+    //         singleDatePicker: true,
+    //         showDropdowns: true,
+    //         minYear: 2010,
+    //         maxYear: parseInt(moment().format('YYYY'),10)
+    //     });
+    // });
+    // $(function() {
+    //     $('input[name="tgl_bast"]').daterangepicker({
+    //         singleDatePicker: true,
+    //         showDropdowns: true,
+    //         minYear: 2010,
+    //         maxYear: parseInt(moment().format('YYYY'),10)
+    //     });
+    // });
+
+</script>
 </body>
 </html>
