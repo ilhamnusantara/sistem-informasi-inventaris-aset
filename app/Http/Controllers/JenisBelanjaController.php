@@ -40,11 +40,13 @@ class JenisBelanjaController extends Controller
     {
         $request->validate([
             'induk_jenis' => 'required|min:1',
-            'nama_jenis' => 'required|min:1',
+            'sub_jenis' => 'required|min:1',
+            'kategori' => 'required|min:1',
         ]);
         $jenis_belanja = new jenisBelanja();
         $jenis_belanja->induk_jenis = $request->induk_jenis;
-        $jenis_belanja->nama_jenis = $request->nama_jenis;
+        $jenis_belanja->sub_jenis = $request->sub_jenis;
+        $jenis_belanja->kategori = $request->kategori;
 
         $jenis_belanja->save();
         return redirect()->route('jBelanja');
@@ -85,12 +87,14 @@ class JenisBelanjaController extends Controller
         $request->validate([
             'id_jenis' => 'required',
             'induk_jenis' => 'required',
-            'nama_jenis' => 'required'
+            'sub_jenis' => 'required',
+            'kategori' => 'required',
         ]);
         $jenisBelanja = jenisBelanja::find($id_jenis);
         $jenisBelanja->id_jenis = $request->id_jenis;
         $jenisBelanja->induk_jenis = $request->induk_jenis;
-        $jenisBelanja->nama_jenis = $request->nama_jenis;
+        $jenisBelanja->sub_jenis = $request->sub_jenis;
+        $jenisBelanja->kategori = $request->kategori;
 
         $jenisBelanja->save();
         return redirect()->route('jBelanja')->with('succes','Data Update');

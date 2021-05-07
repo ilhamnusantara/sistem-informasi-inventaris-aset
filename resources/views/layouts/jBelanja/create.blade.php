@@ -35,17 +35,21 @@
                                 @csrf
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label>Nama Induk Jenis</label>
-                                        <select class="form-control" name="induk_jenis" id="induk_jenis">
+                                        <label>Nama Induk Belanja</label>
+                                        <input type="text" class="form-control" name="induk_jenis" id="induk_jenis"  placeholder="Nama Induk Belenja">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">Nama Sub Belanja</label>
+                                        <input type="text" class="form-control" name="sub_jenis" id="sub_jenis"  placeholder="Nama Sub Belanja">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">Kategori Belanja</label>
+                                        <select class="form-control" name="kategori" id="kategori">
                                             <option value="Belanja Mebel">Belanja Meubel</option>
                                             <option value="Belanja Elektronik">Belanja Elektronik</option>
                                             <option value="Belanja Konstruksi">Belanja Konstruksi</option>
                                             <option value="Belanja Konstruksi">Belanja Pemeliharaan</option>
                                         </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputPassword1">Nama Jenis Belanja</label>
-                                        <input type="text" class="form-control" name="nama_jenis" id="nama_jenis"  placeholder="Nama Jenis Belanja">
                                     </div>
                                 </div>
                                 <!-- /.card-body -->

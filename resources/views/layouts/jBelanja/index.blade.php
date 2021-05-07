@@ -37,8 +37,9 @@
                                 <thead>
                                 <tr>
                                     <th>NO</th>
-                                    <th>Nama Induk Jenis</th>
-                                    <th>Nama Jenis</th>
+                                    <th>Induk Jenis Belanja</th>
+                                    <th>Sub Jenis Belanja</th>
+                                    <th>Kategori</th>
                                     <th>Action</th>
                                 </tr>
                                 </thead>
@@ -47,7 +48,8 @@
                                 <tr>
                                     <td class="project-state">{{$jenis_belanja->id_jenis}}</td>
                                     <td class="project-state">{{$jenis_belanja->induk_jenis}}</td>
-                                    <td class="project-state">{{$jenis_belanja->nama_jenis}}</td>
+                                    <td class="project-state">{{$jenis_belanja->sub_jenis}}</td>
+                                    <td class="project-state">{{$jenis_belanja->kategori}}</td>
                                     <td class="project-actions text-center">
                                         <a class="btn btn-info btn-sm" href="{{route('jBelanja.edit', $jenis_belanja->id_jenis)}}">
                                             <i class="fas fa-pencil-alt">
@@ -66,8 +68,9 @@
                                 <tfoot>
                                 <tr>
                                     <th>NO</th>
-                                    <th>Nama Induk Jenis</th>
-                                    <th>Nama Jenis</th>
+                                    <th>Induk Jenis Belanja</th>
+                                    <th>Sub Jenis Belanja</th>
+                                    <th>Kategori</th>
                                     <th>Action</th>
                                 </tr>
                                 </tfoot>

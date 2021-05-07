@@ -40,18 +40,24 @@
                                         <input type="text" class="form-control" name="id_jenis" id="id_jenis"  value="{{$jenisBelanja->id_jenis}}">
                                     </div>
                                     <div class="form-group">
-                                        <label>Nama Induk Jenis</label>
-                                        <select class="form-control" name="induk_jenis" id="induk_jenis">
-                                            <option value="{{$jenisBelanja->induk_jenis}}">{{$jenisBelanja->induk_jenis}}</option>
-                                                <option value="Belanja Modal">Belanja Modal</option>
-                                                <option value="Belanja Pemeliharaan">Belanja Pemeliharaan</option>
-                                                <option value="Belanja Konstruksi">Belanja Konstruksi</option>
-                                        </select>
+                                        <label for="exampleInputPassword1">Induk Jenis Belanja</label>
+                                        <input type="text" class="form-control" name="induk_jenis" id="induk_jenis"  value="{{$jenisBelanja->induk_jenis}}">
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputPassword1">Nama Jenis Belanja</label>
-                                        <input type="text" class="form-control" name="nama_jenis" id="nama_jenis"  value="{{$jenisBelanja->nama_jenis}}">
+                                        <label for="exampleInputPassword1">Sub Jenis Belanja</label>
+                                        <input type="text" class="form-control" name="sub_jenis" id="sub_jenis"  value="{{$jenisBelanja->sub_jenis}}">
                                     </div>
+                                    <div class="form-group">
+                                        <label>Nama Induk Jenis</label>
+                                        <select class="form-control" name="kategori" id="kategori">
+                                            <option value="{{$jenisBelanja->kategori}}">{{$jenisBelanja->kategori}}</option>
+                                                <option value="Belanja Mebel">Belanja Meubel</option>
+                                                <option value="Belanja Elektronik">Belanja Elektronik</option>
+                                                <option value="Belanja Konstruksi">Belanja Konstruksi</option>
+                                                <option value="Belanja Konstruksi">Belanja Pemeliharaan</option>
+                                        </select>
+                                    </div>
+
                                 </div>
                                 <!-- /.card-body -->
 
