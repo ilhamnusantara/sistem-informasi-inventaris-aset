@@ -30,20 +30,8 @@
     <link rel="stylesheet" href="{{asset('/dashboard/plugins/datatables-responsive/css/responsive.bootstrap4.min.css')}}">
     <link rel="stylesheet" href="{{asset('/dashboard/plugins/datatables-buttons/css/buttons.bootstrap4.min.css')}}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script>
-        $(function (){
-            SNBu
-            $('input[type="submit"]').prop('disable',true);
-        });
-        // $(document).ready(function (){
-        //     $('#id_jenis').on('Change' , function (){
-        //         if($(this).val() == '2'){
-        //             //enable readonly
-        //             $('#merk').attr('readOnly','readOnly');
-        //         }
-        //     });
-        // });
-    </script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -257,7 +245,7 @@
 <!-- ChartJS -->
 <script src="{{asset('/dashboard/plugins/chart.js/Chart.min.js')}}"></script>
 <!-- Sparkline -->
-<script src="{{asset('/dashboard/plugins/sparklines/sparkline.js')}}"></script>
+{{--<script src="{{asset('/dashboard/plugins/sparklines/sparkline.js')}}"></script>--}}
 <!-- JQVMap -->
 <script src="{{asset('/dashboard/plugins/jqvmap/jquery.vmap.min.js')}}"></script>
 <script src="{{asset('/dashboard/plugins/jqvmap/maps/jquery.vmap.usa.js')}}"></script>
