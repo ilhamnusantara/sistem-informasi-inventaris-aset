@@ -23,7 +23,6 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title m-0">DataTable with minimal features & hover style</h3>
                             <form method="get" action="{{route('jBelanja.create')}}">
                                 <button class="btn btn-info btn-lg float-right" type="submit">
                                     Create
@@ -44,9 +43,10 @@
                                 </tr>
                                 </thead>
                                 <tbody>
+                                <?php $no = 1 ?>
                                 @foreach($jenis_belanjas as $jenis_belanja)
                                 <tr>
-                                    <td class="project-state">{{$jenis_belanja->id_jenis}}</td>
+                                    <td class="project-state">{{$no++}}</td>
                                     <td class="project-state">{{$jenis_belanja->induk_jenis}}</td>
                                     <td class="project-state">{{$jenis_belanja->sub_jenis}}</td>
                                     <td class="project-state">{{$jenis_belanja->kategori}}</td>
