@@ -15,7 +15,7 @@
             <!-- Add icons to the links using the .nav-icon class
                  with font-awesome or any other icon font library -->
             <li class="nav-item">
-                <a href="{{route('home')}}" class="nav-link active">
+                <a href="{{route('home')}}" class="{{Request::is('home')?'nav-link active':'nav-link'}}">
                     <i class="nav-icon fas fa-tachometer-alt"></i>
                     <p>
                         Dashboard
@@ -48,7 +48,7 @@
             </li>
             <li class="nav-header">AKSI</li>
             <li class="nav-item">
-                <a href="{{route('dokumen')}}" class="nav-link">
+                <a href="{{route('dokumen')}}" class="{{Request::is('dokumen')?'nav-link active':'nav-link'}}">
                     <i class="nav-icon fa fa-file"></i>
                     <p>
                         Dokumen

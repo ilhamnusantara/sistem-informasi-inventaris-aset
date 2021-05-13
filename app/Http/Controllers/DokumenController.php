@@ -18,9 +18,18 @@ class DokumenController extends Controller
     public function index()
     {
         $dokumen = Dokumen::all();
+        $jenisBelanjas = jenisBelanja::all();
+
+        $search = request()->query('search');
+        if($search){
+            $dokumen = Dokumen::where('keterangan_belanja','LIKE', "%{$search}%");
+        }else{
+
+        }
+
         return view('layouts.dokumen.index',[
             'dokumens' => $dokumen,
-        ]);
+        ], compact('jenisBelanjas'));
 //        return view('layouts.jBelanja.index',[
 //            'jenis_belanjas' => $jenis_belanja,
 //        ]);
@@ -174,5 +183,13 @@ class DokumenController extends Controller
 
         $dokumen->delete();
         return redirect()->back()->with('warning','Data Terhapus');
+    }
+
+    public function search(Request $request)
+    {
+        $jenisBelanjas = jenisBelanja::all();
+        $cari = $request -> search;
+        $dokumen = Dokumen::where('keterangan_belanja','like',"%".$cari."%");
+        return view('layouts.dokumen.index',['dokumens' => $dokumen], compact('jenisBelanjas'));
     }
 }

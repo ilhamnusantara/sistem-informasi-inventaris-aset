@@ -32,7 +32,33 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="btn-group dropright">
+                                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Belanja Keselurahan
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <!-- Dropdown menu links -->
+                                            @foreach ($jenisBelanjas as $jenisBelanja)
+                                                <a class="dropdown-item" href="#">{{$jenisBelanja->sub_jenis}}</a>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <form class="form-inline ml-3 float-md-right" action="{{route('dokumen')}}" method="GET">
+                                        <div class="input-group input-group-sm">
+                                            <input class="form-control form-control-navbar" name="search" type="search" placeholder="Search" aria-label="Search">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-navbar" type="submit">
+                                                    <i class="fas fa-search"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
                             <table id="example2" class="table table-bordered table-hover">
                                 <thead>
                                 <tr>
@@ -60,13 +86,13 @@
                                 @foreach($dokumens as $dokumen)
                                     <tr>
                                         <td class="project-state">{{$no++}}</td>
-                                        <td class="project-state">{{$dokumen->jenisBelanja->nama_jenis}}</td>
+                                        <td class="project-state">{{$dokumen->jenisBelanja->sub_jenis}}</td>
                                         <td class="project-state">{{$dokumen->keterangan_belanja}}</td>
-                                        <td class="project-state">{{$dokumen->rincian_belanja}}</td>
-                                        <td class="project-state">{{$dokumen->no_spk}}</td>
+                                        <td class="project-state"> {{substr($dokumen->rincian_belanja,0,15).'....'}}</td>
+                                        <td class="project-state">{{substr($dokumen->no_spk,0,20).'...'}}</td>
                                         <td class="project-state">{{$dokumen->tgl_spk}}</td>
                                         <td class="project-state"><a href="{{route('dokumen.download', $dokumen->id_dokumen)}}">View</a></td>
-                                        <td class="project-state">{{$dokumen->no_bast}}</td>
+                                        <td class="project-state">{{substr($dokumen->no_bast,0,20).'...'}}</td>
                                         <td class="project-state">{{$dokumen->tgl_bast}}</td>
                                         <td class="project-state"><a href="{{route('dokumen.filespk', $dokumen->id_dokumen)}}">View</a></td>
                                         <td class="project-state">{{$dokumen->merk}}</td>

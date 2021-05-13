@@ -12320,7 +12320,13 @@ body.sidebar-collapse:not(.sidebar-mini-md):not(.sidebar-mini) .main-header::bef
   color: #fff;
 }
 
-.sidebar-dark-olive .nav-sidebar.nav-legacy > .nav-item > .nav-link.active,
+.
+
+
+
+
+
+-olive .nav-sidebar.nav-legacy > .nav-item > .nav-link.active,
 .sidebar-light-olive .nav-sidebar.nav-legacy > .nav-item > .nav-link.active {
   border-color: #3d9970;
 }

@@ -61,14 +61,14 @@
                                         <label for="">NTPN</label>
                                         <input type="text" class="form-control" name="ntpn[]" id="ntpn"  placeholder="NTPN">
                                     </div>
-                                    <div class="col-md-2">
-                                        <a class="btn btn-success" href="javascript:void(0);" id="add_button" title="Add field">TAMBAH</a>
+                                    <div class="form-group">
+                                        <a class="btn btn-success center" href="javascript:void(0);" id="add_button" title="Add field">TAMBAH</a>
                                     </div>
                                 </div>
                                 <!-- /.card-body -->
 
                                 <div class="card-footer">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button type="submit" class="btn btn-primary float-md-right">Submit</button>
                                 </div>
                                 <script type="text/javascript">
                                     $(document).ready(function(){
@@ -80,7 +80,7 @@
                                         fieldHTML=fieldHTML + '<div class="form-group"><label for="">Nominal Pajak</label><input class="form-control" placeholder="Nominal Pajak" type="text" name="nominal_pajak[]" /></div>';
                                         fieldHTML=fieldHTML + '<div class="form-group"><label for="">ID Billing</label><input class="form-control" placeholder="Id Billing" type="text" name="id_billing[]" /></div>';
                                         fieldHTML=fieldHTML + '<div class="form-group"><label for="">NTPN</label><input class="form-control" placeholder="NTPN" type="text" name="ntpn[]" /></div>';
-                                        fieldHTML=fieldHTML + '<div class="col-md-2"><a href="javascript:void(0);" class="remove_button btn btn-danger">HAPUS</a></div>';
+                                        fieldHTML=fieldHTML + '<div class="form-group"><a href="javascript:void(0);" class="remove_button btn btn-danger">HAPUS</a></div>';
                                         fieldHTML=fieldHTML + '</div>';
                                         var x = 1; //Initial field counter is 1
 

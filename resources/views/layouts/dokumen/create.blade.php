@@ -34,9 +34,8 @@
                                             <div class="form-group">
                                                 <label>Jenis Belanja</label>
                                                 <select class="form-control select2" style="width: 100%;" name="id_jenis" id="id_jenis">
-{{--                                                    <option disable value>Pilih Kategori Belanja</option>--}}
                                                     @foreach ($jenisBelanjas as $jenisBelanja)
-                                                        <option value="{{$jenisBelanja->id_jenis}}">{{$jenisBelanja->nama_jenis}}</option>
+                                                        <option value="{{$jenisBelanja->id_jenis}}">{{$jenisBelanja->sub_jenis}}</option>
                                                     @endforeach
                                                 </select>
                                             </div>

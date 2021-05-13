@@ -104,6 +104,21 @@
                         <a class="dropdown-item" href="#">Belanja Konstruksi Paving</a>
                         <a class="dropdown-item" href="#">Belanja Konstruksi Gedung</a>
                     </div>
+                </div><div class="btn-group dropright">
+                    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Belanja Keselurahan
+                    </button>
+                    <div class="dropdown-menu">
+                        <!-- Dropdown menu links -->
+                        <a class="dropdown-item" href="#">Belanja Keseluruhan</a>
+                        <a class="dropdown-item" href="#">Belanja Modal</a>
+                        <a class="dropdown-item" href="#">Belanja Pemeliharaan Kendaraan</a>
+                        <a class="dropdown-item" href="#">Belanja Pemeliharaan Gedung</a>
+                        <a class="dropdown-item" href="#">Belanja Pemeliharaan Gorong-gorong</a>
+                        <a class="dropdown-item" href="#">Belanja Pemeliharaan Jalan</a>
+                        <a class="dropdown-item" href="#">Belanja Konstruksi Paving</a>
+                        <a class="dropdown-item" href="#">Belanja Konstruksi Gedung</a>
+                    </div>
                 </div>
             </div>
             <h3></h3>

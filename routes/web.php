@@ -34,6 +34,7 @@ Route::post('/store-Dokumen','DokumenController@store')->name('dokumen.store');
 Route::get('/edit-Dokumen/{id_dokumen}/edit','DokumenController@edit')->name('dokumen.edit');
 Route::put('/update-Dokumen/{id_dokumen}/update','DokumenController@update')->name('dokumen.update');
 Route::get('/hapus-Dokumen/{id_dokumen}/delete','DokumenController@destroy')->name('dokumen.delete');
+Route::get('/search-dokumen','DokumenController@search')->name('dokumen.search');
 Route::get('/filespk/{id_dokumen}/download','DokumenController@download')->name('dokumen.download');
 Route::get('/filespk/{id_dokumen}','DokumenController@show')->name('dokumen.filespk');
 //Route::get('filespk/download/{image_spk}','DokumenController@download')->name('dokumen.download');
