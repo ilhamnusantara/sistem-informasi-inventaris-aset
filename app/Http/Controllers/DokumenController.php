@@ -15,25 +15,30 @@ class DokumenController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $dokumen = Dokumen::all();
         $jenisBelanjas = jenisBelanja::all();
 
-        $search = request()->query('search');
-        if($search){
-            $dokumen = Dokumen::where('keterangan_belanja','LIKE', "%{$search}%");
-        }else{
-
+        if($search = $request->get('search')){
+            $dokumen = Dokumen::where('keterangan_belanja','LIKE', "%{$search}%")->get();
+        }elseif ($search = $request->get('id_jenis')){
+            $dokumen = Dokumen::where('id_jenis','LIKE', "%{$search}%")->get();
         }
 
         return view('layouts.dokumen.index',[
             'dokumens' => $dokumen,
         ], compact('jenisBelanjas'));
-//        return view('layouts.jBelanja.index',[
-//            'jenis_belanjas' => $jenis_belanja,
-//        ]);
     }
+
+//    public function filter(Request $request)
+//    {
+//        dd($request->all());
+//        $jenisBelanjas = jenisBelanja::all();
+//        $search = $request->search;
+//        $dokumens = DB::table('dokumens')->where('keterangan_belanja', 'like', '%'.$search.'%');
+//        return view('layouts.dokumen.index', ['dokumens'=>$dokumens],compact('jenisBelanjas'));
+//    }
 
     /**
      * Show the form for creating a new resource.
@@ -183,13 +188,5 @@ class DokumenController extends Controller
 
         $dokumen->delete();
         return redirect()->back()->with('warning','Data Terhapus');
-    }
-
-    public function search(Request $request)
-    {
-        $jenisBelanjas = jenisBelanja::all();
-        $cari = $request -> search;
-        $dokumen = Dokumen::where('keterangan_belanja','like',"%".$cari."%");
-        return view('layouts.dokumen.index',['dokumens' => $dokumen], compact('jenisBelanjas'));
     }
 }

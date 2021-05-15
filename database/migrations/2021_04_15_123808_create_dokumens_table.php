@@ -18,10 +18,10 @@ class CreateDokumensTable extends Migration
             $table->unsignedInteger('id_jenis')->foreign('id_jenis')->references('id_jneis')->on('jenisBelanjas')->onDelete('cascade');
             $table->string('keterangan_belanja');
             $table->string('rincian_belanja');
-            $table->string('no_spk');
+            $table->string('no_spk')->nullable();
             $table->string('tgl_spk')->nullable();
             $table->string('file_spk')->nullable();
-            $table->string('no_bast');
+            $table->string('no_bast')->nullable();
             $table->string('tgl_bast')->nullable();
             $table->string('file_bast')->nullable();
             $table->string('merk')->nullable();

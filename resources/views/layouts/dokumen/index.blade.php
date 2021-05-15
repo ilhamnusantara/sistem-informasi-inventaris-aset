@@ -23,7 +23,6 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title m-0">DataTable with minimal features & hover style</h3>
                             <form method="get" action="{{route('dokumen.create')}}">
                                 <button class="btn btn-info btn-lg float-right" type="submit">
                                     Create
@@ -34,22 +33,26 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <div class="btn-group dropright">
-                                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            Belanja Keselurahan
-                                        </button>
-                                        <div class="dropdown-menu">
-                                            <!-- Dropdown menu links -->
-                                            @foreach ($jenisBelanjas as $jenisBelanja)
-                                                <a class="dropdown-item" href="#">{{$jenisBelanja->sub_jenis}}</a>
-                                            @endforeach
+                                    <form class="form-inline ml-3 float-md-left" action="{{route('dokumen')}}" method="GET">
+                                        <div class="input-group input-group-sm">
+                                            <select class="form-control select2" style="width: 10%;" name="id_jenis" id="id_jenis">
+                                                <option value="" selected class="align-middle">--Pilih Kategori--</option>
+                                                @foreach ($jenisBelanjas as $jenisBelanja)
+                                                    <option value="{{$jenisBelanja->id_jenis}}">{{$jenisBelanja->sub_jenis}}</option>
+                                                @endforeach
+                                            </select>
+                                            <div class="form-group">
+                                                <button class="btn btn-navbar" type="submit">
+                                                    <i class="fas fa-search"></i>
+                                                </button>
+                                            </div>
                                         </div>
-                                    </div>
+                                    </form>
                                 </div>
                                 <div class="col-sm-6">
                                     <form class="form-inline ml-3 float-md-right" action="{{route('dokumen')}}" method="GET">
                                         <div class="input-group input-group-sm">
-                                            <input class="form-control form-control-navbar" name="search" type="search" placeholder="Search" aria-label="Search">
+                                            <input class="form-control form-control-navbar" name="search" type="search" placeholder="Search" aria-label="Search" value="{{Request::get('search') }}">
                                             <div class="input-group-append">
                                                 <button class="btn btn-navbar" type="submit">
                                                     <i class="fas fa-search"></i>

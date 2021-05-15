@@ -45,17 +45,20 @@
                                     <div class="form-group">
                                         <label>Instansi</label>
                                         <select class="form-control" name="instansi" id="instansi">
+                                            <option value="" selected>--Pilih Kelurahan--</option>
                                             <option value="Kelurahan Bebekan">Kelurahan Bebekan</option>
                                             <option value="Kelurahan Ngelom">Kelurahan Ngelom</option>
                                             <option value="Kelurahan Geluran">Kelurahan Geluran</option>
                                             <option value="Kelurahan Taman">Kelurahan Taman</option>
                                             <option value="Kelurahan Ketegan">Kelurahan Ketegan</option>
                                             <option value="Kelurahan Sepanjang">Kelurahan Sepanjang</option>
+                                            <option value="Kelurahan Sepanjang">Kelurahan Wonocolo</option>
+                                            <option value="Kelurahan Sepanjang">Kelurahan Kalijaten</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Username</label>
-                                        <input type="email" class="form-control" name="username" id="username"  placeholder="Username">
+                                        <input type="text" class="form-control" name="username" id="username"  placeholder="Username">
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Password</label>
