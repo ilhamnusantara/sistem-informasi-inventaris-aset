@@ -48,10 +48,10 @@
                                             <div class="form-group">
                                                 <label>Jenis Belanja</label>
                                                 <select class="form-control select2" style="width: 100%;" name="id_jenis" id="id_jenis">
-                                                    <option value="{{$dokumen->jenisBelanja->id_jenis}}" class="fas fa-check">{{$dokumen->jenisBelanja->nama_jenis}}</option>
-                                                    {{--                                                    <option disable value>Pilih Kategori Belanja</option>--}}
+                                                    <option value="{{$dokumen->jenisBelanja->id_jenis}}" class="fas fa-check">{{$dokumen->jenisBelanja->sub_jenis}}</option>
+{{--                                                                                                        <option disable value>Pilih Kategori Belanja</option>--}}
                                                     @foreach ($jenisBelanjas as $jenisBelanja)
-                                                        <option value="{{$jenisBelanja->id_jenis}}">{{$jenisBelanja->nama_jenis}}</option>
+                                                        <option value="{{$jenisBelanja->id_jenis}}">{{$jenisBelanja->sub_jenis}}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -145,7 +145,6 @@
                                             <!-- text input -->
                                             <div class="form-group">
                                                 <label>Merk</label>
-
                                                 <input type="text" class="form-control" name="merk" id="merk" value="{{$dokumen->merk}}">
                                             </div>
                                         </div>
@@ -168,6 +167,18 @@
                                             <div class="form-group">
                                                 <label>Ukuran</label>
                                                 <input type="text" class="form-control" name="ukuran" id="ukuran" value="{{$dokumen->ukuran}}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <label>Foto</label>
+                                                <div class="input-group">
+                                                    <div class="custom-file">
+                                                        <input type="file" name="foto" value="{{$dokumen->foto}}"/>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

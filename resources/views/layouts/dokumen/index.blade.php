@@ -71,15 +71,12 @@
                                     <th>Rincian Belanja</th>
                                     <th>Nomor SPK</th>
                                     <th>tgl SPK</th>
-                                    <th>file SPK</th>
                                     <th>Nomor BAST</th>
                                     <th>tgl BAST</th>
-                                    <th>file BAST</th>
                                     <th>Merk</th>
                                     <th>Bahan</th>
                                     <th>Type</th>
                                     <th>Ukuran</th>
-                                    <th>Foto</th>
                                     <th>action</th>
 
                                 </tr>
@@ -94,15 +91,12 @@
                                         <td class="project-state"> {{substr($dokumen->rincian_belanja,0,15).'....'}}</td>
                                         <td class="project-state">{{substr($dokumen->no_spk,0,20).'...'}}</td>
                                         <td class="project-state">{{$dokumen->tgl_spk}}</td>
-                                        <td class="project-state"><a href="{{route('dokumen.download', $dokumen->id_dokumen)}}">View</a></td>
                                         <td class="project-state">{{substr($dokumen->no_bast,0,20).'...'}}</td>
                                         <td class="project-state">{{$dokumen->tgl_bast}}</td>
-                                        <td class="project-state"><a href="{{route('dokumen.filespk', $dokumen->id_dokumen)}}">View</a></td>
                                         <td class="project-state">{{$dokumen->merk}}</td>
                                         <td class="project-state">{{$dokumen->bahan}}</td>
                                         <td class="project-state">{{$dokumen->type}}</td>
                                         <td class="project-state">{{$dokumen->ukuran}}</td>
-                                        <td class="project-state">{{$dokumen->foto}}</td>
                                         <td class="project-actions text-center">
                                             <a class="btn btn-info btn-sm" href="{{route('dokumen.edit', $dokumen->id_dokumen)}}">
                                                 <i class="fas fa-pencil-alt">
@@ -114,11 +108,8 @@
                                                 </i>
                                                 Hapus
                                             </a>
-                                            <a class="btn btn-success btn-sm" href="#" onclick="return confirm('Data akan validasi')">
-                                                <i class="fas fa-check">
-                                                </i>
-                                                Validasi
-                                            </a>
+                                            <a class="btn btn-success btn-sm" href="#" onclick="return confirm('Data akan validasi')"> <i class="fas fa-check"></i> Validasi</a>
+
                                         </td>
                                     </tr>
                                 @endforeach
@@ -131,15 +122,12 @@
                                     <th>Rincian Belanja</th>
                                     <th>Nomor SPK</th>
                                     <th>tgl SPK</th>
-                                    <th>file SPK</th>
                                     <th>Nomor BAST</th>
                                     <th>tgl BAST</th>
-                                    <th>file BAST</th>
                                     <th>Merk</th>
                                     <th>Bahan</th>
                                     <th>Type</th>
                                     <th>Ukuran</th>
-                                    <th>Foto</th>
                                     <th>action</th>
                                 </tr>
                                 </tfoot>

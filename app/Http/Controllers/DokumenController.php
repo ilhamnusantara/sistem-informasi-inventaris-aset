@@ -7,6 +7,8 @@ use App\jenisBelanja;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\File\Exception\UploadException;
+use File;
+use Yajra\DataTables\DataTables;
 
 class DokumenController extends Controller
 {
@@ -29,6 +31,10 @@ class DokumenController extends Controller
         return view('layouts.dokumen.index',[
             'dokumens' => $dokumen,
         ], compact('jenisBelanjas'));
+    }
+    public function dataCetak()
+    {
+        return DataTables::of(Dokumen::query())->make(true);
     }
 
 //    public function filter(Request $request)
@@ -60,25 +66,35 @@ class DokumenController extends Controller
     public function store(Request $request)
     {
 //        dd($request->all());
-//        $request->validate([
-//            'keterangan_belanja' => 'required|min:1',
-//            'rincian_belanja' => 'required|min:1',
-//            'no_spk' => 'required|min:1',
-//        ]);
+        $request->validate([
+            'keterangan_belanja' => 'required|min:1',
+            'rincian_belanja' => 'required|min:1',
+        ]);
 
         $dokumen = new Dokumen();
         if($request->file('file_spk')){
             $file=$request->file('file_spk');
-            $filename=time().'.'.$file->getClientOriginalExtension();
-            $request->file_spk->move('storage/'. $filename);
+            $filename=$file->getClientOriginalName();
+//            $request->file_spk->store('public/'. $filename);
+            $request->file_spk->move(public_path('berkas'), $filename);
             $dokumen->file_spk =  $filename;
         }
         if($request->file('file_bast')){
             $file=$request->file('file_bast');
-            $filename=time().'.'.$file->getClientOriginalExtension();
-            $request->file_bast->move('storage/'. $filename);
+//            $filename=time().'.'.$file->getClientOriginalName();
+            $filename=$file->getClientOriginalName();
+//            $request->file_bast->move('storage/'. $filename);
+            $request->file_bast->move(public_path('berkas'), $filename);
             $dokumen->file_bast =  $filename;
         }
+        if($request->file('foto')){
+            $file = $request->file('foto');
+//            $foto = time().'.'.$request->foto->extension();
+            $foto = $file->getClientOriginalName();
+            $request->foto->move(public_path('foto'), $foto);
+            $dokumen->foto = $foto;
+        }
+
         $dokumen->id_jenis = $request->id_jenis;
         $dokumen->keterangan_belanja = $request->keterangan_belanja;
         $dokumen->rincian_belanja = $request->rincian_belanja;
@@ -106,26 +122,6 @@ class DokumenController extends Controller
         //
     }
 
-    public function download(Request $request)
-    {
-//        return response()->download('storage/'.$request->file_spk);
-//        try {
-//            return Storage::disk('local')->download('public/'.$request->file_spk.'/');
-//        }catch (\Exception $e){
-//            return $e->getMessage();
-//        }
-//        $path = public_path($request->file_spk.'');
-//        return response()->download($path);
-//        if(Storage::disk('public')->exists(''.$request->file_spk)){
-//            $path = Storage::disk('public')->path(''.$request->file_spk);
-//            $content = file_get_contents($path);
-//            return response($content)->withHeaders([
-//                'Content-Type' => mime_content_type($path)
-//            ]);
-//            return redirect('/404');
-//        }
-    }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -135,7 +131,7 @@ class DokumenController extends Controller
     public function edit($id_dokumen)
     {
         $jenisBelanjas = jenisBelanja::all();
-        $dokumen = Dokumen::find($id_dokumen);
+        $dokumen = Dokumen::with('jenisBelanja')->find($id_dokumen);
         return view('layouts.dokumen.edit',compact('jenisBelanjas'))->with('dokumen', $dokumen);
     }
 
@@ -152,15 +148,25 @@ class DokumenController extends Controller
         if($request->file('file_spk')){
             $file=$request->file('file_spk');
             $filename=$file->getClientOriginalName();
-            $request->file_spk->store('public/'. $filename);
+            $request->file_spk->move(public_path('berkas'), $filename);
+            File::delete(public_path('berkas/'.$dokumen->file_spk));
             $dokumen->file_spk =  $filename;
         }
         if($request->file('file_bast')){
             $file=$request->file('file_bast');
-            $filename=time().'.'.$file->getClientOriginalName();
-            $request->file_bast->move('storage/'. $filename);
+            $filename=$file->getClientOriginalName();
+            $request->file_bast->move(public_path('berkas'), $filename);
+            File::delete(public_path('berkas/'.$dokumen->file_bast));
             $dokumen->file_bast =  $filename;
         }
+        if($request->file('foto')){
+            $file = $request->file('foto');
+            $foto = $file->getClientOriginalName();
+            $request->foto->move(public_path('foto'), $foto);
+            File::delete(public_path('foto/'.$dokumen->foto));
+            $dokumen->foto = $foto;
+        }
+
         $dokumen->id_jenis = $request->id_jenis;
         $dokumen->keterangan_belanja = $request->keterangan_belanja;
         $dokumen->rincian_belanja = $request->rincian_belanja;

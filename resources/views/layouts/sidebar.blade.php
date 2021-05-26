@@ -77,7 +77,7 @@
                 <a href="#" class="nav-link">
                     <i class="nav-icon fas fa fa-list-alt"></i>
                     <p>
-                        Cetak Laporan
+                        Cetak
                         <i class="right fas fa-angle-right"></i>
                     </p>
                 </a>
@@ -85,37 +85,13 @@
                     <li class="nav-item">
                         <a href="#" class="nav-link">
                             <i class="far fa-circle nav-icon"></i>
-                            <p>Belanja Modal</p>
+                            <p>Cetak Laporan</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="{{route('cetakDok')}}" class="nav-link">
                             <i class="far fa-circle nav-icon"></i>
-                            <p>Belanja Pemeliharaan Kendaraan</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Belanja Pemeliharaan Gedung</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Belanja Konstruksi Paving</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Belanja Konstruksi Gedung</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Belanja Konstruksi Gorong Gorong</p>
+                            <p>Cetak Dokumen</p>
                         </a>
                     </li>
                 </ul>
