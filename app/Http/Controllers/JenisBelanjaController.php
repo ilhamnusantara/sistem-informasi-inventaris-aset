@@ -38,14 +38,18 @@ class JenisBelanjaController extends Controller
      */
     public function store(Request $request)
     {
+//        dd($request->all());
         $request->validate([
-            'induk_jenis' => 'required|min:1',
-            'sub_jenis' => 'required|min:1',
+            'induk_belanja' => 'required|min:1',
+            'sub_belanja' => 'required|min:1',
+            'jenis_belanja' => 'required|min:1',
             'kategori' => 'required|min:1',
         ]);
         $jenis_belanja = new jenisBelanja();
-        $jenis_belanja->induk_jenis = $request->induk_jenis;
-        $jenis_belanja->sub_jenis = $request->sub_jenis;
+        $jenis_belanja->id_jenis = $request->id_jenis;
+        $jenis_belanja->induk_belanja = $request->induk_belanja;
+        $jenis_belanja->sub_belanja = $request->sub_belanja;
+        $jenis_belanja->jenis_belanja = $request->jenis_belanja;
         $jenis_belanja->kategori = $request->kategori;
 
         $jenis_belanja->save();
@@ -85,15 +89,15 @@ class JenisBelanjaController extends Controller
     public function update(Request $request, $id_jenis)
     {
         $request->validate([
-            'id_jenis' => 'required',
-            'induk_jenis' => 'required',
-            'sub_jenis' => 'required',
-            'kategori' => 'required',
+            'induk_belanja' => 'required|min:1',
+            'sub_belanja' => 'required|min:1',
+            'jenis_belanja' => 'required|min:1',
+            'kategori' => 'required|min:1'
         ]);
         $jenisBelanja = jenisBelanja::find($id_jenis);
-        $jenisBelanja->id_jenis = $request->id_jenis;
-        $jenisBelanja->induk_jenis = $request->induk_jenis;
-        $jenisBelanja->sub_jenis = $request->sub_jenis;
+        $jenisBelanja->induk_belanja = $request->induk_belanja;
+        $jenisBelanja->sub_belanja = $request->sub_belanja;
+        $jenisBelanja->jenis_belanja = $request->jenis_belanja;
         $jenisBelanja->kategori = $request->kategori;
 
         $jenisBelanja->save();

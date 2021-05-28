@@ -7,13 +7,13 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Tambah Jenis Belanja</h1>
+                        <h1 class="m-0">Edit Jenis Belanja</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item"><a href="#">Jenis Belanja</a></li>
-                            <li class="breadcrumb-item active">Tambah Jenis Belanja Admin Kecamatan</li>
+                            <li class="breadcrumb-item"><a href="{{route('jBelanja')}}">Jenis Belanja</a></li>
+                            <li class="breadcrumb-item active">Edit Jenis Belanja Admin Kecamatan</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -27,7 +27,7 @@
                         <!-- general form elements -->
                         <div class="card card-primary">
                             <div class="card-header">
-                                <h3 class="card-title">Masukan Jenis Belanja</h3>
+                                <h3 class="card-title">Edit Jenis Belanja</h3>
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
@@ -36,16 +36,16 @@
                                 @method('PUT')
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label for="exampleInputPassword1">ID Jenis Belanja</label>
-                                        <input type="text" class="form-control" name="id_jenis" id="id_jenis"  value="{{$jenisBelanja->id_jenis}}">
-                                    </div>
-                                    <div class="form-group">
                                         <label for="exampleInputPassword1">Induk Jenis Belanja</label>
-                                        <input type="text" class="form-control" name="induk_jenis" id="induk_jenis"  value="{{$jenisBelanja->induk_jenis}}">
+                                        <input type="text" class="form-control" name="induk_belanja" id="induk_belanja"  value="{{$jenisBelanja->induk_belanja}}">
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Sub Jenis Belanja</label>
-                                        <input type="text" class="form-control" name="sub_jenis" id="sub_jenis"  value="{{$jenisBelanja->sub_jenis}}">
+                                        <input type="text" class="form-control" name="sub_belanja" id="sub_belanja"  value="{{$jenisBelanja->sub_belanja}}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">Jenis Belanja</label>
+                                        <input type="text" class="form-control" name="jenis_belanja" id="jenis_belanja"  value="{{$jenisBelanja->jenis_belanja}}">
                                     </div>
                                     <div class="form-group">
                                         <label>Nama Induk Jenis</label>

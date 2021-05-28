@@ -37,15 +37,6 @@ class DokumenController extends Controller
         return DataTables::of(Dokumen::query())->make(true);
     }
 
-//    public function filter(Request $request)
-//    {
-//        dd($request->all());
-//        $jenisBelanjas = jenisBelanja::all();
-//        $search = $request->search;
-//        $dokumens = DB::table('dokumens')->where('keterangan_belanja', 'like', '%'.$search.'%');
-//        return view('layouts.dokumen.index', ['dokumens'=>$dokumens],compact('jenisBelanjas'));
-//    }
-
     /**
      * Show the form for creating a new resource.
      *

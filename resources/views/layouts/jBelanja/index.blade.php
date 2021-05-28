@@ -36,8 +36,9 @@
                                 <thead>
                                 <tr>
                                     <th>NO</th>
-                                    <th>Induk Jenis Belanja</th>
-                                    <th>Sub Jenis Belanja</th>
+                                    <th>Induk Belanja</th>
+                                    <th>Sub Belanja</th>
+                                    <th>Jenis Belanja</th>
                                     <th>Kategori</th>
                                     <th>Action</th>
                                 </tr>
@@ -47,8 +48,9 @@
                                 @foreach($jenis_belanjas as $jenis_belanja)
                                 <tr>
                                     <td class="project-state">{{$no++}}</td>
-                                    <td class="project-state">{{$jenis_belanja->induk_jenis}}</td>
-                                    <td class="project-state">{{$jenis_belanja->sub_jenis}}</td>
+                                    <td class="project-state">{{$jenis_belanja->induk_belanja}}</td>
+                                    <td class="project-state">{{$jenis_belanja->sub_belanja}}</td>
+                                    <td class="project-state">{{$jenis_belanja->jenis_belanja}}</td>
                                     <td class="project-state">{{$jenis_belanja->kategori}}</td>
                                     <td class="project-actions text-center">
                                         <a class="btn btn-info btn-sm" href="{{route('jBelanja.edit', $jenis_belanja->id_jenis)}}">
@@ -68,8 +70,9 @@
                                 <tfoot>
                                 <tr>
                                     <th>NO</th>
-                                    <th>Induk Jenis Belanja</th>
-                                    <th>Sub Jenis Belanja</th>
+                                    <th>Induk Belanja</th>
+                                    <th>Sub Belanja</th>
+                                    <th>Jenis Belanja</th>
                                     <th>Kategori</th>
                                     <th>Action</th>
                                 </tr>

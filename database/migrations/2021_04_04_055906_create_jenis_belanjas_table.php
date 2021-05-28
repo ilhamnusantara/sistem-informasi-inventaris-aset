@@ -15,8 +15,9 @@ class CreateJenisBelanjasTable extends Migration
     {
         Schema::create('jenis_belanjas', function (Blueprint $table) {
             $table->increments('id_jenis');
-            $table->string('induk_jenis');
-            $table->string('sub_jenis');
+            $table->string('induk_belanja');
+            $table->string('sub_belanja');
+            $table->string('jenis_belanja');
             $table->string('kategori');
             $table->timestamps();
         });

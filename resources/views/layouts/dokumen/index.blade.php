@@ -98,18 +98,21 @@
                                         <td class="project-state">{{$dokumen->type}}</td>
                                         <td class="project-state">{{$dokumen->ukuran}}</td>
                                         <td class="project-actions text-center">
-                                            <a class="btn btn-info btn-sm" href="{{route('dokumen.edit', $dokumen->id_dokumen)}}">
-                                                <i class="fas fa-pencil-alt">
-                                                </i>
-                                                Edit
-                                            </a>
-                                            <a class="btn btn-danger btn-sm" href="{{route('dokumen.delete', $dokumen->id_dokumen)}}" onclick="return confirm('Data akan dihapus, lanjutkan?')">
-                                                <i class="fas fa-trash">
-                                                </i>
-                                                Hapus
-                                            </a>
-                                            <a class="btn btn-success btn-sm" href="#" onclick="return confirm('Data akan validasi')"> <i class="fas fa-check"></i> Validasi</a>
-
+                                            @if($dokumen->status == 0)
+                                                <a class="btn btn-info btn-sm" href="{{route('dokumen.edit', $dokumen->id_dokumen)}}">
+                                                    <i class="fas fa-pencil-alt">
+                                                    </i>
+                                                    Edit
+                                                </a>
+                                                <a class="btn btn-danger btn-sm" href="{{route('dokumen.delete', $dokumen->id_dokumen)}}" onclick="return confirm('Data akan dihapus, lanjutkan?')">
+                                                    <i class="fas fa-trash">
+                                                    </i>
+                                                    Hapus
+                                                </a>
+                                               <a class="btn btn-success btn-sm" href="#" onclick="return confirm('Data akan validasi')"> <i class="fas fa-check"></i> Validasi</a>
+                                            @elseif($dokumen->status == 1)
+                                                <a class="btn btn-success btn-sm" href="#" onclick="return confirm('Data akan validasi')"> <i class="fas fa-check"></i>Batal Validasi</a>
+                                            @endif
                                         </td>
                                     </tr>
                                 @endforeach

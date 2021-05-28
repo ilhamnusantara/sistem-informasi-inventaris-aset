@@ -36,11 +36,15 @@
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label>Nama Induk Belanja</label>
-                                        <input type="text" class="form-control" name="induk_jenis" id="induk_jenis"  placeholder="Nama Induk Belenja">
+                                        <input type="text" class="form-control" name="induk_belanja" id="induk_belanja"  placeholder="Nama Induk Belenja">
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Nama Sub Belanja</label>
-                                        <input type="text" class="form-control" name="sub_jenis" id="sub_jenis"  placeholder="Nama Sub Belanja">
+                                        <input type="text" class="form-control" name="sub_belanja" id="sub_belanja"  placeholder="Nama Sub Belanja">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Nama Induk Belanja</label>
+                                        <input type="text" class="form-control" name="jenis_belanja" id="jenis_belanja"  placeholder="Nama Jenis Belenja">
                                     </div>
                                     <div class="form-group">
                                         <label for="">Kategori Belanja</label>
