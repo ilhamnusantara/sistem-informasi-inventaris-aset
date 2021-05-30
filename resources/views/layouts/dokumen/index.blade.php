@@ -38,8 +38,9 @@
                                             <select class="form-control select2" style="width: 10%;" name="id_jenis" id="id_jenis">
                                                 <option value="" selected class="align-middle">--Pilih Kategori--</option>
                                                 @foreach ($jenisBelanjas as $jenisBelanja)
-                                                    <option value="{{$jenisBelanja->id_jenis}}">{{$jenisBelanja->sub_jenis}}</option>
+                                                    <option value="{{$jenisBelanja->id_jenis}}">{{$jenisBelanja->jenis_belanja}}</option>
                                                 @endforeach
+                                                <option value=""><a href="{{route('jBelanja')}}">Tambah</a></option>
                                             </select>
                                             <div class="form-group">
                                                 <button class="btn btn-navbar" type="submit">

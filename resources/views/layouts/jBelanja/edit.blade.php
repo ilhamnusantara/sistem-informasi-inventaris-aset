@@ -36,19 +36,36 @@
                                 @method('PUT')
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label for="exampleInputPassword1">Induk Jenis Belanja</label>
-                                        <input type="text" class="form-control" name="induk_belanja" id="induk_belanja"  value="{{$jenisBelanja->induk_belanja}}">
+                                        <label for="exampleInputPassword1">Kode Rekening Induk Belanja</label>
+                                        <input type="text" class="form-control" value="{{$jenisBelanja->subBelanja->indukBelanja->norek_induk}}" readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">Induk Belanja</label>
+                                        <input type="text" class="form-control" value="{{$jenisBelanja->subBelanja->indukBelanja->induk_belanja}}" readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">Kode Rekening Sub Belanja</label>
+                                        <input type="text" class="form-control" value="{{$jenisBelanja->subBelanja->norek_sub}}" readonly>
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Sub Jenis Belanja</label>
-                                        <input type="text" class="form-control" name="sub_belanja" id="sub_belanja"  value="{{$jenisBelanja->sub_belanja}}">
+                                        <select class="form-control" name="id_sub" id="id_sub">
+                                            <option value="{{$jenisBelanja->id_sub}}">{{$jenisBelanja->subBelanja->sub_belanja}}</option>
+                                            @foreach ($subBelanjas as $subBelanja)
+                                                <option value="{{$subBelanja->id_sub}}">{{$subBelanja->sub_belanja}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">Kode Rekening Jenis Belanja</label>
+                                        <input type="text" class="form-control" name="norek_jenis" value="{{$jenisBelanja->norek_jenis}}">
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Jenis Belanja</label>
                                         <input type="text" class="form-control" name="jenis_belanja" id="jenis_belanja"  value="{{$jenisBelanja->jenis_belanja}}">
                                     </div>
                                     <div class="form-group">
-                                        <label>Nama Induk Jenis</label>
+                                        <label>Kategori</label>
                                         <select class="form-control" name="kategori" id="kategori">
                                             <option value="{{$jenisBelanja->kategori}}">{{$jenisBelanja->kategori}}</option>
                                                 <option value="Belanja Mebel">Belanja Meubel</option>

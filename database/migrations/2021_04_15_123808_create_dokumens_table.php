@@ -15,7 +15,7 @@ class CreateDokumensTable extends Migration
     {
         Schema::create('dokumens', function (Blueprint $table) {
             $table->increments('id_dokumen');
-            $table->unsignedInteger('id_jenis')->foreign('id_jenis')->references('id_jneis')->on('jenisBelanjas')->onDelete('cascade');
+            $table->unsignedInteger('id_jenis')->foreign('id_jenis')->references('id_jenis')->on('jenisBelanjas')->onDelete('cascade');
             $table->string('keterangan_belanja');
             $table->string('rincian_belanja');
             $table->string('no_spk')->nullable();

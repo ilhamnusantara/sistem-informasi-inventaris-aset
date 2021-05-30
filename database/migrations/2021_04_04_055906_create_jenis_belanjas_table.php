@@ -15,10 +15,10 @@ class CreateJenisBelanjasTable extends Migration
     {
         Schema::create('jenis_belanjas', function (Blueprint $table) {
             $table->increments('id_jenis');
-            $table->string('induk_belanja');
-            $table->string('sub_belanja');
-            $table->string('jenis_belanja');
+            $table->string('jenis_belanja',100);
+            $table->char('norek_jenis',150);
             $table->string('kategori');
+            $table->unsignedInteger('id_sub')->foreign('id_sub')->references('id_sub')->on('subBelanjas')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -22,10 +22,17 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/jenis-belanja','JenisBelanjaController@index')->name('jBelanja');
 Route::get('/create-JB','JenisBelanjaController@create')->name('jBelanja.create');
-Route::post('/store-JB','JenisBelanjaController@store')->name('jBelanja.store');
 Route::get('/edit-JB/{id_jenis}/edit','JenisBelanjaController@edit')->name('jBelanja.edit');
 Route::put('/update-JB/{id_jenis}/update','JenisBelanjaController@update')->name('jBelanja.update');
 Route::get('/delete-JB/{id_jenis}/delete','JenisBelanjaController@destroy')->name('jBelanja.delete');
+
+Route::post('/store-IB','IndukBelanjaController@store')->name('iBelanja.store');
+Route::get('/edit-IB/{id_induk}/edit','IndukBelanjaController@edit')->name('iBelanja.edit');
+Route::put('/update-IB/{id_induk}/update','IndukBelanjaController@update')->name('iBelanja.update');
+Route::post('/store-SB','SubBelanjaController@store')->name('sBelanja.store');
+Route::get('/edit-SB/{id_sub}/edit','SubBelanjaController@edit')->name('sBelanja.edit');
+Route::put('/update-SB/{id_sub}/update','SubBelanjaController@update')->name('sBelanja.update');
+Route::post('/store-JB','JenisBelanjaController@store')->name('jBelanja.store');
 
 
 Route::get('/dokumen','DokumenController@index')->name('dokumen');

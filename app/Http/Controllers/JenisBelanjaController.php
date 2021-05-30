@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\indukBelanja;
 use App\jenisBelanja;
+use App\subBelanja;
 use Illuminate\Http\Request;
 
 class JenisBelanjaController extends Controller
@@ -14,10 +16,12 @@ class JenisBelanjaController extends Controller
      */
     public function index()
     {
+        $indukBelanjas = indukBelanja::all();
+        $subBelanjas = subBelanja::all();
         $jenis_belanja = jenisBelanja::all();
         return view('layouts.jBelanja.index',[
             'jenis_belanjas' => $jenis_belanja,
-        ]);
+        ], compact('indukBelanjas','subBelanjas'));
     }
 
     /**
@@ -27,7 +31,10 @@ class JenisBelanjaController extends Controller
      */
     public function create()
     {
-        return view('layouts.jBelanja.create');
+        $indukBelanjas = indukBelanja::all();
+        $subBelanjas = subBelanja::all();
+        return view('layouts.jBelanja.create',compact('indukBelanjas','subBelanjas'));
+
     }
 
     /**
@@ -38,19 +45,15 @@ class JenisBelanjaController extends Controller
      */
     public function store(Request $request)
     {
-//        dd($request->all());
         $request->validate([
-            'induk_belanja' => 'required|min:1',
-            'sub_belanja' => 'required|min:1',
             'jenis_belanja' => 'required|min:1',
             'kategori' => 'required|min:1',
         ]);
         $jenis_belanja = new jenisBelanja();
-        $jenis_belanja->id_jenis = $request->id_jenis;
-        $jenis_belanja->induk_belanja = $request->induk_belanja;
-        $jenis_belanja->sub_belanja = $request->sub_belanja;
         $jenis_belanja->jenis_belanja = $request->jenis_belanja;
         $jenis_belanja->kategori = $request->kategori;
+        $jenis_belanja->norek_jenis = $request->norek_jenis;
+        $jenis_belanja->id_sub = $request->id_sub;
 
         $jenis_belanja->save();
         return redirect()->route('jBelanja');
@@ -75,8 +78,10 @@ class JenisBelanjaController extends Controller
      */
     public function edit($id_jenis)
     {
-        $jenisBelanja = jenisBelanja::find($id_jenis);
-        return view('layouts.jBelanja.edit')->with('jenisBelanja', $jenisBelanja);
+        $indukBelanjas = indukBelanja::all();
+        $subBelanjas = subBelanja::all();
+        $jenisBelanja = jenisBelanja::with('subBelanja')->find($id_jenis);
+        return view('layouts.jBelanja.edit',compact('indukBelanjas','subBelanjas'))->with('jenisBelanja', $jenisBelanja);
     }
 
     /**
@@ -89,15 +94,14 @@ class JenisBelanjaController extends Controller
     public function update(Request $request, $id_jenis)
     {
         $request->validate([
-            'induk_belanja' => 'required|min:1',
-            'sub_belanja' => 'required|min:1',
             'jenis_belanja' => 'required|min:1',
-            'kategori' => 'required|min:1'
+            'norek_jenis' => 'required|min:5',
+            'kategori' => 'required|min:1',
         ]);
         $jenisBelanja = jenisBelanja::find($id_jenis);
-        $jenisBelanja->induk_belanja = $request->induk_belanja;
-        $jenisBelanja->sub_belanja = $request->sub_belanja;
+        $jenisBelanja->id_sub = $request->id_sub;
         $jenisBelanja->jenis_belanja = $request->jenis_belanja;
+        $jenisBelanja->norek_jenis = $request->norek_jenis;
         $jenisBelanja->kategori = $request->kategori;
 
         $jenisBelanja->save();

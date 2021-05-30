@@ -35,7 +35,7 @@
                                                 <label>Jenis Belanja</label>
                                                 <select class="form-control select2" style="width: 100%;" name="id_jenis" id="id_jenis">
                                                     @foreach ($jenisBelanjas as $jenisBelanja)
-                                                        <option value="{{$jenisBelanja->id_jenis}}">{{$jenisBelanja->sub_jenis}}</option>
+                                                        <option value="{{$jenisBelanja->id_jenis}}">{{$jenisBelanja->jenis_belanja}}</option>
                                                     @endforeach
                                                 </select>
                                             </div>

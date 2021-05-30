@@ -9,8 +9,13 @@ class jenisBelanja extends Model
     protected $guard = [];
     protected $table = 'jenis_belanjas';
     protected $primaryKey = 'id_jenis';
-    protected $fillable = ['induk_belanja','sub_belanja','jenis_belanja','kategori'];
+    protected $fillable = ['induk_belanja','kategori','id_sub'];
 
+
+    public function subBelanja()
+    {
+        return $this->belongsTo('App\subBelanja','id_sub');
+    }
 
     public function dokumen()
     {
