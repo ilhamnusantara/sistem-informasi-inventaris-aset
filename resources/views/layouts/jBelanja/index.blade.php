@@ -18,17 +18,18 @@
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
         </div>
+        @include('layouts.partials.flash-message')
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
                     <div class="card">
-                        <div class="card-header">
-                            <form method="get" action="{{route('jBelanja.create')}}">
-                                <button class="btn btn-info btn-lg float-right" type="submit">
-                                    Create
-                                </button>
-                            </form>
-                        </div>
+{{--                        <div class="card-header">--}}
+{{--                            <form method="get" action="{{route('jBelanja.create')}}">--}}
+{{--                                <button class="btn btn-info btn-lg float-right" type="submit">--}}
+{{--                                    Create--}}
+{{--                                </button>--}}
+{{--                            </form>--}}
+{{--                        </div>--}}
                         <!-- /.card-header -->
                         <div class="card-body">
                             <div class="row mb-2">
@@ -60,17 +61,17 @@
                                                         <select class="form-control select2" style="width: 100%;" name="id_sub" id="id_sub">
                                                             <option disable value>--Pilih Sub Belanja--</option>
                                                             @foreach ($subBelanjas as $subBelanja)
-                                                                <option value="{{$subBelanja->id_sub}}">{{$subBelanja->sub_belanja}}</option>
+                                                                <option value="{{$subBelanja->id_sub}}">[ {{$subBelanja->norek_sub}} ] - {{$subBelanja->sub_belanja}}</option>
                                                             @endforeach
                                                         </select>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="inputNama">Jenis Belanja</label>
-                                                        <input name="jenis_belanja" type="text" class="form-control" id="inputNama" aria-describedby="emailHelp">
-                                                    </div>
-                                                    <div class="form-group">
                                                         <label for="inputNama">Kode Rekening Jenis Belanja</label>
                                                         <input name="norek_jenis" type="text" class="form-control" id="inputNama" aria-describedby="emailHelp">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputNama">Jenis Belanja</label>
+                                                        <input name="jenis_belanja" type="text" class="form-control" id="inputNama" aria-describedby="emailHelp">
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="">Kategori Belanja</label>
@@ -171,12 +172,12 @@
                                                 <form action="{{route('iBelanja.store')}}" method="POST">
                                                     {{ csrf_field() }}
                                                     <div class="form-group">
-                                                        <label for="inputNama">Induk Belanja</label>
-                                                        <input name="induk_belanja" type="text" class="form-control" id="inputNama" aria-describedby="emailHelp">
-                                                    </div>
-                                                    <div class="form-group">
                                                         <label for="inputNama">Kode Rekening Induk Belanja</label>
                                                         <input name="norek_induk" type="text" class="form-control" id="inputNama" aria-describedby="emailHelp">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputNama">Induk Belanja</label>
+                                                        <input name="induk_belanja" type="text" class="form-control" id="inputNama" aria-describedby="emailHelp">
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -210,11 +211,11 @@
                                                 </i>
                                                 Edit
                                             </a>
-{{--                                            <a class="btn btn-danger btn-sm" href="{{route('jBelanja.delete', $indukBelanja)}}" onclick="return confirm('Data akan dihapus, lanjutkan?')">--}}
-{{--                                                <i class="fas fa-trash">--}}
-{{--                                                </i>--}}
-{{--                                                Delete--}}
-{{--                                            </a>--}}
+                                            <a class="btn btn-danger btn-sm" href="{{route('iBelanja.delete', $indukBelanja)}}" onclick="return confirm('Data akan dihapus, lanjutkan?')">
+                                                <i class="fas fa-trash">
+                                                </i>
+                                                Delete
+                                            </a>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -260,17 +261,17 @@
                                                         <select class="form-control select2" style="width: 100%;" name="id_induk" id="id_induk">
                                                             <option disable value>--Pilih Induk Belanja--</option>
                                                             @foreach ($indukBelanjas as $indukBelanja)
-                                                                <option value="{{$indukBelanja->id_induk}}">{{$indukBelanja->induk_belanja}}</option>
+                                                                <option value="{{$indukBelanja->id_induk}}">[ {{$indukBelanja->norek_induk}} ] - {{$indukBelanja->induk_belanja}}</option>
                                                             @endforeach
                                                         </select>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="inputNama">Sub Belanja</label>
-                                                        <input name="sub_belanja" type="text" class="form-control" id="inputNama" aria-describedby="emailHelp">
-                                                    </div>
-                                                    <div class="form-group">
                                                         <label for="inputNama">Kode Rekening Sub Belanja</label>
                                                         <input name="norek_sub" type="text" class="form-control" id="inputNama" aria-describedby="emailHelp">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputNama">Sub Belanja</label>
+                                                        <input name="sub_belanja" type="text" class="form-control" id="inputNama" aria-describedby="emailHelp">
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -338,3 +339,7 @@
     </div>
 
 @endsection
+
+{{--@section('script')--}}
+{{--    --}}
+{{--@endsection--}}

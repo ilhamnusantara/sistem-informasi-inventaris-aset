@@ -2,29 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="61485c72-bac9-4323-b8e8-82c9fc2ee6e5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/IndukBelanjaController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/SubBelanjaController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/indukBelanja.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/subBelanja.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_05_29_144159_create_induk_belanjas_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_05_29_144726_create_sub_belanjas_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layouts/iBelanja/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layouts/sBelanja/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/berkas/Peta Jabatan Kelurahan Kalijaten.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/dashboard/dist/img/sda.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/foto/Capture.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/layouts/partials/alert.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/layouts/partials/flash-message.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/IndukBelanjaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/IndukBelanjaController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/JenisBelanjaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/JenisBelanjaController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/jenisBelanja.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/jenisBelanja.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_04_04_055906_create_jenis_belanjas_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_04_04_055906_create_jenis_belanjas_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_04_15_123808_create_dokumens_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_04_15_123808_create_dokumens_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/dashboard/dist/css/alt/adminlte.components.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/dashboard/dist/css/alt/adminlte.components.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/dokumen/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/dokumen/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SubBelanjaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SubBelanjaController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashboard/dist/css/adminlte.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/dashboard/dist/css/adminlte.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashboard/dist/css/alt/adminlte.core.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/dashboard/dist/css/alt/adminlte.core.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dashboard/dist/css/alt/adminlte.pages.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/dashboard/dist/css/alt/adminlte.pages.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/dashboard.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/dokumen/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/dokumen/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/jBelanja/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/jBelanja/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/jBelanja/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/jBelanja/edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/jBelanja/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/jBelanja/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_files.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_files.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -248,7 +242,16 @@
       <workItem from="1622210789064" duration="3088000" />
       <workItem from="1622258918804" duration="2929000" />
       <workItem from="1622298836579" duration="5340000" />
-      <workItem from="1622330723996" duration="17553000" />
+      <workItem from="1622330723996" duration="18099000" />
+      <workItem from="1622460508305" duration="1721000" />
+      <workItem from="1622504252905" duration="3660000" />
+      <workItem from="1622528513344" duration="3395000" />
+      <workItem from="1622618174502" duration="1209000" />
+      <workItem from="1622763577434" duration="893000" />
+      <workItem from="1623331677891" duration="2322000" />
+      <workItem from="1623385142819" duration="591000" />
+      <workItem from="1623454788894" duration="8040000" />
+      <workItem from="1623544153455" duration="6176000" />
     </task>
     <servers />
   </component>

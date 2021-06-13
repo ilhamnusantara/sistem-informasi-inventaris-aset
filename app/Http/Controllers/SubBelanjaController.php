@@ -44,8 +44,9 @@ class SubBelanjaController extends Controller
         $sub_belanja->sub_belanja = $request->sub_belanja;
         $sub_belanja->norek_sub = $request->norek_sub;
         $sub_belanja->id_induk = $request->id_induk;
+        $nama= $request->sub_belanja;
         $sub_belanja->save();
-        return redirect()->route('jBelanja');
+        return redirect()->route('jBelanja')->with('succes','Data ['.$nama.'] Disimpan');
     }
 
     /**
@@ -91,9 +92,9 @@ class SubBelanjaController extends Controller
         $subBelanja->id_induk = $request->id_induk;
         $subBelanja->sub_belanja = $request->sub_belanja;
         $subBelanja->norek_sub = $request->norek_sub;
-
+        $nama = $request->sub_belanja;
         $subBelanja->save();
-        return redirect()->route('jBelanja')->with('succes','Data Update');
+        return redirect()->route('jBelanja')->with('info','Data ['.$nama.'] Update');
     }
 
     /**
@@ -102,8 +103,11 @@ class SubBelanjaController extends Controller
      * @param  \App\subBelanja  $subBelanja
      * @return \Illuminate\Http\Response
      */
-    public function destroy(subBelanja $subBelanja)
+    public function destroy($id_sub)
     {
-        //
+        $subBelanja = subBelanja::find($id_sub);
+        $nama = $subBelanja->sub_belanja;
+        $subBelanja->delete();
+        return redirect()->back()->with('error','Data ['.$nama.'] Dihapus');
     }
 }

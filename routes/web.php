@@ -29,6 +29,7 @@ Route::get('/delete-JB/{id_jenis}/delete','JenisBelanjaController@destroy')->nam
 Route::post('/store-IB','IndukBelanjaController@store')->name('iBelanja.store');
 Route::get('/edit-IB/{id_induk}/edit','IndukBelanjaController@edit')->name('iBelanja.edit');
 Route::put('/update-IB/{id_induk}/update','IndukBelanjaController@update')->name('iBelanja.update');
+Route::get('/delete-IB/{id_induk}/delete','IndukBelanjaController@destroy')->name('iBelanja.delete');
 Route::post('/store-SB','SubBelanjaController@store')->name('sBelanja.store');
 Route::get('/edit-SB/{id_sub}/edit','SubBelanjaController@edit')->name('sBelanja.edit');
 Route::put('/update-SB/{id_sub}/update','SubBelanjaController@update')->name('sBelanja.update');

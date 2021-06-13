@@ -45,6 +45,9 @@ class JenisBelanjaController extends Controller
      */
     public function store(Request $request)
     {
+        $record = subBelanja::find($request->id_sub);
+        $norek_sub = $record->norek_sub;
+//        $tambah = $norek_sub.'.'.$request->norek_jenis; //tambah otomatis cuma belakang kode rekening
         $request->validate([
             'jenis_belanja' => 'required|min:1',
             'kategori' => 'required|min:1',
@@ -52,11 +55,12 @@ class JenisBelanjaController extends Controller
         $jenis_belanja = new jenisBelanja();
         $jenis_belanja->jenis_belanja = $request->jenis_belanja;
         $jenis_belanja->kategori = $request->kategori;
-        $jenis_belanja->norek_jenis = $request->norek_jenis;
+//        $jenis_belanja->norek_jenis = $request->norek_jenis;
+        $jenis_belanja->norek_jenis = $norek_sub.'.'.$request->norek_jenis;
         $jenis_belanja->id_sub = $request->id_sub;
-
+        $nama = $request->jenis_belanja;
         $jenis_belanja->save();
-        return redirect()->route('jBelanja');
+        return redirect()->route('jBelanja')->with('succes','Data ['.$nama.'] Disimpan');
     }
 
     /**
@@ -103,9 +107,9 @@ class JenisBelanjaController extends Controller
         $jenisBelanja->jenis_belanja = $request->jenis_belanja;
         $jenisBelanja->norek_jenis = $request->norek_jenis;
         $jenisBelanja->kategori = $request->kategori;
-
+        $nama = $request->jenis_belanja;
         $jenisBelanja->save();
-        return redirect()->route('jBelanja')->with('succes','Data Update');
+        return redirect()->route('jBelanja')->with('info','Data ['.$nama.'] Update');
     }
 
     /**
@@ -117,7 +121,8 @@ class JenisBelanjaController extends Controller
     public function destroy($id_jenis)
     {
         $jenisBelanja = jenisBelanja::find($id_jenis);
+        $nama = $jenisBelanja->jenis_belanja;
         $jenisBelanja->delete();
-        return redirect()->back()->with('warning','Data Terhapus');
+        return redirect()->back()->with('error','Data ['.$nama.'] Dihapus');
     }
 }

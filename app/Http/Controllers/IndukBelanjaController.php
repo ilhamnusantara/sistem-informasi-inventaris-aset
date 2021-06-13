@@ -42,8 +42,9 @@ class IndukBelanjaController extends Controller
         $induk_belanja = new indukBelanja();
         $induk_belanja->induk_belanja = $request->induk_belanja;
         $induk_belanja->norek_induk = $request->norek_induk;
+        $nama = $request->induk_belanja;
         $induk_belanja->save();
-        return redirect()->route('jBelanja');
+        return redirect()->route('jBelanja')->with('succes','Data ['.$nama.'] Disimpan');
     }
 
     /**
@@ -83,11 +84,12 @@ class IndukBelanjaController extends Controller
             'norek_induk' => 'required|min:5',
         ]);
         $indukBelanja = indukBelanja::find($id_induk);
+        $nama = $request->induk_belanja;
         $indukBelanja->induk_belanja = $request->induk_belanja;
         $indukBelanja->norek_induk = $request->norek_induk;
 
         $indukBelanja->save();
-        return redirect()->route('jBelanja')->with('succes','Data Update');
+        return redirect()->route('jBelanja')->with('info','Data ['.$nama.'] Update');
     }
 
     /**
@@ -96,8 +98,11 @@ class IndukBelanjaController extends Controller
      * @param  \App\indukBelanja  $indukBelanja
      * @return \Illuminate\Http\Response
      */
-    public function destroy(indukBelanja $indukBelanja)
+    public function destroy($id_induk)
     {
-        //
+        $indukBelanja = indukBelanja::find($id_induk);
+        $nama = $indukBelanja->induk_belanja;
+        $indukBelanja->delete();
+        return redirect()->back()->with('error','Data ['.$nama.'] Dihapus');
     }
 }

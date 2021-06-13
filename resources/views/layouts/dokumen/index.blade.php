@@ -87,7 +87,7 @@
                                 @foreach($dokumens as $dokumen)
                                     <tr>
                                         <td class="project-state">{{$no++}}</td>
-                                        <td class="project-state">{{$dokumen->jenisBelanja->sub_jenis}}</td>
+                                        <td class="project-state">{{$dokumen->jenisBelanja->sub_belanja}}</td>
                                         <td class="project-state">{{$dokumen->keterangan_belanja}}</td>
                                         <td class="project-state"> {{substr($dokumen->rincian_belanja,0,15).'....'}}</td>
                                         <td class="project-state">{{substr($dokumen->no_spk,0,20).'...'}}</td>
