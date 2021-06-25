@@ -87,12 +87,24 @@
                                 @foreach($dokumens as $dokumen)
                                     <tr>
                                         <td class="project-state">{{$no++}}</td>
-                                        <td class="project-state">{{$dokumen->jenisBelanja->sub_belanja}}</td>
+                                        <td class="project-state">{{$dokumen->jenisBelanja->jenis_belanja}}</td>
                                         <td class="project-state">{{$dokumen->keterangan_belanja}}</td>
-                                        <td class="project-state"> {{substr($dokumen->rincian_belanja,0,15).'....'}}</td>
-                                        <td class="project-state">{{substr($dokumen->no_spk,0,20).'...'}}</td>
+                                        @if($dokumen->rincian_belanja == null)
+                                            <td class="project-state">{{$dokumen->rincian_belanja}}</td>
+                                        @else
+                                            <td class="project-state"> {{substr($dokumen->rincian_belanja,0,15).'....'}}</td>
+                                        @endif
+                                        @if($dokumen->no_spk == null)
+                                            <td class="project-state">{{$dokumen->no_spk}}</td>
+                                        @else
+                                            <td class="project-state">{{substr($dokumen->no_spk,0,20).'...'}}</td>
+                                        @endif
                                         <td class="project-state">{{$dokumen->tgl_spk}}</td>
-                                        <td class="project-state">{{substr($dokumen->no_bast,0,20).'...'}}</td>
+                                        @if($dokumen->no_bast == null)
+                                            <td class="project-state">{{$dokumen->no_bast}}</td>
+                                        @else
+                                            <td class="project-state">{{substr($dokumen->no_bast,0,20).'...'}}</td>
+                                        @endif
                                         <td class="project-state">{{$dokumen->tgl_bast}}</td>
                                         <td class="project-state">{{$dokumen->merk}}</td>
                                         <td class="project-state">{{$dokumen->bahan}}</td>

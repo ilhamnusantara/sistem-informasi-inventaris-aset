@@ -15,7 +15,11 @@ class SubBelanjaController extends Controller
      */
     public function index()
     {
-        //
+        $indukBelanjas = indukBelanja::all();
+        $subBelanjas = subBelanja::all();
+        return view('layouts.sBelanja.index',[
+            'subBelanjas' => $subBelanjas,
+        ], compact('indukBelanjas'));
     }
 
     /**
@@ -36,13 +40,16 @@ class SubBelanjaController extends Controller
      */
     public function store(Request $request)
     {
+        $record = indukBelanja::find($request->id_induk);
+        $norek_induk = $record->norek_induk;
         $request->validate([
             'sub_belanja' => 'required|min:1',
             'norek_sub' => 'required|min:1',
         ]);
         $sub_belanja = new subBelanja();
         $sub_belanja->sub_belanja = $request->sub_belanja;
-        $sub_belanja->norek_sub = $request->norek_sub;
+//        $sub_belanja->norek_sub = $request->norek_sub;
+        $sub_belanja->norek_sub = $norek_induk.'.'.$request->norek_sub;
         $sub_belanja->id_induk = $request->id_induk;
         $nama= $request->sub_belanja;
         $sub_belanja->save();

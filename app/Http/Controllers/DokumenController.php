@@ -97,6 +97,7 @@ class DokumenController extends Controller
         $dokumen->bahan = $request->bahan;
         $dokumen->type = $request->type;
         $dokumen->ukuran = $request->ukuran;
+        $dokumen->status = 0;
         $dokumen->save();
         return redirect()->route('dokumen');
 

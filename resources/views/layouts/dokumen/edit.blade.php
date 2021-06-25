@@ -48,7 +48,7 @@
                                             <div class="form-group">
                                                 <label>Jenis Belanja</label>
                                                 <select class="form-control select2" style="width: 100%;" name="id_jenis" id="id_jenis">
-                                                    <option value="{{$dokumen->jenisBelanja->id_jenis}}" class="fas fa-check">{{$dokumen->jenisBelanja->sub_jenis}}</option>
+                                                    <option value="{{$dokumen->jenisBelanja->id_jenis}}" class="fas fa-check">{{$dokumen->jenisBelanja->jenis_belanja}}</option>
 {{--                                                                                                        <option disable value>Pilih Kategori Belanja</option>--}}
                                                     @foreach ($jenisBelanjas as $jenisBelanja)
                                                         <option value="{{$jenisBelanja->id_jenis}}">{{$jenisBelanja->sub_jenis}}</option>
@@ -184,9 +184,8 @@
                                     </div>
                                 </div>
                                 <!-- /.card-body -->
-
                                 <div class="card-footer">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button type="submit" class="btn btn-success float-md-right">Update</button>
                                 </div>
                             </form>
                         </div>

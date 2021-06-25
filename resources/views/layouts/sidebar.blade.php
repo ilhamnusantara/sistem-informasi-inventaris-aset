@@ -33,15 +33,15 @@
                 </a>
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
-                        <a href="{{route('akun.index')}}" class="nav-link">
+                        <a href="{{route('akun.index')}}" class="{{Request::is('akun')?'nav-link active':'nav-link'}}">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Akun</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{route('jBelanja')}}" class="nav-link">
+                        <a href="{{route('iBelanja')}}" class="{{Request::is('jenis-belanja')?'nav-link active':'nav-link'}}">
                             <i class="far fa-circle nav-icon"></i>
-                            <p>Jenis Belanja</p>
+                            <p>Master Belanja</p>
                         </a>
                     </li>
                 </ul>

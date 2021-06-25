@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'App\\Akun' => $baseDir . '/app/Akun.php',
+    'App\\Belanja' => $baseDir . '/app/Belanja.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Dokumen' => $baseDir . '/app/Dokumen.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
@@ -24,6 +25,7 @@ return array(
     'App\\Http\\Controllers\\IndukBelanjaController' => $baseDir . '/app/Http/Controllers/IndukBelanjaController.php',
     'App\\Http\\Controllers\\JenisBelanjaController' => $baseDir . '/app/Http/Controllers/JenisBelanjaController.php',
     'App\\Http\\Controllers\\PajakController' => $baseDir . '/app/Http/Controllers/PajakController.php',
+    'App\\Http\\Controllers\\SubBelanjaController' => $baseDir . '/app/Http/Controllers/SubBelanjaController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Middleware\\Authenticate' => $baseDir . '/app/Http/Middleware/Authenticate.php',
     'App\\Http\\Middleware\\CheckForMaintenanceMode' => $baseDir . '/app/Http/Middleware/CheckForMaintenanceMode.php',

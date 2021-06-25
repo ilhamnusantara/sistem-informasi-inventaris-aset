@@ -107,7 +107,7 @@
                                                 <label>File SPK</label>
                                                 <div class="input-group">
                                                     <div class="custom-file">
-                                                        <input type="file" name="file_spk"/>
+                                                        <input type="file" name="file_spk" accept="application/pdf"/>
                                                     </div>
                                                 </div>
                                             </div>
@@ -117,8 +117,9 @@
                                                 <label>File BAST</label>
                                                 <div class="input-group">
                                                     <div class="custom-file">
-                                                        <input type="file" name="file_bast" class="custom-file-input" @error('gambar') is-invalid @enderror id="gambar"/>
-                                                        <label class="custom-file-label" for="">Choose file</label>
+                                                        <input type="file" name="file_bast" accept="application/pdf"/>
+{{--                                                        <input type="file" name="file_bast" class="custom-file-input" @error('gambar') is-invalid @enderror id="gambar"/>--}}
+{{--                                                        <label class="custom-file-label" for="">Choose file</label>--}}
                                                     </div>
                                                 </div>
                                             </div>
@@ -161,7 +162,7 @@
                                                 <label>Foto</label>
                                                 <div class="input-group">
                                                     <div class="custom-file">
-                                                        <input type="file" name="foto"/>
+                                                        <input type="file" name="foto" accept="image/jpeg, image/jpg, image/png"/>
                                                     </div>
                                                 </div>
                                             </div>

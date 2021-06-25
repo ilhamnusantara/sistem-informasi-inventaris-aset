@@ -15,4 +15,9 @@ class Dokumen extends Model
     {
         return $this->belongsTo('App\jenisBelanja','id_jenis');
     }
+
+    public function Belanja()
+    {
+        return $this->hasMany('App\Belanja');
+    }
 }

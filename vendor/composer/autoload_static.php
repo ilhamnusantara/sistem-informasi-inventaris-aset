@@ -492,6 +492,7 @@ class ComposerStaticInit9e8fa2d1681fbcb3026ad3b5689a61fd
 
     public static $classMap = array (
         'App\\Akun' => __DIR__ . '/../..' . '/app/Akun.php',
+        'App\\Belanja' => __DIR__ . '/../..' . '/app/Belanja.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Dokumen' => __DIR__ . '/../..' . '/app/Dokumen.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
@@ -509,6 +510,7 @@ class ComposerStaticInit9e8fa2d1681fbcb3026ad3b5689a61fd
         'App\\Http\\Controllers\\IndukBelanjaController' => __DIR__ . '/../..' . '/app/Http/Controllers/IndukBelanjaController.php',
         'App\\Http\\Controllers\\JenisBelanjaController' => __DIR__ . '/../..' . '/app/Http/Controllers/JenisBelanjaController.php',
         'App\\Http\\Controllers\\PajakController' => __DIR__ . '/../..' . '/app/Http/Controllers/PajakController.php',
+        'App\\Http\\Controllers\\SubBelanjaController' => __DIR__ . '/../..' . '/app/Http/Controllers/SubBelanjaController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\CheckForMaintenanceMode' => __DIR__ . '/../..' . '/app/Http/Middleware/CheckForMaintenanceMode.php',

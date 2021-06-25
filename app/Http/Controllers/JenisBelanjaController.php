@@ -47,7 +47,6 @@ class JenisBelanjaController extends Controller
     {
         $record = subBelanja::find($request->id_sub);
         $norek_sub = $record->norek_sub;
-//        $tambah = $norek_sub.'.'.$request->norek_jenis; //tambah otomatis cuma belakang kode rekening
         $request->validate([
             'jenis_belanja' => 'required|min:1',
             'kategori' => 'required|min:1',
@@ -55,7 +54,6 @@ class JenisBelanjaController extends Controller
         $jenis_belanja = new jenisBelanja();
         $jenis_belanja->jenis_belanja = $request->jenis_belanja;
         $jenis_belanja->kategori = $request->kategori;
-//        $jenis_belanja->norek_jenis = $request->norek_jenis;
         $jenis_belanja->norek_jenis = $norek_sub.'.'.$request->norek_jenis;
         $jenis_belanja->id_sub = $request->id_sub;
         $nama = $request->jenis_belanja;

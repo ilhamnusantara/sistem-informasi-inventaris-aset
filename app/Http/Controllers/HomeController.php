@@ -29,4 +29,9 @@ class HomeController extends Controller
     {
         return view('layouts.dokumen.index');
     }
+
+    public function tester()
+    {
+        return view('layouts.tester');
+    }
 }

@@ -14,7 +14,10 @@ class IndukBelanjaController extends Controller
      */
     public function index()
     {
-        //
+        $indukBelanjas = indukBelanja::all();
+        return view('layouts.iBelanja.index', [
+                'indukBelanjas' => $indukBelanjas,
+        ]);
     }
 
     /**
