@@ -56,7 +56,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{route('belanja')}}" class="{{Request::is('belanja')?'nav-link active':'nav-link'}}">
                     <i class="nav-icon fa fa-shopping-bag"></i>
                     <p>
                         Belanja

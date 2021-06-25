@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Belanja;
+use App\Dokumen;
 use Illuminate\Http\Request;
 
 class BelanjaController extends Controller
@@ -12,9 +13,18 @@ class BelanjaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $belanja = Belanja::all();
+        $dokumens = Dokumen::all();
+
+        if($search = $request->get('search')){
+            $belanja = Belanja::where('no_pbb_ls','LIKE', "%{$search}%")->get();
+        }
+
+        return view('layouts.belanja.index',[
+            'belanjas' => $belanja,
+        ], compact('dokumens'));
     }
 
     /**
@@ -35,7 +45,7 @@ class BelanjaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**

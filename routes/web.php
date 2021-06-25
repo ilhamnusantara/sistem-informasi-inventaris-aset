@@ -23,6 +23,7 @@ Route::get('/tester', 'HomeController@tester');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/jenis-belanja','JenisBelanjaController@index')->name('jBelanja');
 Route::get('/create-JB','JenisBelanjaController@create')->name('jBelanja.create');
+Route::post('/store-JB','JenisBelanjaController@store')->name('jBelanja.store');
 Route::get('/edit-JB/{id_jenis}/edit','JenisBelanjaController@edit')->name('jBelanja.edit');
 Route::put('/update-JB/{id_jenis}/update','JenisBelanjaController@update')->name('jBelanja.update');
 Route::get('/delete-JB/{id_jenis}/delete','JenisBelanjaController@destroy')->name('jBelanja.delete');
@@ -37,8 +38,6 @@ Route::get('/sub-belanja','SubBelanjaController@index')->name('sBelanja');
 Route::post('/store-SB','SubBelanjaController@store')->name('sBelanja.store');
 Route::get('/edit-SB/{id_sub}/edit','SubBelanjaController@edit')->name('sBelanja.edit');
 Route::put('/update-SB/{id_sub}/update','SubBelanjaController@update')->name('sBelanja.update');
-Route::post('/store-JB','JenisBelanjaController@store')->name('jBelanja.store');
-
 
 Route::get('/dokumen','DokumenController@index')->name('dokumen');
 Route::get('/create-Dokumen','DokumenController@create')->name('dokumen.create');
@@ -50,6 +49,12 @@ Route::get('/filter-dokumen','DokumenController@filter')->name('dokumen.filter')
 Route::get('/filespk/{id_dokumen}/download','DokumenController@download')->name('dokumen.download');
 Route::get('/filespk/{id_dokumen}','DokumenController@show')->name('dokumen.filespk');
 //Route::get('filespk/download/{image_spk}','DokumenController@download')->name('dokumen.download');
+
+Route::get('/belanja','BelanjaController@index')->name('belanja');
+Route::get('/create-Belanja','BelanjaController@create')->name('belanja.create');
+Route::post('/store-Belanja','BelanjaController@store')->name('belanja.store');
+Route::get('/edit-belanja/{id_belanja}/edit','BelanjaController@edit')->name('belanja.edit');
+Route::get('/hapus-belanja/{id_belanja}/delete','BelanjaController@destroy')->name('belanja.delete');
 
 Route::get('/pajak','PajakController@index')->name('pajak');
 Route::get('/create-pajak','PajakController@create')->name('pajak.create');

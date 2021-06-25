@@ -18,6 +18,6 @@ class Dokumen extends Model
 
     public function Belanja()
     {
-        return $this->hasMany('App\Belanja');
+        return $this->hasOne('App\Belanja');
     }
 }
