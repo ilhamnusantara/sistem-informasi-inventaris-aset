@@ -40,7 +40,7 @@
                             </div>
                             <table id="example2" class="table table-bordered table-hover">
                                 <thead>
-                                <tr>
+                                <tr class="text-md-center">
                                     <th>NO</th>
                                     <th>Instansi</th>
                                     <th>Keterangan Belanja</th>
@@ -55,18 +55,30 @@
                                 @foreach($dokumens as $dokumen)
 
                                     <tr>
-                                        <td class="project-state">{{$no++}}</td>
-                                        <td class="project-state">#</td>
+                                        <td class="project-state text-md-center">{{$no++}}</td>
+                                        <td class="project-state">{{$dokumen->instansi}}</td>
                                         <td class="project-state">{{$dokumen->keterangan_belanja}}</td>
                                         <td class="project-state"> {{substr($dokumen->rincian_belanja,0,15).'....'}}</td>
-                                        <td class="project-state"><a href="{{ route('cetakDok.file', ['namafile' => $dokumen->file_spk])}}" target="_blank">Download</a></td>
-                                        <td class="project-state"><a href="{{ route('cetakDok.file', ['namafile' => $dokumen->file_bast])}}" target="_blank">Download</a></td>
-                                        <td class="project-state"><a href="{{ route('cetakDok.foto', ['namafoto' => $dokumen->foto])}}" >Download</a></td>
+                                        @if($dokumen->file_spk == null)
+                                            <td class="project-state text-md-center text-red">Belum Upload File SPK</td>
+                                        @else
+                                            <td class="project-state text-md-center"><a href="{{ route('cetakDok.file', ['namafile' => $dokumen->file_spk])}}" target="_blank">Download</a></td>
+                                        @endif
+                                        @if($dokumen->file_bast == null)
+                                            <td class="project-state text-md-center text-red">Belum Upload File BAST</td>
+                                        @else
+                                            <td class="project-state text-md-center"><a href="{{ route('cetakDok.file', ['namafile' => $dokumen->file_bast])}}" target="_blank">Download</a></td>
+                                        @endif
+                                        @if($dokumen->foto == null)
+                                            <td class="project-state text-md-center text-red">Belum Upload File BAST</td>
+                                        @else
+                                            <td class="project-state text-md-center"><a href="{{ route('cetakDok.foto', ['namafoto' => $dokumen->foto])}}" >Download</a></td>
+                                        @endif
                                     </tr>
                                 @endforeach
                                 </tbody>
                                 <tfoot>
-                                <tr>
+                                <tr class="text-md-center">
                                     <th>NO</th>
                                     <th>Instansi</th>
                                     <th>Keterangan Belanja</th>

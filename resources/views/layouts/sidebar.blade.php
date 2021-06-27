@@ -64,14 +64,14 @@
                     </p>
                 </a>
             </li>
-            <li class="nav-item">
-                <a href="{{route('pajak')}}" class="nav-link">
-                    <i class="nav-icon fa fa-shopping-bag"></i>
-                    <p>
-                        Tes Pajak
-                    </p>
-                </a>
-            </li>
+{{--            <li class="nav-item">--}}
+{{--                <a href="{{route('pajak')}}" class="nav-link">--}}
+{{--                    <i class="nav-icon fa fa-shopping-bag"></i>--}}
+{{--                    <p>--}}
+{{--                        Tes Pajak--}}
+{{--                    </p>--}}
+{{--                </a>--}}
+{{--            </li>--}}
             <li class="nav-header">LAPORAN</li>
             <li class="nav-item">
                 <a href="#" class="nav-link">
