@@ -74,7 +74,7 @@
                             </div>
                             <table id="example2" class="table table-bordered table-hover">
                                 <thead>
-                                <tr>
+                                <tr class="text-md-center">
                                     <th>NO</th>
                                     <th>Kode Rekening</th>
                                     <th>Induk Belanja</th>
@@ -85,7 +85,7 @@
                                 <?php $no = 1 ?>
                                 @foreach($indukBelanjas as $indukBelanja)
                                     <tr>
-                                        <td class="project-state">{{$no++}}</td>
+                                        <td class="project-state text-md-center ">{{$no++}}</td>
                                         <td class="project-state">{{$indukBelanja->norek_induk}}</td>
                                         <td class="project-state">{{$indukBelanja->induk_belanja}}</td>
                                         <td class="project-actions text-center">
@@ -94,17 +94,17 @@
                                                 </i>
                                                 Edit
                                             </a>
-                                            <a class="btn btn-danger btn-sm" href="{{route('iBelanja.delete', $indukBelanja)}}" onclick="return confirm('Data akan dihapus, lanjutkan?')">
-                                                <i class="fas fa-trash">
-                                                </i>
-                                                Delete
-                                            </a>
+{{--                                            <a class="btn btn-danger btn-sm" href="{{route('iBelanja.delete', $indukBelanja)}}" onclick="return confirm('Data akan dihapus, lanjutkan?')">--}}
+{{--                                                <i class="fas fa-trash">--}}
+{{--                                                </i>--}}
+{{--                                                Delete--}}
+{{--                                            </a>--}}
                                         </td>
                                     </tr>
                                 @endforeach
                                 </tbody>
                                 <tfoot>
-                                <tr>
+                                <tr class="text-md-center">
                                     <th>NO</th>
                                     <th>Kode Rekening</th>
                                     <th>Induk Belanja</th>

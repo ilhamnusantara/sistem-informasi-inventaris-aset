@@ -92,7 +92,7 @@
                             </div>
                             <table id="example2" class="table table-bordered table-hover">
                                 <thead>
-                                <tr>
+                                <tr class="text-md-center">
                                     <th>NO</th>
                                     <th>Induk Belanja</th>
                                     <th>Kode Rekening</th>
@@ -107,7 +107,7 @@
                                  <?php $no = 1 ?>
                                 @foreach($jenis_belanjas as $jenis_belanja)
                                 <tr>
-                                    <td class="project-state">{{$no++}}</td>
+                                    <td class="project-state text-md-center">{{$no++}}</td>
                                     <td class="project-state">{{$jenis_belanja->subBelanja->indukBelanja->induk_belanja}}</td>
                                     <td class="project-state">{{$jenis_belanja->subBelanja->norek_sub}}</td>
                                     <td class="project-state">{{$jenis_belanja->subBelanja->sub_belanja}}</td>
@@ -130,7 +130,7 @@
                                 @endforeach
                                 </tbody>
                                 <tfoot>
-                                <tr>
+                                <tr class="text-md-center">
                                     <th>NO</th>
                                     <th>Induk Belanja</th>
                                     <th>Kode Rekening</th>

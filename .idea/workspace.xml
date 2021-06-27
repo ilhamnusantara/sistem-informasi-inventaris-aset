@@ -3,8 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="61485c72-bac9-4323-b8e8-82c9fc2ee6e5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/cetakDokumen/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/cetakDokumen/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/sidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/iBelanja/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/iBelanja/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/jBelanja/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/jBelanja/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/sBelanja/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/sBelanja/index.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -248,7 +249,7 @@
       <workItem from="1624620457250" duration="9816000" />
       <workItem from="1624668221518" duration="18481000" />
       <workItem from="1624705808061" duration="13167000" />
-      <workItem from="1624751822605" duration="12126000" />
+      <workItem from="1624751822605" duration="12315000" />
     </task>
     <servers />
   </component>
