@@ -47,7 +47,7 @@ class IndukBelanjaController extends Controller
         $induk_belanja->norek_induk = $request->norek_induk;
         $nama = $request->induk_belanja;
         $induk_belanja->save();
-        return redirect()->route('jBelanja')->with('succes','Data ['.$nama.'] Disimpan');
+        return redirect()->route('iBelanja')->with('succes','Data ['.$nama.'] Disimpan');
     }
 
     /**
@@ -92,7 +92,7 @@ class IndukBelanjaController extends Controller
         $indukBelanja->norek_induk = $request->norek_induk;
 
         $indukBelanja->save();
-        return redirect()->route('jBelanja')->with('info','Data ['.$nama.'] Update');
+        return redirect()->route('iBelanja')->with('info','Data ['.$nama.'] Update');
     }
 
     /**

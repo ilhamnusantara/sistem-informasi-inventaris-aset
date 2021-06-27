@@ -16,13 +16,14 @@ class CreateBelanjasTable extends Migration
         Schema::create('belanjas', function (Blueprint $table) {
             $table->increments('id_belanja');
             $table->unsignedInteger('id_dokumen')->foreign('id_dokumen')->references('id_dokumen')->on('dokumens')->onDelete('cascade');
-            $table->string('no_pbb_ls');
-            $table->string('rekanan');
+            $table->string('satuan');
+            $table->integer('volume');
             $table->integer('nominal_belanja');
-            $table->date('tanggal_belanja');
-            $table->string('sp2d');
-            $table->date('tanggal_sp2d');
-            $table->string('status');
+            $table->string('rekanan');
+            $table->string('no_pbb_ls');
+            $table->string('tanggal_belanja');
+            $table->string('sp2d')->nullable();
+            $table->string('tanggal_sp2d')->nullable();
             $table->timestamps();
         });
     }

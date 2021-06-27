@@ -7,7 +7,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-
+                        <h1 class="m-0">Dokumen</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -25,14 +25,12 @@
                     <!-- left column -->
                     <div class="col-md-12">
                         <!-- general form elements -->
-                        <div class="card card-primary">
+                        <div class="card card-outline">
                             <div class="card-header">
-                                <div class="row mb-20">
-                                    <div class="col-md-10">
-                                        <h3 class="card-title">Edit Dokumen</h3>
-                                    </div>
-                                    <div class="col-md-2 text-right">
-                                        <a href="{{route('dokumen')}}"><i class="fas fa-undo-alt"></i></a>
+                                <div class="row mb-14">
+                                    <div class="col-md-2">
+                                        <a class="btn btn-sm bg-orange btn-flat" href="{{route('dokumen.show', $dokumen->id_dokumen)}}"><i class="fas fa-arrow-left"></i> Kembali</a>
+                                        <span>Edit Dokumen</span>
                                     </div>
                                 </div>
                             </div>
@@ -49,10 +47,29 @@
                                                 <label>Jenis Belanja</label>
                                                 <select class="form-control select2" style="width: 100%;" name="id_jenis" id="id_jenis">
                                                     <option value="{{$dokumen->jenisBelanja->id_jenis}}" class="fas fa-check">{{$dokumen->jenisBelanja->jenis_belanja}}</option>
-{{--                                                                                                        <option disable value>Pilih Kategori Belanja</option>--}}
                                                     @foreach ($jenisBelanjas as $jenisBelanja)
-                                                        <option value="{{$jenisBelanja->id_jenis}}">{{$jenisBelanja->sub_jenis}}</option>
+                                                        <option value="{{$jenisBelanja->id_jenis}}">{{$jenisBelanja->jenis_belanja}}</option>
                                                     @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <!-- text input -->
+                                            <div class="form-group">
+                                                <label>Instansi</label>
+                                                <select class="form-control select2" style="width: 100%;" name="instansi" id="instansi">
+                                                    <option value="{{$dokumen->instansi}}" class="fas fa-check">{{$dokumen->instansi}}</option>
+                                                    <option value="Kecamatan Taman">Kecamatan Taman</option>
+                                                    <option value="Kelurahan Bebekan">Kelurahan Bebekan</option>
+                                                    <option value="Kelurahan Geluran">Kelurahan Geluran</option>
+                                                    <option value="Kelurahan Kalijaten">Kelurahan Kalijaten</option>
+                                                    <option value="Kelurahan Ketegan">Kelurahan Ketegan</option>
+                                                    <option value="Kelurahan Ngelom">Kelurahan Ngelom</option>
+                                                    <option value="Kelurahan Sepanjang">Kelurahan Sepanjang</option>
+                                                    <option value="Kelurahan Taman">Kelurahan Taman</option>
+                                                    <option value="Kelurahan Wonocolo">Kelurahan Wonocolo</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -123,7 +140,7 @@
                                                 <label>File SPK</label>
                                                 <div class="input-group">
                                                     <div class="custom-file">
-                                                        <input type="file" name="file_spk"/>
+                                                        <input type="file" name="file_spk" accept="application/pdf"/>
                                                     </div>
                                                 </div>
                                             </div>
@@ -133,55 +150,84 @@
                                                 <label>File BAST</label>
                                                 <div class="input-group">
                                                     <div class="custom-file">
-                                                        <input type="file" name="file_bast" class="custom-file-input" @error('gambar') is-invalid @enderror id="gambar"/>
-                                                        <label class="custom-file-label" for="">Choose file</label>
+                                                        <input type="file" name="file_spk" accept="application/pdf"/>
+{{--                                                        <input type="file" name="file_bast" class="custom-file-input" @error('gambar') is-invalid @enderror id="gambar"/>--}}
+{{--                                                        <label class="custom-file-label" for="">Choose file</label>--}}
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <!-- text input -->
-                                            <div class="form-group">
-                                                <label>Merk</label>
-                                                <input type="text" class="form-control" name="merk" id="merk" value="{{$dokumen->merk}}">
+                                    </div>@if($dokumen->jenisBelanja->kategori=='Belanja Mebel')
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <!-- text input -->
+                                                <div class="form-group">
+                                                    <label>Bahan</label>
+                                                    <input type="text" class="form-control" name="bahan" id="bahan" value="{{$dokumen->bahan}}">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label>Type</label>
+                                                    <input type="text" class="form-control" name="type" id="type" value="{{$dokumen->type}}">
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="col-sm-6">
-                                            <div class="form-group">
-                                                <label>Bahan</label>
-                                                <input type="text" class="form-control" name="bahan" id="bahan" value="{{$dokumen->bahan}}">
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <!-- text input -->
+                                                <div class="form-group">
+                                                    <label>Ukuran (pxlxt)</label>
+                                                    <input type="text" class="form-control" name="ukuran" id="ukuran" value="{{$dokumen->type}}">
+                                                </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <!-- text input -->
-                                            <div class="form-group">
-                                                <label>Type</label>
-                                                <input type="text" class="form-control" name="type" id="type" value="{{$dokumen->type}}">
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class="form-group">
-                                                <label>Ukuran</label>
-                                                <input type="text" class="form-control" name="ukuran" id="ukuran" value="{{$dokumen->ukuran}}">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-12">
-                                            <div class="form-group">
-                                                <label>Foto</label>
-                                                <div class="input-group">
-                                                    <div class="custom-file">
-                                                        <input type="file" name="foto" value="{{$dokumen->foto}}"/>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label>Foto</label>
+                                                    <div class="input-group">
+                                                        <div class="custom-file">
+                                                            <input type="file" name="foto" accept="image/jpeg, image/jpg, image/png"/>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    @elseif($dokumen->jenisBelanja->kategori=='Belanja Elektronik')
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <!-- text input -->
+                                                <div class="form-group">
+                                                    <label>Bahan</label>
+                                                    <input type="text" class="form-control" name="bahan" id="bahan" value="{{$dokumen->bahan}}">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label>Type</label>
+                                                    <input type="text" class="form-control" name="type" id="type" value="{{$dokumen->type}}">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <!-- text input -->
+                                                <div class="form-group">
+                                                    <label>Merk</label>
+                                                    <input type="text" class="form-control" name="ukuran" id="ukuran" value="{{$dokumen->merk}}">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label>Foto</label>
+                                                    <div class="input-group">
+                                                        <div class="custom-file">
+                                                            <input type="file" name="foto" accept="image/jpeg, image/jpg, image/png"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endif
                                 </div>
                                 <!-- /.card-body -->
                                 <div class="card-footer">

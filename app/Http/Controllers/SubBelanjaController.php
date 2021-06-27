@@ -53,7 +53,7 @@ class SubBelanjaController extends Controller
         $sub_belanja->id_induk = $request->id_induk;
         $nama= $request->sub_belanja;
         $sub_belanja->save();
-        return redirect()->route('jBelanja')->with('succes','Data ['.$nama.'] Disimpan');
+        return redirect()->route('sBelanja')->with('succes','Data ['.$nama.'] Disimpan');
     }
 
     /**
@@ -101,7 +101,7 @@ class SubBelanjaController extends Controller
         $subBelanja->norek_sub = $request->norek_sub;
         $nama = $request->sub_belanja;
         $subBelanja->save();
-        return redirect()->route('jBelanja')->with('info','Data ['.$nama.'] Update');
+        return redirect()->route('sBelanja')->with('info','Data ['.$nama.'] Update');
     }
 
     /**

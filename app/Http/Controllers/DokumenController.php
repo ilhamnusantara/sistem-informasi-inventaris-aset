@@ -87,6 +87,7 @@ class DokumenController extends Controller
         }
 
         $dokumen->id_jenis = $request->id_jenis;
+        $dokumen->instansi = $request->instansi;
         $dokumen->keterangan_belanja = $request->keterangan_belanja;
         $dokumen->rincian_belanja = $request->rincian_belanja;
         $dokumen->no_spk = $request->no_spk;
@@ -98,8 +99,13 @@ class DokumenController extends Controller
         $dokumen->type = $request->type;
         $dokumen->ukuran = $request->ukuran;
         $dokumen->status = 0;
+        $dokumen->status_belanja = 0;
         $dokumen->save();
-        return redirect()->route('dokumen');
+//        return redirect()->route('dokumen');
+        return redirect()->route('dokumen.show', $dokumen->id_dokumen);
+//        $jenisBelanjas = jenisBelanja::all();
+//        $dokumen = Dokumen::with('jenisBelanja')->find($dokumen->id_dokumen);
+//        return view('layouts.dokumen.show',compact('jenisBelanjas'))->with('dokumen',$dokumen);
 
     }
 
@@ -109,9 +115,11 @@ class DokumenController extends Controller
      * @param  \App\Dokumen  $dokumen
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request)
+    public function show($id_dokumen)
     {
-        //
+        $jenisBelanjas = jenisBelanja::all();
+        $dokumen = Dokumen::with('jenisBelanja')->find($id_dokumen);
+        return view('layouts.dokumen.show',compact('jenisBelanjas'))->with('dokumen', $dokumen);
     }
 
     /**
@@ -160,6 +168,7 @@ class DokumenController extends Controller
         }
 
         $dokumen->id_jenis = $request->id_jenis;
+        $dokumen->instansi = $request->instansi;
         $dokumen->keterangan_belanja = $request->keterangan_belanja;
         $dokumen->rincian_belanja = $request->rincian_belanja;
         $dokumen->no_spk = $request->no_spk;
@@ -171,7 +180,7 @@ class DokumenController extends Controller
         $dokumen->type = $request->type;
         $dokumen->ukuran = $request->ukuran;
         $dokumen->save();
-        return redirect()->route('dokumen')->with('success','Data Telah Di Update');
+        return redirect()->route('dokumen.show',$dokumen->id_dokumen)->with('success','Data Telah Di Update');
     }
 
     /**
@@ -185,6 +194,29 @@ class DokumenController extends Controller
         $dokumen = Dokumen::find($id_dokumen);
 
         $dokumen->delete();
-        return redirect()->back()->with('warning','Data Terhapus');
+        return redirect()->route('dokumen')->with('warning','Data Terhapus');
     }
+
+    public function verval($id_dokumen)
+    {
+        $dokumen = Dokumen::find($id_dokumen);
+        $dokumen->status = 1;
+        $dokumen->save();
+        return redirect()->route('dokumen')->with('success','Tervalidasi');
+    }
+
+    public function noverval($id_dokumen)
+    {
+        $dokumen = Dokumen::find($id_dokumen);
+        $dokumen->status = 0;
+        $dokumen->save();
+        return redirect()->back()->with('danger','Batal validasi');
+    }
+
+//    public function novervalbelanja($id_dokumen)
+//    {
+//        $dokumen = Dokumen::find($id_dokumen);
+//        $dokumen->status = 0;
+//        $dokumen
+//    }
 }

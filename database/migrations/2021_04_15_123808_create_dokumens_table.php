@@ -16,8 +16,9 @@ class CreateDokumensTable extends Migration
         Schema::create('dokumens', function (Blueprint $table) {
             $table->increments('id_dokumen');
             $table->unsignedInteger('id_jenis')->foreign('id_jenis')->references('id_jenis')->on('jenisBelanjas')->onDelete('cascade');
+            $table->string('instansi');
             $table->string('keterangan_belanja');
-            $table->string('rincian_belanja');
+            $table->string('rincian_belanja')->nullable();
             $table->string('no_spk')->nullable();
             $table->string('tgl_spk')->nullable();
             $table->string('file_spk')->nullable();
@@ -30,6 +31,7 @@ class CreateDokumensTable extends Migration
             $table->string('ukuran')->nullable();
             $table->string('foto')->nullable();
             $table->string('status')->nullable();
+            $table->string('status_belanja')->nullable();
             $table->timestamps();
         });
     }

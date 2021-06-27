@@ -117,7 +117,7 @@
                         <!-- /.card-body -->
                         <div class="card-footer">
                             <div class="content float-md-right">
-                                <a href="{{route('sBelanja')}}" class="next">Next &raquo;</a>
+                                <a href="{{route('sBelanja')}}" class="btn btn-sm btn-success next">Next &raquo;</a>
                             </div>
                         </div>
                     </div>

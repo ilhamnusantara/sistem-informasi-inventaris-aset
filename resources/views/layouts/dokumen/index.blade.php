@@ -40,7 +40,6 @@
                                                 @foreach ($jenisBelanjas as $jenisBelanja)
                                                     <option value="{{$jenisBelanja->id_jenis}}">{{$jenisBelanja->jenis_belanja}}</option>
                                                 @endforeach
-                                                <option value=""><a href="{{route('jBelanja')}}">Tambah</a></option>
                                             </select>
                                             <div class="form-group">
                                                 <button class="btn btn-navbar" type="submit">
@@ -65,20 +64,17 @@
                             </div>
                             <table id="example2" class="table table-bordered table-hover">
                                 <thead>
-                                <tr>
+                                <tr class="text-md-center">
                                     <th>NO</th>
                                     <th>Jenis</th>
-                                    <th>Keterangan Belanja</th>
+                                    <th>Instansi</th>
+                                    <th>Ket. Belanja</th>
                                     <th>Rincian Belanja</th>
                                     <th>Nomor SPK</th>
                                     <th>tgl SPK</th>
                                     <th>Nomor BAST</th>
                                     <th>tgl BAST</th>
-                                    <th>Merk</th>
-                                    <th>Bahan</th>
-                                    <th>Type</th>
-                                    <th>Ukuran</th>
-                                    <th>action</th>
+                                    <th>Detail</th>
 
                                 </tr>
                                 </thead>
@@ -86,8 +82,9 @@
                                 <?php $no = 1 ?>
                                 @foreach($dokumens as $dokumen)
                                     <tr>
-                                        <td class="project-state">{{$no++}}</td>
+                                        <td class="project-state text-md-center">{{$no++}}</td>
                                         <td class="project-state">{{$dokumen->jenisBelanja->jenis_belanja}}</td>
+                                        <td class="project-state">{{$dokumen->instansi}}</td>
                                         <td class="project-state">{{$dokumen->keterangan_belanja}}</td>
                                         @if($dokumen->rincian_belanja == null)
                                             <td class="project-state">{{$dokumen->rincian_belanja}}</td>
@@ -106,44 +103,45 @@
                                             <td class="project-state">{{substr($dokumen->no_bast,0,20).'...'}}</td>
                                         @endif
                                         <td class="project-state">{{$dokumen->tgl_bast}}</td>
-                                        <td class="project-state">{{$dokumen->merk}}</td>
-                                        <td class="project-state">{{$dokumen->bahan}}</td>
-                                        <td class="project-state">{{$dokumen->type}}</td>
-                                        <td class="project-state">{{$dokumen->ukuran}}</td>
-                                        <td class="project-actions text-center">
-                                            @if($dokumen->status == 0)
-                                                <a class="btn btn-info btn-sm" href="{{route('dokumen.edit', $dokumen->id_dokumen)}}">
-                                                    <i class="fas fa-pencil-alt">
-                                                    </i>
-                                                    Edit
+                                        @if($dokumen->status== 1 && $dokumen->status_belanja == 0)
+                                            <td class="project-actions text-center">
+                                                <a class="btn bg-yellow btn-sm" href="{{route('dokumen.show', $dokumen->id_dokumen)}}">
+                                                    <i class="fas fa-search"></i>
                                                 </a>
-                                                <a class="btn btn-danger btn-sm" href="{{route('dokumen.delete', $dokumen->id_dokumen)}}" onclick="return confirm('Data akan dihapus, lanjutkan?')">
-                                                    <i class="fas fa-trash">
-                                                    </i>
-                                                    Hapus
+                                            </td>
+                                        @elseif($dokumen->status == 1 && $dokumen->status_belanja == 1)
+                                            <td class="project-actions text-center">
+                                                <a class="btn btn-success btn-sm" href="{{route('dokumen.show', $dokumen->id_dokumen)}}">
+                                                    <i class="fas fa-search"></i>
                                                 </a>
-                                               <a class="btn btn-success btn-sm" href="#" onclick="return confirm('Data akan validasi')"> <i class="fas fa-check"></i> Validasi</a>
-                                            @elseif($dokumen->status == 1)
-                                                <a class="btn btn-success btn-sm" href="#" onclick="return confirm('Data akan validasi')"> <i class="fas fa-check"></i>Batal Validasi</a>
-                                            @endif
-                                        </td>
+                                            </td>
+                                        @elseif($dokumen->status == 0 && $dokumen->status_belanja == 0)
+                                            <td class="project-actions text-center">
+                                                <a class="btn btn-dark btn-sm" href="{{route('dokumen.show', $dokumen->id_dokumen)}}">
+                                                    <i class="fas fa-search"></i>
+                                                </a>
+                                            </td>
+                                        @elseif($dokumen->status == 0 && $dokumen->status_belanja == 1)
+                                            <td class="project-actions text-center">
+                                                <a class="btn btn-danger btn-sm" href="{{route('dokumen.show', $dokumen->id_dokumen)}}">
+                                                    <i class="fas fa-search"></i>
+                                                </a>
+                                            </td>
+                                        @endif
                                     </tr>
                                 @endforeach
                                 </tbody>
                                 <tfoot>
-                                <tr>
+                                <tr class="text-md-center">
                                     <th>NO</th>
                                     <th>Jenis</th>
-                                    <th>Keterangan Belanja</th>
+                                    <th>Instansi</th>
+                                    <th>Ket. Belanja</th>
                                     <th>Rincian Belanja</th>
                                     <th>Nomor SPK</th>
                                     <th>tgl SPK</th>
                                     <th>Nomor BAST</th>
                                     <th>tgl BAST</th>
-                                    <th>Merk</th>
-                                    <th>Bahan</th>
-                                    <th>Type</th>
-                                    <th>Ukuran</th>
                                     <th>action</th>
                                 </tr>
                                 </tfoot>

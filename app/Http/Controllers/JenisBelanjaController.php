@@ -16,12 +16,11 @@ class JenisBelanjaController extends Controller
      */
     public function index()
     {
-        $indukBelanjas = indukBelanja::all();
         $subBelanjas = subBelanja::all();
         $jenis_belanja = jenisBelanja::all();
         return view('layouts.jBelanja.index',[
             'jenis_belanjas' => $jenis_belanja,
-        ], compact('indukBelanjas','subBelanjas'));
+        ], compact('subBelanjas'));
     }
 
     /**

@@ -120,11 +120,11 @@
                                             </i>
                                             Edit
                                         </a>
-                                        <a class="btn btn-danger btn-sm" href="{{route('jBelanja.delete', $jenis_belanja)}}" onclick="return confirm('Data akan dihapus, lanjutkan?')">
-                                            <i class="fas fa-trash">
-                                            </i>
-                                            Delete
-                                        </a>
+{{--                                        <a class="btn btn-danger btn-sm" href="{{route('jBelanja.delete', $jenis_belanja)}}" onclick="return confirm('Data akan dihapus, lanjutkan?')">--}}
+{{--                                            <i class="fas fa-trash">--}}
+{{--                                            </i>--}}
+{{--                                            Delete--}}
+{{--                                        </a>--}}
                                     </td>
                                 </tr>
                                 @endforeach
@@ -147,7 +147,7 @@
                         <!-- /.card-body -->
                         <div class="card-footer">
                             <div class="content float-md-right">
-                                <a href="{{route('sBelanja')}}" class="previous">&laquo; Previous</a>
+                                <a href="{{route('sBelanja')}}" class="btn btn-sm btn-dark previous">&laquo; Previous</a>
                             </div>
                         </div>
                     </div>

@@ -22,13 +22,6 @@
             <div class="row">
                 <div class="col-12">
                     <div class="card">
-                        <div class="card-header">
-                            <form method="get" action="{{route('belanja.create')}}">
-                                <button class="btn btn-info btn-lg float-right" type="submit">
-                                    Create
-                                </button>
-                            </form>
-                        </div>
                         <!-- /.card-header -->
                         <div class="card-body">
                             <div class="row">
@@ -69,21 +62,31 @@
                                                         <select class="form-control select2" style="width: 100%;" name="id_dokumen" id="id_dokumen">
                                                             <option disable value>--Pilih Induk Belanja--</option>
                                                             @foreach ($dokumens as $dokumen)
+                                                                @if($dokumen->status == 1 && $dokumen->status_belanja == 0)
                                                                     <option value="{{$dokumen->id_dokumen}}">{{$dokumen->keterangan_belanja}}</option>
+                                                                @endif
                                                             @endforeach
                                                         </select>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="inputNama">Nomor PBB/SPM</label>
-                                                        <input name="no_pbb_ls" type="text" class="form-control" id="inputNama" aria-describedby="emailHelp">
+                                                        <label for="inputNama">Satuan</label>
+                                                        <input name="satuan" type="text" class="form-control" id="inputNama" aria-describedby="emailHelp">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputNama">Volume</label>
+                                                        <input name="volume" type="text" class="form-control" id="inputNama" aria-describedby="emailHelp">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputNama">Nominal Belanja</label>
+                                                        <input name="nominal_belanja" type="text" class="form-control" id="nominal_belanja" aria-describedby="emailHelp">
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="inputNama">Rekanan</label>
                                                         <input name="rekanan" type="text" class="form-control" id="inputNama" aria-describedby="emailHelp">
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="inputNama">nominal_belanja</label>
-                                                        <input name="nominal_belanja" type="text" class="form-control" id="inputNama" aria-describedby="emailHelp">
+                                                        <label for="inputNama">Nomor PBB/SPM</label>
+                                                        <input name="no_pbb_ls" type="text" class="form-control" id="inputNama" aria-describedby="emailHelp">
                                                     </div>
                                                     <div class="form-group">
                                                         <label>Tanggal Belanja</label>
@@ -119,54 +122,61 @@
                             </div>
                             <table id="example2" class="table table-bordered table-hover">
                                 <thead>
-                                <tr>
+                                <tr class="text-md-center">
                                     <th>NO</th>
                                     <th>Belanja</th>
-                                    <th>no pbb/spm</th>
-                                    <th>Rekanan</th>
+                                    <th>Satuan</th>
+                                    <th>Volume</th>
                                     <th>Nominal Belanja</th>
+                                    <th>Rekanan</th>
+                                    <th>no pbb/spm</th>
                                     <th>Tanggal</th>
                                     <th>SP2D</th>
                                     <th>Tgl SP2D</th>
+                                    <th>Detail</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <?php $no = 1 ?>
                                 @foreach($belanjas as $belanja)
                                     <tr>
-                                        <td class="project-state">{{$no++}}</td>
-                                        <td class="project-state">{{$belanja->id_dokumen}}</td>
-                                        <td class="project-state">{{$belanja->no_pbb_ls}}</td>
-                                        <td class="project-state">{{$belanja->rekanan}}</td>
+                                        <td class="project-state text-md-center">{{$no++}}</td>
+                                        <td class="project-state">{{$belanja->Dokumen->keterangan_belanja}}</td>
+                                        <td class="project-state">{{$belanja->satuan}}</td>
+                                        <td class="project-state">{{$belanja->volume}}</td>
                                         <td class="project-state">{{$belanja->nominal_belanja}}</td>
+                                        <td class="project-state">{{$belanja->rekanan}}</td>
+                                        <td class="project-state">{{$belanja->no_pbb_ls}}</td>
                                         <td class="project-state">{{$belanja->tanggal_belanja}}</td>
                                         <td class="project-state">{{$belanja->sp2d}}</td>
                                         <td class="project-state">{{$belanja->tanggal_sp2d}}</td>
                                         <td class="project-actions text-center">
-                                            <a class="btn btn-info btn-sm" href="{{route('belanja.edit', $belanja->id_belanja)}}">
-                                                <i class="fas fa-pencil-alt">
-                                                </i>
-                                                Edit
+                                            @if($belanja->Dokumen->status == 1 && $belanja->Dokumen->status_belanja == 1)
+                                            <a class="btn btn-success btn-sm" href="{{route('belanja.show', $belanja->id_belanja)}}">
+                                                <i class="fas fa-search"></i>
                                             </a>
-                                            <a class="btn btn-danger btn-sm" href="{{route('belanja.delete', $belanja->id_belanja)}}" onclick="return confirm('Data akan dihapus, lanjutkan?')">
-                                                <i class="fas fa-trash">
-                                                </i>
-                                                Hapus
-                                            </a>
+                                            @elseif($belanja->Dokumen->status == 0 && $belanja->Dokumen->status_belanja == 1)
+                                                <a class="btn btn-danger btn-sm" href="{{route('belanja.show', $belanja->id_belanja)}}">
+                                                    <i class="fas fa-search"></i>
+                                                </a>
+                                            @endif
                                         </td>
                                     </tr>
                                 @endforeach
                                 </tbody>
                                 <tfoot>
-                                <tr>
+                                <tr class="text-md-center">
                                     <th>NO</th>
                                     <th>Belanja</th>
-                                    <th>no pbb/spm</th>
-                                    <th>Rekanan</th>
+                                    <th>Satuan</th>
+                                    <th>Volume</th>
                                     <th>Nominal Belanja</th>
+                                    <th>Rekanan</th>
+                                    <th>no pbb/spm</th>
                                     <th>Tanggal</th>
                                     <th>SP2D</th>
                                     <th>Tgl SP2D</th>
+                                    <th>Detail</th>
                                 </tr>
                                 </tfoot>
                             </table>
@@ -175,8 +185,34 @@
                 </div>
             </div>
         </div>
-
-
     </div>
 
+@endsection
+@section('script')
+    <script type="text/javascript">
+        var rupiah = document.getElementById('rupiah');
+        rupiah.addEventListener('keyup', function(e){
+            // tambahkan 'Rp.' pada saat form di ketik
+            // gunakan fungsi formatRupiah() untuk mengubah angka yang di ketik menjadi format angka
+            rupiah.value = formatRupiah(this.value, 'Rp. ');
+        });
+
+        /* Fungsi formatRupiah */
+        function formatRupiah(angka, prefix){
+            var number_string = angka.replace(/[^,\d]/g, '').toString(),
+            split   		= number_string.split(','),
+            sisa     		= split[0].length % 3,
+            rupiah     		= split[0].substr(0, sisa),
+            ribuan     		= split[0].substr(sisa).match(/\d{3}/gi);
+
+            // tambahkan titik jika yang di input sudah menjadi angka ribuan
+            if(ribuan){
+                separator = sisa ? '.' : '';
+                rupiah += separator + ribuan.join('.');
+            }
+
+            rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+            return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+        }
+    </script>
 @endsection

@@ -25,6 +25,10 @@
                     <div class="col-12">
                         <div class="card">
                             <!-- /.card-header -->
+                            <form action="{{route('dokumen.create')}}" method="get" id="form_jenis" class="d-none">
+                                <input type="hidden" name="jenis">
+                                <input type="type" name="kategori">
+                            </form>
                             <form action="{{route('dokumen.store')}}" enctype="multipart/form-data" method="post">
                                 @csrf
                                 <div class="card-body">
@@ -34,9 +38,30 @@
                                             <div class="form-group">
                                                 <label>Jenis Belanja</label>
                                                 <select class="form-control select2" style="width: 100%;" name="id_jenis" id="id_jenis">
-                                                    @foreach ($jenisBelanjas as $jenisBelanja)
-                                                        <option value="{{$jenisBelanja->id_jenis}}">{{$jenisBelanja->jenis_belanja}}</option>
-                                                    @endforeach
+                                                    <option value="">Pilih Jenis</option>
+                                                        @foreach ($jenisBelanjas as $jenisBelanja)
+                                                            <option value="{{$jenisBelanja->id_jenis}}" data-kategori="{{str_replace(' ','_',strtolower($jenisBelanja->kategori))}}" {{request()->get('jenis') == $jenisBelanja->id_jenis ? 'selected':''}}>{{$jenisBelanja->jenis_belanja}}</option>
+                                                        @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <!-- text input -->
+                                            <div class="form-group">
+                                                <label>Instansi</label>
+                                                <select class="form-control" name="instansi" id="instansi">
+                                                    <option value="">Pilih Instansi</option>
+                                                        <option value="Kecamatan Taman">Kecamatan Taman</option>
+                                                        <option value="Kelurahan Bebekan">Kelurahan Bebekan</option>
+                                                        <option value="Kelurahan Geluran">Kelurahan Geluran</option>
+                                                        <option value="Kelurahan Kalijaten">Kelurahan Kalijaten</option>
+                                                        <option value="Kelurahan Ketegan">Kelurahan Ketegan</option>
+                                                        <option value="Kelurahan Ngelom">Kelurahan Ngelom</option>
+                                                        <option value="Kelurahan Sepanjang">Kelurahan Sepanjang</option>
+                                                        <option value="Kelurahan Taman">Kelurahan Taman</option>
+                                                        <option value="Kelurahan Wonocolo">Kelurahan Wonocolo</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -125,39 +150,31 @@
                                             </div>
                                         </div>
                                     </div>
+                                        @if(request()->get('kategori')=='belanja_mebel')
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <!-- text input -->
-                                            <div class="form-group">
-                                                <label>Merk</label>
-
-                                                <input type="text" class="form-control" name="merk" id="merk" placeholder="Merk">
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
                                             <div class="form-group">
                                                 <label>Bahan</label>
                                                 <input type="text" class="form-control" name="bahan" id="bahan" placeholder="Bahan">
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="row">
                                         <div class="col-sm-6">
-                                            <!-- text input -->
                                             <div class="form-group">
                                                 <label>Type</label>
                                                 <input type="text" class="form-control" name="type" id="type" placeholder="Type">
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="row">
                                         <div class="col-sm-6">
+                                            <!-- text input -->
                                             <div class="form-group">
-                                                <label>Ukuran</label>
+                                                <label>Ukuran (pxlxt)</label>
                                                 <input type="text" class="form-control" name="ukuran" id="ukuran" placeholder="Ukuran">
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-12">
+                                        <div class="col-sm-6">
                                             <div class="form-group">
                                                 <label>Foto</label>
                                                 <div class="input-group">
@@ -168,9 +185,45 @@
                                             </div>
                                         </div>
                                     </div>
+                                        @elseif(request()->get('kategori')=='belanja_elektronik')
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <!-- text input -->
+                                                <div class="form-group">
+                                                    <label>Bahan</label>
+                                                    <input type="text" class="form-control" name="bahan" id="bahan" placeholder="Bahan">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label>Type</label>
+                                                    <input type="text" class="form-control" name="type" id="type" placeholder="Type">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <!-- text input -->
+                                                <div class="form-group">
+                                                    <label>Merk</label>
+                                                    <input type="text" class="form-control" name="merk" id="merk" placeholder="Merk">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label>Foto</label>
+                                                    <div class="input-group">
+                                                        <div class="custom-file">
+                                                            <input type="file" name="foto" accept="image/jpeg, image/jpg, image/png"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        @endif
                                 </div>
                                 <div class="card-footer">
-                                    <button type="submit" class="btn btn-block btn-primary btn-lg" id="create">Create</button>
+                                    <button type="submit" class="btn float-md-right btn-primary btn-lg" id="create">Create</button>
                                 </div>
                                 <!-- /.card-body -->
                             </form>
@@ -181,4 +234,18 @@
         </section>
         <!-- /.content-header -->
     </div>
+@endsection
+
+@section('script')
+    <script>
+        $(document).ready(function (){
+            $(document).on('change' , '#id_jenis' , function (){
+                let id_jenis =  $(this).val()
+                let kategori = $(this).find(':selected').data('kategori')
+                $('input[name="jenis"]').val(id_jenis)
+                $('input[name="kategori"]').val(kategori)
+                $('#form_jenis').submit()
+            });
+        });
+    </script>
 @endsection

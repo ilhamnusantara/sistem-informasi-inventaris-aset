@@ -42,9 +42,13 @@ Route::put('/update-SB/{id_sub}/update','SubBelanjaController@update')->name('sB
 Route::get('/dokumen','DokumenController@index')->name('dokumen');
 Route::get('/create-Dokumen','DokumenController@create')->name('dokumen.create');
 Route::post('/store-Dokumen','DokumenController@store')->name('dokumen.store');
+Route::get('/show-Dokumen/{id_dokumen}/tampil','DokumenController@show')->name('dokumen.show');
 Route::get('/edit-Dokumen/{id_dokumen}/edit','DokumenController@edit')->name('dokumen.edit');
 Route::put('/update-Dokumen/{id_dokumen}/update','DokumenController@update')->name('dokumen.update');
 Route::get('/hapus-Dokumen/{id_dokumen}/delete','DokumenController@destroy')->name('dokumen.delete');
+Route::get('/verifikasi-Dokumen/{id_dokumen}/verifikasi','DokumenController@verval')->name('dokumen.verifikasi');
+Route::get('/show-Dokumen/{id_dokumen}/batalverif','DokumenController@noverval')->name('dokumen.noverifikasi');
+//Route::get('/show-Dokumen/{id_dokumen}/batalvervalb','DokumenController@novervalbelanja')->name('dokumen.novervalbelanja');
 Route::get('/filter-dokumen','DokumenController@filter')->name('dokumen.filter');
 Route::get('/filespk/{id_dokumen}/download','DokumenController@download')->name('dokumen.download');
 Route::get('/filespk/{id_dokumen}','DokumenController@show')->name('dokumen.filespk');
@@ -53,8 +57,12 @@ Route::get('/filespk/{id_dokumen}','DokumenController@show')->name('dokumen.file
 Route::get('/belanja','BelanjaController@index')->name('belanja');
 Route::get('/create-Belanja','BelanjaController@create')->name('belanja.create');
 Route::post('/store-Belanja','BelanjaController@store')->name('belanja.store');
-Route::get('/edit-belanja/{id_belanja}/edit','BelanjaController@edit')->name('belanja.edit');
+Route::get('/show-Belanja/{id_belanja}/tampil','BelanjaController@show')->name('belanja.show');
+Route::get('/edit-Belanja/{id_belanja}/edit','BelanjaController@edit')->name('belanja.edit');
+Route::put('/update-Belanja/{id_belanja}/update','BelanjaController@update')->name('belanja.update');
 Route::get('/hapus-belanja/{id_belanja}/delete','BelanjaController@destroy')->name('belanja.delete');
+Route::get('/show-Belanja/{id_dokumen}/batalvervalb','BelanjaController@unvervalbelanja')->name('belanja.unvervalbelanja');
+Route::get('/verifikasi-dok/{id_dokumen}/vervalb','BelanjaController@vervalbelanja')->name('belanja.vervalbelanja');
 
 Route::get('/pajak','PajakController@index')->name('pajak');
 Route::get('/create-pajak','PajakController@create')->name('pajak.create');

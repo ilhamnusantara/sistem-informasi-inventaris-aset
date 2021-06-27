@@ -2,13 +2,39 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="61485c72-bac9-4323-b8e8-82c9fc2ee6e5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/layouts/belanja/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layouts/belanja/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/foto/8.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/layouts/belanja/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/layouts/belanja/show.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Dokumen.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Dokumen.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Belanja.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Belanja.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BelanjaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BelanjaController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DokumenController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DokumenController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/IndukBelanjaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/IndukBelanjaController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/JenisBelanjaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/JenisBelanjaController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SubBelanjaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SubBelanjaController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_04_15_123808_create_dokumens_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_04_15_123808_create_dokumens_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_06_19_143134_create_belanjas_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_06_19_143134_create_belanjas_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/berkas/PPh21 Honor KPA Februari 2021.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/berkas/PPh21 Honor KPA Januari 2021.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/berkas/PPh21 Honor PPTK Februari 2021.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/berkas/Peta Jabatan Kelurahan Kalijaten.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/foto/10.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/foto/1621519322.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/foto/1621553706.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/foto/2936-6172-1-PB.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/foto/Capture.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/foto/Tugas Review MetaData.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/foto/cc.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/belanja/create.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/belanja/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/belanja/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/dokumen/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/dokumen/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/dokumen/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/dokumen/edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/dokumen/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/dokumen/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/sidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/dokumen/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/dokumen/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/iBelanja/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/iBelanja/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/jBelanja/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/jBelanja/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/sBelanja/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/sBelanja/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -250,7 +276,10 @@
       <workItem from="1624112804690" duration="2925000" />
       <workItem from="1624491308080" duration="3204000" />
       <workItem from="1624533985169" duration="6593000" />
-      <workItem from="1624620457250" duration="9532000" />
+      <workItem from="1624620457250" duration="9816000" />
+      <workItem from="1624668221518" duration="18481000" />
+      <workItem from="1624705808061" duration="13167000" />
+      <workItem from="1624751822605" duration="11254000" />
     </task>
     <servers />
   </component>

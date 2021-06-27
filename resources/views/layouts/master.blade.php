@@ -100,8 +100,6 @@
 </div>
 <!-- ./wrapper -->
 
-<!-- Scripts -->
-@yield('script')
 <!-- jQuery -->
 <script src="{{asset('/dashboard/plugins/jquery/jquery.min.js')}}"></script>
 <!-- jQuery UI 1.11.4 -->
@@ -230,7 +228,8 @@
     //         maxYear: parseInt(moment().format('YYYY'),10)
     //     });
     // });
-
 </script>
+<!-- Scripts -->
+@yield('script')
 </body>
 </html>
