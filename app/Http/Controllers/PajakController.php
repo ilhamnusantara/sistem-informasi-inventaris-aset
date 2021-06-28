@@ -14,6 +14,7 @@ class PajakController extends Controller
      */
     public function index()
     {
+
         $pajak = Pajak::all();
         return view('layouts.pajak.index',[
             'pajaks' => $pajak,

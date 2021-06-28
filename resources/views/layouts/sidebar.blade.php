@@ -5,7 +5,7 @@
             <img src="{{url('/dashboard/dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-            <a href="#" class="d-block">Kharisma Ilham Nusantara</a>
+            <a href="#" class="d-block">Admin Kecamatan</a>
         </div>
     </div>
 
@@ -83,7 +83,7 @@
                 </a>
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="{{route('cetakLap')}}" class="nav-link">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Cetak Laporan</p>
                         </a>

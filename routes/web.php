@@ -75,5 +75,7 @@ Route::get('/cetak-dokumen','CetakDokumenController@index')->name('cetakDok');
 Route::get('/cetak-dokumen/file/{namafile}','CetakDokumenController@downloadFile')->name('cetakDok.file');
 Route::get('/cetak-dokumen/foto/{namafoto}','CetakDokumenController@downloadFoto')->name('cetakDok.foto');
 
+Route::get('/cetak-laporan','LaporanController@index')->name('cetakLap');
+
 Route::resource('akun', 'AkunController');
 

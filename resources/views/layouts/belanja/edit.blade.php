@@ -91,7 +91,7 @@
                                             <!-- text input -->
                                             <div class="form-group">
                                                 <label>Nomor PBB/LS</label>
-                                                <input type="text" class="form-control" name="no_pbb_ls" id="no_pbb_ls" value="{{$belanja->rincian_belanja}}">
+                                                <input type="text" class="form-control" name="no_pbb_ls" id="no_pbb_ls" value="{{$belanja->no_pbb_ls}}">
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
