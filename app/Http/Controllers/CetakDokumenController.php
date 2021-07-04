@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Dokumen;
 use Yajra\DataTables\DataTables;
+use Excel;
+use App\Exports\DataAsetExport;
+
 
 class CetakDokumenController extends Controller
 {
@@ -31,5 +34,10 @@ class CetakDokumenController extends Controller
 //        $request->foto->move(public_path('foto'), $foto);
 //        $file = public_path('foto')->get($namafile);
         return response()->download(public_path("foto/{$namafile}"));
+    }
+
+    public function export()
+    {
+        return Excel::download(new DataAsetExport, 'aset.xlsx');
     }
 }

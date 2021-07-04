@@ -71,8 +71,8 @@
     <aside class="main-sidebar sidebar-dark-blue elevation-4">
         <!-- Brand Logo -->
         <a href="index3.html" class="brand-link">
-            <img src="{{url('/dashboard/dist/img/sda.png')}}" alt="AdminLTE Logo" class="brand-image elevation-6" style="opacity: .8">
-            <span class="brand-text font-weight-light">KECAMATAN TAMAN</span>
+            <img src="{{url('/dashboard/dist/img/iasset-logo.png')}}" alt="AdminLTE Logo" class="brand-image elevation-6" style="opacity: .8">
+            <span class="brand-text font-weight-light">&nbsp;M&I-Asset</span>
         </a>
 
         <!-- Sidebar -->

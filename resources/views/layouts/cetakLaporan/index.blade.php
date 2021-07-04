@@ -28,11 +28,8 @@
                                 <div class="col-sm-12">
                                     <form class="form-inline ml-3 float-md-right" action="#" method="GET">
                                         <div class="input-group input-group-sm">
-                                            <input class="form-control form-control-navbar" name="search" type="search" placeholder="Search" aria-label="Search" value="{{Request::get('search') }}">
                                             <div class="input-group-append">
-                                                <button class="btn btn-navbar" type="submit">
-                                                    <i class="fas fa-search"></i>
-                                                </button>
+                                                <a href="{{route('export')}}" class="btn btn-sm btn-success next"><i class="fas fa-download"></i> Cetak Laporan</a>
                                             </div>
                                         </div>
                                     </form>

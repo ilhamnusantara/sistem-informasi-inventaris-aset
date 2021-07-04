@@ -72,6 +72,8 @@ Route::put('/update-pajak/{id_pajak}/update','PajakController@update')->name('pa
 Route::get('/hapus-pajak/{id_pajak}/delete','PajakController@destroy')->name('pajak.delete');
 
 Route::get('/cetak-dokumen','CetakDokumenController@index')->name('cetakDok');
+
+Route::get('/export','CetakDokumenController@export')->name('export');
 Route::get('/cetak-dokumen/file/{namafile}','CetakDokumenController@downloadFile')->name('cetakDok.file');
 Route::get('/cetak-dokumen/foto/{namafoto}','CetakDokumenController@downloadFoto')->name('cetakDok.foto');
 

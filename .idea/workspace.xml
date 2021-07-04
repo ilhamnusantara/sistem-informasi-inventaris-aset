@@ -2,18 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="61485c72-bac9-4323-b8e8-82c9fc2ee6e5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/LaporanController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/berkas/PPh21 Honor KPA Januari 2021.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/berkas/PPh21 Honor PPTK Februari 2021.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/foto/fast-food.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layouts/cetakLaporan/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Exports/DataAsetExport.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/excel.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/dashboard/dist/img/iasset-logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataAset.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataAset.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PajakController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PajakController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/belanja/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/belanja/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/belanja/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/belanja/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/belanja/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/belanja/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CetakDokumenController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CetakDokumenController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/cetakLaporan/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/cetakLaporan/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/sidebar.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/InstalledVersions.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/InstalledVersions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_files.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_files.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_namespaces.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_namespaces.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/platform_check.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/platform_check.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,6 +145,14 @@
       <path value="$PROJECT_DIR$/vendor/symfony/http-foundation" />
       <path value="$PROJECT_DIR$/vendor/laravel/ui" />
       <path value="$PROJECT_DIR$/vendor/yajra/laravel-datatables-oracle" />
+      <path value="$PROJECT_DIR$/vendor/maatwebsite/excel" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-factory" />
+      <path value="$PROJECT_DIR$/vendor/markbaker/matrix" />
+      <path value="$PROJECT_DIR$/vendor/markbaker/complex" />
+      <path value="$PROJECT_DIR$/vendor/maennchen/zipstream-php" />
+      <path value="$PROJECT_DIR$/vendor/ezyang/htmlpurifier" />
+      <path value="$PROJECT_DIR$/vendor/myclabs/php-enum" />
+      <path value="$PROJECT_DIR$/vendor/phpoffice/phpspreadsheet" />
     </include_path>
   </component>
   <component name="ProjectId" id="1pjsiRGGRLA8Eil1KP0NDQTYmm0" />
@@ -259,7 +278,11 @@
       <workItem from="1624705808061" duration="13167000" />
       <workItem from="1624751822605" duration="15255000" />
       <workItem from="1624851969773" duration="481000" />
-      <workItem from="1624860858968" duration="2072000" />
+      <workItem from="1624860858968" duration="3275000" />
+      <workItem from="1624868352779" duration="644000" />
+      <workItem from="1625055402483" duration="3547000" />
+      <workItem from="1625096562995" duration="4096000" />
+      <workItem from="1625365435511" duration="4287000" />
     </task>
     <servers />
   </component>
