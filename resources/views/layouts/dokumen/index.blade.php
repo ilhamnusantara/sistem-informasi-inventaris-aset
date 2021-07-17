@@ -1,4 +1,16 @@
 @extends('layouts.master')
+@section('style')
+    <style>
+        div.bawah {
+            display: block;
+            text-align: center;
+            color: white;
+            position: fixed;
+            right: 18px;
+            bottom: 65px;
+        }
+    </style>
+@endsection
 
 @section('content')
     <div class="content-wrapper">
@@ -151,8 +163,78 @@
                 </div>
             </div>
         </div>
-
-
+        <div class="bawah">
+            <button type="button" class="btn btn-warning float-right" data-toggle="modal" data-target="#exampleModal">
+                <i class="fas fa-info-circle"></i>
+            </button>
+        </div>
+        <!-- Modal induk belanja -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Informasi Tombol Detail</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="{{route('iBelanja.store')}}" method="POST">
+                            <div class="form-group">
+                                <table id="example2" class="table table-borderless">
+                                    <tbody>
+                                        <tr>
+                                            <td class="project-state">
+                                                <a class="btn bg-dark btn-sm">
+                                                    <i class="fas fa-search"></i>
+                                                </a>
+                                            </td>
+                                            <td class="project-state">Berkas Dokumen belum di validasi</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="project-state">
+                                                <a class="btn bg-yellow btn-sm">
+                                                    <i class="fas fa-search"></i>
+                                                </a>
+                                            </td>
+                                            <td class="project-state">Berkas Dokumen sudah divalidasi di Modul Dokumen tetapi belum sampai validasi di Modul Belanja</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="project-state">
+                                                <a class="btn bg-success btn-sm">
+                                                    <i class="fas fa-search"></i>
+                                                </a>
+                                            </td>
+                                            <td class="project-state">Berkas telah tervalidasi di Modul Dokumen dan Belanja </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="project-state">
+                                                <a class="btn bg-danger btn-sm">
+                                                    <i class="fas fa-search"></i>
+                                                </a>
+                                            </td>
+                                            <td class="project-state">Berkas telah dibatalkan di Modul Belanja </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+{{--                            <div class="form-group">--}}
+{{--                                <label for="inputNama">Kode Rekening Induk Belanja</label>--}}
+{{--                                <input name="norek_induk" type="text" class="form-control" id="inputNama" aria-describedby="emailHelp">--}}
+{{--                            </div>--}}
+{{--                            <div class="form-group">--}}
+{{--                                <label for="inputNama">Induk Belanja</label>--}}
+{{--                                <input name="induk_belanja" type="text" class="form-control" id="inputNama" aria-describedby="emailHelp">--}}
+{{--                            </div>--}}
+{{--                            <div class="modal-footer">--}}
+{{--                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>--}}
+{{--                                <button type="submit" class="btn btn-primary">Submit</button>--}}
+{{--                            </div>--}}
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
 @endsection

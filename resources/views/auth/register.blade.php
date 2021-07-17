@@ -40,6 +40,23 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="status" class="col-md-4 col-form-label text-md-right">Status</label>
+                            <div class="col-md-6">
+                                <select class="form-control" name="status" id="status">
+                                    <option value="">Pilih Status</option>
+                                    <option value="0">User</option>
+                                    <option value="1">Admin</option>
+                                </select>
+
+                                @error('status')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                             <div class="col-md-6">

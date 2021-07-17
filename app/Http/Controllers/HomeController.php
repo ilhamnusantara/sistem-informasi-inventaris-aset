@@ -24,6 +24,7 @@ class HomeController extends Controller
     public function index()
     {
         return view('layouts.dashboard');
+//        return view('home');
     }
     public function dokumen()
     {
@@ -32,6 +33,6 @@ class HomeController extends Controller
 
     public function tester()
     {
-        return view('layouts.tester');
+        return view('login');
     }
 }
