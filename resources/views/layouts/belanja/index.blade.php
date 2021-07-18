@@ -1,4 +1,19 @@
 @extends('layouts.master')
+@section('style')
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    {{--    <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">--}}
+    <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <style>
+        div.bawah {
+            display: block;
+            text-align: center;
+            color: white;
+            position: fixed;
+            right: 18px;
+            bottom: 65px;
+        }
+    </style>
+@endsection
 
 @section('content')
     <div class="content-wrapper">
@@ -122,19 +137,19 @@
                             </div>
                             <table id="example2" class="table table-bordered table-hover">
                                 <thead>
-                                <tr class="text-md-center">
-                                    <th>NO</th>
-                                    <th>Belanja</th>
-                                    <th>Satuan</th>
-                                    <th>Volume</th>
-                                    <th>Nominal Belanja</th>
-                                    <th>Rekanan</th>
-                                    <th>no pbb/spm</th>
-                                    <th>Tanggal</th>
-                                    <th>SP2D</th>
-                                    <th>Tgl SP2D</th>
-                                    <th>Detail</th>
-                                </tr>
+                                    <tr class="text-md-center">
+                                        <th>NO</th>
+                                        <th>Belanja</th>
+                                        <th>Satuan</th>
+                                        <th>Volume</th>
+                                        <th>Nominal Belanja</th>
+                                        <th>Rekanan</th>
+                                        <th>no pbb/spm</th>
+                                        <th>Tanggal</th>
+                                        <th>SP2D</th>
+                                        <th>Tgl SP2D</th>
+                                        <th>Detail</th>
+                                    </tr>
                                 </thead>
                                 <tbody>
                                 <?php $no = 1 ?>
@@ -165,22 +180,66 @@
                                 @endforeach
                                 </tbody>
                                 <tfoot>
-                                <tr class="text-md-center">
-                                    <th>NO</th>
-                                    <th>Belanja</th>
-                                    <th>Satuan</th>
-                                    <th>Volume</th>
-                                    <th>Nominal Belanja</th>
-                                    <th>Rekanan</th>
-                                    <th>no pbb/spm</th>
-                                    <th>Tanggal</th>
-                                    <th>SP2D</th>
-                                    <th>Tgl SP2D</th>
-                                    <th>Detail</th>
-                                </tr>
+                                    <tr class="text-md-center">
+                                        <th>NO</th>
+                                        <th>Belanja</th>
+                                        <th>Satuan</th>
+                                        <th>Volume</th>
+                                        <th>Nominal Belanja</th>
+                                        <th>Rekanan</th>
+                                        <th>no pbb/spm</th>
+                                        <th>Tanggal</th>
+                                        <th>SP2D</th>
+                                        <th>Tgl SP2D</th>
+                                        <th>Detail</th>
+                                    </tr>
                                 </tfoot>
                             </table>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bawah">
+            <button type="button" class="btn btn-warning float-right" data-toggle="modal" data-target="#exampleModal">
+                <i class="fas fa-info-circle"></i>
+            </button>
+        </div>
+        <!-- Modal induk belanja -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Informasi Tombol Detail</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="{{route('iBelanja.store')}}" method="POST">
+                            <div class="form-group">
+                                <table id="example2" class="table table-borderless">
+                                    <tbody>
+                                    <tr>
+                                        <td class="project-state">
+                                            <a class="btn bg-success btn-sm">
+                                                <i class="fas fa-search"></i>
+                                            </a>
+                                        </td>
+                                        <td class="project-state">Berkas telah tervalidasi di Modul Dokumen dan Belanja </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="project-state">
+                                            <a class="btn bg-danger btn-sm">
+                                                <i class="fas fa-search"></i>
+                                            </a>
+                                        </td>
+                                        <td class="project-state">Berkas telah dibatalkan di Modul Belanja </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

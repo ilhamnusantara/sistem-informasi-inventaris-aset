@@ -17,21 +17,56 @@ class DokumenController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
-    {
-        $dokumen = Dokumen::all();
+    public function getDokumen(Request $request){
+        $data = Dokumen::all();
         $jenisBelanjas = jenisBelanja::all();
 
-        if($search = $request->get('search')){
-            $dokumen = Dokumen::where('keterangan_belanja','LIKE', "%{$search}%")->get();
-        }elseif ($search = $request->get('id_jenis')){
-            $dokumen = Dokumen::where('id_jenis','LIKE', "%{$search}%")->get();
-        }
+        if($request->ajax()){
+            return DataTables::of($data)
+                ->addIndexColumn()
+                ->addColumn('jenis', function($row) {
+                    $jenis = $row->jenisBelanja->jenis_belanja;
+                    return $jenis;
+                })
+                ->addColumn('action', function($row) {
+                    if($row->status== 1 && $row->status_belanja == 0){
+                        $btn = '<a class="btn bg-yellow btn-sm" href="'.route('dokumen.show', $row->id_dokumen).'"><i class="fas fa-search"></i></a>';
+                        return $btn;
+                    }elseif ($row->status == 1 && $row->status_belanja == 1){
+                        $btn = '<a class="btn btn-success btn-sm" href="'.route('dokumen.show', $row->id_dokumen).'"><i class="fas fa-search"></i></a>';
+                        return $btn;
+                    }elseif ($row->status == 0 && $row->status_belanja == 0){
+                        $btn = '<a class="btn btn-dark btn-sm" href="'.route('dokumen.show', $row->id_dokumen).'"><i class="fas fa-search"></i></a>';
+                        return $btn;
+                    }elseif ($row->status == 0 && $row->status_belanja == 1){
+                        $btn = '<a class="btn btn-danger btn-sm" href="'.route('dokumen.show', $row->id_dokumen).'"><i class="fas fa-search"></i></a>';
+                        return $btn;
+                    }
 
+                })
+                ->rawColumns(['action'])
+                ->make(true);
+        }
         return view('layouts.dokumen.index',[
-            'dokumens' => $dokumen,
+            'dokumens' => $data,
         ], compact('jenisBelanjas'));
     }
+
+//    public function index(Request $request)
+//    {
+//        $dokumen = Dokumen::all();
+//        $jenisBelanjas = jenisBelanja::all();
+//
+//        if($search = $request->get('search')){
+//            $dokumen = Dokumen::where('keterangan_belanja','LIKE', "%{$search}%")->get();
+//        }elseif ($search = $request->get('id_jenis')){
+//            $dokumen = Dokumen::where('id_jenis','LIKE', "%{$search}%")->get();
+//        }
+//
+//        return view('layouts.dokumen.index',[
+//            'dokumens' => $dokumen,
+//        ], compact('jenisBelanjas'));
+//    }
     public function dataCetak()
     {
         return DataTables::of(Dokumen::query())->make(true);

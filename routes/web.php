@@ -39,7 +39,8 @@ Route::post('/store-SB','SubBelanjaController@store')->name('sBelanja.store');
 Route::get('/edit-SB/{id_sub}/edit','SubBelanjaController@edit')->name('sBelanja.edit');
 Route::put('/update-SB/{id_sub}/update','SubBelanjaController@update')->name('sBelanja.update');
 
-Route::get('/dokumen','DokumenController@index')->name('dokumen');
+//Route::get('/dokumen','DokumenController@index')->name('dokumen');
+Route::get('/dokumen','DokumenController@getDokumen')->name('dokumen');
 Route::get('/create-Dokumen','DokumenController@create')->name('dokumen.create');
 Route::post('/store-Dokumen','DokumenController@store')->name('dokumen.store');
 Route::get('/show-Dokumen/{id_dokumen}/tampil','DokumenController@show')->name('dokumen.show');
