@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="{{asset('/dashboard/plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
     <!-- Daterange picker -->
     <link rel="stylesheet" href="{{asset('/dashboard/plugins/daterangepicker/daterangepicker.css')}}">
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
     <!-- summernote -->
     <link rel="stylesheet" href="{{asset('/dashboard/plugins/summernote/summernote-bs4.min.css')}}">
     <!-- Toaster -->
@@ -229,6 +230,7 @@
     $('#reservationdate1').datetimepicker({
         format: 'L'
     });
+    $('#reservation').daterangepicker();
     // $(function() {
     //     $('input[name="tgl_spk"]').daterangepicker({
     //         singleDatePicker: true,

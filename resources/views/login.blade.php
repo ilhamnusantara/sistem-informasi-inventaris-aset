@@ -34,13 +34,12 @@
         <div class="container">
             <div class="row">
                 <div class="card-header">{{ __('Login') }}</div>
-                <div class="col-lg-3 col-md-2"></div>
                 <div class="col-lg-6 col-md-8 login-box">
                     <div class="col-lg-12 login-key">
                         <img src="{{url('/dashboard/dist/img/sda.png')}}" class="brand-image" style="opacity: .8" alt="User Image">
                     </div>
                     <div class="col-lg-12 login-title">
-                        ADMIN LAPORAN KEUANGAN
+                        ADMIN LAPORAN INVENTARIS
                     </div>
                     <div class="col-lg-12 login-form">
                         <div class="col-lg-12 login-form">

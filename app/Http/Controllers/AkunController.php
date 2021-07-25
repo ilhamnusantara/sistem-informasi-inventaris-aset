@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 use App\Akun;
+use App\User;
 use Illuminate\Http\Request;
+use Auth, Hash;
 
 class AkunController extends Controller
 {
@@ -13,10 +15,11 @@ class AkunController extends Controller
      */
     public function index()
     {
-        $akun = Akun::all();
+        $akuns = Akun::all();
+        $user = User::all();
         return view('layouts.akun.index',[
-            'akuns' => $akun,
-        ]);
+            'users' => $user,
+        ], compact('akuns'));
     }
 
     /**
@@ -62,12 +65,13 @@ class AkunController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+//     * @param  int  $id
+//     * @return \Illuminate\Http\Response
      */
-    public function edit(Akun $akun)
+    public function edit($id)
     {
-        return view('layouts.akun.edit', compact('akun'));
+        $user = User::find($id);
+        return view('layouts.akun.edit')->with('user', $user);
     }
 
     /**
@@ -77,17 +81,21 @@ class AkunController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Akun $akun)
+    public function update(Request $request, $id)
     {
+//        dd($request->all());
         $request->validate([
-            'id_akun' => 'required',
-            'nama_user' => 'required',
-            'instansi' => 'required',
-            'username' => 'required',
-            'password' => 'required',
+            'id' => 'required',
+            'name' => 'required',
+            'email' => 'required',
         ]);
-        $akun->update($request->all());
-        return redirect()->route('akun.index')->with('success', 'Akun berhasil diupdate');
+        $user = User::find($id);
+        $user->id = $request->id;
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+        $user->save();
+        return redirect()->route('user')->with('success', 'Akun berhasil diupdate');
     }
 
     /**

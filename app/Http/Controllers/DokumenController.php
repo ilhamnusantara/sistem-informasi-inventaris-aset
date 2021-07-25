@@ -18,8 +18,15 @@ class DokumenController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function getDokumen(Request $request){
-        $data = Dokumen::all();
         $jenisBelanjas = jenisBelanja::all();
+        if($request->id_jenis){
+            $arr = explode(" - ", $request->date);
+            $date_start = $arr[0];
+            $date_end = $arr[1];
+            $data = Dokumen::where('id_jenis', $request->id_jenis);
+        }else{
+            $data = Dokumen::all();
+        }
 
         if($request->ajax()){
             return DataTables::of($data)

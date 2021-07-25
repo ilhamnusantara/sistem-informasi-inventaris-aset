@@ -25,15 +25,74 @@
                         <!-- /.card-header -->
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-sm-12">
-                                    <form class="form-inline ml-3 float-md-right" action="#" method="GET">
-                                        <div class="input-group input-group-sm">
-                                            <div class="input-group-append">
-                                                <a href="{{route('export')}}" class="btn btn-sm btn-success next"><i class="fas fa-download"></i> Cetak Laporan</a>
+                                <div class="col-sm-9">
+{{--                                    <form class="form-inline ml-3 float-md-right" action="#" method="GET">--}}
+{{--                                        <div class="input-group input-group-sm">--}}
+{{--                                            <div class="input-group-append">--}}
+{{--                                                <a href="#" class="btn btn-success next" id="btn-cetak"><i class="fas fa-download"></i> Cetak Laporan</a>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    </form>--}}
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="float-md-right">
+                                        <button type="button" class="btn btn-info float-right" data-toggle="modal" data-target="#exampleModal">
+                                            Cetak
+                                        </button>
+                                    </div>
+                                    <!-- Modal induk belanja -->
+                                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Filter Cetak Laporan</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form action="{{route('cetakLap')}}" method="GET">
+                                                        {{ csrf_field() }}
+                                                        <div class="form-group">
+                                                            <label>Tanggal :</label>
+                                                            <div class="input-group">
+                                                                <div class="input-group-prepend">
+                                                                      <span class="input-group-text">
+                                                                        <i class="far fa-calendar-alt"></i>
+                                                                      </span>
+                                                                </div>
+                                                                <input type="text" class="form-control float-right" id="reservation">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>Jenis Belanja</label>
+                                                            <select class="form-control select2" style="width: 100%;" name="id_jenis" id="id_jenis">
+                                                                <option value="">Pilih Jenis</option>
+                                                                @foreach ($jenisBelanjas as $jenisBelanja)
+                                                                    <option value="{{$jenisBelanja->id_jenis}}" data-kategori="{{str_replace(' ','_',strtolower($jenisBelanja->kategori))}}" {{request()->get('jenis') == $jenisBelanja->id_jenis ? 'selected':''}}>{{$jenisBelanja->jenis_belanja}}</option>
+                                                                @endforeach
+                                                            </select>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+{{--                                                            <button type="submit" class="btn btn-primary">Filter</button>--}}
+                                                            <a href="#" class="btn btn-success next" id="btn-cetak"><i class="fas fa-download"></i> Cetak Laporan</a>
+                                                        </div>
+                                                    </form>
+                                                </div>
                                             </div>
                                         </div>
-                                    </form>
+                                    </div>
                                 </div>
+{{--                                <div class="col-sm-9">--}}
+{{--                                    <form class="form-inline ml-3 float-md-right" action="#" method="GET">--}}
+{{--                                        <div class="input-group input-group-sm">--}}
+{{--                                            <div class="input-group-append">--}}
+{{--                                                <a href="#" class="btn btn-success next" id="btn-cetak"><i class="fas fa-download"></i> Cetak Laporan</a>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    </form>--}}
+{{--                                </div>--}}
                             </div>
                             <table id="example2" class="table table-bordered table-hover">
                                 <thead>
@@ -95,4 +154,21 @@
 
     </div>
 
+@endsection
+
+@section('script')
+    <script>
+        $(function () {
+            $('#reservation').daterangepicker()
+            $( "#btn-cetak" ).click(function() {
+                var url = '{{ route("export", ['id_jenis' => ':id_jenis']) }}';
+
+                url = url.replace('%3Aid_jenis', $('#id_jenis').val());
+
+                window.open(url, '_blank');
+            });
+
+
+        })
+    </script>
 @endsection

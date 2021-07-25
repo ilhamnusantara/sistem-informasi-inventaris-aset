@@ -113,6 +113,11 @@
                                 <div class="card-footer">
                                     <div class="content float-md-right">
                                         @if($belanja->Dokumen->status == 1 && $belanja->Dokumen->status_belanja == 1)
+                                            <a class="btn btn-info btn-sm" href="{{route('belanja.edit', $belanja->id_belanja)}}">
+                                                <i class="fas fa-pencil-alt">
+                                                </i>
+                                                Edit
+                                            </a>
                                             <a class="btn btn-danger btn-sm" href="{{route('belanja.unvervalbelanja',$belanja->id_dokumen)}}" onclick="return confirm('Batalkan validasi')"><i class="fas fa-times"></i>  Batal Validasi</a>
 
                                         @elseif($belanja->Dokumen->status == 0 && $belanja->Dokumen->status_belanja == 1)

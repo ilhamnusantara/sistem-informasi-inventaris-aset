@@ -36,8 +36,8 @@ class CetakDokumenController extends Controller
         return response()->download(public_path("foto/{$namafile}"));
     }
 
-    public function export()
+    public function export(Request $request)
     {
-        return Excel::download(new DataAsetExport, 'aset.xlsx');
+        return Excel::download(new DataAsetExport($request->id_jenis), 'aset.xlsx');
     }
 }

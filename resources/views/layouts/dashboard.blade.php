@@ -7,7 +7,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h5 class="m-0">Sistem Informasi Laporan Keuangan <small>Kecamatan Taman</small></h5>
+                        <h5 class="m-0">Sistem Informasi Laporan Inventaris <small>Kecamatan Taman</small></h5>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -26,7 +26,7 @@
                 <div class="lockscreen-logo">
                     <img src="https://siksda.sidoarjokab.go.id/images/logo.png" alt="logo sidoarjo">
                     <h2>Kecamatan Taman Kabupaten Sidoarjo</h2>
-                    <h6>Laporan Keuangan Terpadu</h6>
+                    <h6>Laporan Inventaris Terpadu</h6>
                 </div>
                 <!-- Small boxes (Stat box) -->
 {{--                <div class="row">--}}

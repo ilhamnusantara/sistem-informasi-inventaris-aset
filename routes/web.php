@@ -80,5 +80,12 @@ Route::get('/cetak-dokumen/foto/{namafoto}','CetakDokumenController@downloadFoto
 
 Route::get('/cetak-laporan','LaporanController@index')->name('cetakLap');
 
-Route::resource('akun', 'AkunController');
+//Route::resource('akun', 'AkunController');
+Route::get('/user','AkunController@index')->name('user');
+Route::get('/edit-user/{id}/edit','AkunController@edit')->name('user.edit');
+Route::get('/create-user','AkunController@create')->name('user.create');
+Route::put('/update-user/{id}/update','AkunController@update')->name('user.update');
+Route::get('/hapus-user/{id}/delete','AkunController@destroy')->name('user.delete');
+
+
 

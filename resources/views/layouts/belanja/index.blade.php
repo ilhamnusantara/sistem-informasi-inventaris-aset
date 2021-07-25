@@ -43,7 +43,7 @@
                                 <div class="col-sm-6">
                                     <form class="form-inline ml-3 float-md-left" action="{{route('belanja')}}" method="GET">
                                         <div class="input-group input-group-sm">
-                                            <input class="form-control form-control-navbar" name="search" type="search" placeholder="Search" aria-label="Search" value="{{Request::get('search') }}">
+                                            <input class="form-control form-control-navbar" name="search" type="search" placeholder="Search PBB/SPM" aria-label="Search" value="{{Request::get('search') }}">
                                             <div class="input-group-append">
                                                 <button class="btn btn-navbar" type="submit">
                                                     <i class="fas fa-search"></i>
@@ -105,9 +105,9 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label>Tanggal Belanja</label>
-                                                        <div class="input-group date" id="reservationdate1" data-target-input="nearest">
-                                                            <input type="text" class="form-control datetimepicker-input" name="tanggal_belanja" data-target="#reservationdate1"/>
-                                                            <div class="input-group-append" data-target="#reservationdate1" data-toggle="datetimepicker">
+                                                        <div class="input-group date" id="reservationdate2" data-target-input="nearest">
+                                                            <input type="text" class="form-control datetimepicker-input" name="tanggal_belanja" data-target="#reservationdate2"/>
+                                                            <div class="input-group-append" data-target="#reservationdate2" data-toggle="datetimepicker">
                                                                 <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                                             </div>
                                                         </div>
@@ -118,9 +118,9 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label>Tanggal SP2D</label>
-                                                        <div class="input-group date" id="reservationdate1" data-target-input="nearest">
-                                                            <input type="text" class="form-control datetimepicker-input" name="tanggal_sp2d" data-target="#reservationdate1"/>
-                                                            <div class="input-group-append" data-target="#reservationdate1" data-toggle="datetimepicker">
+                                                        <div class="input-group date" id="reservationdate3" data-target-input="nearest">
+                                                            <input type="text" class="form-control datetimepicker-input" name="tanggal_sp2d" data-target="#reservationdate3"/>
+                                                            <div class="input-group-append" data-target="#reservationdate3" data-toggle="datetimepicker">
                                                                 <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                                             </div>
                                                         </div>
@@ -249,6 +249,12 @@
 @endsection
 @section('script')
     <script type="text/javascript">
+        $('#reservationdate2').datetimepicker({
+            format: 'L'
+        });
+        $('#reservationdate3').datetimepicker({
+            format: 'L'
+        });
         var rupiah = document.getElementById('rupiah');
         rupiah.addEventListener('keyup', function(e){
             // tambahkan 'Rp.' pada saat form di ketik

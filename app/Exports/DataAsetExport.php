@@ -6,19 +6,32 @@ use App\Belanja;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithMapping;
 use Maatwebsite\Excel\Concerns\WithHeadings;
+use Maatwebsite\Excel\Concerns\SkipsEmptyRows;
 
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 
-class DataAsetExport implements FromCollection,  WithMapping, WithHeadings, ShouldAutoSize
+class DataAsetExport implements FromCollection, SkipsEmptyRows,  WithMapping, WithHeadings, ShouldAutoSize
 {
+    protected $id_jenis = null;
+
+    function __construct($id_jenis) {
+        $this->id_jenis = $id_jenis;
+    }
     public function collection()
     {
-        return Belanja::with(['Dokumen', 'Dokumen.jenisBelanja'])->get();
+        if( $this->id_jenis){
+            return Belanja::whereHas('Dokumen', function($q){
+                $q->where('id_jenis', '=', $this->id_jenis);
+            })->with(['Dokumen.jenisBelanja'])->get();
+        }else{
+            return Belanja::with(['Dokumen', 'Dokumen.jenisBelanja'])->get();
+        }
     }
 
 
     public function map($belanja) : array
     {
+
         return [
             $belanja['id_belanja'],
 //            $belanja['Dokumen']['jenisBelanja']['jenis_belanja'],

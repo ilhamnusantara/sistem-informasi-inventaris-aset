@@ -24,7 +24,7 @@
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title m-0">Daftar Akun</h3>
-                            <form method="get" action="{{route('akun.create')}}">
+                            <form method="get" action="{{route('user.create')}}">
                                 <button class="btn btn-info btn-lg float-right" type="submit">
                                     Create
                                 </button>
@@ -38,35 +38,27 @@
                                 <tr>
                                     <th>No ID.</th>
                                     <th>Nama Lengkap</th>
-                                    <th>Instansi</th>
                                     <th>Username</th>
-                                    <th>Password</th>
                                     <th>Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($akuns as $akun)
+                                @foreach($users as $user)
                                 <tr>
-                                    <td class="project-state">{{$akun->id_akun}}</td>
-                                    <td class="project-state">{{$akun->nama_user}}</td>
-                                    <td class="project-state">{{$akun->instansi}}</td>
-                                    <td class="project-state">{{$akun->username}}</td>
-                                    <td class="project-state">{{$akun->password}}</td>
+                                    <td class="project-state">{{$user->id}}</td>
+                                    <td class="project-state">{{$user->name}}</td>
+                                    <td class="project-state">{{$user->email}}</td>
                                     <td class="project-actions text-center">
-                                        <form action="{{route('akun.destroy', $akun->id_akun)}}" method="POST">
-                                            <a class="btn btn-info btn-sm" href="{{route('akun.edit', $akun->id_akun)}}">
-                                                <i class="fas fa-pencil-alt">
-                                                </i>
-                                                Edit
-                                            </a>
-                                            @csrf
-                                            @method('delete')
-                                            <button type="submit" class="btn btn-danger btn-sm">
-                                                <i class="fas fa-trash">
-                                                </i>
-                                                Delete
-                                            </button>
-                                        </form>
+                                        <a class="btn btn-info btn-sm" href="{{route('user.edit', $user->id)}}">
+                                            <i class="fas fa-pencil-alt">
+                                            </i>
+                                            Edit
+                                        </a>
+                                        <a class="btn btn-danger btn-sm" href="{{route('user.delete', $user->id)}}" onclick="return confirm('Data akan dihapus, lanjutkan?')">
+                                            <i class="fas fa-trash">
+                                            </i>
+                                            Hapus
+                                        </a>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -75,14 +67,12 @@
                                 <tr>
                                     <th>No. ID</th>
                                     <th>Nama Lengkap</th>
-                                    <th>Instansi</th>
                                     <th>Username</th>
-                                    <th>Password</th>
                                     <th>Action</th>
                                 </tr>
                                 </tfoot>
                             </table>
-                            
+
                         </div>
                     </div>
                 </div>

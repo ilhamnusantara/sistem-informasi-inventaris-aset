@@ -47,41 +47,40 @@
                         <!-- /.card-header -->
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-sm-6">
-{{--                                    <form class="form-inline ml-3 float-md-left" action="{{route('dokumen')}}" method="GET">--}}
-{{--                                        <div class="input-group input-group-sm">--}}
-{{--                                            <select class="form-control select2" style="width: 10%;" name="id_jenis" id="id_jenis">--}}
-{{--                                                <option value="" selected class="align-middle">--Pilih Kategori--</option>--}}
-{{--                                                @foreach ($jenisBelanjas as $jenisBelanja)--}}
-{{--                                                    <option value="{{$jenisBelanja->id_jenis}}">{{$jenisBelanja->jenis_belanja}}</option>--}}
-{{--                                                @endforeach--}}
-{{--                                            </select>--}}
-{{--                                            <div class="form-group">--}}
-{{--                                                <button class="btn btn-navbar" type="submit">--}}
-{{--                                                    <i class="fas fa-search"></i>--}}
-{{--                                                </button>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                    </form>--}}
+                                <div class="col-sm-5">
+                                    <form class="form-inline" action="{{route('dokumen')}}" method="GET">
+                                        <div class="input-group">
+                                            <select class="form-control select2" style="width: 10%;" name="id_jenis" id="id_jenis">
+                                                <option value="" selected class="align-middle">--Pilih Kategori--</option>
+                                                @foreach ($jenisBelanjas as $jenisBelanja)
+                                                    <option value="{{$jenisBelanja->id_jenis}}" {{ (app('request')->input('id_jenis') == $jenisBelanja->id_jenis) ? 'selected' : '' }}>{{$jenisBelanja->jenis_belanja}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <button class="btn btn-navbar" type="submit">
+                                                <i class="fas fa-search"></i>
+                                            </button>
+                                        </div>
+                                    </form>
                                 </div>
-                                <div class="col-sm-6">
-{{--                                    <form class="form-inline ml-3 float-md-right" action="{{route('dokumen')}}" method="GET">--}}
-{{--                                        <div class="input-group input-group-sm">--}}
-{{--                                            <input class="form-control form-control-navbar" name="search" type="search" placeholder="Search" aria-label="Search" value="{{Request::get('search') }}">--}}
-{{--                                            <div class="input-group-append">--}}
-{{--                                                <button class="btn btn-navbar" type="submit">--}}
-{{--                                                    <i class="fas fa-search"></i>--}}
-{{--                                                </button>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                    </form>--}}
+                                <div class="col-sm-3">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                              <span class="input-group-text">
+                                                <i class="far fa-calendar-alt"></i>
+                                              </span>
+                                        </div>
+                                        <input type="text" name="date" class="form-control float-right" id="reservation">
+                                    </div>
                                 </div>
                             </div>
+                            <br>
                             <div class="table-responsive">
                                 <table id="example2" class="table">
                                     <thead>
                                     <tr class="text-md-center">
-                                        <th>NO</th>
+{{--                                        <th>NO</th>--}}
                                         <th>Jenis</th>
                                         <th>Instansi</th>
                                         <th>Ket. Belanja</th>
@@ -94,62 +93,9 @@
 
                                     </tr>
                                     </thead>
-                                    <tbody>
-    {{--                                <?php $no = 1 ?>--}}
-    {{--                                @foreach($dokumens as $dokumen)--}}
-    {{--                                    <tr>--}}
-    {{--                                        <td class="project-state text-md-center">{{$no++}}</td>--}}
-    {{--                                        <td class="project-state">{{$dokumen->jenisBelanja->jenis_belanja}}</td>--}}
-    {{--                                        <td class="project-state">{{$dokumen->instansi}}</td>--}}
-    {{--                                        <td class="project-state">{{$dokumen->keterangan_belanja}}</td>--}}
-    {{--                                        @if($dokumen->rincian_belanja == null)--}}
-    {{--                                            <td class="project-state">{{$dokumen->rincian_belanja}}</td>--}}
-    {{--                                        @else--}}
-    {{--                                            <td class="project-state"> {{substr($dokumen->rincian_belanja,0,15).'....'}}</td>--}}
-    {{--                                        @endif--}}
-    {{--                                        @if($dokumen->no_spk == null)--}}
-    {{--                                            <td class="project-state">{{$dokumen->no_spk}}</td>--}}
-    {{--                                        @else--}}
-    {{--                                            <td class="project-state">{{substr($dokumen->no_spk,0,20).'...'}}</td>--}}
-    {{--                                        @endif--}}
-    {{--                                        <td class="project-state">{{$dokumen->tgl_spk}}</td>--}}
-    {{--                                        @if($dokumen->no_bast == null)--}}
-    {{--                                            <td class="project-state">{{$dokumen->no_bast}}</td>--}}
-    {{--                                        @else--}}
-    {{--                                            <td class="project-state">{{substr($dokumen->no_bast,0,20).'...'}}</td>--}}
-    {{--                                        @endif--}}
-    {{--                                        <td class="project-state">{{$dokumen->tgl_bast}}</td>--}}
-    {{--                                        @if($dokumen->status== 1 && $dokumen->status_belanja == 0)--}}
-    {{--                                            <td class="project-actions text-center">--}}
-    {{--                                                <a class="btn bg-yellow btn-sm" href="{{route('dokumen.show', $dokumen->id_dokumen)}}">--}}
-    {{--                                                    <i class="fas fa-search"></i>--}}
-    {{--                                                </a>--}}
-    {{--                                            </td>--}}
-    {{--                                        @elseif($dokumen->status == 1 && $dokumen->status_belanja == 1)--}}
-    {{--                                            <td class="project-actions text-center">--}}
-    {{--                                                <a class="btn btn-success btn-sm" href="{{route('dokumen.show', $dokumen->id_dokumen)}}">--}}
-    {{--                                                    <i class="fas fa-search"></i>--}}
-    {{--                                                </a>--}}
-    {{--                                            </td>--}}
-    {{--                                        @elseif($dokumen->status == 0 && $dokumen->status_belanja == 0)--}}
-    {{--                                            <td class="project-actions text-center">--}}
-    {{--                                                <a class="btn btn-dark btn-sm" href="{{route('dokumen.show', $dokumen->id_dokumen)}}">--}}
-    {{--                                                    <i class="fas fa-search"></i>--}}
-    {{--                                                </a>--}}
-    {{--                                            </td>--}}
-    {{--                                        @elseif($dokumen->status == 0 && $dokumen->status_belanja == 1)--}}
-    {{--                                            <td class="project-actions text-center">--}}
-    {{--                                                <a class="btn btn-danger btn-sm" href="{{route('dokumen.show', $dokumen->id_dokumen)}}">--}}
-    {{--                                                    <i class="fas fa-search"></i>--}}
-    {{--                                                </a>--}}
-    {{--                                            </td>--}}
-    {{--                                        @endif--}}
-    {{--                                    </tr>--}}
-    {{--                                @endforeach--}}
-                                    </tbody>
                                     <tfoot>
                                     <tr class="text-md-center">
-                                        <th>NO</th>
+{{--                                        <th>NO</th>--}}
                                         <th>Jenis</th>
                                         <th>Instansi</th>
                                         <th>Ket. Belanja</th>
@@ -239,14 +185,48 @@
     <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
     <script type="text/javascript">
+        var minDate, maxDate, pisah;
+        $.fn.dataTable.ext.search.push(
+            function( settings, data, dataIndex ) {
+                var min = minDate.val();
+                var max = maxDate.val();
+                var date =  data[5];
+
+                if (
+                    ( min === null && max === null ) ||
+                    ( min === null && date <= max ) ||
+                    ( min <= date   && max === null ) ||
+                    ( min <= date   && date <= max )
+                ) {
+                    return true;
+                }
+                return false;
+            }
+        );
+
         $(document).ready(function() {
+            // pisah = $('#reservation').split(" - ");
+            // mnDate = pisah[0];
+            // mxDate = pisah[1];
+            // minDate = new DateTime(mnDate,{
+            //     format: 'YYYY Do MMMM'
+            // });
+            // maxDate = new DateTime(mxDate,{
+            //     format: 'YYYY Do MMMM'
+            // });
             var table = $('#example2').DataTable({
                 // processing: true,
                 serverSide: true,
                 responsive:true,
-                ajax: "{{ url('/dokumen')}}",
+                ajax: {
+                    "url": "{{ url('/dokumen')}}",
+                    "data": {
+                        "id_jenis": "{{app('request')->input('id_jenis')}}"
+                    }
+
+                },
                 columns: [
-                    {data: 'DT_RowIndex', name: 'DT_RowIndex'},
+                    // {data: 'DT_RowIndex', name: 'DT_RowIndex'},
                     {data: 'jenis', name: 'jenis'},
                     {data: 'instansi', name: 'instansi'},
                     {data: 'keterangan_belanja', name: 'keterangan_belanja'},
@@ -258,6 +238,11 @@
                     {data: 'action', name: 'action', orderable: false, searchable: false},
                 ]
             });
+            $('#reservation').on('change', function (){
+               table.draw();
+            });
+
         });
+
     </script>
 @endsection
