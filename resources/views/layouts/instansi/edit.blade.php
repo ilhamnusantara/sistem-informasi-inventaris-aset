@@ -7,12 +7,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Edit Induk Belanja</h1>
+                        <h1 class="m-0">Edit Data Instansi</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item"><a href="{{route('jBelanja')}}">Jenis Belanja</a></li>
+                            <li class="breadcrumb-item"><a href="{{route('instansi')}}">Jenis Belanja</a></li>
                             <li class="breadcrumb-item active">Edit Induk Belanja Admin Kecamatan</li>
                         </ol>
                     </div><!-- /.col -->
@@ -27,7 +27,7 @@
                         <!-- general form elements -->
                         <div class="card card-primary">
                             <div class="card-header">
-                                <h3 class="card-title">Edit Induk Belanja</h3>
+                                <h3 class="card-title">Edit Data Rekanan</h3>
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
