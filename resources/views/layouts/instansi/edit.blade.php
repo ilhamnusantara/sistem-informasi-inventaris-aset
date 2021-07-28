@@ -12,8 +12,8 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item"><a href="{{route('instansi')}}">Jenis Belanja</a></li>
-                            <li class="breadcrumb-item active">Edit Induk Belanja Admin Kecamatan</li>
+                            <li class="breadcrumb-item"><a href="{{route('instansi')}}">Instansi</a></li>
+                            <li class="breadcrumb-item active">Edit Data Instansi</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -31,17 +31,21 @@
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
-                            <form action="{{route('iBelanja.update', $indukBelanja)}}" enctype="multipart/form-data"  method="post">
+                            <form action="{{route('instansi.update', $instansi)}}" enctype="multipart/form-data"  method="post">
                                 @csrf
                                 @method('PUT')
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label for="exampleInputPassword1">Kode Rekening Induk Belanja</label>
-                                        <input type="text" class="form-control" name="norek_induk" id="norek_induk" value="{{$indukBelanja->norek_induk}}">
+                                        <label for="exampleInputPassword1">Nama Instansi</label>
+                                        <input type="text" class="form-control" name="norek_induk" id="nama_instansi" value="{{$instansi->nama_instansi}}">
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputPassword1">Induk Belanja</label>
-                                        <input type="text" class="form-control" name="induk_belanja" id="induk_belanja" value="{{$indukBelanja->induk_belanja}}">
+                                        <label for="exampleInputPassword1">Alamat</label>
+                                        <input type="text" class="form-control" name="induk_belanja" id="alamat" value="{{$instansi->alamat}}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">No. Telp</label>
+                                        <input type="text" class="form-control" name="induk_belanja" id="no_telp" value="{{$instansi->no_telp}}">
                                     </div>
                                 </div>
                                 <!-- /.card-body -->
