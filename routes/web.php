@@ -39,6 +39,12 @@ Route::post('/store-SB','SubBelanjaController@store')->name('sBelanja.store');
 Route::get('/edit-SB/{id_sub}/edit','SubBelanjaController@edit')->name('sBelanja.edit');
 Route::put('/update-SB/{id_sub}/update','SubBelanjaController@update')->name('sBelanja.update');
 
+Route::get('/instansi','InstansiController@index')->name('instansi');
+Route::post('/store-instansi','InstansiController@store')->name('instansi.store');
+Route::get('/edit-instansi/{id_instansi}/edit','InstansiController@edit')->name('instansi.edit');
+Route::put('/update-instansi/{id_instansi}/update','InstansiController@update')->name('instansi.update');
+Route::get('/delete-instansi/{id_instansi}/delete','InstansiController@destroy')->name('instansi.delete');
+
 //Route::get('/dokumen','DokumenController@index')->name('dokumen');
 Route::get('/dokumen','DokumenController@getDokumen')->name('dokumen');
 Route::get('/create-Dokumen','DokumenController@create')->name('dokumen.create');
