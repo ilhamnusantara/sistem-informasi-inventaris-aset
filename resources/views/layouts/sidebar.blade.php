@@ -47,9 +47,15 @@
                             <p>Master Belanja</p>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a href="{{route('instansi')}}" class="{{Request::is('instansi')?'nav-link active':'nav-link'}}">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Instansi</p>
+                        </a>
+                    </li>
                 </ul>
             </li>
-            <li class="nav-header">AKSI</li>
+            <li class="nav-header">TRANSAKSI</li>
             <li class="nav-item">
                 <a href="{{route('dokumen')}}" class="{{Request::is('dokumen')?'nav-link active':'nav-link'}}">
                     <i class="nav-icon fa fa-file"></i>

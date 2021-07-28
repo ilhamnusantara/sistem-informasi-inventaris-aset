@@ -88,7 +88,7 @@
                                 </thead>
                                 <tbody>
                                 <?php $no = 1 ?>
-                                @foreach($instansis as $instansi)
+                                @foreach($instansi as $instansi)
                                     <tr>
                                         <td class="project-state text-md-center ">{{$instansi->id_instansi}}</td>
                                         <td class="project-state">{{$instansi->nama_instansi}}</td>
@@ -100,11 +100,11 @@
                                                 </i>
                                                 Edit
                                             </a>
-{{--                                            <a class="btn btn-danger btn-sm" href="{{route('instansi.delete', $instansi)}}" onclick="return confirm('Data akan dihapus, lanjutkan?')">--}}
-{{--                                                <i class="fas fa-trash">--}}
-{{--                                                </i>--}}
-{{--                                                Delete--}}
-{{--                                            </a>--}}
+                                            <a class="btn btn-danger btn-sm" href="{{route('instansi.delete', $instansi)}}" onclick="return confirm('Data akan dihapus, lanjutkan?')">
+                                                <i class="fas fa-trash">
+                                                </i>
+                                                Delete
+                                            </a>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -121,12 +121,6 @@
                             </table>
                         </div>
                         <hr/>
-                        <!-- /.card-body -->
-                        <div class="card-footer">
-                            <div class="content float-md-right">
-                                <a href="{{route('sBelanja')}}" class="btn btn-sm btn-success next">Next &raquo;</a>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
