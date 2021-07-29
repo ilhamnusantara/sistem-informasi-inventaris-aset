@@ -231,6 +231,12 @@
     $('#reservationdate1').datetimepicker({
         format: 'DD MMMM YYYY'
     });
+    $('#reservationdate2').datetimepicker({
+        format: 'DD MMMM YYYY'
+    });
+    $('#reservationdate3').datetimepicker({
+        format: 'DD MMMM YYYY'
+    });
     $('#reservation').daterangepicker({
         locale: {
             format: 'DD MMMM YYYY'

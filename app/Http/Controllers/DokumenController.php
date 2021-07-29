@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Dokumen;
+use App\Instansi;
 use App\jenisBelanja;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -19,6 +20,7 @@ class DokumenController extends Controller
      */
     public function getDokumen(Request $request){
         $jenisBelanjas = jenisBelanja::all();
+        $instansis = Instansi::all();
         $data = Dokumen::query();
         if($request->id_jenis){
             $data->where('id_jenis', $request->id_jenis);
@@ -42,6 +44,10 @@ class DokumenController extends Controller
                     $jenis = $row->jenisBelanja->jenis_belanja;
                     return $jenis;
                 })
+                ->addColumn('instansi', function($row) {
+                    $instansi = $row->instansi->nama_instansi;
+                    return $instansi;
+                })
                 ->addColumn('action', function($row) {
                     if($row->status== 1 && $row->status_belanja == 0){
                         $btn = '<a class="btn bg-yellow btn-sm" href="'.route('dokumen.show', $row->id_dokumen).'"><i class="fas fa-search"></i></a>';
@@ -63,7 +69,7 @@ class DokumenController extends Controller
         }
         return view('layouts.dokumen.index',[
             'dokumens' => $data,
-        ], compact('jenisBelanjas'));
+        ], compact('jenisBelanjas','instansis'));
     }
 
 //    public function index(Request $request)
@@ -94,7 +100,8 @@ class DokumenController extends Controller
     public function create()
     {
         $jenisBelanjas = jenisBelanja::all();
-        return view('layouts.dokumen.create', compact('jenisBelanjas'));
+        $instansis = Instansi::all();
+        return view('layouts.dokumen.create', compact('jenisBelanjas','instansis'));
     }
 
     /**
@@ -137,7 +144,7 @@ class DokumenController extends Controller
         $date_bast = \Carbon\Carbon::parse(urldecode($request->tgl_bast))->format('Y-m-d');
 
         $dokumen->id_jenis = $request->id_jenis;
-        $dokumen->instansi = $request->instansi;
+        $dokumen->id_instansi = $request->instansi;
         $dokumen->keterangan_belanja = $request->keterangan_belanja;
         $dokumen->rincian_belanja = $request->rincian_belanja;
         $dokumen->no_spk = $request->no_spk;
@@ -181,8 +188,9 @@ class DokumenController extends Controller
     public function edit($id_dokumen)
     {
         $jenisBelanjas = jenisBelanja::all();
+        $instansis = Instansi::all();
         $dokumen = Dokumen::with('jenisBelanja')->find($id_dokumen);
-        return view('layouts.dokumen.edit',compact('jenisBelanjas'))->with('dokumen', $dokumen);
+        return view('layouts.dokumen.edit',compact('jenisBelanjas','instansis'))->with('dokumen', $dokumen);
     }
 
     /**
@@ -220,7 +228,7 @@ class DokumenController extends Controller
         $date_bast = \Carbon\Carbon::parse(urldecode($request->tgl_bast))->format('Y-m-d');
 
         $dokumen->id_jenis = $request->id_jenis;
-        $dokumen->instansi = $request->instansi;
+        $dokumen->id_instansi = $request->id_instansi;
         $dokumen->keterangan_belanja = $request->keterangan_belanja;
         $dokumen->rincian_belanja = $request->rincian_belanja;
         $dokumen->no_spk = $request->no_spk;

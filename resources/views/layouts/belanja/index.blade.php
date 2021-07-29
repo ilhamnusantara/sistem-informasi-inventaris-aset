@@ -109,7 +109,12 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="inputNama">Rekanan</label>
-                                                        <input name="rekanan" type="text" class="form-control" id="inputNama" aria-describedby="emailHelp">
+                                                        <select class="form-control select2" style="width: 100%;" name="id_rekanan" id="id_rekanan">
+                                                            <option disable value>--Pilih Induk Belanja--</option>
+                                                            @foreach ($rekanans as $rekanan)
+                                                                <option value="{{$rekanan->id_rekanan}}">{{$rekanan->nama_rekanan}}</option>
+                                                            @endforeach
+                                                        </select>
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="inputNama">Nomor PBB/SPM</label>
@@ -117,9 +122,9 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label>Tanggal Belanja</label>
-                                                        <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                                                            <input type="text" class="form-control datetimepicker-input" name="tanggal_belanja" data-target="#reservationdate"/>
-                                                            <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+                                                        <div class="input-group date" id="reservationdate2" data-target-input="nearest">
+                                                            <input type="text" class="form-control datetimepicker-input" name="tanggal_belanja" data-target="#reservationdate2"/>
+                                                            <div class="input-group-append" data-target="#reservationdate2" data-toggle="datetimepicker">
                                                                 <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                                             </div>
                                                         </div>
@@ -130,9 +135,9 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label>Tanggal SP2D</label>
-                                                        <div class="input-group date" id="reservationdate1" data-target-input="nearest">
-                                                            <input type="text" class="form-control datetimepicker-input" name="tanggal_sp2d" data-target="#reservationdate1"/>
-                                                            <div class="input-group-append" data-target="#reservationdate1" data-toggle="datetimepicker">
+                                                        <div class="input-group date" id="reservationdate3" data-target-input="nearest">
+                                                            <input type="text" class="form-control datetimepicker-input" name="tanggal_sp2d" data-target="#reservationdate3"/>
+                                                            <div class="input-group-append" data-target="#reservationdate3" data-toggle="datetimepicker">
                                                                 <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                                             </div>
                                                         </div>

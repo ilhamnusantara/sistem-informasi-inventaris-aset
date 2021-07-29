@@ -19,7 +19,7 @@ class CreateBelanjasTable extends Migration
             $table->string('satuan');
             $table->integer('volume');
             $table->integer('nominal_belanja');
-            $table->string('rekanan');
+            $table->unsignedInteger('id_rekanan')->foreign('id_rekanan')->references('id_rekanan')->on('instansis')->onDelete('cascade');
             $table->string('no_pbb_ls');
             $table->date('tanggal_belanja');
             $table->string('sp2d')->nullable();

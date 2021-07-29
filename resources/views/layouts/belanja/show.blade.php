@@ -42,7 +42,7 @@
                                             <!-- text input -->
                                             <div class="form-group">
                                                 <label>Dokumen Belanja</label>
-                                                <input type="text" class="form-control" name="id_dokumen" id="id_jenis" value="{{$belanja->Dokumen->keterangan_belanja}}" readonly >
+                                                <input type="text" class="form-control" name="id_dokumen" id="id_dokumen" value="{{$belanja->Dokumen->keterangan_belanja}}" readonly >
                                             </div>
                                         </div>
                                     </div>
@@ -58,7 +58,7 @@
                                             <!-- text input -->
                                             <div class="form-group">
                                                 <label>Rekanan</label>
-                                                <input type="text" class="form-control" name="rekanan" id="rekanan" value="{{$belanja->rekanan}}" readonly >
+                                                <input type="text" class="form-control" name="rekanan" id="rekanan" value="{{$belanja->rekanan->nama_rekanan}}" readonly >
                                             </div>
                                         </div>
                                     </div>

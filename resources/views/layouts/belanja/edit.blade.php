@@ -66,7 +66,14 @@
                                             <!-- text input -->
                                             <div class="form-group">
                                                 <label>Rekanan</label>
-                                                <input type="text" class="form-control" name="rekanan" id="rekanan" value="{{$belanja->rekanan}}">
+                                                <select class="form-control select2" style="width: 100%;" name="id_rekanan" id="id_rekanan">
+                                                    <option value="{{$belanja->id_rekanan}}" class="fas fa-check">{{$belanja->rekanan->nama_rekanan}}</option>
+                                                    @foreach ($rekanans as $rekanan)
+                                                        @if($rekanan->id_rekanan != $belanja->id_rekanan)
+                                                            <option value="{{$rekanan->id_rekanan}}">{{$rekanan->nama_rekanan}}</option>
+                                                        @endif
+                                                    @endforeach
+                                                </select>
                                             </div>
                                         </div>
                                     </div>

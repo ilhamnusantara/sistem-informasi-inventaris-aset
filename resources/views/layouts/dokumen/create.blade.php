@@ -51,17 +51,20 @@
                                             <!-- text input -->
                                             <div class="form-group">
                                                 <label>Instansi</label>
-                                                <select class="form-control" name="instansi" id="instansi">
+                                                <select class="form-control" name="id_instansi" id="id_instansi">
                                                     <option value="">Pilih Instansi</option>
-                                                        <option value="Kecamatan Taman">Kecamatan Taman</option>
-                                                        <option value="Kelurahan Bebekan">Kelurahan Bebekan</option>
-                                                        <option value="Kelurahan Geluran">Kelurahan Geluran</option>
-                                                        <option value="Kelurahan Kalijaten">Kelurahan Kalijaten</option>
-                                                        <option value="Kelurahan Ketegan">Kelurahan Ketegan</option>
-                                                        <option value="Kelurahan Ngelom">Kelurahan Ngelom</option>
-                                                        <option value="Kelurahan Sepanjang">Kelurahan Sepanjang</option>
-                                                        <option value="Kelurahan Taman">Kelurahan Taman</option>
-                                                        <option value="Kelurahan Wonocolo">Kelurahan Wonocolo</option>
+                                                    @foreach($instansis as $instansi)
+                                                        <option value="{{$instansi->id_instansi}}">{{$instansi->nama_instansi}}</option>
+                                                    @endforeach
+
+{{--                                                        <option value="Kelurahan Bebekan">Kelurahan Bebekan</option>--}}
+{{--                                                        <option value="Kelurahan Geluran">Kelurahan Geluran</option>--}}
+{{--                                                        <option value="Kelurahan Kalijaten">Kelurahan Kalijaten</option>--}}
+{{--                                                        <option value="Kelurahan Ketegan">Kelurahan Ketegan</option>--}}
+{{--                                                        <option value="Kelurahan Ngelom">Kelurahan Ngelom</option>--}}
+{{--                                                        <option value="Kelurahan Sepanjang">Kelurahan Sepanjang</option>--}}
+{{--                                                        <option value="Kelurahan Taman">Kelurahan Taman</option>--}}
+{{--                                                        <option value="Kelurahan Wonocolo">Kelurahan Wonocolo</option>--}}
                                                 </select>
                                             </div>
                                         </div>

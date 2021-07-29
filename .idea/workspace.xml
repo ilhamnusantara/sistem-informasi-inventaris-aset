@@ -2,89 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="61485c72-bac9-4323-b8e8-82c9fc2ee6e5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_07_26_082920_add_username_to_users_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/name('belanja')" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/name('belanja.create')" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/name('belanja.delete')" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/name('belanja.edit')" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/name('belanja.show')" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/name('belanja.store')" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/name('belanja.unvervalbelanja')" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/name('belanja.update')" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/name('belanja.vervalbelanja')" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/name('cetakDok')" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/name('cetakDok.file')" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/name('cetakDok.foto')" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/name('cetakLap')" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/name('dokumen')" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/name('dokumen.create')" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/name('dokumen.delete')" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/name('dokumen.download')" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/name('dokumen.edit')" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/name('dokumen.filespk')" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/name('dokumen.filter')" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/name('dokumen.noverifikasi')" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/name('dokumen.novervalbelanja')" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/name('dokumen.show')" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/name('dokumen.store')" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/name('dokumen.update')" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/name('dokumen.verifikasi')" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/name('export')" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/name('home')" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/name('iBelanja')" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/name('iBelanja.delete')" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/name('iBelanja.edit')" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/name('iBelanja.store')" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/name('iBelanja.update')" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/name('jBelanja')" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/name('jBelanja.create')" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/name('jBelanja.delete')" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/name('jBelanja.edit')" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/name('jBelanja.store')" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/name('jBelanja.update')" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/name('pajak')" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/name('pajak.create')" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/name('pajak.delete')" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/name('pajak.edit')" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/name('pajak.store')" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/name('pajak.update')" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/name('sBelanja')" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/name('sBelanja.edit')" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/name('sBelanja.store')" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/name('sBelanja.update')" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/name('user')" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/name('user.change')" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/name('user.create')" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/name('user.delete')" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/name('user.edit')" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/name('user.update')" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layouts/akun/change.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layouts/partials/flase.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-RFzGZw82xsQknQQtLEAcHycoXhaZw9hB.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Belanja.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Belanja.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Dokumen.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Dokumen.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Exports/DataAsetExport.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exports/DataAsetExport.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AkunController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AkunController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BelanjaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BelanjaController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CetakDokumenController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CetakDokumenController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DokumenController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DokumenController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LaporanController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LaporanController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Instansi.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Instansi.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Rekanan.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Rekanan.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2021_04_15_123808_create_dokumens_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_04_15_123808_create_dokumens_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2021_06_19_143134_create_belanjas_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_06_19_143134_create_belanjas_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/akun/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/akun/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/belanja/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/belanja/edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/belanja/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/belanja/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/belanja/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/belanja/show.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/cetakLaporan/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/cetakLaporan/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/dashboard.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/dokumen/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/dokumen/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/dokumen/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/dokumen/edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/dokumen/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/dokumen/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/dokumen/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/dokumen/show.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/sidebar.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -371,7 +309,7 @@
       <workItem from="1627475546016" duration="8655000" />
       <workItem from="1627509643559" duration="6169000" />
       <workItem from="1627544114969" duration="603000" />
-      <workItem from="1627558011841" duration="3066000" />
+      <workItem from="1627558011841" duration="11582000" />
     </task>
     <servers />
   </component>

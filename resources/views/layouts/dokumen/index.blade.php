@@ -86,7 +86,7 @@
                             <div class="table-responsive">
                                 <table id="example2" class="table">
                                     <thead>
-                                    <tr class="text-md-center">
+                                    <tr class="">
 {{--                                        <th>NO</th>--}}
                                         <th>Jenis</th>
                                         <th>Instansi</th>
@@ -101,7 +101,7 @@
                                     </tr>
                                     </thead>
                                     <tfoot>
-                                    <tr class="text-md-center">
+                                    <tr class="">
 {{--                                        <th>NO</th>--}}
                                         <th>Jenis</th>
                                         <th>Instansi</th>
@@ -111,7 +111,7 @@
                                         <th>tgl SPK</th>
                                         <th>Nomor BAST</th>
                                         <th>tgl BAST</th>
-                                        <th>action</th>
+                                        <th>Detail</th>
                                     </tr>
                                     </tfoot>
                                 </table>

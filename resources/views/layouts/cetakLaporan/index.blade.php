@@ -101,7 +101,7 @@
                                     <th>Instansi</th>
                                     <th>Belanja</th>
                                     <th>Rincian Belanja</th>
-                                    <th>sSatuan</th>
+                                    <th>Satuan</th>
                                     <th>Volume</th>
                                     <th>Nilai</th>
                                     <th>Rekanan</th>
@@ -116,7 +116,7 @@
 
                                     <tr>
                                         <td class="project-state text-md-center">{{$no++}}</td>
-                                        <td class="project-state">{{$belanja->Dokumen->instansi}}</td>
+                                        <td class="project-state">{{$belanja->Dokumen->instansi->nama_instansi}}</td>
                                         <td class="project-state">{{$belanja->Dokumen->rincian_belanja}}</td>
                                         <td class="project-state"> {{$belanja->satuan}}</td>
                                         <td class="project-state"> {{$belanja->volume}}</td>
@@ -135,7 +135,7 @@
                                     <th>Instansi</th>
                                     <th>Belanja</th>
                                     <th>Rincian Belanja</th>
-                                    <th>sSatuan</th>
+                                    <th>Satuan</th>
                                     <th>Volume</th>
                                     <th>Nilai</th>
                                     <th>Rekanan</th>

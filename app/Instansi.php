@@ -10,5 +10,10 @@ class Instansi extends Model
     protected $table = 'instansis';
     protected $primaryKey = 'id_instansi';
     protected $fillable = ['nama_instansi','alamat','no_telp'];
-    
+
+    public function dokumen()
+    {
+        return $this->hasMany('App\Dokumen');
+    }
+
 }

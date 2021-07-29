@@ -59,17 +59,13 @@
                                             <!-- text input -->
                                             <div class="form-group">
                                                 <label>Instansi</label>
-                                                <select class="form-control select2" style="width: 100%;" name="instansi" id="instansi">
-                                                    <option value="{{$dokumen->instansi}}" class="fas fa-check">{{$dokumen->instansi}}</option>
-                                                    <option value="Kecamatan Taman">Kecamatan Taman</option>
-                                                    <option value="Kelurahan Bebekan">Kelurahan Bebekan</option>
-                                                    <option value="Kelurahan Geluran">Kelurahan Geluran</option>
-                                                    <option value="Kelurahan Kalijaten">Kelurahan Kalijaten</option>
-                                                    <option value="Kelurahan Ketegan">Kelurahan Ketegan</option>
-                                                    <option value="Kelurahan Ngelom">Kelurahan Ngelom</option>
-                                                    <option value="Kelurahan Sepanjang">Kelurahan Sepanjang</option>
-                                                    <option value="Kelurahan Taman">Kelurahan Taman</option>
-                                                    <option value="Kelurahan Wonocolo">Kelurahan Wonocolo</option>
+                                                <select class="form-control select2" style="width: 100%;" name="id_instansi" id="id_instansi">
+                                                    <option value="{{$dokumen->instansi->id_instansi}}" class="fas fa-check">{{$dokumen->instansi->nama_instansi}}</option>
+                                                    @foreach($instansis as $instansi)
+                                                        @if($instansi->id_instansi != $dokumen->id_instansi)
+                                                            <option value="{{$instansi->id_instansi}}">{{$instansi->nama_instansi}}</option>
+                                                        @endif
+                                                    @endforeach
                                                 </select>
                                             </div>
                                         </div>
