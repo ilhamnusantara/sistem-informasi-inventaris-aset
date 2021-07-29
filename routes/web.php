@@ -39,6 +39,18 @@ Route::post('/store-SB','SubBelanjaController@store')->name('sBelanja.store');
 Route::get('/edit-SB/{id_sub}/edit','SubBelanjaController@edit')->name('sBelanja.edit');
 Route::put('/update-SB/{id_sub}/update','SubBelanjaController@update')->name('sBelanja.update');
 
+Route::get('/instansi','InstansiController@index')->name('instansi');
+Route::post('/store-instansi','InstansiController@store')->name('instansi.store');
+Route::get('/edit-instansi/{id_instansi}/edit','InstansiController@edit')->name('instansi.edit');
+Route::put('/update-instansi/{id_instansi}/update','InstansiController@update')->name('instansi.update');
+Route::get('/delete-instansi/{id_instansi}/delete','InstansiController@destroy')->name('instansi.delete');
+
+Route::get('/rekanan','RekananController@index')->name('rekanan');
+Route::post('/store-rekanan','RekananController@store')->name('rekanan.store');
+Route::get('/edit-rekanan/{id_rekanan}/edit','RekananController@edit')->name('rekanan.edit');
+Route::put('/update-rekanan/{id_rekanan}/update','RekananController@update')->name('rekanan.update');
+Route::get('/delete-rekanan/{id_rekanan}/delete','RekananController@destroy')->name('rekanan.delete');
+
 //Route::get('/dokumen','DokumenController@index')->name('dokumen');
 Route::get('/dokumen','DokumenController@getDokumen')->name('dokumen');
 Route::get('/create-Dokumen','DokumenController@create')->name('dokumen.create');
