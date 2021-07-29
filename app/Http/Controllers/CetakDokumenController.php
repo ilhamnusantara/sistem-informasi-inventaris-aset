@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\jenisBelanja;
 use Illuminate\Http\Request;
 use App\Dokumen;
 use Yajra\DataTables\DataTables;
 use Excel;
 use App\Exports\DataAsetExport;
+use function GuzzleHttp\Promise\all;
 
 
 class CetakDokumenController extends Controller
@@ -38,6 +40,9 @@ class CetakDokumenController extends Controller
 
     public function export(Request $request)
     {
-        return Excel::download(new DataAsetExport($request->id_jenis), 'aset.xlsx');
+//        dd($request->all());
+        $record = jenisBelanja::find($request->id_jenis);
+        $nama_jenis = $record->jenis_belanja;
+        return Excel::download(new DataAsetExport($request->id_jenis, $request->tanggal), $nama_jenis.'.xlsx');
     }
 }

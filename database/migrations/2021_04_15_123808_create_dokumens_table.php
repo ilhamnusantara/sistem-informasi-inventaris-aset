@@ -20,10 +20,10 @@ class CreateDokumensTable extends Migration
             $table->string('keterangan_belanja');
             $table->string('rincian_belanja')->nullable();
             $table->string('no_spk')->nullable();
-            $table->string('tgl_spk')->nullable();
+            $table->date('tgl_spk')->nullable();
             $table->string('file_spk')->nullable();
             $table->string('no_bast')->nullable();
-            $table->string('tgl_bast')->nullable();
+            $table->date('tgl_bast')->nullable();
             $table->string('file_bast')->nullable();
             $table->string('merk')->nullable();
             $table->string('bahan')->nullable();

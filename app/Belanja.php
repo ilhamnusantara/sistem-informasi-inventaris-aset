@@ -9,7 +9,7 @@ class Belanja extends Model
     protected $guard = [];
     protected $table = 'belanjas';
     protected $primaryKey = 'id_belanja';
-    protected $fillable = ['id_dokumen','satuan','volume','nominal_belanja','rekanan','no_pbb_ls','tanggal_belanja','sp2d','tanggal_sp2d','status'];
+    protected $fillable = ['id_dokumen','satuan','volume','nominal_belanja','rekanan','no_pbb_ls','tanggal_belanja','sp2d','tanggal_sp2d','nilai_sp2d','status'];
 
     public function Dokumen()
     {

@@ -88,11 +88,16 @@ class AkunController extends Controller
             'id' => 'required',
             'name' => 'required',
             'email' => 'required',
+            'password' => 'required|string|min:3|confirmed',
+            'password_confirmation' => 'required',
         ]);
         $user = User::find($id);
         $user->id = $request->id;
         $user->name = $request->name;
         $user->email = $request->email;
+//        if (!Hash::check($request->password, $request->password_confirmation)) {
+//            return back()->with('error', 'Current password does not match!');
+//        }
         $user->password = Hash::make($request->password);
         $user->save();
         return redirect()->route('user')->with('success', 'Akun berhasil diupdate');
@@ -108,5 +113,35 @@ class AkunController extends Controller
     {
         $akun->delete();
         return redirect()->route('akun.index')->with('success', 'Akun berhasil di hapus');
+    }
+
+    public function change($id)
+    {
+        $user = User::find($id);
+        return view('layouts.akun.change')->with('user', $user);
+    }
+
+    public function changePassword(Request $request)
+    {
+        $request->validate([
+            'current_password' => 'required',
+            'password' => 'required|string|min:3|confirmed',
+            'password_confirmation' => 'required',
+        ]);
+
+        $user = Auth::user();
+
+        if (!Hash::check($request->current_password, $user->password)) {
+            return back()->with('error', 'Current password does not match!');
+        }
+
+        $user->password = Hash::make($request->password);
+        $user->save();
+
+        return back()->with('success', 'Password successfully changed!');
+    }
+    public function false()
+    {
+        return view('layouts.partials.false');
     }
 }

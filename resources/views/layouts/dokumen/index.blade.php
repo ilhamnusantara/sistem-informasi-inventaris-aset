@@ -47,32 +47,39 @@
                         <!-- /.card-header -->
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-sm-5">
-                                    <form class="form-inline" action="{{route('dokumen')}}" method="GET">
-                                        <div class="input-group">
-                                            <select class="form-control select2" style="width: 10%;" name="id_jenis" id="id_jenis">
-                                                <option value="" selected class="align-middle">--Pilih Kategori--</option>
-                                                @foreach ($jenisBelanjas as $jenisBelanja)
-                                                    <option value="{{$jenisBelanja->id_jenis}}" {{ (app('request')->input('id_jenis') == $jenisBelanja->id_jenis) ? 'selected' : '' }}>{{$jenisBelanja->jenis_belanja}}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <button class="btn btn-navbar" type="submit">
-                                                <i class="fas fa-search"></i>
-                                            </button>
-                                        </div>
-                                    </form>
-                                </div>
-                                <div class="col-sm-3">
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                              <span class="input-group-text">
-                                                <i class="far fa-calendar-alt"></i>
-                                              </span>
-                                        </div>
-                                        <input type="text" name="date" class="form-control float-right" id="reservation">
+                                <div class="col-sm-12">
+                                <form class="form-inline" action="{{route('dokumen')}}" method="GET">
+                                    <div class="col-sm-3">
+                                            <div class="input-group">
+                                                <select class="form-control select2" style="width: 10%;" name="id_jenis" id="id_jenis">
+                                                    <option value="" selected class="align-middle">--Pilih Kategori--</option>
+                                                    @foreach ($jenisBelanjas as $jenisBelanja)
+                                                        <option value="{{$jenisBelanja->id_jenis}}" {{ (app('request')->input('id_jenis') == $jenisBelanja->id_jenis) ? 'selected' : '' }}>{{$jenisBelanja->jenis_belanja}}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
                                     </div>
+                                    <div class="col-sm-2">
+                                        <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                                            <input type="text" class="form-control datetimepicker-input" id="min" name="min" data-target="#reservationdate" placeholder="Tanggal awal"/>
+                                            <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+                                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <div class="input-group date" id="reservationdate1" data-target-input="nearest">
+                                            <input type="text" class="form-control datetimepicker-input" id="max" name="max" data-target="#reservationdate1" placeholder="Tanggal Akhir"/>
+                                            <div class="input-group-append" data-target="#reservationdate1" data-toggle="datetimepicker">
+                                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <button type="submit" class="btn btn-primary">Filter</button>
+                                        <a type="button" class="btn btn-default" href="{{route('dokumen')}}">Refresh</a>
+                                    </div>
+                                </form>
                                 </div>
                             </div>
                             <br>
@@ -185,43 +192,58 @@
     <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
     <script type="text/javascript">
-        var minDate, maxDate, pisah;
-        $.fn.dataTable.ext.search.push(
-            function( settings, data, dataIndex ) {
-                var min = minDate.val();
-                var max = maxDate.val();
-                var date =  data[5];
-
-                if (
-                    ( min === null && max === null ) ||
-                    ( min === null && date <= max ) ||
-                    ( min <= date   && max === null ) ||
-                    ( min <= date   && date <= max )
-                ) {
-                    return true;
-                }
-                return false;
-            }
-        );
+        // var minDate, maxDate;
+        // $.fn.dataTable.ext.search.push(
+        //     function( settings, data, dataIndex ) {
+        //         var min = minDate.val();
+        //         var max = maxDate.val();
+        //         var date = new Date( data[5] );
+        //
+        //         if (
+        //             ( min === null && max === null ) ||
+        //             ( min === null && date <= max ) ||
+        //             ( min <= date   && max === null ) ||
+        //             ( min <= date   && date <= max )
+        //         ) {
+        //             return true;
+        //         }
+        //         return false;
+        //     }
+        // );
 
         $(document).ready(function() {
-            // pisah = $('#reservation').split(" - ");
-            // mnDate = pisah[0];
-            // mxDate = pisah[1];
-            // minDate = new DateTime(mnDate,{
-            //     format: 'YYYY Do MMMM'
+            // minDate = Date($('#min'), {
+            //     format: 'mm/dd/yyyy'
             // });
-            // maxDate = new DateTime(mxDate,{
-            //     format: 'YYYY Do MMMM'
+            // maxDate = Date($('#max'), {
+            //     format: 'mm/dd/yyyy'
             // });
+            // $.fn.dataTable.ext.search.push(
+            //     function (settings, data, dataIndex) {
+            //         var min = $('#min').datepicker('getDate');
+            //         var max = $('#max').datepicker('getDate');
+            //         var startDate = new Date(data[5]);
+            //         if (min == null && max == null) return true;
+            //         if (min == null && startDate <= max) return true;
+            //         if (max == null && startDate >= min) return true;
+            //         if (startDate <= max && startDate >= min) return true;
+            //         return false;
+            //     }
+            // );
+            // $('#min').datepicker({ onSelect: function () { table.draw(); }, changeMonth: true, changeYear: true });
+            // $('#max').datepicker({ onSelect: function () { table.draw(); }, changeMonth: true, changeYear: true });
             var table = $('#example2').DataTable({
-                // processing: true,
+                processing: true,
                 serverSide: true,
                 responsive:true,
                 ajax: {
                     "url": "{{ url('/dokumen')}}",
                     "data": {
-                        "id_jenis": "{{app('request')->input('id_jenis')}}"
+                        "id_jenis": "{{app('request')->input('id_jenis')}}",
+
+                        "min": "{{app('request')->input('min')}}",
+
+                        "max": "{{app('request')->input('max')}}",
                     }
 
                 },
@@ -238,11 +260,19 @@
                     {data: 'action', name: 'action', orderable: false, searchable: false},
                 ]
             });
-            $('#reservation').on('change', function (){
-               table.draw();
-            });
+            // Event listener to the two range filtering inputs to redraw on input
+            // $('#min, #max').change(function () {
+            //     table.draw();
+            // });
+            // $(document).on('change' ,'#min,#max', function (){
+            //     table.draw();
+            // });
+            // $('#min,#max').on('change', function () {
+            //     table.draw();
+            // });
 
         });
+
 
     </script>
 @endsection

@@ -41,14 +41,26 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <form class="form-inline ml-3 float-md-left" action="{{route('belanja')}}" method="GET">
-                                        <div class="input-group input-group-sm">
-                                            <input class="form-control form-control-navbar" name="search" type="search" placeholder="Search PBB/SPM" aria-label="Search" value="{{Request::get('search') }}">
-                                            <div class="input-group-append">
-                                                <button class="btn btn-navbar" type="submit">
-                                                    <i class="fas fa-search"></i>
-                                                </button>
+                                    <form class="form-inline" action="{{route('belanja')}}" method="GET">
+                                        <div class="col-sm-4">
+                                            <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                                                <input type="text" class="form-control datetimepicker-input" id="min" name="min" data-target="#reservationdate" placeholder="Tanggal awal"/>
+                                                <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+                                                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                                </div>
                                             </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="input-group date" id="reservationdate1" data-target-input="nearest">
+                                                <input type="text" class="form-control datetimepicker-input" id="max" name="max" data-target="#reservationdate1" placeholder="Tanggal Akhir"/>
+                                                <div class="input-group-append" data-target="#reservationdate1" data-toggle="datetimepicker">
+                                                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <button type="submit" class="btn btn-primary">Filter</button>
+                                            <a type="button" class="btn btn-default" href="{{route('belanja')}}">Refresh</a>
                                         </div>
                                     </form>
                                 </div>
@@ -105,9 +117,9 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label>Tanggal Belanja</label>
-                                                        <div class="input-group date" id="reservationdate2" data-target-input="nearest">
-                                                            <input type="text" class="form-control datetimepicker-input" name="tanggal_belanja" data-target="#reservationdate2"/>
-                                                            <div class="input-group-append" data-target="#reservationdate2" data-toggle="datetimepicker">
+                                                        <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                                                            <input type="text" class="form-control datetimepicker-input" name="tanggal_belanja" data-target="#reservationdate"/>
+                                                            <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
                                                                 <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                                             </div>
                                                         </div>
@@ -118,9 +130,9 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label>Tanggal SP2D</label>
-                                                        <div class="input-group date" id="reservationdate3" data-target-input="nearest">
-                                                            <input type="text" class="form-control datetimepicker-input" name="tanggal_sp2d" data-target="#reservationdate3"/>
-                                                            <div class="input-group-append" data-target="#reservationdate3" data-toggle="datetimepicker">
+                                                        <div class="input-group date" id="reservationdate1" data-target-input="nearest">
+                                                            <input type="text" class="form-control datetimepicker-input" name="tanggal_sp2d" data-target="#reservationdate1"/>
+                                                            <div class="input-group-append" data-target="#reservationdate1" data-toggle="datetimepicker">
                                                                 <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                                             </div>
                                                         </div>
@@ -135,66 +147,69 @@
                                     </div>
                                 </div>
                             </div>
-                            <table id="example2" class="table table-bordered table-hover">
-                                <thead>
-                                    <tr class="text-md-center">
-                                        <th>NO</th>
-                                        <th>Belanja</th>
-                                        <th>Satuan</th>
-                                        <th>Volume</th>
-                                        <th>Nominal Belanja</th>
-                                        <th>Rekanan</th>
-                                        <th>no pbb/spm</th>
-                                        <th>Tanggal</th>
-                                        <th>SP2D</th>
-                                        <th>Tgl SP2D</th>
-                                        <th>Detail</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                <?php $no = 1 ?>
-                                @foreach($belanjas as $belanja)
-                                    <tr>
-                                        <td class="project-state text-md-center">{{$no++}}</td>
-                                        <td class="project-state">{{$belanja->Dokumen->keterangan_belanja}}</td>
-                                        <td class="project-state">{{$belanja->satuan}}</td>
-                                        <td class="project-state">{{$belanja->volume}}</td>
-                                        <td class="project-state">{{$belanja->nominal_belanja}}</td>
-                                        <td class="project-state">{{$belanja->rekanan}}</td>
-                                        <td class="project-state">{{$belanja->no_pbb_ls}}</td>
-                                        <td class="project-state">{{$belanja->tanggal_belanja}}</td>
-                                        <td class="project-state">{{$belanja->sp2d}}</td>
-                                        <td class="project-state">{{$belanja->tanggal_sp2d}}</td>
-                                        <td class="project-actions text-center">
-                                            @if($belanja->Dokumen->status == 1 && $belanja->Dokumen->status_belanja == 1)
-                                            <a class="btn btn-success btn-sm" href="{{route('belanja.show', $belanja->id_belanja)}}">
-                                                <i class="fas fa-search"></i>
-                                            </a>
-                                            @elseif($belanja->Dokumen->status == 0 && $belanja->Dokumen->status_belanja == 1)
-                                                <a class="btn btn-danger btn-sm" href="{{route('belanja.show', $belanja->id_belanja)}}">
-                                                    <i class="fas fa-search"></i>
-                                                </a>
-                                            @endif
-                                        </td>
-                                    </tr>
-                                @endforeach
-                                </tbody>
-                                <tfoot>
-                                    <tr class="text-md-center">
-                                        <th>NO</th>
-                                        <th>Belanja</th>
-                                        <th>Satuan</th>
-                                        <th>Volume</th>
-                                        <th>Nominal Belanja</th>
-                                        <th>Rekanan</th>
-                                        <th>no pbb/spm</th>
-                                        <th>Tanggal</th>
-                                        <th>SP2D</th>
-                                        <th>Tgl SP2D</th>
-                                        <th>Detail</th>
-                                    </tr>
-                                </tfoot>
-                            </table>
+                            <br>
+                            <div class="table-responsive">
+                                <table id="example" class="table">
+                                    <thead>
+                                        <tr class="text-md-center">
+    {{--                                        <th>NO</th>--}}
+                                            <th>Belanja</th>
+                                            <th>Satuan</th>
+                                            <th>Volume</th>
+                                            <th>Nominal Belanja</th>
+                                            <th>Rekanan</th>
+                                            <th>no pbb/spm</th>
+                                            <th>Tanggal</th>
+                                            <th>SP2D</th>
+                                            <th>Tgl SP2D</th>
+                                            <th>Detail</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+    {{--                                <?php $no = 1 ?>--}}
+    {{--                                @foreach($belanjas as $belanja)--}}
+    {{--                                    <tr>--}}
+    {{--                                        <td class="project-state text-md-center">{{$no++}}</td>--}}
+    {{--                                        <td class="project-state">{{$belanja->Dokumen->keterangan_belanja}}</td>--}}
+    {{--                                        <td class="project-state">{{$belanja->satuan}}</td>--}}
+    {{--                                        <td class="project-state">{{$belanja->volume}}</td>--}}
+    {{--                                        <td class="project-state">{{$belanja->nominal_belanja}}</td>--}}
+    {{--                                        <td class="project-state">{{$belanja->rekanan}}</td>--}}
+    {{--                                        <td class="project-state">{{$belanja->no_pbb_ls}}</td>--}}
+    {{--                                        <td class="project-state">{{$belanja->tanggal_belanja}}</td>--}}
+    {{--                                        <td class="project-state">{{$belanja->sp2d}}</td>--}}
+    {{--                                        <td class="project-state">{{$belanja->tanggal_sp2d}}</td>--}}
+    {{--                                        <td class="project-actions text-center">--}}
+    {{--                                            @if($belanja->Dokumen->status == 1 && $belanja->Dokumen->status_belanja == 1)--}}
+    {{--                                            <a class="btn btn-success btn-sm" href="{{route('belanja.show', $belanja->id_belanja)}}">--}}
+    {{--                                                <i class="fas fa-search"></i>--}}
+    {{--                                            </a>--}}
+    {{--                                            @elseif($belanja->Dokumen->status == 0 && $belanja->Dokumen->status_belanja == 1)--}}
+    {{--                                                <a class="btn btn-danger btn-sm" href="{{route('belanja.show', $belanja->id_belanja)}}">--}}
+    {{--                                                    <i class="fas fa-search"></i>--}}
+    {{--                                                </a>--}}
+    {{--                                            @endif--}}
+    {{--                                        </td>--}}
+    {{--                                    </tr>--}}
+    {{--                                @endforeach--}}
+                                    </tbody>
+                                    <tfoot>
+                                        <tr class="text-md-center">
+    {{--                                        <th>NO</th>--}}
+                                            <th>Belanja</th>
+                                            <th>Satuan</th>
+                                            <th>Volume</th>
+                                            <th>Nominal Belanja</th>
+                                            <th>Rekanan</th>
+                                            <th>no pbb/spm</th>
+                                            <th>Tanggal</th>
+                                            <th>SP2D</th>
+                                            <th>Tgl SP2D</th>
+                                            <th>Detail</th>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -248,36 +263,42 @@
 
 @endsection
 @section('script')
+    <script src="https://code.jquery.com/jquery-3.5.0.js" integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
     <script type="text/javascript">
-        $('#reservationdate2').datetimepicker({
-            format: 'L'
-        });
-        $('#reservationdate3').datetimepicker({
-            format: 'L'
-        });
-        var rupiah = document.getElementById('rupiah');
-        rupiah.addEventListener('keyup', function(e){
-            // tambahkan 'Rp.' pada saat form di ketik
-            // gunakan fungsi formatRupiah() untuk mengubah angka yang di ketik menjadi format angka
-            rupiah.value = formatRupiah(this.value, 'Rp. ');
-        });
+        $(document).ready(function() {
+            var table = $('#example').DataTable({
+                processing: true,
+                // serverSide: true,
+                responsive:true,
+                ajax: {
+                    "url": "{{ url('/belanja') }}",
+                    "data": {
+                        {{--"id_jenis": "{{app('request')->input('id_jenis')}}",--}}
 
-        /* Fungsi formatRupiah */
-        function formatRupiah(angka, prefix){
-            var number_string = angka.replace(/[^,\d]/g, '').toString(),
-            split   		= number_string.split(','),
-            sisa     		= split[0].length % 3,
-            rupiah     		= split[0].substr(0, sisa),
-            ribuan     		= split[0].substr(sisa).match(/\d{3}/gi);
+                        "min": "{{app('request')->input('min')}}",
 
-            // tambahkan titik jika yang di input sudah menjadi angka ribuan
-            if(ribuan){
-                separator = sisa ? '.' : '';
-                rupiah += separator + ribuan.join('.');
-            }
+                        "max": "{{app('request')->input('max')}}",
+                    }
 
-            rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
-            return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
-        }
+                },
+                columns: [
+                    // {data: 'DT_RowIndex', name: 'DT_RowIndex'},
+                    {data: 'dokumen', name: 'dokumen'},
+                    {data: 'satuan', name: 'satuan'},
+                    {data: 'volume', name: 'volume'},
+                    {data: 'nominal_belanja', name: 'nominal_belanja'},
+                    {data: 'rekanan', name: 'rekanan'},
+                    {data: 'no_pbb_ls', name: 'no_pbb_ls'},
+                    {data: 'tanggal_belanja', name: 'tanggal_belanja'},
+                    {data: 'sp2d', name: 'sp2d'},
+                    {data: 'tanggal_sp2d', name: 'tanggal_sp2d'},
+                    {data: 'aksi', name: 'aksi', orderable: false, searchable: false},
+                ]
+            });
+        });
     </script>
 @endsection

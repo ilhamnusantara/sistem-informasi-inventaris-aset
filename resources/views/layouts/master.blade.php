@@ -54,21 +54,22 @@
         </ul>
         <!-- Right navbar links -->
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <a class="nav-link" data-widget="fullscreen" href="#" role="button">
-                    <i class="fas fa-expand-arrows-alt"></i>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
-                    <i class="fas fa-th-large"></i>
-                </a>
-            </li>
+{{--            <li class="nav-item">--}}
+{{--                <a class="nav-link" data-widget="fullscreen" href="#" role="button">--}}
+{{--                    <i class="fas fa-expand-arrows-alt"></i>--}}
+{{--                </a>--}}
+{{--            </li>--}}
+{{--            <li class="nav-item">--}}
+{{--                <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">--}}
+{{--                    <i class="fas fa-th-large"></i>--}}
+{{--                </a>--}}
+{{--            </li>--}}
             <li class="nav-item dropdown">
                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                     {{ Auth::user()->name }}
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{{route('user.change', Auth::user()->id) }}">Ganti Password</a>
                     <a class="dropdown-item" href="{{ route('logout') }}"
                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -225,28 +226,16 @@
 <script>
     //Date picker
     $('#reservationdate').datetimepicker({
-        format: 'L'
+        format: 'DD MMMM YYYY'
     });
     $('#reservationdate1').datetimepicker({
-        format: 'L'
+        format: 'DD MMMM YYYY'
     });
-    $('#reservation').daterangepicker();
-    // $(function() {
-    //     $('input[name="tgl_spk"]').daterangepicker({
-    //         singleDatePicker: true,
-    //         showDropdowns: true,
-    //         minYear: 2010,
-    //         maxYear: parseInt(moment().format('YYYY'),10)
-    //     });
-    // });
-    // $(function() {
-    //     $('input[name="tgl_bast"]').daterangepicker({
-    //         singleDatePicker: true,
-    //         showDropdowns: true,
-    //         minYear: 2010,
-    //         maxYear: parseInt(moment().format('YYYY'),10)
-    //     });
-    // });
+    $('#reservation').daterangepicker({
+        locale: {
+            format: 'DD MMMM YYYY'
+        }
+    });
 </script>
 <!-- Scripts -->
 @yield('script')

@@ -13,19 +13,32 @@ use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 class DataAsetExport implements FromCollection, SkipsEmptyRows,  WithMapping, WithHeadings, ShouldAutoSize
 {
     protected $id_jenis = null;
+    protected $tanggal = null;
 
-    function __construct($id_jenis) {
+    function __construct($id_jenis, $tanggal) {
         $this->id_jenis = $id_jenis;
+        $this->tanggal = $tanggal;
     }
     public function collection()
     {
-        if( $this->id_jenis){
-            return Belanja::whereHas('Dokumen', function($q){
+
+        $data = Belanja::query();
+        if($this->id_jenis){
+            $data->whereHas('Dokumen', function($q){
                 $q->where('id_jenis', '=', $this->id_jenis);
-            })->with(['Dokumen.jenisBelanja'])->get();
-        }else{
-            return Belanja::with(['Dokumen', 'Dokumen.jenisBelanja'])->get();
+            });
         }
+        if($this->tanggal){
+            $date = explode(' - ', $this->tanggal);
+
+            $date_start = \Carbon\Carbon::parse(urldecode($date[0]))->format('Y-m-d');
+            $date_end = \Carbon\Carbon::parse(urldecode($date[1]))->format('Y-m-d');
+            $data->whereRaw('DATE(tanggal_sp2d) BETWEEN DATE(?) AND DATE(?)', [$date_start, $date_end]);
+
+        }
+
+        return $data->with(['Dokumen.jenisBelanja'])->get();
+
     }
 
 

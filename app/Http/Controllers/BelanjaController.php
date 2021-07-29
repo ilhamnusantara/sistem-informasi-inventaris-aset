@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Belanja;
 use App\Dokumen;
 use Illuminate\Http\Request;
+use Yajra\DataTables\DataTables;
 
 class BelanjaController extends Controller
 {
@@ -15,15 +16,52 @@ class BelanjaController extends Controller
      */
     public function index(Request $request)
     {
-        $belanja = Belanja::all();
         $dokumens = Dokumen::all();
+        $data = Belanja::query();
 
-        if($search = $request->get('search')){
-            $belanja = Belanja::where('no_pbb_ls','LIKE', "%{$search}%")->get();
+        if($request->min && $request->max ){
+            $date_start = \Carbon\Carbon::parse(urldecode($request->min))->format('Y-m-d');
+            $date_end = \Carbon\Carbon::parse(urldecode($request->max))->format('Y-m-d');
+            $data->whereRaw('DATE(tanggal_belanja) BETWEEN DATE(?) AND DATE(?)', [$date_start, $date_end]);
+
         }
+//
+//        else{
+//            $data = Dokumen::all();
+//        }
+//        return view('layouts.belanja.index',[
+//            'belanjas' => $belanja,
+//        ], compact('dokumens'));
 
+//        if($request->id_jenis){
+//            $data->where('id_jenis', $request->id_jenis);
+//        }
+//
+//
+
+
+        if($request->ajax()){
+            return DataTables::of($data)
+                ->addIndexColumn()
+                ->addColumn('dokumen', function($row) {
+                    $dokumen = $row->Dokumen->keterangan_belanja;
+                    return $dokumen;
+                })
+                ->addColumn('aksi', function($row) {
+                    if ($row->Dokumen->status == 1 && $row->Dokumen->status_belanja == 1){
+                        $btn = '<a class="btn btn-success btn-sm" href="'.route('belanja.show', $row->Dokumen->id_dokumen).'"><i class="fas fa-search"></i></a>';
+                        return $btn;
+                    }elseif ($row->Dokumen->status == 0 && $row->Dokumen->status_belanja == 1){
+                        $btn = '<a class="btn btn-danger btn-sm" href="'.route('belanja.show', $row->Dokumen->id_dokumen).'"><i class="fas fa-search"></i></a>';
+                        return $btn;
+                    }
+
+                })
+                ->rawColumns(['aksi'])
+                ->make(true);
+        }
         return view('layouts.belanja.index',[
-            'belanjas' => $belanja,
+            'belanjas' => $data,
         ], compact('dokumens'));
     }
 
@@ -56,6 +94,8 @@ class BelanjaController extends Controller
             'no_pbb_ls' => 'required|min:1',
             'tanggal_belanja' => 'required|min:1',
         ]);
+        $date_belanja = \Carbon\Carbon::parse(urldecode($request->tanggal_belanja))->format('Y-m-d');
+        $date_sp2d = \Carbon\Carbon::parse(urldecode($request->tanggal_sp2d))->format('Y-m-d');
         $Belanja = new Belanja();
         $Belanja->id_dokumen = $request->id_dokumen;
         $Belanja->satuan = $request->satuan;
@@ -63,9 +103,9 @@ class BelanjaController extends Controller
         $Belanja->nominal_belanja = $request->nominal_belanja;
         $Belanja->rekanan = $request->rekanan;
         $Belanja->no_pbb_ls = $request->no_pbb_ls;
-        $Belanja->tanggal_belanja = $request->tanggal_belanja;
+        $Belanja->tanggal_belanja = $date_belanja;
         $Belanja->sp2d = $request->sp2d;
-        $Belanja->tanggal_sp2d = $request->tanggal_sp2d;
+        $Belanja->tanggal_sp2d = $date_sp2d;
         $Belanja->save();
 //        return redirect()->route('belanja')->with('succes','Data Disimpan');
         return redirect()->route('belanja.show', $Belanja->id_belanja);
@@ -127,14 +167,16 @@ class BelanjaController extends Controller
         }elseif ($Belanja->id_dokumen == $request->id_dokumen){
             $Belanja->id_dokumen = $request->id_dokumen;
         }
+        $date_belanja = \Carbon\Carbon::parse(urldecode($request->tanggal_belanja))->format('Y-m-d');
+        $date_sp2d = \Carbon\Carbon::parse(urldecode($request->tanggal_sp2d))->format('Y-m-d');
         $Belanja->satuan = $request->satuan;
         $Belanja->volume = $request->volume;
         $Belanja->nominal_belanja = $request->nominal_belanja;
         $Belanja->rekanan = $request->rekanan;
         $Belanja->no_pbb_ls = $request->no_pbb_ls;
-        $Belanja->tanggal_belanja = $request->tanggal_belanja;
+        $Belanja->tanggal_belanja = $date_belanja;
         $Belanja->sp2d = $request->sp2d;
-        $Belanja->tanggal_sp2d = $request->tanggal_sp2d;
+        $Belanja->tanggal_sp2d = $date_sp2d;
         $Belanja->save();
         return redirect()->route('belanja.show',$Belanja->id_belanja)->with('success','Data Telah Di Update');
     }

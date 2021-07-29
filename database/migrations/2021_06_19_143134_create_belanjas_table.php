@@ -21,9 +21,10 @@ class CreateBelanjasTable extends Migration
             $table->integer('nominal_belanja');
             $table->string('rekanan');
             $table->string('no_pbb_ls');
-            $table->string('tanggal_belanja');
+            $table->date('tanggal_belanja');
             $table->string('sp2d')->nullable();
-            $table->string('tanggal_sp2d')->nullable();
+            $table->date('tanggal_sp2d')->nullable();
+            $table->integer('nilai_sp2d')->nullable();
             $table->timestamps();
         });
     }

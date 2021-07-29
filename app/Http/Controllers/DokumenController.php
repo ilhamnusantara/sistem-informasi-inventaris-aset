@@ -19,14 +19,21 @@ class DokumenController extends Controller
      */
     public function getDokumen(Request $request){
         $jenisBelanjas = jenisBelanja::all();
+        $data = Dokumen::query();
         if($request->id_jenis){
-            $arr = explode(" - ", $request->date);
-            $date_start = $arr[0];
-            $date_end = $arr[1];
-            $data = Dokumen::where('id_jenis', $request->id_jenis);
-        }else{
-            $data = Dokumen::all();
+            $data->where('id_jenis', $request->id_jenis);
         }
+
+        if($request->min && $request->max ){
+            $date_start = \Carbon\Carbon::parse(urldecode($request->min))->format('Y-m-d');
+            $date_end = \Carbon\Carbon::parse(urldecode($request->max))->format('Y-m-d');
+            $data->whereRaw('DATE(tgl_spk) BETWEEN DATE(?) AND DATE(?)', [$date_start, $date_end]);
+
+        }
+
+//        else{
+//            $data = Dokumen::all();
+//        }
 
         if($request->ajax()){
             return DataTables::of($data)
@@ -98,7 +105,6 @@ class DokumenController extends Controller
      */
     public function store(Request $request)
     {
-//        dd($request->all());
         $request->validate([
             'keterangan_belanja' => 'required|min:1',
             'rincian_belanja' => 'required|min:1',
@@ -127,15 +133,17 @@ class DokumenController extends Controller
             $request->foto->move(public_path('foto'), $foto);
             $dokumen->foto = $foto;
         }
+        $date_spk = \Carbon\Carbon::parse(urldecode($request->tgl_spk))->format('Y-m-d');
+        $date_bast = \Carbon\Carbon::parse(urldecode($request->tgl_bast))->format('Y-m-d');
 
         $dokumen->id_jenis = $request->id_jenis;
         $dokumen->instansi = $request->instansi;
         $dokumen->keterangan_belanja = $request->keterangan_belanja;
         $dokumen->rincian_belanja = $request->rincian_belanja;
         $dokumen->no_spk = $request->no_spk;
-        $dokumen->tgl_spk = $request->tgl_spk;
+        $dokumen->tgl_spk = $date_spk;
         $dokumen->no_bast = $request->no_bast;
-        $dokumen->tgl_bast = $request->tgl_bast;
+        $dokumen->tgl_bast = $date_bast;
         $dokumen->merk = $request->merk;
         $dokumen->bahan = $request->bahan;
         $dokumen->type = $request->type;
@@ -208,15 +216,17 @@ class DokumenController extends Controller
             File::delete(public_path('foto/'.$dokumen->foto));
             $dokumen->foto = $foto;
         }
+        $date_spk = \Carbon\Carbon::parse(urldecode($request->tgl_spk))->format('Y-m-d');
+        $date_bast = \Carbon\Carbon::parse(urldecode($request->tgl_bast))->format('Y-m-d');
 
         $dokumen->id_jenis = $request->id_jenis;
         $dokumen->instansi = $request->instansi;
         $dokumen->keterangan_belanja = $request->keterangan_belanja;
         $dokumen->rincian_belanja = $request->rincian_belanja;
         $dokumen->no_spk = $request->no_spk;
-        $dokumen->tgl_spk = $request->tgl_spk;
+        $dokumen->tgl_spk = $date_spk;
         $dokumen->no_bast = $request->no_bast;
-        $dokumen->tgl_bast = $request->tgl_bast;
+        $dokumen->tgl_bast = $date_bast;
         $dokumen->merk = $request->merk;
         $dokumen->bahan = $request->bahan;
         $dokumen->type = $request->type;

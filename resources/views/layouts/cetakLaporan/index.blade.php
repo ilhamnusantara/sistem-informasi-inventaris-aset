@@ -61,7 +61,7 @@
                                                                         <i class="far fa-calendar-alt"></i>
                                                                       </span>
                                                                 </div>
-                                                                <input type="text" class="form-control float-right" id="reservation">
+                                                                <input type="text" name="date" class="form-control float-right" id="reservation">
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
@@ -159,11 +159,14 @@
 @section('script')
     <script>
         $(function () {
-            $('#reservation').daterangepicker()
+            // $('#reservation').daterangepicker()
             $( "#btn-cetak" ).click(function() {
-                var url = '{{ route("export", ['id_jenis' => ':id_jenis']) }}';
+                var url = '{{ route("export", ['id_jenis' => ':id_jenis', 'tanggal'=>':date']) }}';
 
                 url = url.replace('%3Aid_jenis', $('#id_jenis').val());
+
+                url = url.replace('%3Adate', $('#reservation').val());
+                url = url.replace('&amp;','&');
 
                 window.open(url, '_blank');
             });

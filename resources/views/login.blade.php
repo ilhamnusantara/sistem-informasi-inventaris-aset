@@ -39,7 +39,7 @@
                         <img src="{{url('/dashboard/dist/img/sda.png')}}" class="brand-image" style="opacity: .8" alt="User Image">
                     </div>
                     <div class="col-lg-12 login-title">
-                        ADMIN LAPORAN INVENTARIS
+                        ADMIN REKAP PEMBELIAN ASSET
                     </div>
                     <div class="col-lg-12 login-form">
                         <div class="col-lg-12 login-form">
@@ -47,18 +47,16 @@
                             @csrf
                                 <div class="form-group">
                                     <label class="form-control-label">{{ __('E-Mail Address') }}</label>
-{{--                                    <input type="text" class="form-control">--}}
-                                    <input id="email" type="text" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                                    @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
+                                    <input type="text" class="form-control {{ $errors->has('username') || $errors->has('email') ?'is-invalid':'' }}" name="login" value="{{ old('username') ? old('username') : old('email')  }}"
+                                           placeholder="Username or Email" />
+                                    @if ($errors->has('username') || $errors->has('email'))
+                                        <span class="invalid-feedback">
+                                            <strong>{{ $errors->first('username') ? $errors->first('username') : $errors->first('email')  }}</strong>
+                                        </span>
+                                    @endif
                                 </div>
                                 <div class="form-group">
                                     <label class="form-control-label">{{ __('Password') }}</label>
-{{--                                    <input type="password" class="form-control">--}}
                                     <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
                                     @error('password')
