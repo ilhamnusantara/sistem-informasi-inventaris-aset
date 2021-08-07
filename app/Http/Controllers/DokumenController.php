@@ -6,7 +6,9 @@ use App\Dokumen;
 use App\Instansi;
 use App\jenisBelanja;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Validation\Rule;
 use Symfony\Component\HttpFoundation\File\Exception\UploadException;
 use File;
 use Yajra\DataTables\DataTables;
@@ -112,11 +114,15 @@ class DokumenController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $validator = $request->validate([
             'keterangan_belanja' => 'required|min:1',
             'rincian_belanja' => 'required|min:1',
+            'no_spk' => ['required', 'max:255', 'string', 'distinct', Rule::unique('dokumens', 'no_spk')],
+            'no_bast' => ['required', 'max:255', 'string', 'distinct', Rule::unique('dokumens', 'no_bast')],
         ]);
-
+        if ($validator->fails()){
+            return back()->with('error', 'ada yang sama antara SPK dan BAST');
+        }
         $dokumen = new Dokumen();
         if($request->file('file_spk')){
             $file=$request->file('file_spk');
@@ -144,7 +150,7 @@ class DokumenController extends Controller
         $date_bast = \Carbon\Carbon::parse(urldecode($request->tgl_bast))->format('Y-m-d');
 
         $dokumen->id_jenis = $request->id_jenis;
-        $dokumen->id_instansi = $request->instansi;
+        $dokumen->id_instansi = $request->id_instansi;
         $dokumen->keterangan_belanja = $request->keterangan_belanja;
         $dokumen->rincian_belanja = $request->rincian_belanja;
         $dokumen->no_spk = $request->no_spk;

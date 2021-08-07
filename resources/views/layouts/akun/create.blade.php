@@ -27,9 +27,13 @@
                             <div class="card-header"></div>
 
                             <div class="card-body">
-                                <form method="POST" action="{{ route('register') }}">
+                                <form enctype="multipart/form-data" method="POST" action="{{ route('user.store') }}">
                                     @csrf
-
+                                    @if(session()->has('error'))
+                                        <span class="alert alert-danger">
+                                            <strong>{{ session()->get('error') }}</strong>
+                                        </span>
+                                    @endif
                                     <div class="form-group row">
                                         <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
@@ -110,7 +114,7 @@
                                     <div class="form-group row mb-0">
                                         <div class="col-md-6 offset-md-4">
                                             <button type="submit" class="btn btn-primary">
-                                                {{ __('Register') }}
+                                                Registrasi
                                             </button>
                                         </div>
                                     </div>

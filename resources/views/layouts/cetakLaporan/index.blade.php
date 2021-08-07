@@ -94,7 +94,8 @@
 {{--                                    </form>--}}
 {{--                                </div>--}}
                             </div>
-                            <table id="example2" class="table table-bordered table-hover">
+                            <div class="table-responsive">
+                                <table id="example2" class="table table-bordered table-hover">
                                 <thead>
                                 <tr class="text-md-center">
                                     <th>NO</th>
@@ -122,7 +123,7 @@
                                         <td class="project-state"> {{$belanja->volume}}</td>
                                         <td class="project-state"> {{$belanja->nominal_belanja}}</td>
                                         <td class="project-state"> {{$belanja->satuan}}</td>
-                                        <td class="project-state"> {{$belanja->rekanan}}</td>
+                                        <td class="project-state"> {{$belanja->rekanan->nama}}</td>
                                         <td class="project-state"> {{$belanja->no_pbb_ls}}</td>
                                         <td class="project-state"> {{$belanja->sp2d}}</td>
                                         <td class="project-state"> {{$belanja->tanggal_sp2d}}</td>
@@ -145,6 +146,7 @@
                                 </tr>
                                 </tfoot>
                             </table>
+                            </div>
                         </div>
                     </div>
                 </div>

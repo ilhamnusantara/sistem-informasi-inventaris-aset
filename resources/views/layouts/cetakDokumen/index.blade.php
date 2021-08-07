@@ -56,7 +56,7 @@
 
                                     <tr>
                                         <td class="project-state text-md-center">{{$no++}}</td>
-                                        <td class="project-state">{{$dokumen->instansi}}</td>
+                                        <td class="project-state">{{$dokumen->instansi->nama_instansi}}</td>
                                         <td class="project-state">{{$dokumen->keterangan_belanja}}</td>
                                         <td class="project-state"> {{substr($dokumen->rincian_belanja,0,15).'....'}}</td>
                                         @if($dokumen->file_spk == null)

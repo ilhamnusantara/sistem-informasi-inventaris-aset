@@ -35,10 +35,10 @@
                                 @csrf
                                 @method('PUT')
                                 <div class="card-body">
-                                    <div class="form-group">
-                                        <label for="exampleInputPassword1">ID Akun</label>
-                                        <input type="text" class="form-control" name="id" id="id" value="{{$user->id}}" placeholder="ID Akun">
-                                    </div>
+{{--                                    <div class="form-group">--}}
+{{--                                        <label for="exampleInputPassword1">ID Akun</label>--}}
+{{--                                        <input type="text" class="form-control" name="id" id="id" value="{{$user->id}}" placeholder="ID Akun">--}}
+{{--                                    </div>--}}
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Nama Lengkap</label>
                                         <input type="text" class="form-control" name="name" id="name" value="{{$user->name}}" placeholder="Nama lengkap">

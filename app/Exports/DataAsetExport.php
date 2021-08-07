@@ -3,6 +3,7 @@
 namespace App\Exports;
 
 use App\Belanja;
+use App\Dokumen;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithMapping;
 use Maatwebsite\Excel\Concerns\WithHeadings;
@@ -33,7 +34,7 @@ class DataAsetExport implements FromCollection, SkipsEmptyRows,  WithMapping, Wi
 
             $date_start = \Carbon\Carbon::parse(urldecode($date[0]))->format('Y-m-d');
             $date_end = \Carbon\Carbon::parse(urldecode($date[1]))->format('Y-m-d');
-            $data->whereRaw('DATE(tanggal_sp2d) BETWEEN DATE(?) AND DATE(?)', [$date_start, $date_end]);
+            $data->whereRaw('DATE(tanggal_belanja) BETWEEN DATE(?) AND DATE(?)', [$date_start, $date_end]);
 
         }
 

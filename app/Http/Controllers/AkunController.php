@@ -41,14 +41,20 @@ class AkunController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'id_akun' => 'required',
-            'nama_user' => 'required',
-            'instansi' => 'required',
+            'name' => 'required',
             'username' => 'required',
+            'email' => 'required',
             'password' => 'required',
           ]);
-          Akun::create($request->all());
-          return redirect()->route('akun.index')->with('success','Data berhasil di input');
+//          Akun::create($request->all());
+        $user = new User();
+        $user->name = $request->name;
+        $user->username = $request->username;
+        $user->email = $request->email;
+        $user->status = $request->status;
+        $user->password = \Illuminate\Support\Facades\Hash::make($request->password);
+        $user->save();
+        return redirect()->route('user')->with('success','Data berhasil di input');
     }
 
     /**
@@ -85,14 +91,12 @@ class AkunController extends Controller
     {
 //        dd($request->all());
         $request->validate([
-            'id' => 'required',
             'name' => 'required',
             'email' => 'required',
             'password' => 'required|string|min:3|confirmed',
             'password_confirmation' => 'required',
         ]);
         $user = User::find($id);
-        $user->id = $request->id;
         $user->name = $request->name;
         $user->email = $request->email;
 //        if (!Hash::check($request->password, $request->password_confirmation)) {

@@ -39,7 +39,10 @@
                         <img src="{{url('/dashboard/dist/img/sda.png')}}" class="brand-image" style="opacity: .8" alt="User Image">
                     </div>
                     <div class="col-lg-12 login-title">
-                        ADMIN REKAP PEMBELIAN ASSET
+                        E-BLENDRANG
+                    </div>
+                    <div class="col-sm-12 login-title">
+                        (Belanja Modal Barang)
                     </div>
                     <div class="col-lg-12 login-form">
                         <div class="col-lg-12 login-form">
