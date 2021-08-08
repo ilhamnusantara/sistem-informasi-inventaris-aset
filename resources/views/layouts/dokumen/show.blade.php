@@ -111,7 +111,11 @@
                                                 <label>File SPK</label>
                                                 <div class="input-group">
                                                     <div class="custom-file">
-                                                        <input type="file" name="file_spk" accept="application/pdf"/>
+                                                        @if($dokumen->file_spk == null)
+                                                            <h6 class="text-red"> <i class="far fa-times-circle"></i> Belum Upload File SPK</h6>
+                                                        @else
+                                                            <input type="text" class="form-control datetimepicker-input" name="tgl_bast" data-target="#reservationdate1" value="{{$dokumen->file_spk}}" readonly/>
+                                                        @endif
                                                     </div>
                                                 </div>
                                             </div>
@@ -121,7 +125,11 @@
                                                 <label>File BAST</label>
                                                 <div class="input-group">
                                                     <div class="custom-file">
-                                                        <input type="file" name="file_bast" accept="application/pdf"/>
+                                                        @if($dokumen->file_bast == null)
+                                                            <h6 class="text-red"> <i class="far fa-times-circle"></i> Belum Upload File BAST</h6>
+                                                        @else
+                                                            <input type="text" class="form-control datetimepicker-input" name="tgl_bast" data-target="#reservationdate1" value="{{$dokumen->file_bast}}" readonly/>
+                                                        @endif
                                                     </div>
                                                 </div>
                                             </div>
@@ -156,7 +164,11 @@
                                                 <label>Foto</label>
                                                 <div class="input-group">
                                                     <div class="custom-file">
-                                                        <input type="file" name="foto" accept="image/jpeg, image/jpg, image/png"/>
+                                                        @if($dokumen->foto == null)
+                                                            <h6 class="text-red"> <i class="far fa-times-circle"></i> Belum Upload Foto</h6>
+                                                        @else
+                                                            <input type="text" class="form-control datetimepicker-input" name="tgl_bast" data-target="#reservationdate1" value="{{$dokumen->foto}}" readonly/>
+                                                        @endif
                                                     </div>
                                                 </div>
                                             </div>
@@ -191,7 +203,11 @@
                                                 <label>Foto</label>
                                                 <div class="input-group">
                                                     <div class="custom-file">
-                                                        <input type="file" name="foto" accept="image/jpeg, image/jpg, image/png"/>
+                                                        @if($dokumen->foto == null)
+                                                            <h6 class="text-red"> <i class="far fa-times-circle"></i> Belum Upload Foto</h6>
+                                                        @else
+                                                            <input type="text" class="form-control datetimepicker-input" name="tgl_bast" data-target="#reservationdate1" value="{{$dokumen->foto}}" readonly/>
+                                                        @endif
                                                     </div>
                                                 </div>
                                             </div>

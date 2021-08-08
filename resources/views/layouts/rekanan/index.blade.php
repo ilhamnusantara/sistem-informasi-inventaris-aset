@@ -1,4 +1,17 @@
 @extends('layouts.master')
+@section('style')
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    {{--    <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">--}}
+    <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <style>
+        /*a.btn-info{*/
+        /*    line-height: 1em;*/
+        /*    display: inline-block;*/
+        /*    text-decoration: none;*/
+        /*    padding: 8px;*/
+        /*    margin: 10px;*/
+        /*}*/
+    </style>
 
 @section('content')
     <div class="content-wrapper">
@@ -95,7 +108,7 @@
                             <table id="example2" class="table table-bordered table-hover">
                                 <thead>
                                 <tr class="text-md-center">
-                                    <th>No. Id</th>
+                                    <th>No</th>
                                     <th>Nama Rekanan</th>
                                     <th>Alamat</th>
                                     <th>Nama Pimpinan</th>
@@ -107,35 +120,35 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <?php $no = 1 ?>
-                                @foreach($rekanan as $rekanan)
-                                    <tr>
-                                        <td class="project-state text-md-center ">{{$rekanan->id_rekanan}}</td>
-                                        <td class="project-state">{{$rekanan->nama_rekanan}}</td>
-                                        <td class="project-state">{{$rekanan->alamat}}</td>
-                                        <td class="project-state">{{$rekanan->nama_pimpinan}}</td>
-                                        <td class="project-state">{{$rekanan->no_telp}}</td>
-                                        <td class="project-state">{{$rekanan->no_npwp}}</td>
-                                        <td class="project-state">{{$rekanan->no_siup}}</td>
-                                        <td class="project-state">{{$rekanan->email}}</td>
-                                        <td class="project-actions text-center">
-                                            <a class="btn btn-info btn-sm" href="{{route('rekanan.edit', $rekanan->id_rekanan)}}">
-                                                <i class="fas fa-pencil-alt">
-                                                </i>
-                                                Edit
-                                            </a>
-                                            <a class="btn btn-danger btn-sm" href="{{route('rekanan.delete', $rekanan)}}" onclick="return confirm('Data akan dihapus, lanjutkan?')">
-                                                <i class="fas fa-trash">
-                                                </i>
-                                                Delete
-                                            </a>
-                                        </td>
-                                    </tr>
-                                @endforeach
+{{--                                <?php $no = 1 ?>--}}
+{{--                                @foreach($rekanan as $rekanan)--}}
+{{--                                    <tr>--}}
+{{--                                        <td class="project-state text-md-center ">{{$rekanan->id_rekanan}}</td>--}}
+{{--                                        <td class="project-state">{{$rekanan->nama_rekanan}}</td>--}}
+{{--                                        <td class="project-state">{{$rekanan->alamat}}</td>--}}
+{{--                                        <td class="project-state">{{$rekanan->nama_pimpinan}}</td>--}}
+{{--                                        <td class="project-state">{{$rekanan->no_telp}}</td>--}}
+{{--                                        <td class="project-state">{{$rekanan->no_npwp}}</td>--}}
+{{--                                        <td class="project-state">{{$rekanan->no_siup}}</td>--}}
+{{--                                        <td class="project-state">{{$rekanan->email}}</td>--}}
+{{--                                        <td class="project-actions text-center">--}}
+{{--                                            <a class="btn btn-info btn-sm" href="{{route('rekanan.edit', $rekanan->id_rekanan)}}">--}}
+{{--                                                <i class="fas fa-pencil-alt">--}}
+{{--                                                </i>--}}
+{{--                                                Edit--}}
+{{--                                            </a>--}}
+{{--                                            <a class="btn btn-danger btn-sm" href="{{route('rekanan.delete', $rekanan)}}" onclick="return confirm('Data akan dihapus, lanjutkan?')">--}}
+{{--                                                <i class="fas fa-trash">--}}
+{{--                                                </i>--}}
+{{--                                                Delete--}}
+{{--                                            </a>--}}
+{{--                                        </td>--}}
+{{--                                    </tr>--}}
+{{--                                @endforeach--}}
                                 </tbody>
                                 <tfoot>
                                 <tr class="text-md-center">
-                                    <th>No. Id</th>
+                                    <th>No</th>
                                     <th>Nama Rekanan</th>
                                     <th>Alamat</th>
                                     <th>Nama Pimpinan</th>
@@ -156,7 +169,38 @@
     </div>
 
 @endsection
+@section('script')
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var table = $('#example2').DataTable({
+                processing: true,
+                // serverSide: true,
+                responsive:true,
+                ajax: {
+                    "url": "{{ url('/rekanan') }}",
+                    "data": {
+                        {{--"id_jenis": "{{app('request')->input('id_jenis')}}",--}}
 
-{{--@section('script')--}}
-{{--    --}}
-{{--@endsection--}}
+                        {{--"min": "{{app('request')->input('min')}}",--}}
+
+                        {{--"max": "{{app('request')->input('max')}}",--}}
+                    }
+
+                },
+                columns: [
+                    {data: 'DT_RowIndex', name: 'DT_RowIndex'},
+                    {data: 'nama_rekanan', name: 'nama_rekanan'},
+                    {data: 'alamat', name: 'alamat'},
+                    {data: 'nama_pimpinan', name: 'nama_pimpinan'},
+                    {data: 'no_telp', name: 'no_telp'},
+                    {data: 'no_npwp', name: 'no_npwp'},
+                    {data: 'no_siup', name: 'no_siup'},
+                    {data: 'email', name: 'email'},
+                    {data: 'aksi', name: 'aksi', orderable: false, searchable: false},
+                ]
+            });
+        });
+    </script>
+@endsection

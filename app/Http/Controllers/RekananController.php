@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Rekanan;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Yajra\DataTables\DataTables;
 
 class RekananController extends Controller
 {
@@ -13,11 +14,34 @@ class RekananController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $rekanan = Rekanan::all();
-        return view('layouts.rekanan.index', [
-            'rekanan' => $rekanan,
+//        $rekanan = Rekanan::all();
+//        return view('layouts.rekanan.index', [
+//            'rekanan' => $rekanan,
+//        ]);
+        $data = Rekanan::query();
+        if($request->ajax()){
+            return DataTables::of($data)
+                ->addIndexColumn()
+                ->addColumn('aksi', function($row) {
+                    $btn = '<a class="btn btn-info btn-sm" href="'.route('rekanan.edit', $row->id_rekanan).'"><i class="fas fa-pencil-alt"></i>Edit</a>';
+//                        '<a class="btn btn-danger btn-sm" href="'.route('rekanan.delete', $row).'" onclick="return confirm(Data akan dihapus, lanjutkan?)"><i class="fas fa-trash"></i>Delete</a>';
+                    return $btn;
+//                    if ($row->Dokumen->status == 1 && $row->Dokumen->status_belanja == 1){
+//                        $btn = '<a class="btn btn-success btn-sm" href="'.route('belanja.show', $row->id_belanja).'"><i class="fas fa-search"></i></a>';
+//                        return $btn;
+//                    }elseif ($row->Dokumen->status == 0 && $row->Dokumen->status_belanja == 1){
+//                        $btn = '<a class="btn btn-danger btn-sm" href="'.route('belanja.show', $row->id_belanja).'"><i class="fas fa-search"></i></a>';
+//                        return $btn;
+//                    }
+
+                })
+                ->rawColumns(['aksi'])
+                ->make(true);
+        }
+        return view('layouts.rekanan.index',[
+            'rekanans' => $data,
         ]);
     }
 
@@ -54,7 +78,7 @@ class RekananController extends Controller
         $rekanan->no_siup = $request->no_siup;
         $rekanan->email = $request->email;
         $nama = $request->nama_rekanan;
-        
+
         $rekanan->save();
         return redirect()->route('rekanan')->with('success','Data ['.$nama.'] disimpan');
     }
@@ -106,7 +130,7 @@ class RekananController extends Controller
         $rekanan->no_npwp = $request->no_npwp;
         $rekanan->no_siup = $request->no_siup;
         $rekanan->email = $request->email;
-        
+
         $rekanan->save();
         return redirect()->route('rekanan')->with('info','Data ['.$nama.'] diupdate');
     }

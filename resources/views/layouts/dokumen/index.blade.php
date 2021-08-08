@@ -192,46 +192,8 @@
     <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
     <script type="text/javascript">
-        // var minDate, maxDate;
-        // $.fn.dataTable.ext.search.push(
-        //     function( settings, data, dataIndex ) {
-        //         var min = minDate.val();
-        //         var max = maxDate.val();
-        //         var date = new Date( data[5] );
-        //
-        //         if (
-        //             ( min === null && max === null ) ||
-        //             ( min === null && date <= max ) ||
-        //             ( min <= date   && max === null ) ||
-        //             ( min <= date   && date <= max )
-        //         ) {
-        //             return true;
-        //         }
-        //         return false;
-        //     }
-        // );
 
         $(document).ready(function() {
-            // minDate = Date($('#min'), {
-            //     format: 'mm/dd/yyyy'
-            // });
-            // maxDate = Date($('#max'), {
-            //     format: 'mm/dd/yyyy'
-            // });
-            // $.fn.dataTable.ext.search.push(
-            //     function (settings, data, dataIndex) {
-            //         var min = $('#min').datepicker('getDate');
-            //         var max = $('#max').datepicker('getDate');
-            //         var startDate = new Date(data[5]);
-            //         if (min == null && max == null) return true;
-            //         if (min == null && startDate <= max) return true;
-            //         if (max == null && startDate >= min) return true;
-            //         if (startDate <= max && startDate >= min) return true;
-            //         return false;
-            //     }
-            // );
-            // $('#min').datepicker({ onSelect: function () { table.draw(); }, changeMonth: true, changeYear: true });
-            // $('#max').datepicker({ onSelect: function () { table.draw(); }, changeMonth: true, changeYear: true });
             var table = $('#example2').DataTable({
                 processing: true,
                 serverSide: true,
@@ -260,16 +222,6 @@
                     {data: 'action', name: 'action', orderable: false, searchable: false},
                 ]
             });
-            // Event listener to the two range filtering inputs to redraw on input
-            // $('#min, #max').change(function () {
-            //     table.draw();
-            // });
-            // $(document).on('change' ,'#min,#max', function (){
-            //     table.draw();
-            // });
-            // $('#min,#max').on('change', function () {
-            //     table.draw();
-            // });
 
         });
 
