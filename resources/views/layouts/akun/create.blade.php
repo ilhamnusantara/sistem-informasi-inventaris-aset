@@ -111,6 +111,30 @@
                                         </div>
                                     </div>
 
+                                    <div class="form-group row">
+                                        <label for="status" class="col-md-4 col-form-label text-md-right">Nama Instansi</label>
+                                        <div class="col-md-6">
+                                            <select class="form-control" name="nama_instansi" id="nama_instansi">
+                                                <option value="">Pilih Instansi</option>
+                                                <option value="Kecamatan Taman">Kecamatan Taman</option>
+                                                <option value="Kelurahan Bebekan">Kelurahan Bebekan</option>
+                                                <option value="Kelurahan Geluran">Kelurahan Geluran</option>
+                                                <option value="Kelurahan Kalijaten">Kelurahan Kalijaten</option>
+                                                <option value="Kelurahan Ketegan">Kelurahan Ketegan</option>
+                                                <option value="Kelurahan Ngelom">Kelurahan Ngelom</option>
+                                                <option value="Kelurahan Sepanjang">Kelurahan Sepanjang</option>
+                                                <option value="Kelurahan Taman">Kelurahan Taman</option>
+                                                <option value="Kelurahan Wonocolo">Kelurahan Wonocolo</option>
+                                            </select>
+
+                                            @error('status')
+                                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+
                                     <div class="form-group row mb-0">
                                         <div class="col-md-6 offset-md-4">
                                             <button type="submit" class="btn btn-primary">

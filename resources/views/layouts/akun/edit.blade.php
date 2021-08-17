@@ -43,34 +43,45 @@
                                         <label for="exampleInputPassword1">Nama Lengkap</label>
                                         <input type="text" class="form-control" name="name" id="name" value="{{$user->name}}" placeholder="Nama lengkap">
                                     </div>
-{{--                                    <div class="form-group">--}}
-{{--                                        <label>Instansi</label>--}}
-{{--                                        <select class="form-control" name="instansi" id="instansi">--}}
-{{--                                            <option value=""></option>--}}
-{{--                                            <option value="Kelurahan Bebekan">Kelurahan Bebekan</option>--}}
-{{--                                            <option value="Kelurahan Ngelom">Kelurahan Ngelom</option>--}}
-{{--                                            <option value="Kelurahan Geluran">Kelurahan Geluran</option>--}}
-{{--                                            <option value="Kelurahan Taman">Kelurahan Taman</option>--}}
-{{--                                            <option value="Kelurahan Ketegan">Kelurahan Ketegan</option>--}}
-{{--                                            <option value="Kelurahan Sepanjang">Kelurahan Sepanjang</option>--}}
-{{--                                        </select>--}}
-{{--                                    </div>--}}
+                                    <div class="form-group">
+                                        <label>Instansi</label>
+                                        <select class="form-control" name="nama_instansi" id="nama_instansi">
+                                            <option class="text-bold" value="{{$user->nama_instansi}}">{{$user->nama_instansi}}</option>
+                                            <option value="Kecamatan Taman">Kecamatan Taman</option>
+                                            <option value="Kelurahan Bebekan">Kelurahan Bebekan</option>
+                                            <option value="Kelurahan Geluran">Kelurahan Geluran</option>
+                                            <option value="Kelurahan Kalijaten">Kelurahan Kalijaten</option>
+                                            <option value="Kelurahan Ketegan">Kelurahan Ketegan</option>
+                                            <option value="Kelurahan Ngelom">Kelurahan Ngelom</option>
+                                            <option value="Kelurahan Sepanjang">Kelurahan Sepanjang</option>
+                                            <option value="Kelurahan Taman">Kelurahan Taman</option>
+                                            <option value="Kelurahan Wonocolo">Kelurahan Wonocolo</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="status">Status</label>
+                                            <select class="form-control" name="status" id="status">
+                                                @if($user->status == 0)
+                                                    <option class="text-bold" value="0">User</option>
+                                                @else
+                                                    <option class="text-bold" value="1">Admin</option>
+                                                @endif
+                                                <option value="0">User</option>
+                                                <option value="1">Admin</option>
+                                            </select>
+                                            @error('status')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                    </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Email</label>
                                         <input type="email" class="form-control" name="email" id="email" value="{{$user->email}}" placeholder="Username">
                                     </div>
                                     <div class="form-group">
                                         <label for="password">{{ __('Password') }}</label>
-                                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-                                        @error('password')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="password-confirm">{{ __('Confirm Password') }}</label>
-                                        <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                                        <input id="password" type="password" class="form-control" name="password">
                                     </div>
                                 </div>
                                 <!-- /.card-body -->

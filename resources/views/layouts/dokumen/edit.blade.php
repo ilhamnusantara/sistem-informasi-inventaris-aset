@@ -44,7 +44,7 @@
                                         <div class="col-sm-12">
                                             <!-- text input -->
                                             <div class="form-group">
-                                                <label>Jenis Belanja</label>
+                                                <label>Jenis Belanja <span class="text-danger">*</span></label>
                                                 <select class="form-control select2" style="width: 100%;" name="id_jenis" id="id_jenis">
                                                     <option value="{{$dokumen->jenisBelanja->id_jenis}}" class="fas fa-check">{{$dokumen->jenisBelanja->jenis_belanja}}</option>
                                                     @foreach ($jenisBelanjas as $jenisBelanja)
@@ -58,7 +58,7 @@
                                         <div class="col-sm-12">
                                             <!-- text input -->
                                             <div class="form-group">
-                                                <label>Instansi</label>
+                                                <label>Instansi <span class="text-danger">*</span></label>
                                                 <select class="form-control select2" style="width: 100%;" name="id_instansi" id="id_instansi">
                                                     <option value="{{$dokumen->instansi->id_instansi}}" class="fas fa-check">{{$dokumen->instansi->nama_instansi}}</option>
                                                     @foreach($instansis as $instansi)
@@ -74,7 +74,7 @@
                                         <div class="col-sm-12">
                                             <!-- text input -->
                                             <div class="form-group">
-                                                <label>Keterangan Belanja</label>
+                                                <label>Keterangan Belanja <span class="text-danger">*</span></label>
                                                 <input type="text" class="form-control" name="keterangan_belanja" id="keterangan_belanja" value="{{$dokumen->keterangan_belanja}}">
                                             </div>
                                         </div>
@@ -83,7 +83,7 @@
                                         <div class="col-sm-12">
                                             <!-- text input -->
                                             <div class="form-group">
-                                                <label>Rincian Belanja</label>
+                                                <label>Rincian Belanja <span class="text-danger">*</span></label>
                                                 <input type="text" class="form-control" name="rincian_belanja" id="rincian_belanja" value="{{$dokumen->rincian_belanja}}">
                                             </div>
                                         </div>
@@ -93,13 +93,19 @@
                                             <!-- text input -->
                                             <div class="form-group">
                                                 <label>Nomor SPK</label>
-                                                <input type="text" class="form-control" name="no_spk" id="no_spk" value="{{$dokumen->no_spk}}">
+                                                <input type="text" class="form-control @error('no_spk', 'dokumen') is-invalid @enderror" name="no_spk" id="no_spk" value="{{$dokumen->no_spk}}">
+                                                @error('no_spk')
+                                                <div class="alert alert-danger alert-block">{{ $message }}</div>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="form-group">
                                                 <label>Nomor BAST</label>
-                                                <input type="text" class="form-control" name="no_bast" id="no_bast" value="{{$dokumen->no_bast}}">
+                                                <input type="text" class="form-control @error('no_bast', 'dokumen') is-invalid @enderror" name="no_bast" id="no_bast" value="{{$dokumen->no_bast}}">
+                                                @error('no_bast')
+                                                <div class="alert alert-danger alert-block">{{ $message }}</div>
+                                                @enderror
                                             </div>
                                         </div>
                                     </div>

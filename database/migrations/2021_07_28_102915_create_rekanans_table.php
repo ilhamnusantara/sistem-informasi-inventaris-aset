@@ -18,10 +18,11 @@ class CreateRekanansTable extends Migration
             $table->string('nama_rekanan');
             $table->string('alamat');
             $table->string('nama_pimpinan');
+            $table->string('no_rek');
             $table->string('no_telp');
-            $table->string('no_npwp');
-            $table->string('no_siup');
-            $table->string('email');
+            $table->string('no_npwp')->nullable();
+            $table->string('no_siup')->nullable();
+            $table->string('email')->nullable();
             $table->timestamps();
         });
     }

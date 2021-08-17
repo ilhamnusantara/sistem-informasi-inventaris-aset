@@ -53,6 +53,7 @@ class AkunController extends Controller
         $user->email = $request->email;
         $user->status = $request->status;
         $user->password = \Illuminate\Support\Facades\Hash::make($request->password);
+        $user->nama_instansi = $request->nama_instansi;
         $user->save();
         return redirect()->route('user')->with('success','Data berhasil di input');
     }
@@ -93,12 +94,13 @@ class AkunController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required',
-            'password' => 'required|string|min:3|confirmed',
-            'password_confirmation' => 'required',
         ]);
         $user = User::find($id);
         $user->name = $request->name;
+        $user->status = $request->status;
         $user->email = $request->email;
+        $user->nama_instansi = $request->nama_instansi;
+        $user->password = \Illuminate\Support\Facades\Hash::make($request->password);
 //        if (!Hash::check($request->password, $request->password_confirmation)) {
 //            return back()->with('error', 'Current password does not match!');
 //        }
@@ -113,10 +115,11 @@ class AkunController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Akun $akun)
+    public function destroy($id_user)
     {
-        $akun->delete();
-        return redirect()->route('akun.index')->with('success', 'Akun berhasil di hapus');
+        $user = User::find($id_user);
+        $user->delete();
+        return redirect()->route('user')->with('success', 'Akun berhasil di hapus');
     }
 
     public function change($id)

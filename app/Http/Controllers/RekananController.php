@@ -16,10 +16,6 @@ class RekananController extends Controller
      */
     public function index(Request $request)
     {
-//        $rekanan = Rekanan::all();
-//        return view('layouts.rekanan.index', [
-//            'rekanan' => $rekanan,
-//        ]);
         $data = Rekanan::query();
         if($request->ajax()){
             return DataTables::of($data)
@@ -28,13 +24,6 @@ class RekananController extends Controller
                     $btn = '<a class="btn btn-info btn-sm" href="'.route('rekanan.edit', $row->id_rekanan).'"><i class="fas fa-pencil-alt"></i>Edit</a>';
 //                        '<a class="btn btn-danger btn-sm" href="'.route('rekanan.delete', $row).'" onclick="return confirm(Data akan dihapus, lanjutkan?)"><i class="fas fa-trash"></i>Delete</a>';
                     return $btn;
-//                    if ($row->Dokumen->status == 1 && $row->Dokumen->status_belanja == 1){
-//                        $btn = '<a class="btn btn-success btn-sm" href="'.route('belanja.show', $row->id_belanja).'"><i class="fas fa-search"></i></a>';
-//                        return $btn;
-//                    }elseif ($row->Dokumen->status == 0 && $row->Dokumen->status_belanja == 1){
-//                        $btn = '<a class="btn btn-danger btn-sm" href="'.route('belanja.show', $row->id_belanja).'"><i class="fas fa-search"></i></a>';
-//                        return $btn;
-//                    }
 
                 })
                 ->rawColumns(['aksi'])
@@ -67,12 +56,14 @@ class RekananController extends Controller
             'nama_rekanan' => 'required|min:5',
             'alamat' => 'required|min:5',
             'nama_pimpinan' => 'required|min:5',
-            'no_npwp' => 'required|min:5',
+            'no_rek' => 'required|min:6',
+            'no_telp' => 'required|min:5',
         ]);
         $rekanan = new Rekanan();
         $rekanan->nama_rekanan = $request->nama_rekanan;
         $rekanan->alamat = $request->alamat;
         $rekanan->nama_pimpinan = $request->nama_pimpinan;
+        $rekanan->no_rek = $request->no_rek;
         $rekanan->no_telp = $request->no_telp;
         $rekanan->no_npwp = $request->no_npwp;
         $rekanan->no_siup = $request->no_siup;
@@ -119,6 +110,7 @@ class RekananController extends Controller
             'nama_rekanan' => 'required|min:5',
             'alamat' => 'required|min:5',
             'nama_pimpinan' => 'required|min:5',
+            'no_rek' => 'required|min:6',
             'no_npwp' => 'required|min:5',
         ]);
         $rekanan = Rekanan::find($id_rekanan);
@@ -126,6 +118,7 @@ class RekananController extends Controller
         $rekanan->nama_rekanan = $request->nama_rekanan;
         $rekanan->alamat = $request->alamat;
         $rekanan->nama_pimpinan = $request->nama_pimpinan;
+        $rekanan->no_telp = $request->no_telp;
         $rekanan->no_telp = $request->no_telp;
         $rekanan->no_npwp = $request->no_npwp;
         $rekanan->no_siup = $request->no_siup;

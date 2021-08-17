@@ -114,15 +114,13 @@ class DokumenController extends Controller
      */
     public function store(Request $request)
     {
-        $validator = $request->validate([
+
+        $request->validate([
             'keterangan_belanja' => 'required|min:1',
             'rincian_belanja' => 'required|min:1',
-            'no_spk' => ['required', 'max:255', 'string', 'distinct', Rule::unique('dokumens', 'no_spk')],
-            'no_bast' => ['required', 'max:255', 'string', 'distinct', Rule::unique('dokumens', 'no_bast')],
+            'no_spk' => 'unique:dokumens',
+            'no_bast' => 'unique:dokumens',
         ]);
-        if ($validator->fails()){
-            return back()->with('error', 'ada yang sama antara SPK dan BAST');
-        }
         $dokumen = new Dokumen();
         if($request->file('file_spk')){
             $file=$request->file('file_spk');
@@ -170,6 +168,7 @@ class DokumenController extends Controller
 //        $dokumen = Dokumen::with('jenisBelanja')->find($dokumen->id_dokumen);
 //        return view('layouts.dokumen.show',compact('jenisBelanjas'))->with('dokumen',$dokumen);
 
+
     }
 
     /**
@@ -208,7 +207,27 @@ class DokumenController extends Controller
      */
     public function update(Request $request, $id_dokumen)
     {
+
+//        if($request->no_spk != $dokumen->no_spk || $request->no_spk != $dokumen->no_spk ){
+//            $request->validate([
+//                'no_spk' => 'required|unique:dokumens',
+//                'no_bast' => 'required|unique:dokumens',
+//            ]);
+//        }
+//        $dokumens = Dokumen::where('keterangan_belanja','LIKE', "%{$search}%")->get();
         $dokumen = Dokumen::find($id_dokumen);
+        if($request->no_spk != $dokumen->no_spk ){
+            $request->validate([
+                'no_spk' => 'unique:dokumens',
+            ]);
+            $dokumen->no_spk = $request->no_spk;
+        }
+        if($request->no_bast != $dokumen->no_bast){
+            $request->validate([
+                'no_bast' => 'unique:dokumens',
+            ]);
+            $dokumen->no_bast = $request->no_bast;
+        }
         if($request->file('file_spk')){
             $file=$request->file('file_spk');
             $filename=$file->getClientOriginalName();
@@ -237,9 +256,7 @@ class DokumenController extends Controller
         $dokumen->id_instansi = $request->id_instansi;
         $dokumen->keterangan_belanja = $request->keterangan_belanja;
         $dokumen->rincian_belanja = $request->rincian_belanja;
-        $dokumen->no_spk = $request->no_spk;
         $dokumen->tgl_spk = $date_spk;
-        $dokumen->no_bast = $request->no_bast;
         $dokumen->tgl_bast = $date_bast;
         $dokumen->merk = $request->merk;
         $dokumen->bahan = $request->bahan;

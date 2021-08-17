@@ -40,38 +40,25 @@
                                 <p>Akun</p>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="{{route('instansi')}}" class="{{Request::is('instansi')?'nav-link active':'nav-link'}}">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Instansi</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{route('rekanan')}}" class="{{Request::is('rekanan')?'nav-link active':'nav-link'}}">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Rekanan</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{route('iBelanja')}}" class="{{Request::is('jenis-belanja')?'nav-link active':'nav-link'}}">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Master Belanja</p>
-                            </a>
-                        </li>
-                    @elseif(Auth::user()->status == 0)
-                        <li class="nav-item">
-                            <a href="{{route('rekanan')}}" class="{{Request::is('rekanan')?'nav-link active':'nav-link'}}">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Rekanan</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{route('iBelanja')}}" class="{{Request::is('jenis-belanja')?'nav-link active':'nav-link'}}">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Master Belanja</p>
-                            </a>
-                        </li>
+{{--                        <li class="nav-item">--}}
+{{--                            <a href="{{route('instansi')}}" class="{{Request::is('instansi')?'nav-link active':'nav-link'}}">--}}
+{{--                                <i class="far fa-circle nav-icon"></i>--}}
+{{--                                <p>Instansi</p>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
                     @endif
+                        <li class="nav-item">
+                            <a href="{{route('rekanan')}}" class="{{Request::is('rekanan')?'nav-link active':'nav-link'}}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Rekanan</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('iBelanja')}}" class="{{Request::is('jenis-belanja')?'nav-link active':'nav-link'}}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Master Belanja</p>
+                            </a>
+                        </li>
                 </ul>
             </li>
             <li class="nav-header">TRANSAKSI</li>

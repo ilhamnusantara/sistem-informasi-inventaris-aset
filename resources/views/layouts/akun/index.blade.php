@@ -35,39 +35,49 @@
 
                             <table id="example2" class="table table-bordered table-hover">
                                 <thead>
-                                <tr>
-                                    <th>No ID.</th>
+                                <tr class="text-center">
+                                    <th>No</th>
                                     <th>Nama Lengkap</th>
                                     <th>Username</th>
+                                    <th>Instansi</th>
                                     <th>Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
+                                <?php
+                                $no = 1;
+                                ?>
                                 @foreach($users as $user)
                                 <tr>
-                                    <td class="project-state">{{$user->id}}</td>
+                                    <td class="project-state text-center">{{$no++}}</td>
                                     <td class="project-state">{{$user->name}}</td>
-                                    <td class="project-state">{{$user->email}}</td>
+                                    <td class="project-state">{{$user->username}}</td>
+                                    <td class="project-state">{{$user->nama_instansi}}</td>
                                     <td class="project-actions text-center">
-                                        <a class="btn btn-info btn-sm" href="{{route('user.edit', $user->id)}}">
-                                            <i class="fas fa-pencil-alt">
-                                            </i>
-                                            Edit
-                                        </a>
-                                        <a class="btn btn-danger btn-sm" href="{{route('user.delete', $user->id)}}" onclick="return confirm('Data akan dihapus, lanjutkan?')">
-                                            <i class="fas fa-trash">
-                                            </i>
-                                            Hapus
-                                        </a>
+                                        @if($user->id != Auth::user()->id)
+                                            <a class="btn btn-info btn-sm" href="{{route('user.edit', $user->id)}}">
+                                                <i class="fas fa-pencil-alt">
+                                                </i>
+                                                Edit
+                                            </a>
+                                            <a class="btn btn-danger btn-sm" href="{{route('user.delete', $user->id)}}" onclick="return confirm('Data akan dihapus, lanjutkan?')">
+                                                <i class="fas fa-trash">
+                                                </i>
+                                                Hapus
+                                            </a>
+                                        @elseif($user->id == Auth::user()->id)
+                                            <h6 class="text-red">Logged !</h6>
+                                        @endif
                                     </td>
                                 </tr>
                                 @endforeach
                                 </tbody>
                                 <tfoot>
-                                <tr>
-                                    <th>No. ID</th>
+                                <tr class="text-center">
+                                    <th>No</th>
                                     <th>Nama Lengkap</th>
                                     <th>Username</th>
+                                    <th>Instansi</th>
                                     <th>Action</th>
                                 </tr>
                                 </tfoot>

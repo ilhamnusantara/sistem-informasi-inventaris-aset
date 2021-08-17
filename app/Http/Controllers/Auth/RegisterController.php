@@ -55,6 +55,7 @@ class RegisterController extends Controller
             'status' => ['required', 'string', 'max:10'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:3', 'confirmed'],
+            'nama_instansi' => ['required', 'string', 'max:30'],
         ]);
     }
 
@@ -72,6 +73,7 @@ class RegisterController extends Controller
             'status' => $data['status'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'nama_instansi' => $data['nama_instansi'],
         ]);
     }
 }

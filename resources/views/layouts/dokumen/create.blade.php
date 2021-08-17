@@ -36,7 +36,7 @@
                                         <div class="col-sm-12">
                                             <!-- text input -->
                                             <div class="form-group">
-                                                <label>Jenis Belanja</label>
+                                                <label>Jenis Belanja <span class="text-danger">*</span></label>
                                                 <select class="form-control select2" style="width: 100%;" name="id_jenis" id="id_jenis">
                                                     <option value="">Pilih Jenis</option>
                                                         @foreach ($jenisBelanjas as $jenisBelanja)
@@ -50,7 +50,7 @@
                                         <div class="col-sm-12">
                                             <!-- text input -->
                                             <div class="form-group">
-                                                <label>Instansi</label>
+                                                <label>Instansi <span class="text-danger">*</span></label>
                                                 <select class="form-control" name="id_instansi" id="id_instansi">
                                                     <option value="">Pilih Instansi</option>
                                                     @foreach($instansis as $instansi)
@@ -73,8 +73,8 @@
                                         <div class="col-sm-12">
                                             <!-- text input -->
                                             <div class="form-group">
-                                                <label>Keterangan Belanja</label>
-                                                <input type="text" class="form-control" name="keterangan_belanja" id="keterangan_belanja" placeholder="Keterangan Belanja">
+                                                <label>Keterangan Belanja <span class="text-danger">*</span></label>
+                                                <input type="text" class="form-control" name="keterangan_belanja" id="keterangan_belanja" placeholder="Keterangan Belanja" value="{{ old('keterangan_belanja') }}">
                                             </div>
                                         </div>
                                     </div>
@@ -82,8 +82,8 @@
                                         <div class="col-sm-12">
                                             <!-- text input -->
                                             <div class="form-group">
-                                                <label>Rincian Belanja</label>
-                                                <input type="text" class="form-control" name="rincian_belanja" id="rincian_belanja" placeholder="Rincian Belanja">
+                                                <label>Rincian Belanja <span class="text-danger">*</span></label>
+                                                <input type="text" class="form-control" name="rincian_belanja" id="rincian_belanja" placeholder="Rincian Belanja" value="{{ old('rincian_belanja') }}">
                                             </div>
                                         </div>
                                     </div>
@@ -92,13 +92,19 @@
                                             <!-- text input -->
                                             <div class="form-group">
                                                 <label>Nomor SPK</label>
-                                                <input type="text" class="form-control" name="no_spk" id="no_spk" placeholder="Nomor SPK">
+                                                <input type="text" class="form-control @error('no_spk') is-invalid @enderror" name="no_spk" id="no_spk" value="{{ old('no_spk') }}" placeholder="Nomor SPK">
+                                                @error('no_spk')
+                                                <div class="alert alert-danger alert-block">{{ $message }}</div>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="form-group">
                                                 <label>Nomor BAST</label>
-                                                <input type="text" class="form-control" name="no_bast" id="no_bast" placeholder="Nomor BAST">
+                                                <input type="text" class="form-control  @error('no_bast') is-invalid @enderror" name="no_bast" id="no_bast"  value="{{ old('no_bast') }}" placeholder="Nomor BAST">
+                                                @error('no_bast')
+                                                <div class="alert alert-danger alert-block">{{ $message }}</div>
+                                                @enderror
                                             </div>
                                         </div>
                                     </div>

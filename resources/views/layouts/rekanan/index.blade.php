@@ -68,19 +68,23 @@
                                                 <form action="{{route('rekanan.store')}}" method="POST">
                                                     {{ csrf_field() }}
                                                     <div class="form-group">
-                                                        <label for="inputNama">Nama Rekanan</label>
+                                                        <label for="inputNama">Nama Rekanan <span class="text-danger">*</span></label>
                                                         <input name="nama_rekanan" type="text" class="form-control" id="inputNama" aria-describedby="emailHelp">
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="inputNama">Alamat</label>
+                                                        <label for="inputNama">Alamat <span class="text-danger">*</span></label>
                                                         <input name="alamat" type="text" class="form-control" id="inputNama" aria-describedby="emailHelp">
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="inputNama">Nama Pimpinan</label>
+                                                        <label for="inputNama">Nama Pimpinan<span class="text-danger">*</span></label>
                                                         <input name="nama_pimpinan" type="text" class="form-control" id="inputNama" aria-describedby="emailHelp">
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="inputNama">No. Telp</label>
+                                                        <label for="inputNama">No. Rekening<span class="text-danger">*</span></label>
+                                                        <input name="no_rek" type="text" class="form-control" id="inputNama" aria-describedby="emailHelp">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputNama">No. Telp<span class="text-danger">*</span></label>
                                                         <input name="no_telp" type="text" class="form-control" id="inputNama" aria-describedby="emailHelp">
                                                     </div>
                                                     <div class="form-group">
@@ -112,6 +116,7 @@
                                     <th>Nama Rekanan</th>
                                     <th>Alamat</th>
                                     <th>Nama Pimpinan</th>
+                                    <th>No. Rekening</th>
                                     <th>No. Telp</th>
                                     <th>No. NPWP</th>
                                     <th>No. SIUP</th>
@@ -152,6 +157,7 @@
                                     <th>Nama Rekanan</th>
                                     <th>Alamat</th>
                                     <th>Nama Pimpinan</th>
+                                    <th>No. Rekening</th>
                                     <th>No. Telp</th>
                                     <th>No. NPWP</th>
                                     <th>No. SIUP</th>
@@ -194,6 +200,7 @@
                     {data: 'nama_rekanan', name: 'nama_rekanan'},
                     {data: 'alamat', name: 'alamat'},
                     {data: 'nama_pimpinan', name: 'nama_pimpinan'},
+                    {data: 'no_rek', name: 'no_rek'},
                     {data: 'no_telp', name: 'no_telp'},
                     {data: 'no_npwp', name: 'no_npwp'},
                     {data: 'no_siup', name: 'no_siup'},

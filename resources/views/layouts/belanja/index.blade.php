@@ -85,7 +85,7 @@
                                                 <form action="{{route('belanja.store')}}" method="POST">
                                                     {{ csrf_field() }}
                                                     <div class="form-group">
-                                                        <label>Dokumen Belanja</label>
+                                                        <label>Dokumen Belanja <span class="text-danger">*</span></label>
                                                         <select class="form-control select2" style="width: 100%;" name="id_dokumen" id="id_dokumen">
                                                             <option disable value>--Pilih Induk Belanja--</option>
                                                             @foreach ($dokumens as $dokumen)
@@ -96,19 +96,19 @@
                                                         </select>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="inputNama">Satuan</label>
+                                                        <label for="inputNama">Satuan <span class="text-danger">*</span></label>
                                                         <input name="satuan" type="text" class="form-control" id="inputNama" aria-describedby="emailHelp">
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="inputNama">Volume</label>
+                                                        <label for="inputNama">Volume <span class="text-danger">*</span></label>
                                                         <input name="volume" type="text" class="form-control" id="inputNama" aria-describedby="emailHelp">
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="inputNama">Nominal Belanja</label>
+                                                        <label for="inputNama">Nominal Belanja <span class="text-danger">*</span></label>
                                                         <input name="nominal_belanja" type="text" class="form-control" id="nominal_belanja" aria-describedby="emailHelp">
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="inputNama">Rekanan</label>
+                                                        <label for="inputNama">Rekanan <span class="text-danger">*</span></label>
                                                         <select class="form-control select2" style="width: 100%;" name="id_rekanan" id="id_rekanan">
                                                             <option disable value>--Pilih Induk Belanja--</option>
                                                             @foreach ($rekanans as $rekanan)
@@ -117,11 +117,11 @@
                                                         </select>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="inputNama">Nomor PBB/SPM</label>
+                                                        <label for="inputNama">Nomor PBB/SPM <span class="text-danger">*</span></label>
                                                         <input name="no_pbb_ls" type="text" class="form-control" id="inputNama" aria-describedby="emailHelp">
                                                     </div>
                                                     <div class="form-group">
-                                                        <label>Tanggal PPB/SPM  </label>
+                                                        <label>Tanggal PPB/SPM <span class="text-danger">*</span></label>
                                                         <div class="input-group date" id="reservationdate2" data-target-input="nearest">
                                                             <input type="text" class="form-control datetimepicker-input" name="tanggal_belanja" data-target="#reservationdate2"/>
                                                             <div class="input-group-append" data-target="#reservationdate2" data-toggle="datetimepicker">
