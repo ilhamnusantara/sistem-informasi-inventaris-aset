@@ -51,7 +51,7 @@
                                             <!-- text input -->
                                             <div class="form-group">
                                                 <label>Instansi</label>
-                                                <input type="text" class="form-control" name="instansi" id="instansi" value="{{$dokumen->instansi->nama_instansi}}" readonly >
+                                                <input type="text" class="form-control" name="instansi" id="instansi" value="{{$dokumen->instansi}}" readonly >
                                             </div>
                                         </div>
                                     </div>

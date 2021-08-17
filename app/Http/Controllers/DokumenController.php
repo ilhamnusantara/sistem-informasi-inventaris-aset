@@ -22,7 +22,7 @@ class DokumenController extends Controller
      */
     public function getDokumen(Request $request){
         $jenisBelanjas = jenisBelanja::all();
-        $instansis = Instansi::all();
+//        $instansis = Instansi::all();
         $data = Dokumen::query();
         if($request->id_jenis){
             $data->where('id_jenis', $request->id_jenis);
@@ -46,10 +46,10 @@ class DokumenController extends Controller
                     $jenis = $row->jenisBelanja->jenis_belanja;
                     return $jenis;
                 })
-                ->addColumn('instansi', function($row) {
-                    $instansi = $row->instansi->nama_instansi;
-                    return $instansi;
-                })
+//                ->addColumn('instansi', function($row) {
+//                    $instansi = $row->instansi->nama_instansi;
+//                    return $instansi;
+//                })
                 ->addColumn('action', function($row) {
                     if($row->status== 1 && $row->status_belanja == 0){
                         $btn = '<a class="btn bg-yellow btn-sm" href="'.route('dokumen.show', $row->id_dokumen).'"><i class="fas fa-search"></i></a>';
@@ -71,7 +71,7 @@ class DokumenController extends Controller
         }
         return view('layouts.dokumen.index',[
             'dokumens' => $data,
-        ], compact('jenisBelanjas','instansis'));
+        ], compact('jenisBelanjas'));
     }
 
 //    public function index(Request $request)
@@ -114,13 +114,13 @@ class DokumenController extends Controller
      */
     public function store(Request $request)
     {
-
         $request->validate([
             'keterangan_belanja' => 'required|min:1',
             'rincian_belanja' => 'required|min:1',
-            'no_spk' => 'unique:dokumens',
-            'no_bast' => 'unique:dokumens',
+            'no_spk' => 'unique:dokumens|nullable',
+            'no_bast' => 'unique:dokumens|nullable',
         ]);
+
         $dokumen = new Dokumen();
         if($request->file('file_spk')){
             $file=$request->file('file_spk');
@@ -144,11 +144,20 @@ class DokumenController extends Controller
             $request->foto->move(public_path('foto'), $foto);
             $dokumen->foto = $foto;
         }
-        $date_spk = \Carbon\Carbon::parse(urldecode($request->tgl_spk))->format('Y-m-d');
-        $date_bast = \Carbon\Carbon::parse(urldecode($request->tgl_bast))->format('Y-m-d');
+        $date_spk = null;
+        $date_bast = null;
+        if ($request->tgl_spk != null || $request->tgl_bast != null){
+            if ($request->tgl_spk != null){
+                $date_spk = \Carbon\Carbon::parse(urldecode($request->tgl_spk))->format('Y-m-d');
+            }
+            if ($request->tgl_bast != null){
+                $date_bast = \Carbon\Carbon::parse(urldecode($request->tgl_bast))->format('Y-m-d');
+            }
+        }
+
 
         $dokumen->id_jenis = $request->id_jenis;
-        $dokumen->id_instansi = $request->id_instansi;
+        $dokumen->instansi = $request->colorRadio;
         $dokumen->keterangan_belanja = $request->keterangan_belanja;
         $dokumen->rincian_belanja = $request->rincian_belanja;
         $dokumen->no_spk = $request->no_spk;
@@ -253,7 +262,7 @@ class DokumenController extends Controller
         $date_bast = \Carbon\Carbon::parse(urldecode($request->tgl_bast))->format('Y-m-d');
 
         $dokumen->id_jenis = $request->id_jenis;
-        $dokumen->id_instansi = $request->id_instansi;
+        $dokumen->instansi = $request->instansi;
         $dokumen->keterangan_belanja = $request->keterangan_belanja;
         $dokumen->rincian_belanja = $request->rincian_belanja;
         $dokumen->tgl_spk = $date_spk;

@@ -6,27 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="61485c72-bac9-4323-b8e8-82c9fc2ee6e5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Akun.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Akun.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AkunController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AkunController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Dokumen.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Dokumen.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DokumenController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DokumenController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RekananController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RekananController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Rekanan.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Rekanan.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_07_28_102915_create_rekanans_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_07_28_102915_create_rekanans_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/akun/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/akun/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/akun/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/akun/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/akun/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/akun/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/belanja/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/belanja/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_04_15_123808_create_dokumens_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_04_15_123808_create_dokumens_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/dokumen/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/dokumen/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/dokumen/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/dokumen/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/partials/flash-message.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/partials/flash-message.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/rekanan/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/rekanan/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/dokumen/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/dokumen/show.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -331,7 +315,7 @@
       <workItem from="1628911005275" duration="9651000" />
       <workItem from="1628986833016" duration="6126000" />
       <workItem from="1629023177464" duration="4407000" />
-      <workItem from="1629159259606" duration="7030000" />
+      <workItem from="1629159259606" duration="15009000" />
     </task>
     <servers />
   </component>

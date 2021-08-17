@@ -1,5 +1,17 @@
 @extends('layouts.master')
-
+@section('style')
+<style>
+    .box{
+        color: #fff;
+        padding: 20px;
+        display: none;
+        margin-top: 20px;
+    }
+    .bukan{ background: #ff0000; }
+    .green{ background: #228B22; }
+    .blue{ background: #0000ff; }
+</style>
+@endsection
 @section('content')
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -50,12 +62,25 @@
                                         <div class="col-sm-12">
                                             <!-- text input -->
                                             <div class="form-group">
-                                                <label>Instansi <span class="text-danger">*</span></label>
-                                                <select class="form-control" name="id_instansi" id="id_instansi">
-                                                    <option value="">Pilih Instansi</option>
-                                                    @foreach($instansis as $instansi)
-                                                        <option value="{{$instansi->id_instansi}}">{{$instansi->nama_instansi}}</option>
-                                                    @endforeach
+                                                <label>Apakah Anda Pemilik Dokumen / Berkas ? <span class="text-danger">*</span></label>
+                                                <div>
+                                                    <h6><input type="radio" name="colorRadio" value="{{Auth::user()->nama_instansi}}"> Pemilik Dokumen</h6>
+                                                    <h6><input type="radio" name="colorRadio" value=""> Bukan Pemilik Dokumen</h6>
+                                                </div>
+{{--                                                <div class="benar box">Anda <strong>Pemilik</strong> Dokumen ini--}}
+{{--                                                    <input type="text" value="{{Auth::user()->nama_instansi}}" hidden>--}}
+{{--                                                </div>--}}
+                                                <div class="box">Anda <strong>Bukan Pemilik</strong> Dokumen ini
+                                                    <input type="text" value="" hidden>
+                                                </div>
+                                            </div>
+{{--                                            <div class="form-group">--}}
+{{--                                                <label>Instansi <span class="text-danger">*</span></label>--}}
+{{--                                                <select class="form-control" name="id_instansi" id="id_instansi">--}}
+{{--                                                    <option value="">Pilih Instansi</option>--}}
+{{--                                                    @foreach($instansis as $instansi)--}}
+{{--                                                        <option value="{{$instansi->id_instansi}}">{{$instansi->nama_instansi}}</option>--}}
+{{--                                                    @endforeach--}}
 
 {{--                                                        <option value="Kelurahan Bebekan">Kelurahan Bebekan</option>--}}
 {{--                                                        <option value="Kelurahan Geluran">Kelurahan Geluran</option>--}}
@@ -65,8 +90,8 @@
 {{--                                                        <option value="Kelurahan Sepanjang">Kelurahan Sepanjang</option>--}}
 {{--                                                        <option value="Kelurahan Taman">Kelurahan Taman</option>--}}
 {{--                                                        <option value="Kelurahan Wonocolo">Kelurahan Wonocolo</option>--}}
-                                                </select>
-                                            </div>
+{{--                                                </select>--}}
+{{--                                            </div>--}}
                                         </div>
                                     </div>
                                     <div class="row">
@@ -254,6 +279,16 @@
                 $('input[name="jenis"]').val(id_jenis)
                 $('input[name="kategori"]').val(kategori)
                 $('#form_jenis').submit()
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function(){
+            $('input[type="radio"]').click(function(){
+                var inputValue = $(this).attr("value");
+                var targetBox = $("." + inputValue);
+                $("box").not(targetBox).hide();
+                $(targetBox).show();
             });
         });
     </script>
