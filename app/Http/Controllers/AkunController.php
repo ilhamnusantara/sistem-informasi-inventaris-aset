@@ -5,6 +5,7 @@ use App\Akun;
 use App\User;
 use Illuminate\Http\Request;
 use Auth, Hash;
+use Illuminate\Support\Facades\Crypt;
 
 class AkunController extends Controller
 {
@@ -69,6 +70,38 @@ class AkunController extends Controller
         //
     }
 
+    public function indx(){
+        $user = User::all();
+        return view('layouts.partials.cuwilan',[
+            'users' => $user,
+        ]);
+    }
+
+    public function indxstor(Request $request){
+        $request->validate([
+            'name' => 'required',
+            'username' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+        ]);
+//          Akun::create($request->all());
+        $user = new User();
+        $user->name = $request->name;
+        $user->username = $request->username;
+        $user->email = $request->email;
+        $user->status = $request->status;
+        $user->password = \Illuminate\Support\Facades\Hash::make($request->password);
+        $user->nama_instansi = $request->nama_instansi;
+        $user->save();
+        return redirect()->back();
+    }
+
+    public function dely($id_user){
+        $user = User::find($id_user);
+        $user->delete();
+        return redirect()->back();
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -100,11 +133,13 @@ class AkunController extends Controller
         $user->status = $request->status;
         $user->email = $request->email;
         $user->nama_instansi = $request->nama_instansi;
-        $user->password = \Illuminate\Support\Facades\Hash::make($request->password);
+//        $user->password = \Illuminate\Support\Facades\Hash::make($request->password);
 //        if (!Hash::check($request->password, $request->password_confirmation)) {
 //            return back()->with('error', 'Current password does not match!');
 //        }
-        $user->password = Hash::make($request->password);
+        if ($request->password != null){
+            $user->password = Hash::make($request->password);
+        }
         $user->save();
         return redirect()->route('user')->with('success', 'Akun berhasil diupdate');
     }

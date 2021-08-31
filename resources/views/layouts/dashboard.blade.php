@@ -7,12 +7,16 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h5 class="m-0">Sistem Informasi Laporan Rekap Pembelian Aset <small>Kecamatan Taman</small></h5>
+                        <h5 class="m-0">Sistem Elektronik Belanja Modal Barang <small>Kecamatan Taman</small></h5>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">Dashboard Admin Kecamatan</li>
+                            @if(Auth::user()->status == 1)
+                            <li class="breadcrumb-item active">Dashboard Admin {{Auth::user()->nama_instansi}}</li>
+                            @elseif(Auth::user()->status == 0)
+                                <li class="breadcrumb-item active">Dashboard User {{Auth::user()->nama_instansi}}</li>
+                            @endif
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->

@@ -27,7 +27,11 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
-                            <li class="breadcrumb-item active">Belanja Admin Kecamatan</li>
+                            @if(Auth::user()->status == 1)
+                                <li class="breadcrumb-item active">Belanja Admin {{Auth::user()->nama_instansi}}</li>
+                            @elseif(Auth::user()->status == 0)
+                                <li class="breadcrumb-item active">Belanja User {{Auth::user()->nama_instansi}}</li>
+                            @endif
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -97,16 +101,20 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="inputNama">Satuan <span class="text-danger">*</span></label>
-                                                        <input name="satuan" type="text" class="form-control" id="inputNama" aria-describedby="emailHelp">
+                                                        <input name="satuan" type="text" class="form-control" id="inputNama">
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="inputNama">Volume <span class="text-danger">*</span></label>
-                                                        <input name="volume" type="text" class="form-control" id="inputNama" aria-describedby="emailHelp">
+                                                        <input name="volume" type="number" class="form-control" id="inputNama">
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="inputNama">Nominal Belanja <span class="text-danger">*</span></label>
-                                                        <input name="nominal_belanja" type="text" class="form-control" id="nominal_belanja" aria-describedby="emailHelp">
+                                                        <label for="inputNama">Nominal Belanja Per Satuan <span class="text-danger">*</span></label>
+                                                        <input name="nominal_belanja" type="number" class="form-control" id="nominal_belanja">
                                                     </div>
+{{--                                                    <div class="form-group">--}}
+{{--                                                        <label for="inputNama">Total Belanja <span class="text-danger">*</span></label>--}}
+{{--                                                        <input name="total_belanja" type="number" class="form-control" id="total_belanja">--}}
+{{--                                                    </div>--}}
                                                     <div class="form-group">
                                                         <label for="inputNama">Rekanan <span class="text-danger">*</span></label>
                                                         <select class="form-control select2" style="width: 100%;" name="id_rekanan" id="id_rekanan">

@@ -34,7 +34,7 @@ class DataAsetExport implements FromCollection, SkipsEmptyRows,  WithMapping, Wi
 
             $date_start = \Carbon\Carbon::parse(urldecode($date[0]))->format('Y-m-d');
             $date_end = \Carbon\Carbon::parse(urldecode($date[1]))->format('Y-m-d');
-            $data->whereRaw('DATE(tanggal_belanja) BETWEEN DATE(?) AND DATE(?)', [$date_start, $date_end]);
+            $data->whereRaw('DATE(tanggal_sp2d) BETWEEN DATE(?) AND DATE(?)', [$date_start, $date_end]);
 
         }
 
@@ -49,7 +49,8 @@ class DataAsetExport implements FromCollection, SkipsEmptyRows,  WithMapping, Wi
         return [
             $belanja['id_belanja'],
 //            $belanja['Dokumen']['jenisBelanja']['jenis_belanja'],
-            $belanja['Dokumen']['instansi']['nama_instansi'],
+//            $belanja['Dokumen']['instansi']['nama_instansi'],
+            $belanja['instansi'],
             $belanja['Dokumen']['keterangan_belanja'],
             $belanja['Dokumen']['rincian_belanja'],
             $belanja['satuan'],

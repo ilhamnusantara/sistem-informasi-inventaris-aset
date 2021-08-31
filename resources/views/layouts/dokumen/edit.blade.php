@@ -59,14 +59,15 @@
                                             <!-- text input -->
                                             <div class="form-group">
                                                 <label>Instansi <span class="text-danger">*</span></label>
-                                                <select class="form-control select2" style="width: 100%;" name="id_instansi" id="id_instansi">
-                                                    <option value="{{$dokumen->instansi->id_instansi}}" class="fas fa-check">{{$dokumen->instansi->nama_instansi}}</option>
-                                                    @foreach($instansis as $instansi)
-                                                        @if($instansi->id_instansi != $dokumen->id_instansi)
-                                                            <option value="{{$instansi->id_instansi}}">{{$instansi->nama_instansi}}</option>
-                                                        @endif
-                                                    @endforeach
-                                                </select>
+                                                @if($dokumen->instansi == null)
+                                                    @if(Auth::user()->status == 1)
+                                                        <input type="text" class="form-control" name="instansi"  id="instansi" placeholder="Anda Admin" readonly>
+                                                    @elseif(Auth::user()->status == 0)
+                                                        <input type="text" class="form-control" name="instansi" id="instansi" value="{{Auth::user()->nama_instansi}}" readonly>
+                                                    @endif
+                                                @elseif($dokumen->instansi != null)
+                                                    <input type="text" class="form-control" name="instansi" id="instansi" value="{{$dokumen->instansi}}" readonly>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -115,7 +116,7 @@
                                             <div class="form-group">
                                                 <label>Tanggal SPK</label>
                                                   <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                                                    <input type="text" class="form-control datetimepicker-input" name="tgl_spk" data-target="#reservationdate" value="{{$dokumen->tgl_spk}}"/>
+                                                    <input type="text" class="form-control datetimepicker-input" name="tgl_spk" data-target="#reservationdate" value="{{\Carbon\Carbon::parse($dokumen->tgl_spk)->format('d F Y')}}"/>
                                                     <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
                                                         <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                                     </div>
@@ -127,7 +128,7 @@
                                             <div class="form-group">
                                                 <label>Tanggal BAST</label>
                                                 <div class="input-group date" id="reservationdate1" data-target-input="nearest">
-                                                    <input type="text" class="form-control datetimepicker-input" name="tgl_bast" data-target="#reservationdate1" value="{{$dokumen->tgl_bast}}"/>
+                                                    <input type="text" class="form-control datetimepicker-input" name="tgl_bast" data-target="#reservationdate1" value="{{\Carbon\Carbon::parse($dokumen->tgl_bast)->format('d F Y')}}"/>
                                                     <div class="input-group-append" data-target="#reservationdate1" data-toggle="datetimepicker">
                                                         <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                                     </div>
@@ -152,7 +153,7 @@
                                                 <label>File BAST</label>
                                                 <div class="input-group">
                                                     <div class="custom-file">
-                                                        <input type="file" name="file_spk" accept="application/pdf"/>
+                                                        <input type="file" name="file_bast" accept="application/pdf"/>
 {{--                                                        <input type="file" name="file_bast" class="custom-file-input" @error('gambar') is-invalid @enderror id="gambar"/>--}}
 {{--                                                        <label class="custom-file-label" for="">Choose file</label>--}}
                                                     </div>

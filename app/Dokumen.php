@@ -15,10 +15,10 @@ class Dokumen extends Model
     {
         return $this->belongsTo('App\jenisBelanja','id_jenis');
     }
-    public function instansi()
-    {
-        return $this->belongsTo('App\Instansi','id_instansi');
-    }
+//    public function instansi()
+//    {
+//        return $this->belongsTo('App\Instansi','id_instansi');
+//    }
 
     public function Belanja()
     {

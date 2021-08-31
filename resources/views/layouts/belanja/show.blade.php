@@ -74,7 +74,16 @@
                                             <!-- text input -->
                                             <div class="form-group">
                                                 <label>Nominal Belanja</label>
-                                                <input type="text" class="form-control" name="nominal_belanja" id="nominal_belanja" placeholder="{{$belanja->nominal_belanja}}" readonly>
+                                                <input type="text" class="form-control" name="nominal_belanja" id="nominal_belanja" placeholder="{{'Rp. '.strrev(implode('.',str_split(strrev(strval($belanja->nominal_belanja)),3)))}}" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <!-- text input -->
+                                            <div class="form-group">
+                                                <label>Total Belanja</label>
+                                                <input type="text" class="form-control" name="id_dokumen" id="id_dokumen" value="{{'Rp. '.strrev(implode('.',str_split(strrev(strval($belanja->total_belanja)),3)))}}" readonly >
                                             </div>
                                         </div>
                                     </div>

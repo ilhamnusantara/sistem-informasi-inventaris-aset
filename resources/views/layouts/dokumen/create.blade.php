@@ -62,36 +62,18 @@
                                         <div class="col-sm-12">
                                             <!-- text input -->
                                             <div class="form-group">
-                                                <label>Apakah Anda Pemilik Dokumen / Berkas ? <span class="text-danger">*</span></label>
-                                                <div>
-                                                    <h6><input type="radio" name="colorRadio" value="{{Auth::user()->nama_instansi}}"> Pemilik Dokumen</h6>
-                                                    <h6><input type="radio" name="colorRadio" value=""> Bukan Pemilik Dokumen</h6>
-                                                </div>
-{{--                                                <div class="benar box">Anda <strong>Pemilik</strong> Dokumen ini--}}
-{{--                                                    <input type="text" value="{{Auth::user()->nama_instansi}}" hidden>--}}
-{{--                                                </div>--}}
-                                                <div class="box">Anda <strong>Bukan Pemilik</strong> Dokumen ini
-                                                    <input type="text" value="" hidden>
-                                                </div>
+                                                @if(Auth::user()->status == 1)
+                                                    <label>Apakah Anda Pemilik Dokumen / Berkas ? <span class="text-danger">*</span></label>
+                                                    <div>
+                                                        <h6><input type="radio" name="colorRadio" value="{{Auth::user()->nama_instansi}}"> Pemilik Dokumen</h6>
+                                                        <h6><input type="radio" name="colorRadio" value=""> Bukan Pemilik Dokumen</h6>
+                                                    </div>
+                                                @else
+                                                    <label> Instansi </label>
+                                                    <input type="text" class="form-control" name="colorRadio" placeholder="{{Auth::user()->nama_instansi}}" value="{{Auth::user()->nama_instansi}}" readonly>
+                                                @endif
+                                                @include('layouts.partials.flash-message')
                                             </div>
-{{--                                            <div class="form-group">--}}
-{{--                                                <label>Instansi <span class="text-danger">*</span></label>--}}
-{{--                                                <select class="form-control" name="id_instansi" id="id_instansi">--}}
-{{--                                                    <option value="">Pilih Instansi</option>--}}
-{{--                                                    @foreach($instansis as $instansi)--}}
-{{--                                                        <option value="{{$instansi->id_instansi}}">{{$instansi->nama_instansi}}</option>--}}
-{{--                                                    @endforeach--}}
-
-{{--                                                        <option value="Kelurahan Bebekan">Kelurahan Bebekan</option>--}}
-{{--                                                        <option value="Kelurahan Geluran">Kelurahan Geluran</option>--}}
-{{--                                                        <option value="Kelurahan Kalijaten">Kelurahan Kalijaten</option>--}}
-{{--                                                        <option value="Kelurahan Ketegan">Kelurahan Ketegan</option>--}}
-{{--                                                        <option value="Kelurahan Ngelom">Kelurahan Ngelom</option>--}}
-{{--                                                        <option value="Kelurahan Sepanjang">Kelurahan Sepanjang</option>--}}
-{{--                                                        <option value="Kelurahan Taman">Kelurahan Taman</option>--}}
-{{--                                                        <option value="Kelurahan Wonocolo">Kelurahan Wonocolo</option>--}}
-{{--                                                </select>--}}
-{{--                                            </div>--}}
                                         </div>
                                     </div>
                                     <div class="row">
@@ -119,7 +101,7 @@
                                                 <label>Nomor SPK</label>
                                                 <input type="text" class="form-control @error('no_spk') is-invalid @enderror" name="no_spk" id="no_spk" value="{{ old('no_spk') }}" placeholder="Nomor SPK">
                                                 @error('no_spk')
-                                                <div class="alert alert-danger alert-block">{{ $message }}</div>
+                                                <div class="alert alert-danger alert-block">Nomor SPK Sudah Digunakan</div>
                                                 @enderror
                                             </div>
                                         </div>
@@ -128,7 +110,7 @@
                                                 <label>Nomor BAST</label>
                                                 <input type="text" class="form-control  @error('no_bast') is-invalid @enderror" name="no_bast" id="no_bast"  value="{{ old('no_bast') }}" placeholder="Nomor BAST">
                                                 @error('no_bast')
-                                                <div class="alert alert-danger alert-block">{{ $message }}</div>
+                                                <div class="alert alert-danger alert-block">Nomor BAST Sudah Digunakan</div>
                                                 @enderror
                                             </div>
                                         </div>

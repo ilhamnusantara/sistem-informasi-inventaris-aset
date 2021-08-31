@@ -117,13 +117,13 @@
 
                                     <tr>
                                         <td class="project-state text-md-center">{{$no++}}</td>
-                                        <td class="project-state">{{$belanja->Dokumen->instansi->nama_instansi}}</td>
+                                        <td class="project-state">{{$belanja->instansi}}</td>
                                         <td class="project-state">{{$belanja->Dokumen->rincian_belanja}}</td>
                                         <td class="project-state"> {{$belanja->satuan}}</td>
                                         <td class="project-state"> {{$belanja->volume}}</td>
                                         <td class="project-state"> {{$belanja->nominal_belanja}}</td>
                                         <td class="project-state"> {{$belanja->satuan}}</td>
-                                        <td class="project-state"> {{$belanja->rekanan->nama}}</td>
+                                        <td class="project-state"> {{$belanja->rekanan->nama_rekanan}}</td>
                                         <td class="project-state"> {{$belanja->no_pbb_ls}}</td>
                                         <td class="project-state"> {{$belanja->sp2d}}</td>
                                         <td class="project-state"> {{$belanja->tanggal_sp2d}}</td>

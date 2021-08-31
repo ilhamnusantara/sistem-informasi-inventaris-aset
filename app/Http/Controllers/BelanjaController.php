@@ -6,6 +6,7 @@ use App\Belanja;
 use App\Dokumen;
 use App\Rekanan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\DataTables;
 
 class BelanjaController extends Controller
@@ -19,8 +20,11 @@ class BelanjaController extends Controller
     {
         $dokumens = Dokumen::all();
         $rekanans = Rekanan::all();
+        $user = Auth::user();
         $data = Belanja::query();
-
+        if ($user->status == 0){
+            $data->where('instansi',null)->orWhere('instansi', $user->nama_instansi);
+        }
         if($request->min && $request->max ){
             $date_start = \Carbon\Carbon::parse(urldecode($request->min))->format('Y-m-d');
             $date_end = \Carbon\Carbon::parse(urldecode($request->max))->format('Y-m-d');
@@ -75,7 +79,7 @@ class BelanjaController extends Controller
      */
     public function store(Request $request)
     {
-
+        $record = Dokumen::find($request->id_dokumen);
         $request->validate([
             'satuan' => 'required|min:1',
             'volume' => 'required|min:1',
@@ -102,9 +106,11 @@ class BelanjaController extends Controller
         }
         $Belanja = new Belanja();
         $Belanja->id_dokumen = $request->id_dokumen;
+        $Belanja->instansi =  $record->instansi;
         $Belanja->satuan = $request->satuan;
         $Belanja->volume = $request->volume;
         $Belanja->nominal_belanja = $request->nominal_belanja;
+        $Belanja->total_belanja = $request->volume * $request->nominal_belanja;
         $Belanja->id_rekanan = $request->id_rekanan;
         $Belanja->no_pbb_ls = $request->no_pbb_ls;
         $Belanja->tanggal_belanja = $date_belanja;
@@ -155,6 +161,7 @@ class BelanjaController extends Controller
      */
     public function update(Request $request, $id_belanja)
     {
+        $record = Dokumen::find($request->id_dokumen);
         $request->validate([
             'satuan' => 'required|min:1',
             'volume' => 'required|min:1',
@@ -163,18 +170,11 @@ class BelanjaController extends Controller
             'tanggal_belanja' => 'required|min:1',
         ]);
         $Belanja = Belanja::find($id_belanja);
-        if ($Belanja->id_dokumen != $request->id_dokumen){
-            $rubah = Dokumen::find($Belanja->id_dokumen);
-            $rubah->status = 1;
-            $rubah->status_belanja = 0;
-            $rubah->save();
-            $rubah2 = Dokumen::find($request->id_dokumen);
-            $rubah2->status_belanja = 1;
-            $rubah2->save();
-            $Belanja->id_dokumen = $request->id_dokumen;
-        }elseif ($Belanja->id_dokumen == $request->id_dokumen){
-            $Belanja->id_dokumen = $request->id_dokumen;
+        if ($request->id_dokumen != $Belanja->id_dokumen){
+
+            $Belanja->instansi =  $record->instansi;
         }
+
         $date_belanja = \Carbon\Carbon::parse(urldecode($request->tanggal_belanja))->format('Y-m-d');
         $date_sp2d = \Carbon\Carbon::parse(urldecode($request->tanggal_sp2d))->format('Y-m-d');
         $Belanja->satuan = $request->satuan;

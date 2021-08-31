@@ -76,4 +76,14 @@ class RegisterController extends Controller
             'nama_instansi' => $data['nama_instansi'],
         ]);
     }
+
+    public function showRegistrationForm()
+    {
+        return redirect('/');
+    }
+
+    public function register()
+    {
+
+    }
 }

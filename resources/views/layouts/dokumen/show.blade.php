@@ -218,17 +218,17 @@
                                 <div class="card-footer">
                                     <div class="content float-md-right">
                                         @if($dokumen->status == 0 && $dokumen->status_belanja == 0)
-                                        <a class="btn btn-info btn-sm" href="{{route('dokumen.edit', $dokumen->id_dokumen)}}">
-                                            <i class="fas fa-pencil-alt">
-                                            </i>
-                                            Edit
-                                        </a>
-                                        <a class="btn btn-danger btn-sm" href="{{route('dokumen.delete', $dokumen->id_dokumen)}}" onclick="return confirm('Data akan dihapus, lanjutkan?')">
-                                            <i class="fas fa-trash">
-                                            </i>
-                                            Hapus
-                                        </a>
-                                        <a class="btn btn-success btn-sm" href="{{route('dokumen.verifikasi', $dokumen->id_dokumen)}}"> <i class="fas fa-check"></i> Validasi</a>
+                                            <a class="btn btn-info btn-sm" href="{{route('dokumen.edit', $dokumen->id_dokumen)}}">
+                                                <i class="fas fa-pencil-alt">
+                                                </i>
+                                                Edit
+                                            </a>
+                                            <a class="btn btn-danger btn-sm" href="{{route('dokumen.delete', $dokumen->id_dokumen)}}" onclick="return confirm('Data akan dihapus, lanjutkan?')">
+                                                <i class="fas fa-trash">
+                                                </i>
+                                                Hapus
+                                            </a>
+                                            <a class="btn btn-success btn-sm" href="{{route('dokumen.verifikasi', $dokumen->id_dokumen)}}"> <i class="fas fa-check"></i> Validasi</a>
                                         @elseif($dokumen->status == 1 && $dokumen->status_belanja == 0)
                                             <a class="btn btn-danger btn-sm" href="{{route('dokumen.noverifikasi',$dokumen->id_dokumen)}}" onclick="return confirm('Batalkan validasi')"><i class="fas fa-times"></i>  Batal Validasi</a>
                                         @elseif($dokumen->status == 0 && $dokumen->status_belanja == 1)

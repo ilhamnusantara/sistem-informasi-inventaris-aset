@@ -104,8 +104,8 @@
     @yield('content')
     <!-- /.content-wrapper -->
     <footer class="main-footer">
-        <strong>Copyright &copy; 2021 <a href="https://www.instagram.com/ilhamnusantara/">Muchlas & Ilham</a>.</strong>
-        All rights reserved.
+        <strong>Copyright &copy; 2021 <a href="https://www.instagram.com/ilhamnusantara/" target="_blank">Achmad Muchlas & Kharisma Ilham Nusantara</a>.</strong>
+        All rights reserved. - <a href="https://wa.me/6281233997663" target="_blank">Contact Person Developer</a>
         <div class="float-right d-none d-sm-inline-block">
             <b>Version</b> 0.8.4
         </div>
