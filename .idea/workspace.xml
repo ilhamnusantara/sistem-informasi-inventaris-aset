@@ -5,14 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="61485c72-bac9-4323-b8e8-82c9fc2ee6e5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/public/foto/8.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/foto/Capture.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/foto/Pengertian-UDP-Adalah-Definisi-Arti-Fungsi-Lapisan-Perbedaan-Cara-Kerja-Kelebihan-dan-Kekurangan.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/foto/RT.14 4.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/foto/Sidoarjo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/foto/WhatsApp Image 2021-06-07 at 10.40.07.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/foto/fast-food.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/foto/tree.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/dokumen/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/dokumen/index.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -339,6 +333,10 @@
       <workItem from="1631142769087" duration="135000" />
       <workItem from="1631142940227" duration="24000" />
       <workItem from="1631448679961" duration="676000" />
+      <workItem from="1631495089609" duration="294000" />
+      <workItem from="1631497162724" duration="1196000" />
+      <workItem from="1631519654795" duration="609000" />
+      <workItem from="1631574458636" duration="437000" />
     </task>
     <servers />
   </component>
