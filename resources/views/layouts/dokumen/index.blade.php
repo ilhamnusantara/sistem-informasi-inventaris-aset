@@ -65,7 +65,10 @@
                                     </div>
                                     <div class="col-sm-2">
                                         <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                                            <input type="text" class="form-control datetimepicker-input" id="min" name="min" data-target="#reservationdate" placeholder="Tanggal awal"/>
+                                            <input type="text" class="form-control datetimepicker-input" id="min" name="min" data-target="#reservationdate" placeholder="Tanggal awal" {{ (app('request')->input('min')) ? 'selected' : '' }}/>
+                                            <script type="text/javascript">
+                                                document.getElementById('min').value = "<?php echo $_GET['min'];?>";
+                                            </script>
                                             <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
                                                 <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                             </div>
@@ -74,6 +77,9 @@
                                     <div class="col-sm-2">
                                         <div class="input-group date" id="reservationdate1" data-target-input="nearest">
                                             <input type="text" class="form-control datetimepicker-input" id="max" name="max" data-target="#reservationdate1" placeholder="Tanggal Akhir"/>
+                                            <script type="text/javascript">
+                                                document.getElementById('max').value = "<?php echo $_GET['max'];?>";
+                                            </script>
                                             <div class="input-group-append" data-target="#reservationdate1" data-toggle="datetimepicker">
                                                 <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                             </div>

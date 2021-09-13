@@ -54,7 +54,7 @@
                                                     <form action="{{route('cetakLap')}}" method="GET">
                                                         {{ csrf_field() }}
                                                         <div class="form-group">
-                                                            <label>Tanggal :</label>
+                                                            <label>Tanggal SP2D:</label>
                                                             <div class="input-group">
                                                                 <div class="input-group-prepend">
                                                                       <span class="input-group-text">

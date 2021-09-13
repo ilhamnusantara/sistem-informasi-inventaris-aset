@@ -30,7 +30,6 @@ class DokumenController extends Controller
             $data->where('instansi',null)->orWhere('instansi', $user->nama_instansi);
         }
         if($request->id_jenis){
-            dd($request->id_jenis);
             $data->where('id_jenis', $request->id_jenis);
         }
         if($request->min && $request->max ){

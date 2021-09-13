@@ -5,36 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="61485c72-bac9-4323-b8e8-82c9fc2ee6e5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/foto/Capture.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/foto/Sidoarjo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layouts/partials/cuwilan.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Belanja.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Belanja.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Dokumen.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Dokumen.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Exports/DataAsetExport.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exports/DataAsetExport.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AkunController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AkunController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BelanjaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BelanjaController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CetakDokumenController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CetakDokumenController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DokumenController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DokumenController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LaporanController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LaporanController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_06_19_143134_create_belanjas_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_06_19_143134_create_belanjas_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/dashboard/plugins/login/css/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/dashboard/plugins/login/css/login.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/belanja/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/belanja/edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/belanja/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/belanja/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/belanja/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/belanja/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/cetakDokumen/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/cetakDokumen/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/cetakLaporan/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/cetakLaporan/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/dashboard.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/dokumen/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/dokumen/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/dokumen/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/dokumen/edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/dokumen/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/dokumen/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/dokumen/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/dokumen/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/partials/flash-message.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/partials/flash-message.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,7 +153,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../KKN/last update/sahabat-bidan-delima" />
+    <property name="last_opened_file_path" value="C:/laragon/www/laravel-flutter" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.General" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -353,7 +328,14 @@
       <workItem from="1630276817993" duration="5781000" />
       <workItem from="1630327473589" duration="6736000" />
       <workItem from="1630417397906" duration="10831000" />
-      <workItem from="1630448726253" duration="283000" />
+      <workItem from="1630448726253" duration="3002000" />
+      <workItem from="1630707683646" duration="1478000" />
+      <workItem from="1631023340769" duration="740000" />
+      <workItem from="1631052989041" duration="1036000" />
+      <workItem from="1631102857816" duration="142000" />
+      <workItem from="1631142769087" duration="135000" />
+      <workItem from="1631142940227" duration="24000" />
+      <workItem from="1631448679961" duration="676000" />
     </task>
     <servers />
   </component>
