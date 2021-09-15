@@ -36,32 +36,36 @@
                                 @method('PUT')
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label for="exampleInputPassword1">Nama Rekanan</label>
-                                        <input type="text" class="form-control" name="norek_induk" id="nama_rekanan" value="{{$rekanan->nama_rekanan}}">
+                                        <label for="exampleInputPassword1">Nama Rekanan <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" name="nama_rekanan" id="nama_rekanan" value="{{$rekanan->nama_rekanan}}">
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputPassword1">Alamat</label>
-                                        <input type="text" class="form-control" name="induk_belanja" id="alamat" value="{{$rekanan->alamat}}">
+                                        <label for="exampleInputPassword1">Alamat <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" name="alamat" id="alamat" value="{{$rekanan->alamat}}">
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputPassword1">Nama Pimpinan</label>
-                                        <input type="text" class="form-control" name="induk_belanja" id="nama_pimpinan" value="{{$rekanan->nama_pimpinan}}">
+                                        <label for="exampleInputPassword1">Nama Pimpinan <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" name="nama_pimpinan" id="nama_pimpinan" value="{{$rekanan->nama_pimpinan}}">
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputPassword1">No. Telp</label>
-                                        <input type="text" class="form-control" name="induk_belanja" id="no_telp" value="{{$rekanan->no_telp}}">
+                                        <label for="inputNama">No. Rekening<span class="text-danger">*</span></label>
+                                        <input name="no_rek" type="text" class="form-control" id="inputNama" value="{{$rekanan->no_rek}}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">No. Telp <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" name="no_telp" id="no_telp" value="{{$rekanan->no_telp}}">
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">No. NPWP</label>
-                                        <input type="text" class="form-control" name="induk_belanja" id="no_npwp" value="{{$rekanan->no_npwp}}">
+                                        <input type="text" class="form-control" name="no_npwp" id="no_npwp" value="{{$rekanan->no_npwp}}">
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">No. SIUP</label>
-                                        <input type="text" class="form-control" name="induk_belanja" id="no_siup" value="{{$rekanan->no_siup}}">
+                                        <input type="text" class="form-control" name="no_siup" id="no_siup" value="{{$rekanan->no_siup}}">
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Email</label>
-                                        <input type="email" class="form-control" name="induk_belanja" id="email" value="{{$rekanan->email}}">
+                                        <input type="email" class="form-control" name="email" id="email" value="{{$rekanan->email}}">
                                     </div>
                                 </div>
                                 <!-- /.card-body -->

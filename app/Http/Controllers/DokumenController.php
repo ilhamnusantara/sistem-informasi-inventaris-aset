@@ -98,9 +98,9 @@ class DokumenController extends Controller
         $user = Auth::user();
         $request->validate([
             'keterangan_belanja' => 'required|min:1',
-            'rincian_belanja' => 'required|min:1',
-            'no_spk' => 'unique:dokumens|nullable',
-            'no_bast' => 'unique:dokumens|nullable',
+//            'rincian_belanja' => 'required|min:1',
+//            'no_spk' => 'unique:dokumens|nullable',
+//            'no_bast' => 'unique:dokumens|nullable',
         ]);
 
         $dokumen = new Dokumen();
@@ -147,7 +147,7 @@ class DokumenController extends Controller
             $dokumen->instansi = $request->colorRadio;
         }
         $dokumen->keterangan_belanja = $request->keterangan_belanja;
-        $dokumen->rincian_belanja = $request->rincian_belanja;
+//        $dokumen->rincian_belanja = $request->rincian_belanja;
         $dokumen->no_spk = $request->no_spk;
         $dokumen->tgl_spk = $date_spk;
         $dokumen->no_bast = $request->no_bast;
@@ -156,6 +156,7 @@ class DokumenController extends Controller
         $dokumen->bahan = $request->bahan;
         $dokumen->type = $request->type;
         $dokumen->ukuran = $request->ukuran;
+        $dokumen->alamat = $request->alamat;
         $dokumen->status = 0;
         $dokumen->status_belanja = 0;
         $dokumen->save();
@@ -205,18 +206,18 @@ class DokumenController extends Controller
     public function update(Request $request, $id_dokumen)
     {
         $dokumen = Dokumen::find($id_dokumen);
-        if($request->no_spk != $dokumen->no_spk ){
-            $request->validate([
-                'no_spk' => 'unique:dokumens',
-            ]);
-            $dokumen->no_spk = $request->no_spk;
-        }
-        if($request->no_bast != $dokumen->no_bast){
-            $request->validate([
-                'no_bast' => 'unique:dokumens',
-            ]);
-            $dokumen->no_bast = $request->no_bast;
-        }
+//        if($request->no_spk != $dokumen->no_spk ){
+//            $request->validate([
+//                'no_spk' => 'unique:dokumens',
+//            ]);
+//            $dokumen->no_spk = $request->no_spk;
+//        }
+//        if($request->no_bast != $dokumen->no_bast){
+//            $request->validate([
+//                'no_bast' => 'unique:dokumens',
+//            ]);
+//            $dokumen->no_bast = $request->no_bast;
+//        }
 
         if($request->file('file_spk')){
             $file=$request->file('file_spk');
@@ -239,25 +240,38 @@ class DokumenController extends Controller
             File::delete(public_path('foto/'.$dokumen->foto));
             $dokumen->foto = $foto;
         }
-        if ($request->tgl_spk != $dokumen->tgl_spk || $request->tgl_bast != $dokumen->tgl_bast){
-            if ($request->tgl_spk != $dokumen->tgl_spk){
-                $date_spk = \Carbon\Carbon::parse(urldecode($request->tgl_spk))->format('Y-m-d');
-            }
-            if ($request->tgl_bast != null){
-                $date_bast = \Carbon\Carbon::parse(urldecode($request->tgl_bast))->format('Y-m-d');
-            }
+        if ($request->tgl_spk != $dokumen->tgl_spk || $request->tgl_spk != null){
+            $date_spk = \Carbon\Carbon::parse(urldecode($request->tgl_spk))->format('Y-m-d');
+        }elseif($request->tgl_spk == null){
+            $date_spk = null;
         }
+        if ($request->tgl_bast != $dokumen->tgl_bast ||$request->tgl_bast != null){
+            $date_bast = \Carbon\Carbon::parse(urldecode($request->tgl_bast))->format('Y-m-d');
+        }elseif($request->tgl_bast == null){
+            $date_bast = null;
+        }
+//        if ($request->tgl_spk != $dokumen->tgl_spk || $request->tgl_bast != $dokumen->tgl_bast){
+//            if ($request->tgl_spk != $dokumen->tgl_spk || $request->tgl_spk != null){
+//                $date_spk = \Carbon\Carbon::parse(urldecode($request->tgl_spk))->format('Y-m-d');
+//            }
+//            if ($request->tgl_bast != $dokumen->tgl_bast ||$request->tgl_bast != null){
+//                $date_bast = \Carbon\Carbon::parse(urldecode($request->tgl_bast))->format('Y-m-d');
+//            }
+//        }
 
         $dokumen->id_jenis = $request->id_jenis;
         $dokumen->keterangan_belanja = $request->keterangan_belanja;
         $dokumen->instansi = $request->instansi;
-        $dokumen->rincian_belanja = $request->rincian_belanja;
+//        $dokumen->rincian_belanja = $request->rincian_belanja;
+        $dokumen->no_spk = $request->no_spk;
         $dokumen->tgl_spk = $date_spk;
+        $dokumen->no_bast = $request->no_bast;
         $dokumen->tgl_bast = $date_bast;
         $dokumen->merk = $request->merk;
         $dokumen->bahan = $request->bahan;
         $dokumen->type = $request->type;
         $dokumen->ukuran = $request->ukuran;
+        $dokumen->alamat = $request->alamat;
         $dokumen->save();
         return redirect()->route('dokumen.show',$dokumen->id_dokumen)->with('success','Data Telah Di Update');
     }

@@ -106,19 +106,12 @@ class RekananController extends Controller
      */
     public function update(Request $request, $id_rekanan)
     {
-        $request->validate([
-            'nama_rekanan' => 'required|min:5',
-            'alamat' => 'required|min:5',
-            'nama_pimpinan' => 'required|min:5',
-            'no_rek' => 'required|min:6',
-            'no_npwp' => 'required|min:5',
-        ]);
         $rekanan = Rekanan::find($id_rekanan);
         $nama = $request->nama_rekanan;
         $rekanan->nama_rekanan = $request->nama_rekanan;
         $rekanan->alamat = $request->alamat;
         $rekanan->nama_pimpinan = $request->nama_pimpinan;
-        $rekanan->no_telp = $request->no_telp;
+        $rekanan->no_rek = $request->no_rek;
         $rekanan->no_telp = $request->no_telp;
         $rekanan->no_npwp = $request->no_npwp;
         $rekanan->no_siup = $request->no_siup;

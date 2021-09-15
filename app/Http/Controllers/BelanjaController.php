@@ -174,9 +174,14 @@ class BelanjaController extends Controller
 
             $Belanja->instansi =  $record->instansi;
         }
+        if ($request->tanggal_sp2d != $Belanja->tanggal_sp2d ||$request->tanggal_sp2d != null){
+            $date_sp2d = \Carbon\Carbon::parse(urldecode($request->tanggal_sp2d))->format('Y-m-d');
+        }elseif($Belanja->tanggal_sp2d == null || $request->tanggal_sp2d == null){
+            $date_sp2d = null;
+        }
 
         $date_belanja = \Carbon\Carbon::parse(urldecode($request->tanggal_belanja))->format('Y-m-d');
-        $date_sp2d = \Carbon\Carbon::parse(urldecode($request->tanggal_sp2d))->format('Y-m-d');
+//        $date_sp2d = \Carbon\Carbon::parse(urldecode($request->tanggal_sp2d))->format('Y-m-d');
         $Belanja->satuan = $request->satuan;
         $Belanja->volume = $request->volume;
         $Belanja->nominal_belanja = $request->nominal_belanja;

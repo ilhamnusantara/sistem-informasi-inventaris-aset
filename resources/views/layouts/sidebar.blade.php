@@ -5,7 +5,7 @@
             <img src="{{url('/dashboard/dist/img/sda.png')}}" class="brand-image" style="opacity: .8" alt="User Image">
         </div>
         <div class="info">
-            <a href="#" class="d-block">Admin | Kecamatan Taman</a>
+            <a href="#" class="d-block">Admin | {{Auth::user()->nama_instansi}}</a>
         </div>
     </div>
 

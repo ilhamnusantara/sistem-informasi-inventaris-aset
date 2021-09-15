@@ -85,15 +85,15 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-sm-12">
-                                            <!-- text input -->
-                                            <div class="form-group">
-                                                <label>Rincian Belanja <span class="text-danger">*</span></label>
-                                                <input type="text" class="form-control" name="rincian_belanja" id="rincian_belanja" placeholder="Rincian Belanja" value="{{ old('rincian_belanja') }}">
-                                            </div>
-                                        </div>
-                                    </div>
+{{--                                    <div class="row">--}}
+{{--                                        <div class="col-sm-12">--}}
+{{--                                            <!-- text input -->--}}
+{{--                                            <div class="form-group">--}}
+{{--                                                <label>Rincian Belanja <span class="text-danger">*</span></label>--}}
+{{--                                                <input type="text" class="form-control" name="rincian_belanja" id="rincian_belanja" placeholder="Rincian Belanja" value="{{ old('rincian_belanja') }}">--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <!-- text input -->
@@ -201,6 +201,15 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <!-- text input -->
+                                            <div class="form-group">
+                                                <label>Merk</label>
+                                                <input type="text" class="form-control" name="merk" id="merk" placeholder="Merk">
+                                            </div>
+                                        </div>
+                                    </div>
                                         @elseif(request()->get('kategori')=='belanja_elektronik')
                                         <div class="row">
                                             <div class="col-sm-6">
@@ -233,6 +242,23 @@
                                                             <input type="file" name="foto" accept="image/jpeg, image/jpg, image/png"/>
                                                         </div>
                                                     </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        @elseif(request()->get('kategori')=='belanja_konstruksi')
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <!-- text input -->
+                                                <div class="form-group">
+                                                    <label>Ukuran (pxlxt)</label>
+                                                    <input type="text" class="form-control" name="ukuran" id="ukuran" placeholder="Ukuran">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <!-- text input -->
+                                                <div class="form-group">
+                                                    <label>Alamat / Lokasi</label>
+                                                    <input type="text" class="form-control" name="alamat" id="alamat" placeholder="Alamat">
                                                 </div>
                                             </div>
                                         </div>

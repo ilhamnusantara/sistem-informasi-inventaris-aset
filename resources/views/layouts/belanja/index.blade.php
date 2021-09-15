@@ -110,7 +110,13 @@
                                                             <option disable value>--Pilih Induk Belanja--</option>
                                                             @foreach ($dokumens as $dokumen)
                                                                 @if($dokumen->status == 1 && $dokumen->status_belanja == 0)
-                                                                    <option value="{{$dokumen->id_dokumen}}">{{$dokumen->keterangan_belanja}}</option>
+                                                                    @if(Auth::user()->status == 0)
+                                                                        @if($dokumen->instansi == Auth::user()->nama_instansi)
+                                                                            <option value="{{$dokumen->id_dokumen}}">{{$dokumen->keterangan_belanja}}</option>
+                                                                        @endif
+                                                                    @else
+                                                                        <option value="{{$dokumen->id_dokumen}}">{{$dokumen->keterangan_belanja}}</option>
+                                                                    @endif
                                                                 @endif
                                                             @endforeach
                                                         </select>

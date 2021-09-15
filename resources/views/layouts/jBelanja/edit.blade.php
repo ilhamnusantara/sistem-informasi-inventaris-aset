@@ -35,27 +35,27 @@
                                 @csrf
                                 @method('PUT')
                                 <div class="card-body">
-                                    <div class="form-group">
-                                        <label for="exampleInputPassword1">Kode Rekening Induk Belanja</label>
-                                        <input type="text" class="form-control" value="{{$jenisBelanja->subBelanja->indukBelanja->norek_induk}}" readonly>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputPassword1">Induk Belanja</label>
-                                        <input type="text" class="form-control" value="{{$jenisBelanja->subBelanja->indukBelanja->induk_belanja}}" readonly>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputPassword1">Kode Rekening Sub Belanja</label>
-                                        <input type="text" class="form-control" value="{{$jenisBelanja->subBelanja->norek_sub}}" readonly>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputPassword1">Sub Jenis Belanja</label>
-                                        <select class="form-control" name="id_sub" id="id_sub">
-                                            <option value="{{$jenisBelanja->id_sub}}">{{$jenisBelanja->subBelanja->sub_belanja}}</option>
-                                            @foreach ($subBelanjas as $subBelanja)
-                                                <option value="{{$subBelanja->id_sub}}">{{$subBelanja->sub_belanja}}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
+{{--                                    <div class="form-group">--}}
+{{--                                        <label for="exampleInputPassword1">Kode Rekening Induk Belanja</label>--}}
+{{--                                        <input type="text" class="form-control" value="{{$jenisBelanja->subBelanja->indukBelanja->norek_induk}}" readonly>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="form-group">--}}
+{{--                                        <label for="exampleInputPassword1">Induk Belanja</label>--}}
+{{--                                        <input type="text" class="form-control" value="{{$jenisBelanja->subBelanja->indukBelanja->induk_belanja}}" readonly>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="form-group">--}}
+{{--                                        <label for="exampleInputPassword1">Kode Rekening Sub Belanja</label>--}}
+{{--                                        <input type="text" class="form-control" value="{{$jenisBelanja->subBelanja->norek_sub}}" readonly>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="form-group">--}}
+{{--                                        <label for="exampleInputPassword1">Master Belanja</label>--}}
+{{--                                        <select class="form-control" name="id_sub" id="id_sub">--}}
+{{--                                            <option value="{{$jenisBelanja->id_sub}}">{{$jenisBelanja->subBelanja->sub_belanja}}</option>--}}
+{{--                                            @foreach ($subBelanjas as $subBelanja)--}}
+{{--                                                <option value="{{$subBelanja->id_sub}}">{{$subBelanja->sub_belanja}}</option>--}}
+{{--                                            @endforeach--}}
+{{--                                        </select>--}}
+{{--                                    </div>--}}
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Kode Rekening Jenis Belanja</label>
                                         <input type="text" class="form-control" name="norek_jenis" value="{{$jenisBelanja->norek_jenis}}">

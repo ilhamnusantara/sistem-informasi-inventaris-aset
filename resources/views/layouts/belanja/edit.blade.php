@@ -135,10 +135,17 @@
                                             <div class="form-group">
                                                 <label>Tanggal SP2D</label>
                                                 <div class="input-group date" id="reservationdate1" data-target-input="nearest">
-                                                    <input type="text" class="form-control datetimepicker-input" name="tanggal_sp2d" data-target="#reservationdate1" value="{{\Carbon\Carbon::parse($belanja->tanggal_sp2d)->format('d F Y')}}"/>
-                                                    <div class="input-group-append" data-target="#reservationdate1" data-toggle="datetimepicker">
-                                                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                                                    </div>
+                                                    @if($belanja->tanggal_sp2d == null)
+                                                        <input type="text" class="form-control datetimepicker-input" name="tanggal_sp2d" data-target="#reservationdate1"/>
+                                                        <div class="input-group-append" data-target="#reservationdate1" data-toggle="datetimepicker">
+                                                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                                        </div>
+                                                    @else
+                                                        <input type="text" class="form-control datetimepicker-input" name="tanggal_sp2d" data-target="#reservationdate1" value="{{\Carbon\Carbon::parse($belanja->tanggal_sp2d)->format('d F Y')}}"/>
+                                                        <div class="input-group-append" data-target="#reservationdate1" data-toggle="datetimepicker">
+                                                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                                        </div>
+                                                    @endif
                                                 </div>
                                             </div>
                                         </div>

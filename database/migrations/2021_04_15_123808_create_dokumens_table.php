@@ -29,6 +29,7 @@ class CreateDokumensTable extends Migration
             $table->string('bahan')->nullable();
             $table->string('type')->nullable();
             $table->string('ukuran')->nullable();
+            $table->string('alamat')->nullable();
             $table->string('foto')->nullable();
             $table->string('status')->nullable();
             $table->string('status_belanja')->nullable();

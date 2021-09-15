@@ -80,15 +80,15 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-sm-12">
-                                            <!-- text input -->
-                                            <div class="form-group">
-                                                <label>Rincian Belanja <span class="text-danger">*</span></label>
-                                                <input type="text" class="form-control" name="rincian_belanja" id="rincian_belanja" value="{{$dokumen->rincian_belanja}}">
-                                            </div>
-                                        </div>
-                                    </div>
+{{--                                    <div class="row">--}}
+{{--                                        <div class="col-sm-12">--}}
+{{--                                            <!-- text input -->--}}
+{{--                                            <div class="form-group">--}}
+{{--                                                <label>Rincian Belanja <span class="text-danger">*</span></label>--}}
+{{--                                                <input type="text" class="form-control" name="rincian_belanja" id="rincian_belanja" value="{{$dokumen->rincian_belanja}}">--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <!-- text input -->
@@ -116,11 +116,18 @@
                                             <div class="form-group">
                                                 <label>Tanggal SPK</label>
                                                   <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                                                    <input type="text" class="form-control datetimepicker-input" name="tgl_spk" data-target="#reservationdate" value="{{\Carbon\Carbon::parse($dokumen->tgl_spk)->format('d F Y')}}"/>
-                                                    <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
-                                                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                                                    </div>
-                                                </div>
+                                                      @if($dokumen->tgl_spk == null)
+                                                          <input type="text" class="form-control datetimepicker-input" name="tgl_spk" data-target="#reservationdate"/>
+                                                          <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+                                                              <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                                          </div>
+                                                      @else
+                                                          <input type="text" class="form-control datetimepicker-input" name="tgl_spk" data-target="#reservationdate" value="{{\Carbon\Carbon::parse($dokumen->tgl_spk)->format('d F Y')}}"/>
+                                                          <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+                                                              <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                                          </div>
+                                                      @endif
+                                                  </div>
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
@@ -128,10 +135,17 @@
                                             <div class="form-group">
                                                 <label>Tanggal BAST</label>
                                                 <div class="input-group date" id="reservationdate1" data-target-input="nearest">
-                                                    <input type="text" class="form-control datetimepicker-input" name="tgl_bast" data-target="#reservationdate1" value="{{\Carbon\Carbon::parse($dokumen->tgl_bast)->format('d F Y')}}"/>
-                                                    <div class="input-group-append" data-target="#reservationdate1" data-toggle="datetimepicker">
-                                                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                                                    </div>
+                                                    @if($dokumen->tgl_bast == null)
+                                                        <input type="text" class="form-control datetimepicker-input" name="tgl_bast" data-target="#reservationdate1"/>
+                                                        <div class="input-group-append" data-target="#reservationdate1" data-toggle="datetimepicker">
+                                                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                                        </div>
+                                                    @else
+                                                        <input type="text" class="form-control datetimepicker-input" name="tgl_bast" data-target="#reservationdate1" value="{{\Carbon\Carbon::parse($dokumen->tgl_bast)->format('d F Y')}}"/>
+                                                        <div class="input-group-append" data-target="#reservationdate1" data-toggle="datetimepicker">
+                                                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                                        </div>
+                                                    @endif
                                                 </div>
                                             </div>
                                         </div>
@@ -195,6 +209,15 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <!-- text input -->
+                                                <div class="form-group">
+                                                    <label>Merk</label>
+                                                    <input type="text" class="form-control" name="merk" id="merk" placeholder="Merk">
+                                                </div>
+                                            </div>
+                                        </div>
                                     @elseif($dokumen->jenisBelanja->kategori=='Belanja Elektronik')
                                         <div class="row">
                                             <div class="col-sm-6">
@@ -216,7 +239,7 @@
                                                 <!-- text input -->
                                                 <div class="form-group">
                                                     <label>Merk</label>
-                                                    <input type="text" class="form-control" name="ukuran" id="ukuran" value="{{$dokumen->merk}}">
+                                                    <input type="text" class="form-control" name="merk" id="merk" value="{{$dokumen->merk}}">
                                                 </div>
                                             </div>
                                             <div class="col-sm-6">
@@ -227,6 +250,23 @@
                                                             <input type="file" name="foto" accept="image/jpeg, image/jpg, image/png"/>
                                                         </div>
                                                     </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @elseif($dokumen->jenisBelanja->kategori=='Belanja Konstruksi')
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <!-- text input -->
+                                                <div class="form-group">
+                                                    <label>Ukuran (pxlxt)</label>
+                                                    <input type="text" class="form-control" name="ukuran" id="ukuran" value="{{$dokumen->ukuran}}">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <!-- text input -->
+                                                <div class="form-group">
+                                                    <label>Alamat / Lokasi</label>
+                                                    <input type="text" class="form-control" name="alamat" id="alamat" value="{{$dokumen->alamat}}">
                                                 </div>
                                             </div>
                                         </div>
