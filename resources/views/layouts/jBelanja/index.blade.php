@@ -12,7 +12,7 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
-                            <li class="breadcrumb-item active">Jenis Belanja Admin Kecamatan</li>
+                            <li class="breadcrumb-item active">Master Belanja Kecamatan Taman</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -25,7 +25,7 @@
                     <div class="card">
                         <div class="card-header">
                             <div class="text-md-center">
-                                <h2>Jenis Belanja</h2>
+                                <h2>Master Belanja</h2>
                             </div>
                         </div>
                         <!-- /.card-header -->
@@ -37,7 +37,7 @@
                                 <div class="col-sm-6">
                                     <div class="float-md-right">
                                         <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#exampleModal3">
-                                            Tambah Data Jenis Belanja
+                                            Tambah Data Master Belanja
                                         </button>
                                     </div>
                                 </div>
@@ -46,7 +46,7 @@
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Tambah Data Jenis Belanja</h5>
+                                                <h5 class="modal-title" id="exampleModalLabel">Tambah Data Master Belanja</h5>
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
@@ -54,21 +54,21 @@
                                             <div class="modal-body">
                                                 <form action="{{route('jBelanja.store')}}" method="POST">
                                                     {{ csrf_field() }}
-                                                    <div class="form-group">
-                                                        <label>Sub Belanja</label>
-                                                        <select class="form-control select2" style="width: 100%;" name="id_sub" id="id_sub">
-                                                            <option disable value>--Pilih Sub Belanja--</option>
-                                                            @foreach ($subBelanjas as $subBelanja)
-                                                                <option value="{{$subBelanja->id_sub}}">[ {{$subBelanja->norek_sub}} ] - {{$subBelanja->sub_belanja}}</option>
-                                                            @endforeach
-                                                        </select>
-                                                    </div>
+{{--                                                    <div class="form-group">--}}
+{{--                                                        <label>Sub Belanja</label>--}}
+{{--                                                        <select class="form-control select2" style="width: 100%;" name="id_sub" id="id_sub">--}}
+{{--                                                            <option disable value>--Pilih Sub Belanja--</option>--}}
+{{--                                                            @foreach ($subBelanjas as $subBelanja)--}}
+{{--                                                                <option value="{{$subBelanja->id_sub}}">[ {{$subBelanja->norek_sub}} ] - {{$subBelanja->sub_belanja}}</option>--}}
+{{--                                                            @endforeach--}}
+{{--                                                        </select>--}}
+{{--                                                    </div>--}}
                                                     <div class="form-group">
                                                         <label for="inputNama">Kode Rekening Jenis Belanja</label>
                                                         <input name="norek_jenis" type="text" class="form-control" id="inputNama" aria-describedby="emailHelp">
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="inputNama">Jenis Belanja</label>
+                                                        <label for="inputNama">Master Belanja</label>
                                                         <input name="jenis_belanja" type="text" class="form-control" id="inputNama" aria-describedby="emailHelp">
                                                     </div>
                                                     <div class="form-group">
@@ -94,11 +94,11 @@
                                 <thead>
                                 <tr class="text-md-center">
                                     <th>NO</th>
-                                    <th>Induk Belanja</th>
+{{--                                    <th>Induk Belanja</th>--}}
+{{--                                    <th>Kode Rekening</th>--}}
+{{--                                    <th>Sub Belanja</th>--}}
                                     <th>Kode Rekening</th>
-                                    <th>Sub Belanja</th>
-                                    <th>Kode Rekening</th>
-                                    <th>Jenis Belanja</th>
+                                    <th>Master Belanja</th>
                                     <th>Kategori</th>
                                     <th>Action</th>
                                 </tr>
@@ -108,9 +108,9 @@
                                 @foreach($jenis_belanjas as $jenis_belanja)
                                 <tr>
                                     <td class="project-state text-md-center">{{$no++}}</td>
-                                    <td class="project-state">{{$jenis_belanja->subBelanja->indukBelanja->induk_belanja}}</td>
-                                    <td class="project-state">{{$jenis_belanja->subBelanja->norek_sub}}</td>
-                                    <td class="project-state">{{$jenis_belanja->subBelanja->sub_belanja}}</td>
+{{--                                    <td class="project-state">{{$jenis_belanja->subBelanja->indukBelanja->induk_belanja}}</td>--}}
+{{--                                    <td class="project-state">{{$jenis_belanja->subBelanja->norek_sub}}</td>--}}
+{{--                                    <td class="project-state">{{$jenis_belanja->subBelanja->sub_belanja}}</td>--}}
                                     <td class="project-state">{{$jenis_belanja->norek_jenis}}</td>
                                     <td class="project-state">{{$jenis_belanja->jenis_belanja}}</td>
                                     <td class="project-state">{{$jenis_belanja->kategori}}</td>
@@ -132,11 +132,11 @@
                                 <tfoot>
                                 <tr class="text-md-center">
                                     <th>NO</th>
-                                    <th>Induk Belanja</th>
+{{--                                    <th>Induk Belanja</th>--}}
+{{--                                    <th>Kode Rekening</th>--}}
+{{--                                    <th>Sub Belanja</th>--}}
                                     <th>Kode Rekening</th>
-                                    <th>Sub Belanja</th>
-                                    <th>Kode Rekening</th>
-                                    <th>Jenis Belanja</th>
+                                    <th>Master Belanja</th>
                                     <th>Kategori</th>
                                     <th>Action</th>
                                 </tr>
@@ -145,11 +145,11 @@
                         </div>
                         <hr/>
                         <!-- /.card-body -->
-                        <div class="card-footer">
-                            <div class="content float-md-right">
-                                <a href="{{route('sBelanja')}}" class="btn btn-sm btn-dark previous">&laquo; Previous</a>
-                            </div>
-                        </div>
+{{--                        <div class="card-footer">--}}
+{{--                            <div class="content float-md-right">--}}
+{{--                                <a href="{{route('sBelanja')}}" class="btn btn-sm btn-dark previous">&laquo; Previous</a>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
                     </div>
                 </div>
             </div>

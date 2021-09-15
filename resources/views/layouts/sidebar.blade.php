@@ -54,7 +54,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('iBelanja')}}" class="{{Request::is('induk-belanja')?'nav-link active':'nav-link'}}">
+                            <a href="{{route('jBelanja')}}" class="{{Request::is('jenis-belanja')?'nav-link active':'nav-link'}}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Master Belanja</p>
                             </a>

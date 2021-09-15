@@ -44,17 +44,19 @@ class JenisBelanjaController extends Controller
      */
     public function store(Request $request)
     {
-        $record = subBelanja::find($request->id_sub);
-        $norek_sub = $record->norek_sub;
+//        $record = subBelanja::find($request->id_sub);
+//        $norek_sub = $record->norek_sub;
         $request->validate([
+            'norek_jenis' => 'unique:jenis_belanjas',
             'jenis_belanja' => 'required|min:1',
             'kategori' => 'required|min:1',
         ]);
         $jenis_belanja = new jenisBelanja();
         $jenis_belanja->jenis_belanja = $request->jenis_belanja;
         $jenis_belanja->kategori = $request->kategori;
-        $jenis_belanja->norek_jenis = $norek_sub.'.'.$request->norek_jenis;
-        $jenis_belanja->id_sub = $request->id_sub;
+//        $jenis_belanja->norek_jenis = $norek_sub.'.'.$request->norek_jenis;
+        $jenis_belanja->norek_jenis = $request->norek_jenis;
+//        $jenis_belanja->id_sub = $request->id_sub;
         $nama = $request->jenis_belanja;
         $jenis_belanja->save();
         return redirect()->route('jBelanja')->with('succes','Data ['.$nama.'] Disimpan');
@@ -100,7 +102,7 @@ class JenisBelanjaController extends Controller
             'kategori' => 'required|min:1',
         ]);
         $jenisBelanja = jenisBelanja::find($id_jenis);
-        $jenisBelanja->id_sub = $request->id_sub;
+//        $jenisBelanja->id_sub = $request->id_sub;
         $jenisBelanja->jenis_belanja = $request->jenis_belanja;
         $jenisBelanja->norek_jenis = $request->norek_jenis;
         $jenisBelanja->kategori = $request->kategori;

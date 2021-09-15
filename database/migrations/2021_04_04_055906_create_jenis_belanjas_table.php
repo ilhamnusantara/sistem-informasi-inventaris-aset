@@ -18,7 +18,7 @@ class CreateJenisBelanjasTable extends Migration
             $table->string('jenis_belanja',100);
             $table->char('norek_jenis',150);
             $table->string('kategori');
-            $table->unsignedInteger('id_sub')->foreign('id_sub')->references('id_sub')->on('subBelanjas')->onDelete('cascade');
+//            $table->unsignedInteger('id_sub')->foreign('id_sub')->references('id_sub')->on('subBelanjas')->onDelete('cascade');
             $table->timestamps();
         });
     }
