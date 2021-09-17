@@ -58,7 +58,7 @@
                                                 <select class="form-control select2" style="width: 10%;" name="id_jenis" id="id_jenis">
                                                     <option value="" selected class="align-middle">--Pilih Kategori--</option>
                                                     @foreach ($jenisBelanjas as $jenisBelanja)
-                                                        <option value="{{$jenisBelanja->id_jenis}}" {{ (app('request')->input('id_jenis') == $jenisBelanja->id_jenis) ? 'selected' : '' }}>{{$jenisBelanja->jenis_belanja}}</option>
+                                                        <option value="{{$jenisBelanja->id_jenis}}" {{ (app('request')->input('id_jenis') == $jenisBelanja->id_jenis) ? 'selected' : '' }}>[{{$jenisBelanja->norek_jenis}}] - {{$jenisBelanja->jenis_belanja}}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -98,7 +98,7 @@
                                     <thead>
                                     <tr class="">
 {{--                                        <th>NO</th>--}}
-                                        <th>Jenis</th>
+                                        <th>Master Belanja</th>
                                         <th>Instansi</th>
                                         <th>Ket. Belanja</th>
 {{--                                        <th>Rincian Belanja</th>--}}
@@ -113,7 +113,7 @@
                                     <tfoot>
                                     <tr class="">
 {{--                                        <th>NO</th>--}}
-                                        <th>Jenis</th>
+                                        <th>Master Belanja</th>
                                         <th>Instansi</th>
                                         <th>Ket. Belanja</th>
 {{--                                        <th>Rincian Belanja</th>--}}
