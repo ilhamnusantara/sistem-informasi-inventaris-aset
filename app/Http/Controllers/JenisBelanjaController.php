@@ -6,6 +6,7 @@ use App\indukBelanja;
 use App\jenisBelanja;
 use App\subBelanja;
 use Illuminate\Http\Request;
+use Yajra\DataTables\DataTables;
 
 class JenisBelanjaController extends Controller
 {
@@ -14,12 +15,23 @@ class JenisBelanjaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $subBelanjas = subBelanja::all();
-        $jenis_belanja = jenisBelanja::all();
+//        $jenis_belanja = jenisBelanja::all();
+        $data = jenisBelanja::query();
+        if($request->ajax()){
+            return DataTables::of($data)
+                ->addIndexColumn()
+                ->addColumn('action', function($row) {
+                    $btn = '<a class="btn btn-info btn-sm text-md-center" href="'.route('jBelanja.edit', $row->id_jenis).'"><i class="fas fa-pencil-alt"></i></a>';
+                    return $btn;
+                })
+                ->rawColumns(['action'])
+                ->make(true);
+        }
         return view('layouts.jBelanja.index',[
-            'jenis_belanjas' => $jenis_belanja,
+            'jenis_belanjas' => $data,
         ], compact('subBelanjas'));
     }
 

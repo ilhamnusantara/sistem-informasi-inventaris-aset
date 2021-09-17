@@ -93,10 +93,6 @@
                             <table id="example2" class="table table-bordered table-hover">
                                 <thead>
                                 <tr class="text-md-center">
-                                    <th>NO</th>
-{{--                                    <th>Induk Belanja</th>--}}
-{{--                                    <th>Kode Rekening</th>--}}
-{{--                                    <th>Sub Belanja</th>--}}
                                     <th>Kode Rekening</th>
                                     <th>Master Belanja</th>
                                     <th>Kategori</th>
@@ -104,37 +100,30 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                 <?php $no = 1 ?>
-                                @foreach($jenis_belanjas as $jenis_belanja)
-                                <tr>
-                                    <td class="project-state text-md-center">{{$no++}}</td>
-{{--                                    <td class="project-state">{{$jenis_belanja->subBelanja->indukBelanja->induk_belanja}}</td>--}}
-{{--                                    <td class="project-state">{{$jenis_belanja->subBelanja->norek_sub}}</td>--}}
-{{--                                    <td class="project-state">{{$jenis_belanja->subBelanja->sub_belanja}}</td>--}}
-                                    <td class="project-state">{{$jenis_belanja->norek_jenis}}</td>
-                                    <td class="project-state">{{$jenis_belanja->jenis_belanja}}</td>
-                                    <td class="project-state">{{$jenis_belanja->kategori}}</td>
-                                    <td class="project-actions text-center">
-                                        <a class="btn btn-info btn-sm" href="{{route('jBelanja.edit', $jenis_belanja->id_jenis)}}">
-                                            <i class="fas fa-pencil-alt">
-                                            </i>
-                                            Edit
-                                        </a>
+{{--                                 <?php $no = 1 ?>--}}
+{{--                                @foreach($jenis_belanjas as $jenis_belanja)--}}
+{{--                                <tr>--}}
+{{--                                    <td class="project-state text-md-center">{{$no++}}</td>--}}
+{{--                                    <td class="project-state">{{$jenis_belanja->norek_jenis}}</td>--}}
+{{--                                    <td class="project-state">{{$jenis_belanja->jenis_belanja}}</td>--}}
+{{--                                    <td class="project-state">{{$jenis_belanja->kategori}}</td>--}}
+{{--                                    <td class="project-actions text-center">--}}
+{{--                                        <a class="btn btn-info btn-sm" href="{{route('jBelanja.edit', $jenis_belanja->id_jenis)}}">--}}
+{{--                                            <i class="fas fa-pencil-alt">--}}
+{{--                                            </i>--}}
+{{--                                            Edit--}}
+{{--                                        </a>--}}
 {{--                                        <a class="btn btn-danger btn-sm" href="{{route('jBelanja.delete', $jenis_belanja)}}" onclick="return confirm('Data akan dihapus, lanjutkan?')">--}}
 {{--                                            <i class="fas fa-trash">--}}
 {{--                                            </i>--}}
 {{--                                            Delete--}}
 {{--                                        </a>--}}
-                                    </td>
-                                </tr>
-                                @endforeach
+{{--                                    </td>--}}
+{{--                                </tr>--}}
+{{--                                @endforeach--}}
                                 </tbody>
                                 <tfoot>
                                 <tr class="text-md-center">
-                                    <th>NO</th>
-{{--                                    <th>Induk Belanja</th>--}}
-{{--                                    <th>Kode Rekening</th>--}}
-{{--                                    <th>Sub Belanja</th>--}}
                                     <th>Kode Rekening</th>
                                     <th>Master Belanja</th>
                                     <th>Kategori</th>
@@ -144,12 +133,6 @@
                             </table>
                         </div>
                         <hr/>
-                        <!-- /.card-body -->
-{{--                        <div class="card-footer">--}}
-{{--                            <div class="content float-md-right">--}}
-{{--                                <a href="{{route('sBelanja')}}" class="btn btn-sm btn-dark previous">&laquo; Previous</a>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
                     </div>
                 </div>
             </div>
@@ -158,6 +141,31 @@
 
 @endsection
 
-{{--@section('script')--}}
-{{--    --}}
-{{--@endsection--}}
+@section('script')
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function() {
+            var table = $('#example2').DataTable({
+                processing: true,
+                serverSide: true,
+                responsive:true,
+                ajax: {
+                    "url": "{{ url('/jenis-belanja')}}",
+
+                },
+                columns: [
+                    // {data: 'DT_RowIndex', name: 'DT_RowIndex'},
+                    {data: 'norek_jenis', name: 'norek_jenis'},
+                    {data: 'jenis_belanja', name: 'jenis_belanja'},
+                    {data: 'kategori', name: 'kategori'},
+                    {data: 'action', name: 'action', className: "text-md-center", orderable: false, searchable: false},
+                ]
+            });
+
+        });
+
+
+    </script>
+@endsection

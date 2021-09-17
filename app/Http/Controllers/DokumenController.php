@@ -98,6 +98,9 @@ class DokumenController extends Controller
         $user = Auth::user();
         $request->validate([
             'keterangan_belanja' => 'required|min:1',
+            'file_spk' => 'max:800',
+            'file_bast' => 'max:800',
+            'foto' => 'max:1000'
 //            'rincian_belanja' => 'required|min:1',
 //            'no_spk' => 'unique:dokumens|nullable',
 //            'no_bast' => 'unique:dokumens|nullable',
@@ -206,6 +209,14 @@ class DokumenController extends Controller
     public function update(Request $request, $id_dokumen)
     {
         $dokumen = Dokumen::find($id_dokumen);
+        $request->validate([
+            'file_spk' => 'max:800',
+            'file_bast' => 'max:800',
+            'foto' => 'max:1000'
+//            'rincian_belanja' => 'required|min:1',
+//            'no_spk' => 'unique:dokumens|nullable',
+//            'no_bast' => 'unique:dokumens|nullable',
+        ]);
 //        if($request->no_spk != $dokumen->no_spk ){
 //            $request->validate([
 //                'no_spk' => 'unique:dokumens',

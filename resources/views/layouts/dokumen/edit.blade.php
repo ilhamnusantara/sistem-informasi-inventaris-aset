@@ -157,9 +157,12 @@
                                                 <label>File SPK</label>
                                                 <div class="input-group">
                                                     <div class="custom-file">
-                                                        <input type="file" name="file_spk" accept="application/pdf"/>
+                                                        <input type="file" class="@error('file_spk') is-invalid @enderror" name="file_spk" accept="application/pdf"/>
                                                     </div>
                                                 </div>
+                                                @error('file_spk')
+                                                <div class="alert alert-danger alert-block">Ukuran maksimal file SPK : 800KB</div>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
@@ -167,11 +170,12 @@
                                                 <label>File BAST</label>
                                                 <div class="input-group">
                                                     <div class="custom-file">
-                                                        <input type="file" name="file_bast" accept="application/pdf"/>
-{{--                                                        <input type="file" name="file_bast" class="custom-file-input" @error('gambar') is-invalid @enderror id="gambar"/>--}}
-{{--                                                        <label class="custom-file-label" for="">Choose file</label>--}}
+                                                        <input type="file" class="@error('file_bast') is-invalid @enderror" name="file_bast" accept="application/pdf"/>
                                                     </div>
                                                 </div>
+                                                @error('file_bast')
+                                                <div class="alert alert-danger alert-block">Ukuran maksimal file BAST : 800KB</div>
+                                                @enderror
                                             </div>
                                         </div>
                                     </div>@if($dokumen->jenisBelanja->kategori=='Belanja Mebel')
@@ -203,9 +207,12 @@
                                                     <label>Foto</label>
                                                     <div class="input-group">
                                                         <div class="custom-file">
-                                                            <input type="file" name="foto" accept="image/jpeg, image/jpg, image/png"/>
+                                                            <input type="file" class="@error('foto') is-invalid @enderror" name="foto" accept="image/jpeg, image/jpg, image/png"/>
                                                         </div>
                                                     </div>
+                                                    @error('foto')
+                                                    <div class="alert alert-danger alert-block">Ukuran maksimal file foto : 1000KB</div>
+                                                    @enderror
                                                 </div>
                                             </div>
                                         </div>
@@ -247,9 +254,12 @@
                                                     <label>Foto</label>
                                                     <div class="input-group">
                                                         <div class="custom-file">
-                                                            <input type="file" name="foto" accept="image/jpeg, image/jpg, image/png"/>
+                                                            <input type="file" class="@error('foto') is-invalid @enderror" name="foto" accept="image/jpeg, image/jpg, image/png"/>
                                                         </div>
                                                     </div>
+                                                    @error('foto')
+                                                    <div class="alert alert-danger alert-block">Ukuran maksimal file foto : 1000KB</div>
+                                                    @enderror
                                                 </div>
                                             </div>
                                         </div>
