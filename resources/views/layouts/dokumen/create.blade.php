@@ -52,7 +52,7 @@
                                                 <select class="form-control select2" style="width: 100%;" name="id_jenis" id="id_jenis">
                                                     <option value="">Pilih Jenis</option>
                                                         @foreach ($jenisBelanjas as $jenisBelanja)
-                                                            <option value="{{$jenisBelanja->id_jenis}}" data-kategori="{{str_replace(' ','_',strtolower($jenisBelanja->kategori))}}" {{request()->get('jenis') == $jenisBelanja->id_jenis ? 'selected':''}}>{{$jenisBelanja->jenis_belanja}}</option>
+                                                            <option value="{{$jenisBelanja->id_jenis}}" data-kategori="{{str_replace(' ','_',strtolower($jenisBelanja->kategori))}}" {{request()->get('jenis') == $jenisBelanja->id_jenis ? 'selected':''}}>[{{$jenisBelanja->norek_jenis}}] - {{$jenisBelanja->jenis_belanja}}</option>
                                                         @endforeach
                                                 </select>
                                             </div>
