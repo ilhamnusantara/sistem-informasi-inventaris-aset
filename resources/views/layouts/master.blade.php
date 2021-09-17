@@ -104,7 +104,7 @@
     @yield('content')
     <!-- /.content-wrapper -->
     <footer class="main-footer">
-        <strong>Copyright &copy; 2021 <a href="https://www.instagram.com/ilhamnusantara/" target="_blank">Made in <i class="fas fa-heart red"></i></a>.</strong>
+        <strong>Copyright &copy; 2021 <a href="https://www.instagram.com/ilhamnusantara/" target="_blank">Crafted with <i class="fas fa-heart text-red"></i></a>.</strong>
         All rights reserved. - <a href="https://wa.me/6281233997663" target="_blank">Contact Person Developer</a>
         <div class="float-right d-none d-sm-inline-block">
             <b>Version</b> 0.8.4
