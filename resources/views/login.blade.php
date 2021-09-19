@@ -6,6 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login | E-BLENDRANG</title>
+    <link rel="shortcut icon" href="{{asset('/dashboard/dist/img/iasset-logo.png')}}">
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
@@ -49,7 +50,7 @@
                             <form method="POST" action="{{ route('login') }}">
                             @csrf
                                 <div class="form-group">
-                                    <label class="form-control-label">{{ __('E-Mail Address') }}</label>
+                                    <label class="form-control-label">{{ __('Username or E-Mail Address') }}</label>
                                     <input type="text" class="form-control {{ $errors->has('username') || $errors->has('email') ?'is-invalid':'' }}" name="login" value="{{ old('username') ? old('username') : old('email')  }}"
                                            placeholder="Username or Email" />
                                     @if ($errors->has('username') || $errors->has('email'))
@@ -60,7 +61,8 @@
                                 </div>
                                 <div class="form-group">
                                     <label class="form-control-label">{{ __('Password') }}</label>
-                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password"
+                                            placeholder="Password">
 
                                     @error('password')
                                     <span class="invalid-feedback" role="alert">

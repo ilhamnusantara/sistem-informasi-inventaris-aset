@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>E-BLENDRANG</title>
-
+    <link rel="shortcut icon" href="{{asset('/dashboard/dist/img/iasset-logo.png')}}">
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
@@ -91,7 +91,7 @@
         <!-- Brand Logo -->
         <a href="index3.html" class="brand-link">
             <img src="{{url('/dashboard/dist/img/iasset-logo.png')}}" alt="AdminLTE Logo" class="brand-image elevation-6" style="opacity: .8">
-            <span class="brand-text font-weight-light">&nbsp;M&I-Asset</span>
+            <span class="brand-text font-weight-light">&nbsp;E-Blendrang</span>
         </a>
 
         <!-- Sidebar -->
