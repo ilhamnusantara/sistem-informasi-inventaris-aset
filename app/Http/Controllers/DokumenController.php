@@ -296,7 +296,9 @@ class DokumenController extends Controller
     public function destroy($id_dokumen)
     {
         $dokumen = Dokumen::find($id_dokumen);
-
+        File::delete(public_path('berkas/'.$dokumen->file_spk));
+        File::delete(public_path('berkas/'.$dokumen->file_bast));
+        File::delete(public_path('foto/'.$dokumen->foto));
         $dokumen->delete();
         return redirect()->route('dokumen')->with('warning','Data Terhapus');
     }

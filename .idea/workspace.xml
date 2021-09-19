@@ -5,64 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="61485c72-bac9-4323-b8e8-82c9fc2ee6e5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/public/berkas/Profile.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/name('belanja')" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/name('belanja.create')" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/name('belanja.delete')" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/name('belanja.edit')" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/name('belanja.show')" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/name('belanja.store')" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/name('belanja.unvervalbelanja')" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/name('belanja.update')" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/name('belanja.vervalbelanja')" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/name('cetakDok')" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/name('cetakDok.file')" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/name('cetakDok.foto')" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/name('cetakLap')" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/name('dokumen')" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/name('dokumen.create')" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/name('dokumen.delete')" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/name('dokumen.download')" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/name('dokumen.edit')" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/name('dokumen.filespk')" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/name('dokumen.filter')" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/name('dokumen.noverifikasi')" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/name('dokumen.novervalbelanja')" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/name('dokumen.show')" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/name('dokumen.store')" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/name('dokumen.update')" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/name('dokumen.verifikasi')" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/name('export')" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/name('home')" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/name('iBelanja')" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/name('iBelanja.delete')" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/name('iBelanja.edit')" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/name('iBelanja.store')" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/name('iBelanja.update')" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/name('jBelanja')" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/name('jBelanja.create')" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/name('jBelanja.delete')" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/name('jBelanja.edit')" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/name('jBelanja.store')" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/name('jBelanja.update')" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/name('pajak')" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/name('pajak.create')" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/name('pajak.delete')" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/name('pajak.edit')" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/name('pajak.store')" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/name('pajak.update')" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/name('sBelanja')" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/name('sBelanja.edit')" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/name('sBelanja.store')" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/name('sBelanja.update')" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/name('user')" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/name('user.change')" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/name('user.create')" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/name('user.delete')" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/name('user.edit')" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/name('user.update')" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DokumenController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DokumenController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -401,7 +346,7 @@
       <workItem from="1631877270124" duration="4964000" />
       <workItem from="1631883634858" duration="918000" />
       <workItem from="1631956857344" duration="385000" />
-      <workItem from="1632019318597" duration="973000" />
+      <workItem from="1632019318597" duration="1566000" />
     </task>
     <servers />
   </component>
