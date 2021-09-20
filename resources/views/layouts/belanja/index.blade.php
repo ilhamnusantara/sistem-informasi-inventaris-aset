@@ -186,13 +186,15 @@
                             <div class="table-responsive">
                                 <table id="example" class="table">
                                     <thead>
-                                        <tr class="text-md-center">
+                             {{--           <tr class="text-md-center"> --}}
+                                        <tr class="">
     {{--                                        <th>NO</th>--}}
+                                            <th>Instansi</th>
                                             <th>Belanja</th>
                                             <th>Satuan</th>
                                             <th>Volume</th>
                                             <th>Nominal Belanja</th>
-                                            <th>Rekanan</th>
+{{--                                            <th>Rekanan</th>--}}
                                             <th>no pbb/spm</th>
                                             <th>Tanggal</th>
                                             <th>SP2D</th>
@@ -229,13 +231,14 @@
     {{--                                @endforeach--}}
                                     </tbody>
                                     <tfoot>
-                                        <tr class="text-md-center">
+                                        <tr class="">
     {{--                                        <th>NO</th>--}}
+                                            <th>Instansi</th>
                                             <th>Belanja</th>
                                             <th>Satuan</th>
                                             <th>Volume</th>
                                             <th>Nominal Belanja</th>
-                                            <th>Rekanan</th>
+                                            {{--                                            <th>Rekanan</th>--}}
                                             <th>no pbb/spm</th>
                                             <th>Tanggal</th>
                                             <th>SP2D</th>
@@ -319,11 +322,12 @@
                 },
                 columns: [
                     // {data: 'DT_RowIndex', name: 'DT_RowIndex'},
+                    {data: 'instansi', name: 'instansi'},
                     {data: 'dokumen', name: 'dokumen'},
                     {data: 'satuan', name: 'satuan'},
                     {data: 'volume', name: 'volume'},
                     {data: 'nominal_belanja', name: 'nominal_belanja'},
-                    {data: 'rekanan', name: 'rekanan'},
+                    // {data: 'rekanan', name: 'rekanan'},
                     {data: 'no_pbb_ls', name: 'no_pbb_ls'},
                     {data: 'tanggal_belanja', name: 'tanggal_belanja'},
                     {data: 'sp2d', name: 'sp2d'},

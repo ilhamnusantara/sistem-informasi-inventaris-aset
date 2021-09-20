@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="61485c72-bac9-4323-b8e8-82c9fc2ee6e5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/berkas/Profile.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DokumenController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DokumenController.php" afterDir="false" />
-    </list>
+    <list default="true" id="61485c72-bac9-4323-b8e8-82c9fc2ee6e5" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -346,7 +342,7 @@
       <workItem from="1631877270124" duration="4964000" />
       <workItem from="1631883634858" duration="918000" />
       <workItem from="1631956857344" duration="385000" />
-      <workItem from="1632019318597" duration="1566000" />
+      <workItem from="1632019318597" duration="2267000" />
     </task>
     <servers />
   </component>
