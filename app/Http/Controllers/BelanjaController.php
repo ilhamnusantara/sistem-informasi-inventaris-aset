@@ -35,10 +35,6 @@ class BelanjaController extends Controller
         if($request->ajax()){
             return DataTables::of($data)
                 ->addIndexColumn()
-                ->addColumn('dokumen', function($row) {
-                    $dokumen = $row->Dokumen->keterangan_belanja;
-                    return $dokumen;
-                })
                 ->addColumn('rekanan', function($row) {
                     $rekanan = $row->rekanan->nama_rekanan;
                     return $rekanan;
