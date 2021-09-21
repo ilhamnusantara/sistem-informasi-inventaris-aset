@@ -105,7 +105,7 @@
                                     <th>Volume</th> -->
                                     <th>Nominal Belanja</th>
                                     <th>Rekanan</th>
-                                    <th>NO PBB /tanggal</th>
+                                    <th>NO PBB/Tanggal</th>
                                     <th>No SP2D</th>
                                     <th>Tanggal</th>
                                 </tr>
@@ -137,7 +137,7 @@
                                     <th>Volume</th> -->
                                     <th>Nonimal Belanja</th>
                                     <th>Rekanan</th>
-                                    <th>NO PBB /tanggal</th>
+                                    <th>NO PBB/Tanggal</th>
                                     <th>No SP2D</th>
                                     <th>Tanggal</th>
                                 </tr>

@@ -108,11 +108,11 @@ class JenisBelanjaController extends Controller
      */
     public function update(Request $request, $id_jenis)
     {
-        $request->validate([
-            'jenis_belanja' => 'required|min:1',
-            'norek_jenis' => 'required|min:5',
-            'kategori' => 'required|min:1',
-        ]);
+        // $request->validate([
+        //     'jenis_belanja' => 'required|min:1',
+        //     'norek_jenis' => 'required|min:5',
+        //     'kategori' => 'required|min:1',
+        // ]);
         $jenisBelanja = jenisBelanja::find($id_jenis);
 //        $jenisBelanja->id_sub = $request->id_sub;
         $jenisBelanja->jenis_belanja = $request->jenis_belanja;

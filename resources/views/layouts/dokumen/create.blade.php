@@ -255,7 +255,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        @elseif(request()->get('kategori')=='belanja_konstruksi')
+                                        @elseif(request()->get('kategori')=='belanja_konstruksi' || request()->get('kategori')=='belanja_pemeliharaan')
                                         <div class="row">
                                             <div class="col-sm-6">
                                                 <!-- text input -->
@@ -267,6 +267,21 @@
                                             <div class="col-sm-6">
                                                 <!-- text input -->
                                                 <div class="form-group">
+                                                    <label>Foto</label>
+                                                    <div class="input-group">
+                                                        <div class="custom-file">
+                                                            <input type="file" class="@error('foto') is-invalid @enderror" name="foto" accept="image/jpeg, image/jpg, image/png"/>
+                                                        </div>
+                                                    </div>
+                                                    @error('foto')
+                                                    <div class="alert alert-danger alert-block">Ukuran maksimal file foto : 1000KB</div>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                            <div class="form-group">
                                                     <label>Alamat / Lokasi</label>
                                                     <input type="text" class="form-control" name="alamat" id="alamat" placeholder="Alamat">
                                                 </div>

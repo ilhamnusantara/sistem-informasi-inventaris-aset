@@ -71,7 +71,7 @@
                                                 <option value="Belanja Mebel">Belanja Meubel</option>
                                                 <option value="Belanja Elektronik">Belanja Elektronik</option>
                                                 <option value="Belanja Konstruksi">Belanja Konstruksi</option>
-                                                <option value="Belanja Konstruksi">Belanja Pemeliharaan</option>
+                                                <option value="Belanja Pemeliharaan">Belanja Pemeliharaan</option>
                                         </select>
                                     </div>
 
