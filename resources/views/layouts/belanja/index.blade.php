@@ -326,7 +326,7 @@
                     {data: 'dokumen', name: 'dokumen'},
                     {data: 'satuan', name: 'satuan'},
                     {data: 'volume', name: 'volume'},
-                    {data: 'nominal_belanja', name: 'nominal_belanja'},
+                    {data: 'nominal_belanja', name: 'nominal_belanja', render: $.fn.dataTable.render.number( ',', ' ',0,'Rp. ')},
                     // {data: 'rekanan', name: 'rekanan'},
                     {data: 'no_pbb_ls', name: 'no_pbb_ls'},
                     {data: 'tanggal_belanja', name: 'tanggal_belanja'},
