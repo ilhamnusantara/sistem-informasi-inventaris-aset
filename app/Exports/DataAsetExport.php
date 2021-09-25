@@ -38,7 +38,7 @@ class DataAsetExport implements FromCollection, SkipsEmptyRows,  WithMapping, Wi
 
         }
 
-        return $data->with(['Dokumen.jenisBelanja'])->get();
+        return $data->orderBy('tanggal_sp2d','ASC')->with(['Dokumen.jenisBelanja'])->get();
 
     }
 
