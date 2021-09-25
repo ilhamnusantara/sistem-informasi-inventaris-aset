@@ -161,7 +161,7 @@
                                                     </div>
                                                 </div>
                                                 @error('file_spk')
-                                                <div class="alert alert-danger alert-block">Ukuran maksimal file SPK : 800KB</div>
+                                                <div class="alert alert-danger alert-block">Ukuran maksimal file SPK : 1000KB</div>
                                                 @enderror
                                             </div>
                                         </div>
@@ -174,7 +174,7 @@
                                                     </div>
                                                 </div>
                                                 @error('file_bast')
-                                                <div class="alert alert-danger alert-block">Ukuran maksimal file BAST : 800KB</div>
+                                                <div class="alert alert-danger alert-block">Ukuran maksimal file BAST : 1000KB</div>
                                                 @enderror
                                             </div>
                                         </div>
@@ -211,7 +211,7 @@
                                                         </div>
                                                     </div>
                                                     @error('foto')
-                                                    <div class="alert alert-danger alert-block">Ukuran maksimal file foto : 1000KB</div>
+                                                    <div class="alert alert-danger alert-block">Ukuran maksimal file foto : 1200KB</div>
                                                     @enderror
                                                 </div>
                                             </div>
@@ -258,22 +258,35 @@
                                                         </div>
                                                     </div>
                                                     @error('foto')
-                                                    <div class="alert alert-danger alert-block">Ukuran maksimal file foto : 1000KB</div>
+                                                    <div class="alert alert-danger alert-block">Ukuran maksimal file foto : 1200KB</div>
                                                     @enderror
                                                 </div>
                                             </div>
                                         </div>
-                                    @elseif($dokumen->jenisBelanja->kategori=='Belanja Konstruksi')
+                                    @elseif($dokumen->jenisBelanja->kategori=='Belanja Konstruksi' || $dokumen->jenisBelanja->kategori=='Belanja Pemeliharaan')
                                         <div class="row">
                                             <div class="col-sm-6">
-                                                <!-- text input -->
                                                 <div class="form-group">
                                                     <label>Ukuran (pxlxt)</label>
                                                     <input type="text" class="form-control" name="ukuran" id="ukuran" value="{{$dokumen->ukuran}}">
                                                 </div>
                                             </div>
                                             <div class="col-sm-6">
-                                                <!-- text input -->
+                                                <div class="form-group">
+                                                    <label>Foto</label>
+                                                    <div class="input-group">
+                                                        <div class="custom-file">
+                                                            <input type="file" class="@error('foto') is-invalid @enderror" name="foto" accept="image/jpeg, image/jpg, image/png"/>
+                                                        </div>
+                                                    </div>
+                                                    @error('foto')
+                                                    <div class="alert alert-danger alert-block">Ukuran maksimal file foto : 1200KB</div>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-12">
                                                 <div class="form-group">
                                                     <label>Alamat / Lokasi</label>
                                                     <input type="text" class="form-control" name="alamat" id="alamat" value="{{$dokumen->alamat}}">

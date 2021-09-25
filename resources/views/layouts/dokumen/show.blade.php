@@ -222,7 +222,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    @elseif($dokumen->jenisBelanja->kategori=='Belanja Konstruksi')
+                                    @elseif($dokumen->jenisBelanja->kategori=='Belanja Konstruksi' || $dokumen->jenisBelanja->kategori=='Belanja Pemeliharaan')
                                         <div class="row">
                                             <div class="col-sm-6">
                                                 <!-- text input -->
@@ -233,6 +233,22 @@
                                             </div>
                                             <div class="col-sm-6">
                                                 <!-- text input -->
+                                                <div class="form-group">
+                                                    <label>Foto</label>
+                                                    <div class="input-group">
+                                                        <div class="custom-file">
+                                                            @if($dokumen->foto == null)
+                                                                <h6 class="text-red"> <i class="far fa-times-circle"></i> Belum Upload Foto</h6>
+                                                            @else
+                                                                <input type="text" class="form-control datetimepicker-input" name="tgl_bast" data-target="#reservationdate1" value="{{$dokumen->foto}}" readonly/>
+                                                            @endif
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-12">
                                                 <div class="form-group">
                                                     <label>Alamat / Lokasi</label>
                                                     <input type="text" class="form-control" name="alamat" id="alamat" value="{{$dokumen->alamat}}" readonly>

@@ -45,7 +45,6 @@ class DataAsetExport implements FromCollection, SkipsEmptyRows,  WithMapping, Wi
 
     public function map($belanja) : array
     {
-
         return [
             $belanja['id_belanja'],
 //            $belanja['Dokumen']['jenisBelanja']['jenis_belanja'],
