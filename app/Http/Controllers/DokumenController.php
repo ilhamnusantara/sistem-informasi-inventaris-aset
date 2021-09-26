@@ -23,7 +23,7 @@ class DokumenController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function getDokumen(Request $request){
-        $jenisBelanjas = jenisBelanja::all();
+        $jenisBelanjas = jenisBelanja::orderBy('norek_jenis','ASC')->get();
         $user = Auth::user();
         $data = Dokumen::query();
         if ($user->status == 0){

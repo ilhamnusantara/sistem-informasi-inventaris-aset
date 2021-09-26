@@ -13,7 +13,7 @@ class LaporanController extends Controller
 {
     public function index(Request $request)
     {
-        $jenisBelanjas = jenisBelanja::all();
+        $jenisBelanjas = jenisBelanja::orderBy('norek_jenis','ASC')->get();
         $dokumens = Dokumen::all();
         $rekanans = Rekanan::all();
         $belanja = Belanja::all();
