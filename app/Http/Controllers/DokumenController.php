@@ -82,7 +82,7 @@ class DokumenController extends Controller
      */
     public function create()
     {
-        $jenisBelanjas = jenisBelanja::all();
+        $jenisBelanjas = jenisBelanja::orderBy('norek_jenis','ASC')->get();
         $instansis = Instansi::all();
         return view('layouts.dokumen.create', compact('jenisBelanjas','instansis'));
     }

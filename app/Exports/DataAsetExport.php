@@ -15,7 +15,6 @@ class DataAsetExport implements FromCollection, SkipsEmptyRows,  WithMapping, Wi
 {
     protected $id_jenis = null;
     protected $tanggal = null;
-
     function __construct($id_jenis, $tanggal) {
         $this->id_jenis = $id_jenis;
         $this->tanggal = $tanggal;
@@ -37,11 +36,10 @@ class DataAsetExport implements FromCollection, SkipsEmptyRows,  WithMapping, Wi
             $data->whereRaw('DATE(tanggal_sp2d) BETWEEN DATE(?) AND DATE(?)', [$date_start, $date_end]);
 
         }
-
         return $data->orderBy('tanggal_sp2d','ASC')->with(['Dokumen.jenisBelanja'])->get();
 
-    }
 
+    }
 
     public function map($belanja) : array
     {
@@ -70,7 +68,6 @@ class DataAsetExport implements FromCollection, SkipsEmptyRows,  WithMapping, Wi
             $belanja['Dokumen']['type'],
             $belanja['Dokumen']['ukuran'],
         ];
-
     }
 
     public function headings() : array
