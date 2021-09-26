@@ -84,61 +84,30 @@
                                         </div>
                                     </div>
                                 </div>
-{{--                                <div class="col-sm-9">--}}
-{{--                                    <form class="form-inline ml-3 float-md-right" action="#" method="GET">--}}
-{{--                                        <div class="input-group input-group-sm">--}}
-{{--                                            <div class="input-group-append">--}}
-{{--                                                <a href="#" class="btn btn-success next" id="btn-cetak"><i class="fas fa-download"></i> Cetak Laporan</a>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                    </form>--}}
-{{--                                </div>--}}
                             </div>
                             <div class="table-responsive">
-                                <table id="example2" class="table table-bordered table-hover">
+                                <table id="example" class="table table-bordered table-hover">
                                 <thead>
                                 <tr class="text-md-center">
-                                    <th>NO</th>
+                                    <th>No.</th>
                                     <th>Instansi</th>
                                     <th>Belanja</th>
-                                    <!-- <th>Satuan</th>
-                                    <th>Volume</th> -->
-                                    <th>Nominal Belanja</th>
+                                    <th>Total Belanja</th>
                                     <th>Rekanan</th>
-                                    <th>NO PBB/Tanggal</th>
-                                    <th>No SP2D</th>
+                                    <th>No. PBB</th>
+                                    <th>No. SP2D</th>
                                     <th>Tanggal</th>
                                 </tr>
                                 </thead>
-                                <tbody>
-                                <?php $no = 1 ?>
-                                @foreach($belanjas as $belanja)
-
-                                    <tr>
-                                        <td class="project-state text-md-center">{{$no++}}</td>
-                                        <td class="project-state">{{$belanja->instansi}}</td>
-                                        <td class="project-state">{{$belanja->Dokumen->keterangan_belanja}}</td>
-                                        <!-- <td class="project-state text-md-center"> {{$belanja->satuan}}</td>
-                                        <td class="project-state text-md-center"> {{$belanja->volume}}</td> -->
-                                        <td class="project-state"> {{'Rp. '.strrev(implode(',',str_split(strrev(strval($belanja->total_belanja)),3)))}}</td>
-                                        <td class="project-state"> {{$belanja->rekanan->nama_rekanan}}</td>
-                                        <td class="project-state"> {{$belanja->no_pbb_ls}} / {{$belanja->tanggal_belanja}}</td>
-                                        <td class="project-state"> {{$belanja->sp2d}}</td>
-                                        <td class="project-state"> {{$belanja->tanggal_sp2d}}</td>
-                                    </tr>
-                                @endforeach
-                                </tbody>
                                 <tfoot>
                                 <tr class="text-md-center">
-                                    <th>NO</th>
+                                    <th>No.</th>
                                     <th>Instansi</th>
                                     <th>Belanja</th>
-                                    <!-- <th>Satuan</th>
-                                    <th>Volume</th> -->
-                                    <th>Nonimal Belanja</th>
+                                    <th>Total Belanja</th>
                                     <th>Rekanan</th>
-                                    <th>NO PBB/Tanggal</th>
-                                    <th>No SP2D</th>
+                                    <th>No. PBB</th>
+                                    <th>No. SP2D</th>
                                     <th>Tanggal</th>
                                 </tr>
                                 </tfoot>
@@ -156,6 +125,8 @@
 @endsection
 
 @section('script')
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
     <script>
         $(function () {
             // $('#reservation').daterangepicker()
@@ -172,5 +143,31 @@
 
 
         })
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var table = $('#example').DataTable({
+                processing: true,
+                // serverSide: true,
+                responsive:true,
+                ajax: {
+                    "url": "{{ url('/cetak-laporan') }}",
+                    "data": {
+
+                    }
+
+                },
+                columns: [
+                    {data: 'DT_RowIndex', name: 'DT_RowIndex'},
+                    {data: 'instansi', name: 'instansi'},
+                    {data: 'dokumen', name: 'dokumen'},
+                    {data: 'total_belanja', name: 'total_belanja', render: $.fn.dataTable.render.number( ',', ' ',0,'Rp. ')},
+                    {data: 'rekanan', name: 'rekanan'},
+                    {data: 'no_pbb_ls', name: 'no_pbb_ls'},
+                    {data: 'sp2d', name: 'sp2d'},
+                    {data: 'tanggal_sp2d', name: 'tanggal_sp2d'},
+                ]
+            });
+        });
     </script>
 @endsection

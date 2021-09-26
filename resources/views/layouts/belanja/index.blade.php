@@ -188,13 +188,11 @@
                                     <thead>
                              {{--           <tr class="text-md-center"> --}}
                                         <tr class="">
-    {{--                                        <th>NO</th>--}}
                                             <th>Instansi</th>
                                             <th>Belanja</th>
                                             <th>Satuan</th>
                                             <th>Volume</th>
                                             <th>Nominal Belanja</th>
-{{--                                            <th>Rekanan</th>--}}
                                             <th>no pbb/spm</th>
                                             <th>Tanggal</th>
                                             <th>SP2D</th>
@@ -202,43 +200,13 @@
                                             <th>Detail</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-    {{--                                <?php $no = 1 ?>--}}
-    {{--                                @foreach($belanjas as $belanja)--}}
-    {{--                                    <tr>--}}
-    {{--                                        <td class="project-state text-md-center">{{$no++}}</td>--}}
-    {{--                                        <td class="project-state">{{$belanja->Dokumen->keterangan_belanja}}</td>--}}
-    {{--                                        <td class="project-state">{{$belanja->satuan}}</td>--}}
-    {{--                                        <td class="project-state">{{$belanja->volume}}</td>--}}
-    {{--                                        <td class="project-state">{{$belanja->nominal_belanja}}</td>--}}
-    {{--                                        <td class="project-state">{{$belanja->rekanan}}</td>--}}
-    {{--                                        <td class="project-state">{{$belanja->no_pbb_ls}}</td>--}}
-    {{--                                        <td class="project-state">{{$belanja->tanggal_belanja}}</td>--}}
-    {{--                                        <td class="project-state">{{$belanja->sp2d}}</td>--}}
-    {{--                                        <td class="project-state">{{$belanja->tanggal_sp2d}}</td>--}}
-    {{--                                        <td class="project-actions text-center">--}}
-    {{--                                            @if($belanja->Dokumen->status == 1 && $belanja->Dokumen->status_belanja == 1)--}}
-    {{--                                            <a class="btn btn-success btn-sm" href="{{route('belanja.show', $belanja->id_belanja)}}">--}}
-    {{--                                                <i class="fas fa-search"></i>--}}
-    {{--                                            </a>--}}
-    {{--                                            @elseif($belanja->Dokumen->status == 0 && $belanja->Dokumen->status_belanja == 1)--}}
-    {{--                                                <a class="btn btn-danger btn-sm" href="{{route('belanja.show', $belanja->id_belanja)}}">--}}
-    {{--                                                    <i class="fas fa-search"></i>--}}
-    {{--                                                </a>--}}
-    {{--                                            @endif--}}
-    {{--                                        </td>--}}
-    {{--                                    </tr>--}}
-    {{--                                @endforeach--}}
-                                    </tbody>
                                     <tfoot>
                                         <tr class="">
-    {{--                                        <th>NO</th>--}}
                                             <th>Instansi</th>
                                             <th>Belanja</th>
                                             <th>Satuan</th>
                                             <th>Volume</th>
                                             <th>Nominal Belanja</th>
-                                            {{--                                            <th>Rekanan</th>--}}
                                             <th>no pbb/spm</th>
                                             <th>Tanggal</th>
                                             <th>SP2D</th>
