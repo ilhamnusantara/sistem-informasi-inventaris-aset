@@ -6,9 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="61485c72-bac9-4323-b8e8-82c9fc2ee6e5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LaporanController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LaporanController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/belanja/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/belanja/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/cetakLaporan/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/cetakLaporan/index.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -354,7 +351,8 @@
       <workItem from="1632559171030" duration="2665000" />
       <workItem from="1632568643698" duration="28000" />
       <workItem from="1632617105173" duration="1403000" />
-      <workItem from="1632655392432" duration="3334000" />
+      <workItem from="1632655392432" duration="4141000" />
+      <workItem from="1632697810975" duration="689000" />
     </task>
     <servers />
   </component>
