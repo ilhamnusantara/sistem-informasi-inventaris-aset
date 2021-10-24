@@ -150,6 +150,15 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <!-- text input -->
+                                            <div class="form-group">
+                                                <label>Nilai SP2D</label>
+                                                <input type="number" class="form-control" name="nilai_sp2d" id="nilai_sp2d" value="{{$belanja->nilai_sp2d}}">
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-success float-md-right">Update</button>

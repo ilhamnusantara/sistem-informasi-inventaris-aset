@@ -118,6 +118,15 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <!-- text input -->
+                                            <div class="form-group">
+                                                <label>Nilai SP2D</label>
+                                                <input type="text" class="form-control" name="nilai_sp2d" id="nilai_sp2d" value="{{'Rp. '.strrev(implode(',',str_split(strrev(strval($belanja->nilai_sp2d)),3)))}}" readonly >
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="card-footer">
                                     <div class="content float-md-right">

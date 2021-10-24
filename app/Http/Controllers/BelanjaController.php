@@ -116,6 +116,7 @@ class BelanjaController extends Controller
         $Belanja->tanggal_belanja = $date_belanja;
         $Belanja->sp2d = $request->sp2d;
         $Belanja->tanggal_sp2d = $date_sp2d;
+        $Belanja->nilai_sp2d = $request->nilai_sp2d;
         $Belanja->save();
         $record = Dokumen::find($request->id_dokumen);
         $record->status_belanja = 1;
@@ -190,6 +191,7 @@ class BelanjaController extends Controller
         $Belanja->tanggal_belanja = $date_belanja;
         $Belanja->sp2d = $request->sp2d;
         $Belanja->tanggal_sp2d = $date_sp2d;
+        $Belanja->nilai_sp2d = $request->nilai_sp2d;
         $Belanja->save();
         return redirect()->route('belanja.show',$Belanja->id_belanja)->with('success','Data Telah Di Update');
     }

@@ -172,6 +172,10 @@
                                                             </div>
                                                         </div>
                                                     </div>
+                                                    <div class="form-group">
+                                                        <label for="inputNama">Nilai SP2D</label>
+                                                        <input name="nilai_sp2d" type="number" class="form-control" id="nilai_sp2d">
+                                                    </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                                         <button type="submit" class="btn btn-primary">Submit</button>
@@ -197,6 +201,7 @@
                                             <th>Tanggal</th>
                                             <th>SP2D</th>
                                             <th>Tgl SP2D</th>
+                                            <th>Nilai SP2D</th>
                                             <th>Detail</th>
                                         </tr>
                                     </thead>
@@ -211,6 +216,7 @@
                                             <th>Tanggal</th>
                                             <th>SP2D</th>
                                             <th>Tgl SP2D</th>
+                                            <th>Nilai SP2D</th>
                                             <th>Detail</th>
                                         </tr>
                                     </tfoot>
@@ -300,6 +306,7 @@
                     {data: 'tanggal_belanja', name: 'tanggal_belanja'},
                     {data: 'sp2d', name: 'sp2d'},
                     {data: 'tanggal_sp2d', name: 'tanggal_sp2d'},
+                    {data: 'nilai_sp2d', name: 'nilai_sp2d', render: $.fn.dataTable.render.number( ',', ' ',0,'Rp. ')},
                     {data: 'aksi', name: 'aksi', orderable: false, searchable: false},
                 ]
             });
