@@ -14,6 +14,7 @@ class LaporanController extends Controller
 {
     public function index(Request $request)
     {
+//        dd($request->all());
         $jenisBelanjas = jenisBelanja::orderBy('norek_jenis','ASC')->get();
         $dokumens = Dokumen::all();
         $rekanans = Rekanan::all();

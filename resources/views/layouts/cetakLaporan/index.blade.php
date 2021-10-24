@@ -26,13 +26,11 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-sm-9">
-{{--                                    <form class="form-inline ml-3 float-md-right" action="#" method="GET">--}}
-{{--                                        <div class="input-group input-group-sm">--}}
-{{--                                            <div class="input-group-append">--}}
-{{--                                                <a href="#" class="btn btn-success next" id="btn-cetak"><i class="fas fa-download"></i> Cetak Laporan</a>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                    </form>--}}
+{{--                                    <div class="float-md-left">--}}
+{{--                                        <button type="button" class="btn btn-info float-right" data-toggle="modal" data-target="#exampleModal1">--}}
+{{--                                            Cetak Semua--}}
+{{--                                        </button>--}}
+{{--                                    </div>--}}
                                 </div>
                                 <div class="col-sm-3">
                                     <div class="float-md-right">

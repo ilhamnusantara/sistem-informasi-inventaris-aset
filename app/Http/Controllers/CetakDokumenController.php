@@ -8,6 +8,7 @@ use App\Dokumen;
 use Yajra\DataTables\DataTables;
 use Excel;
 use App\Exports\DataAsetExport;
+use App\Exports\DataAsetAllExport;
 use function GuzzleHttp\Promise\all;
 
 
@@ -83,9 +84,15 @@ class CetakDokumenController extends Controller
 
     public function export(Request $request)
     {
-//        dd($request->all());
-        $record = jenisBelanja::find($request->id_jenis);
-        $nama_jenis = $record->jenis_belanja;
-        return Excel::download(new DataAsetExport($request->id_jenis, $request->tanggal), $nama_jenis.'.xlsx');
+
+        if($request->id_jenis != null){
+            $record = jenisBelanja::find($request->id_jenis);
+            $nama_jenis = $record->jenis_belanja;
+            return Excel::download(new DataAsetExport($request->id_jenis, $request->tanggal), $nama_jenis.'.xlsx');
+        }else{
+            $nama_file = "Semua Data";
+            return Excel::download(new DataAsetAllExport($request->tanggal), $nama_file.'.xlsx');
+        }
+
     }
 }
