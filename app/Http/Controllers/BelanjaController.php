@@ -186,6 +186,7 @@ class BelanjaController extends Controller
         $Belanja->satuan = $request->satuan;
         $Belanja->volume = $request->volume;
         $Belanja->nominal_belanja = $request->nominal_belanja;
+        $Belanja->total_belanja = $request->volume * $request->nominal_belanja;
         $Belanja->id_rekanan = $request->id_rekanan;
         $Belanja->no_pbb_ls = $request->no_pbb_ls;
         $Belanja->tanggal_belanja = $date_belanja;

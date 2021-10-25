@@ -28,7 +28,7 @@ class DataAsetAllExport implements FromCollection, SkipsEmptyRows,  WithMapping,
             $data->whereRaw('DATE(tanggal_sp2d) BETWEEN DATE(?) AND DATE(?)', [$date_start, $date_end]);
 
         }
-        return $data->orderBy('tanggal_sp2d','ASC')->with(['Dokumen'])->get();
+        return $data->orderBy('instansi','ASC')->with(['Dokumen'])->get();
 
 
     }
@@ -37,7 +37,7 @@ class DataAsetAllExport implements FromCollection, SkipsEmptyRows,  WithMapping,
     {
         return [
             $belanja['id_belanja'],
-            $belanja['Dokumen']['instansi'],
+            $belanja['instansi'],
             $belanja['Dokumen']['keterangan_belanja'],
             $belanja['satuan'],
             $belanja['volume'],
