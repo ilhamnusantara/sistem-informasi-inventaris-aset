@@ -128,7 +128,7 @@
                                             <!-- text input -->
                                             <div class="form-group">
                                                 <label>Nomor SP2D</label>
-                                                <input type="text" class="form-control" name="sp2d" id="sp2d" placeholder="{{$belanja->sp2d}}">
+                                                <input type="text" class="form-control" name="sp2d" id="sp2d" value="{{$belanja->sp2d}}">
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
